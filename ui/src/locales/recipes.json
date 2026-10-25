@@ -1,570 +1,570 @@
 {
-  "Совместим": {
+  "Compatible": {
     "en": "Compatible",
     "ru": "Совместим",
     "uk": "Сумісний"
   },
-  "Есть замечания": {
+  "Has warnings": {
     "en": "Has warnings",
     "ru": "Есть замечания",
     "uk": "Є зауваження"
   },
-  "Несовместим": {
+  "Incompatible": {
     "en": "Incompatible",
     "ru": "Несовместим",
     "uk": "Несумісний"
   },
-  "Нужна проверка": {
+  "Review required": {
     "en": "Review required",
     "ru": "Нужна проверка",
     "uk": "Потрібна перевірка"
   },
-  "Всего": {
+  "Total": {
     "en": "Total",
     "ru": "Всего",
     "uk": "Усього"
   },
-  "Валидных": {
+  "Valid": {
     "en": "Valid",
     "ru": "Валидных",
     "uk": "Валідних"
   },
-  "Ошибок": {
+  "Errors": {
     "en": "Errors",
     "ru": "Ошибок",
     "uk": "Помилок"
   },
-  "Уникальных": {
+  "Unique": {
     "en": "Unique",
     "ru": "Уникальных",
     "uk": "Унікальних"
   },
-  "Дубликатов": {
+  "Duplicates": {
     "en": "Duplicates",
     "ru": "Дубликатов",
     "uk": "Дублікатів"
   },
-  "В SQL": {
+  "In SQL": {
     "en": "In SQL",
     "ru": "В SQL",
     "uk": "У SQL"
   },
-  "Черновик создан из выбранной схемы. Проверьте SQL и сохраните рецепт.": {
+  "Draft created from the selected schema. Review the SQL and save the recipe.": {
     "en": "Draft created from the selected schema. Review the SQL and save the recipe.",
     "ru": "Черновик создан из выбранной схемы. Проверьте SQL и сохраните рецепт.",
     "uk": "Чернетку створено з вибраної схеми. Перевірте SQL і збережіть рецепт."
   },
-  "Не удалось загрузить рабочие области.": {
+  "Could not load workspaces.": {
     "en": "Could not load workspaces.",
     "ru": "Не удалось загрузить рабочие области.",
     "uk": "Не вдалося завантажити робочі області."
   },
-  "Не удалось загрузить каталог рецептов.": {
+  "Could not load the recipe catalog.": {
     "en": "Could not load the recipe catalog.",
     "ru": "Не удалось загрузить каталог рецептов.",
     "uk": "Не вдалося завантажити каталог рецептів."
   },
-  "История или зависимости недоступны.": {
+  "History or dependencies are unavailable.": {
     "en": "History or dependencies are unavailable.",
     "ru": "История или зависимости недоступны.",
     "uk": "Історія або залежності недоступні."
   },
-  "Каталог не обновлён.": {
+  "The catalog was not refreshed.": {
     "en": "The catalog was not refreshed.",
     "ru": "Каталог не обновлён.",
     "uk": "Каталог не оновлено."
   },
-  "Сохранена версия {0}.": {
+  "Version {0} saved.": {
     "en": "Version {0} saved.",
     "ru": "Сохранена версия {0}.",
     "uk": "Версію {0} збережено."
   },
-  "Рецепт не сохранён.": {
+  "The recipe was not saved.": {
     "en": "The recipe was not saved.",
     "ru": "Рецепт не сохранён.",
     "uk": "Рецепт не збережено."
   },
-  "{0} · копия": {
+  "{0} · copy": {
     "en": "{0} · copy",
     "ru": "{0} · копия",
     "uk": "{0} · копія"
   },
-  "Копия рецепта создана.": {
+  "Recipe copy created.": {
     "en": "Recipe copy created.",
     "ru": "Копия рецепта создана.",
     "uk": "Копію рецепта створено."
   },
-  "Не удалось скопировать рецепт.": {
+  "Could not copy the recipe.": {
     "en": "Could not copy the recipe.",
     "ru": "Не удалось скопировать рецепт.",
     "uk": "Не вдалося скопіювати рецепт."
   },
-  "SQL-файл превышает 512 КиБ. Выберите отдельный запрос для рецепта.": {
+  "The SQL file exceeds 512 KiB. Select a single query for the recipe.": {
     "en": "The SQL file exceeds 512 KiB. Select a single query for the recipe.",
     "ru": "SQL-файл превышает 512 КиБ. Выберите отдельный запрос для рецепта.",
     "uk": "SQL-файл перевищує 512 КіБ. Виберіть окремий запит для рецепта."
   },
-  "SQL-файл загружен в черновик. Сохраните рецепт после проверки.": {
+  "SQL file loaded into the draft. Save the recipe after reviewing it.": {
     "en": "SQL file loaded into the draft. Save the recipe after reviewing it.",
     "ru": "SQL-файл загружен в черновик. Сохраните рецепт после проверки.",
     "uk": "SQL-файл завантажено в чернетку. Збережіть рецепт після перевірки."
   },
-  "Не удалось прочитать SQL-файл.": {
+  "Could not read the SQL file.": {
     "en": "Could not read the SQL file.",
     "ru": "Не удалось прочитать SQL-файл.",
     "uk": "Не вдалося прочитати SQL-файл."
   },
-  "JSON-рецепт превышает1 МиБ.": {
+  "The JSON recipe exceeds 1 MiB.": {
     "en": "The JSON recipe exceeds 1 MiB.",
     "ru": "JSON-рецепт превышает1 МиБ.",
     "uk": "JSON-рецепт перевищує 1 МіБ."
   },
-  "JSON открыт для проверки. Выберите БД этой рабочей области и сохраните импортированный рецепт.": {
+  "JSON opened for review. Select databases in this workspace and save the imported recipe.": {
     "en": "JSON opened for review. Select databases in this workspace and save the imported recipe.",
     "ru": "JSON открыт для проверки. Выберите БД этой рабочей области и сохраните импортированный рецепт.",
     "uk": "JSON відкрито для перевірки. Виберіть БД цієї робочої області та збережіть імпортований рецепт."
   },
-  "Не удалось импортировать определение.": {
+  "Could not import the definition.": {
     "en": "Could not import the definition.",
     "ru": "Не удалось импортировать определение.",
     "uk": "Не вдалося імпортувати визначення."
   },
-  "Не удалось экспортировать рецепт.": {
+  "Could not export the recipe.": {
     "en": "Could not export the recipe.",
     "ru": "Не удалось экспортировать рецепт.",
     "uk": "Не вдалося експортувати рецепт."
   },
-  "Версия {0} восстановлена как новая версия {1}.": {
+  "Version {0} restored as new version {1}.": {
     "en": "Version {0} restored as new version {1}.",
     "ru": "Версия {0} восстановлена как новая версия {1}.",
     "uk": "Версію {0} відновлено як нову версію {1}."
   },
-  "Не удалось восстановить версию.": {
+  "Could not restore the version.": {
     "en": "Could not restore the version.",
     "ru": "Не удалось восстановить версию.",
     "uk": "Не вдалося відновити версію."
   },
-  "Синтетические проверки не завершены.": {
+  "Synthetic checks did not finish.": {
     "en": "Synthetic checks did not finish.",
     "ru": "Синтетические проверки не завершены.",
     "uk": "Синтетичні перевірки не завершено."
   },
-  "Совместимость не проверена.": {
+  "Compatibility was not checked.": {
     "en": "Compatibility was not checked.",
     "ru": "Совместимость не проверена.",
     "uk": "Сумісність не перевірено."
   },
-  "Список превышает8 миллионов символов. Вставка не принята.": {
+  "The list exceeds 8 million characters. The paste was rejected.": {
     "en": "The list exceeds 8 million characters. The paste was rejected.",
     "ru": "Список превышает8 миллионов символов. Вставка не принята.",
     "uk": "Список перевищує 8 мільйонів символів. Вставлення не прийнято."
   },
-  "Файл ID превышает8 МиБ. Содержимое не загружено.": {
+  "The ID file exceeds 8 MiB. Its contents were not loaded.": {
     "en": "The ID file exceeds 8 MiB. Its contents were not loaded.",
     "ru": "Файл ID превышает8 МиБ. Содержимое не загружено.",
     "uk": "Файл ID перевищує 8 МіБ. Вміст не завантажено."
   },
-  "Не удалось прочитать файл ID.": {
+  "Could not read the ID file.": {
     "en": "Could not read the ID file.",
     "ru": "Не удалось прочитать файл ID.",
     "uk": "Не вдалося прочитати файл ID."
   },
-  "Не удалось проверить список ID.": {
+  "Could not validate the ID list.": {
     "en": "Could not validate the ID list.",
     "ru": "Не удалось проверить список ID.",
     "uk": "Не вдалося перевірити список ID."
   },
-  "Суммарный размер параметров превышает16 МиБ.": {
+  "The combined parameter size exceeds 16 MiB.": {
     "en": "The combined parameter size exceeds 16 MiB.",
     "ru": "Суммарный размер параметров превышает16 МиБ.",
     "uk": "Загальний розмір параметрів перевищує 16 МіБ."
   },
-  "SQL не сформирован.": {
+  "SQL was not generated.": {
     "en": "SQL was not generated.",
     "ru": "SQL не сформирован.",
     "uk": "SQL не згенеровано."
   },
-  "Скопировано в буфер обмена.": {
+  "Copied to clipboard.": {
     "en": "Copied to clipboard.",
     "ru": "Скопировано в буфер обмена.",
     "uk": "Скопійовано в буфер обміну."
   },
-  "Копирование недоступно. Выделите текст и скопируйте вручную.": {
+  "Copying is unavailable. Select the text and copy it manually.": {
     "en": "Copying is unavailable. Select the text and copy it manually.",
     "ru": "Копирование недоступно. Выделите текст и скопируйте вручную.",
     "uk": "Копіювання недоступне. Виділіть текст і скопіюйте вручну."
   },
-  "Сначала сохраните рецепт и проверьте входы. Ошибки ID блокируют генерацию.": {
+  "Save the recipe and validate the inputs first. ID errors block generation.": {
     "en": "Save the recipe and validate the inputs first. ID errors block generation.",
     "ru": "Сначала сохраните рецепт и проверьте входы. Ошибки ID блокируют генерацию.",
     "uk": "Спочатку збережіть рецепт і перевірте входи. Помилки ID блокують генерацію."
   },
-  "Рабочая область": {
+  "Workspace": {
     "en": "Workspace",
     "ru": "Рабочая область",
     "uk": "Робоча область"
   },
-  "Рабочая область рецептов": {
+  "Recipe workspace": {
     "en": "Recipe workspace",
     "ru": "Рабочая область рецептов",
     "uk": "Робоча область рецептів"
   },
-  "Выберите область": {
+  "Select a workspace": {
     "en": "Select a workspace",
     "ru": "Выберите область",
     "uk": "Виберіть область"
   },
-  "+ Новый рецепт": {
+  "+ New recipe": {
     "en": "+ New recipe",
     "ru": "+ Новый рецепт",
     "uk": "+ Новий рецепт"
   },
-  "Импорт JSON": {
+  "Import JSON": {
     "en": "Import JSON",
     "ru": "Импорт JSON",
     "uk": "Імпорт JSON"
   },
-  "Обновить": {
+  "Refresh": {
     "en": "Refresh",
     "ru": "Обновить",
     "uk": "Оновити"
   },
-  "Скрыть ошибку": {
+  "Dismiss error": {
     "en": "Dismiss error",
     "ru": "Скрыть ошибку",
     "uk": "Приховати помилку"
   },
-  "Выберите рабочую область": {
+  "Select a workspace #2": {
     "en": "Select a workspace",
     "ru": "Выберите рабочую область",
     "uk": "Виберіть робочу область"
   },
-  "Рецепты связываются со снимками схем и остаются в локальном хранилище.": {
+  "Recipes are linked to schema snapshots and remain in local storage.": {
     "en": "Recipes are linked to schema snapshots and remain in local storage.",
     "ru": "Рецепты связываются со снимками схем и остаются в локальном хранилище.",
     "uk": "Рецепти пов'язуються зі знімками схем і залишаються в локальному сховищі."
   },
-  "Рецепты": {
+  "Recipes": {
     "en": "Recipes",
     "ru": "Рецепты",
     "uk": "Рецепти"
   },
-  "Поиск рецептов": {
+  "Search recipes": {
     "en": "Search recipes",
     "ru": "Поиск рецептов",
     "uk": "Пошук рецептів"
   },
-  "Название, описание, тег…": {
+  "Name, description, tag…": {
     "en": "Name, description, tag…",
     "ru": "Название, описание, тег…",
     "uk": "Назва, опис, тег…"
   },
-  "Фильтр тега рецептов": {
+  "Recipe tag filter": {
     "en": "Recipe tag filter",
     "ru": "Фильтр тега рецептов",
     "uk": "Фільтр тегів рецептів"
   },
-  "Все теги": {
+  "All tags": {
     "en": "All tags",
     "ru": "Все теги",
     "uk": "Усі теги"
   },
-  "Загрузка рецептов…": {
+  "Loading recipes…": {
     "en": "Loading recipes…",
     "ru": "Загрузка рецептов…",
     "uk": "Завантаження рецептів…"
   },
-  "Без описания": {
+  "No description": {
     "en": "No description",
     "ru": "Без описания",
     "uk": "Без опису"
   },
-  "Рецепты по этому фильтру не найдены.": {
+  "No recipes match this filter.": {
     "en": "No recipes match this filter.",
     "ru": "Рецепты по этому фильтру не найдены.",
     "uk": "Рецептів за цим фільтром не знайдено."
   },
-  "Создайте рецепт по таблице, SQL-файлу или доверенному JOIN-пути.": {
+  "Create a recipe from a table, SQL file, or trusted JOIN path.": {
     "en": "Create a recipe from a table, SQL file, or trusted JOIN path.",
     "ru": "Создайте рецепт по таблице, SQL-файлу или доверенному JOIN-пути.",
     "uk": "Створіть рецепт із таблиці, SQL-файлу або довіреного JOIN-шляху."
   },
-  "Первые250 из": {
+  "First 250 of #2": {
     "en": "First 250 of",
     "ru": "Первые250 из",
     "uk": "Перші 250 з"
   },
-  "; уточните поиск.": {
+  "; refine your search.": {
     "en": "; refine your search.",
     "ru": "; уточните поиск.",
     "uk": "; уточніть пошук."
   },
-  "Новый рецепт": {
+  "New recipe": {
     "en": "New recipe",
     "ru": "Новый рецепт",
     "uk": "Новий рецепт"
   },
-  "Черновик · не сохранён": {
+  "Draft · not saved": {
     "en": "Draft · not saved",
     "ru": "Черновик · не сохранён",
     "uk": "Чернетка · не збережено"
   },
-  "Сохранено": {
+  "Saved": {
     "en": "Saved",
     "ru": "Сохранено",
     "uk": "Збережено"
   },
-  "Определение": {
+  "Definition": {
     "en": "Definition",
     "ru": "Определение",
     "uk": "Визначення"
   },
-  "Входы и SQL": {
+  "Inputs and SQL": {
     "en": "Inputs and SQL",
     "ru": "Входы и SQL",
     "uk": "Входи та SQL"
   },
-  "Версии и lineage": {
+  "Versions and lineage": {
     "en": "Versions and lineage",
     "ru": "Версии и lineage",
     "uk": "Версії та походження даних"
   },
-  "Название": {
+  "Name #2": {
     "en": "Name",
     "ru": "Название",
     "uk": "Назва"
   },
-  "Название рецепта": {
+  "Recipe name": {
     "en": "Recipe name",
     "ru": "Название рецепта",
     "uk": "Назва рецепта"
   },
-  "Теги · через запятую": {
+  "Tags · comma-separated": {
     "en": "Tags · comma-separated",
     "ru": "Теги · через запятую",
     "uk": "Теги · через кому"
   },
-  "Теги рецепта": {
+  "Recipe tags": {
     "en": "Recipe tags",
     "ru": "Теги рецепта",
     "uk": "Теги рецепта"
   },
-  "Описание": {
+  "Description": {
     "en": "Description",
     "ru": "Описание",
     "uk": "Опис"
   },
-  "Описание рецепта": {
+  "Recipe description": {
     "en": "Recipe description",
     "ru": "Описание рецепта",
     "uk": "Опис рецепта"
   },
-  "Базы данных, доступные шаблону": {
+  "Databases available to the template": {
     "en": "Databases available to the template",
     "ru": "Базы данных, доступные шаблону",
     "uk": "Бази даних, доступні шаблону"
   },
-  "SQL-шаблон": {
+  "SQL template": {
     "en": "SQL template",
     "ru": "SQL-шаблон",
     "uk": "SQL-шаблон"
   },
-  "Импорт .sql в редактор": {
+  "Import .sql into editor": {
     "en": "Import .sql into editor",
     "ru": "Импорт .sql в редактор",
     "uk": "Імпорт .sql у редактор"
   },
-  "Загрузка локального SQL-редактора…": {
+  "Loading the local SQL editor…": {
     "en": "Loading the local SQL editor…",
     "ru": "Загрузка локального SQL-редактора…",
     "uk": "Завантаження локального SQL-редактора…"
   },
-  "SQL-шаблон рецепта": {
+  "Recipe SQL template": {
     "en": "Recipe SQL template",
     "ru": "SQL-шаблон рецепта",
     "uk": "SQL-шаблон рецепта"
   },
-  "Разрешённые выражения:": {
+  "Allowed expressions:": {
     "en": "Allowed expressions:",
     "ru": "Разрешённые выражения:",
     "uk": "Дозволені вирази:"
   },
-  "и": {
+  "and": {
     "en": "and",
     "ru": "и",
     "uk": "і"
   },
-  ". Имена таблиц и условия остаются читаемым SQL.": {
+  ". Table names and conditions remain readable SQL.": {
     "en": ". Table names and conditions remain readable SQL.",
     "ru": ". Имена таблиц и условия остаются читаемым SQL.",
     "uk": ". Імена таблиць і умови залишаються читабельним SQL."
   },
-  " · минимум для OPENJSON": {
+  " · minimum for OPENJSON": {
     "en": " · minimum for OPENJSON",
     "ru": " · минимум для OPENJSON",
     "uk": " · мінімум для OPENJSON"
   },
-  "Уровень влияет на доступные стратегии SQL. В режиме Auto сервер выбирает подходящую форму списка.": {
+  "The level determines which SQL strategies are available. In Auto mode, the server chooses a suitable list format.": {
     "en": "The level determines which SQL strategies are available. In Auto mode, the server chooses a suitable list format.",
     "ru": "Уровень влияет на доступные стратегии SQL. В режиме Auto сервер выбирает подходящую форму списка.",
     "uk": "Рівень визначає доступні SQL-стратегії. У режимі Auto сервер вибирає відповідну форму списку."
   },
-  "Имена входов должны быть уникальными: латинские буквы, цифры и _, начало с буквы.": {
+  "Input names must be unique: Latin letters, digits, and _, starting with a letter.": {
     "en": "Input names must be unique: Latin letters, digits, and _, starting with a letter.",
     "ru": "Имена входов должны быть уникальными: латинские буквы, цифры и _, начало с буквы.",
     "uk": "Імена входів мають бути унікальними: латинські літери, цифри та _, початок із літери."
   },
-  "Сохранение…": {
+  "Saving…": {
     "en": "Saving…",
     "ru": "Сохранение…",
     "uk": "Збереження…"
   },
-  "Сохранить новую версию": {
+  "Save new version": {
     "en": "Save new version",
     "ru": "Сохранить новую версию",
     "uk": "Зберегти нову версію"
   },
-  "Сохранить импорт": {
+  "Save import": {
     "en": "Save import",
     "ru": "Сохранить импорт",
     "uk": "Зберегти імпорт"
   },
-  "Сохранить рецепт": {
+  "Save recipe": {
     "en": "Save recipe",
     "ru": "Сохранить рецепт",
     "uk": "Зберегти рецепт"
   },
-  "Создать копию": {
+  "Create copy": {
     "en": "Create copy",
     "ru": "Создать копию",
     "uk": "Створити копію"
   },
-  "Экспорт JSON": {
+  "Export JSON": {
     "en": "Export JSON",
     "ru": "Экспорт JSON",
     "uk": "Експорт JSON"
   },
-  "Сохраните определение, чтобы обрабатывать ID и формировать SQL с актуальными типами и политиками.": {
+  "Save the definition to process IDs and generate SQL with the current types and policies.": {
     "en": "Save the definition to process IDs and generate SQL with the current types and policies.",
     "ru": "Сохраните определение, чтобы обрабатывать ID и формировать SQL с актуальными типами и политиками.",
     "uk": "Збережіть визначення, щоб обробляти ID і генерувати SQL з актуальними типами та політиками."
   },
-  "Совместимость со схемой": {
+  "Schema compatibility": {
     "en": "Schema compatibility",
     "ru": "Совместимость со схемой",
     "uk": "Сумісність зі схемою"
   },
-  "Проверить совместимость": {
+  "Check compatibility": {
     "en": "Check compatibility",
     "ru": "Проверить совместимость",
     "uk": "Перевірити сумісність"
   },
-  "Я проверил диагностику и вручную подтверждаю смысл SQL этого рецепта перед генерацией.": {
+  "I have reviewed the diagnostics and manually confirm the meaning of this recipe's SQL before generation.": {
     "en": "I have reviewed the diagnostics and manually confirm the meaning of this recipe's SQL before generation.",
     "ru": "Я проверил диагностику и вручную подтверждаю смысл SQL этого рецепта перед генерацией.",
     "uk": "Я перевірив діагностику й вручну підтверджую зміст SQL цього рецепта перед генерацією."
   },
-  "Список ID: {0}": {
+  "ID list: {0}": {
     "en": "ID list: {0}",
     "ru": "Список ID: {0}",
     "uk": "Список ID: {0}"
   },
-  "Вставьте ID из строк, CSV, TSV, SQL-списка или через пробел…": {
+  "Paste IDs from lines, CSV, TSV, a SQL list, or space-separated text…": {
     "en": "Paste IDs from lines, CSV, TSV, a SQL list, or space-separated text…",
     "ru": "Вставьте ID из строк, CSV, TSV, SQL-списка или через пробел…",
     "uk": "Вставте ID з рядків, CSV, TSV, SQL-списку або через пробіл…"
   },
-  "Дубликаты удаляются по явной политике": {
+  "Duplicates are removed by an explicit policy": {
     "en": "Duplicates are removed by an explicit policy",
     "ru": "Дубликаты удаляются по явной политике",
     "uk": "Дублікати видаляються за явною політикою"
   },
-  "Дубликаты сохраняются": {
+  "Duplicates are kept": {
     "en": "Duplicates are kept",
     "ru": "Дубликаты сохраняются",
     "uk": "Дублікати зберігаються"
   },
-  "Порядок сохраняется": {
+  "Order is preserved": {
     "en": "Order is preserved",
     "ru": "Порядок сохраняется",
     "uk": "Порядок зберігається"
   },
-  "Сохранение порядка не требуется": {
+  "Preserving order is not required": {
     "en": "Preserving order is not required",
     "ru": "Сохранение порядка не требуется",
     "uk": "Збереження порядку не потрібне"
   },
-  "Элемент": {
+  "Item": {
     "en": "Item",
     "ru": "Элемент",
     "uk": "Елемент"
   },
-  "Строка / колонка": {
+  "Line / column": {
     "en": "Line / column",
     "ru": "Строка / колонка",
     "uk": "Рядок / колонка"
   },
-  "Ошибка": {
+  "Error": {
     "en": "Error",
     "ru": "Ошибка",
     "uk": "Помилка"
   },
-  "Значение": {
+  "Value": {
     "en": "Value",
     "ru": "Значение",
     "uk": "Значення"
   },
-  "Показаны первые150 из": {
+  "Showing the first 150 of": {
     "en": "Showing the first 150 of",
     "ru": "Показаны первые150 из",
     "uk": "Показано перші 150 з"
   },
-  "ошибок.": {
+  "errors.": {
     "en": "errors.",
     "ru": "ошибок.",
     "uk": "помилок."
   },
-  "Проверка…": {
+  "Checking…": {
     "en": "Checking…",
     "ru": "Проверка…",
     "uk": "Перевірка…"
   },
-  "Проверить все ID": {
+  "Validate all IDs": {
     "en": "Validate all IDs",
     "ru": "Проверить все ID",
     "uk": "Перевірити всі ID"
   },
-  "Ошибок: {0}. Генерация заблокирована до исправления.": {
+  "Errors: {0}. Generation is blocked until they are fixed.": {
     "en": "Errors: {0}. Generation is blocked until they are fixed.",
     "ru": "Ошибок: {0}. Генерация заблокирована до исправления.",
     "uk": "Помилок: {0}. Генерацію заблоковано до виправлення."
   },
-  "Проверка выполняется локально; входные значения не сохраняются.": {
+  "Validation runs locally; input values are not saved.": {
     "en": "Validation runs locally; input values are not saved.",
     "ru": "Проверка выполняется локально; входные значения не сохраняются.",
     "uk": "Перевірка виконується локально; вхідні значення не зберігаються."
   },
-  "Режим вывода": {
+  "Output mode": {
     "en": "Output mode",
     "ru": "Режим вывода",
     "uk": "Режим виведення"
   },
-  "Самодостаточный SQL-скрипт": {
+  "Standalone SQL script": {
     "en": "Standalone SQL script",
     "ru": "Самодостаточный SQL-скрипт",
     "uk": "Самодостатній SQL-скрипт"
   },
-  "Параметры + пример ADO.NET": {
+  "Parameters + ADO.NET example": {
     "en": "Parameters + ADO.NET example",
     "ru": "Параметры + пример ADO.NET",
     "uk": "Параметри + приклад ADO.NET"
   },
-  "SQL-стратегия": {
+  "SQL strategy": {
     "en": "SQL strategy",
     "ru": "SQL-стратегия",
     "uk": "SQL-стратегія"
   },
-  "Auto · по размеру и типу": {
+  "Auto · by size and type": {
     "en": "Auto · by size and type",
     "ru": "Auto · по размеру и типу",
     "uk": "Авто · за розміром і типом"
@@ -574,142 +574,142 @@
     "ru": "OPENJSON · уровень совместимости 130+",
     "uk": "OPENJSON · рівень сумісності 130+"
   },
-  "Генерация…": {
+  "Generating…": {
     "en": "Generating…",
     "ru": "Генерация…",
     "uk": "Генерація…"
   },
-  "Сформировать SQL": {
+  "Generate SQL": {
     "en": "Generate SQL",
     "ru": "Сформировать SQL",
     "uk": "Згенерувати SQL"
   },
-  "Скопировать": {
+  "Copy": {
     "en": "Copy",
     "ru": "Скопировать",
     "uk": "Скопіювати"
   },
-  "Файл будет содержать введённые значения": {
+  "The file will contain the entered values": {
     "en": "The file will contain the entered values",
     "ru": "Файл будет содержать введённые значения",
     "uk": "Файл міститиме введені значення"
   },
-  "Скачать файл": {
+  "Download file": {
     "en": "Download file",
     "ru": "Скачать файл",
     "uk": "Завантажити файл"
   },
-  "Сгенерированный SQL": {
+  "Generated SQL": {
     "en": "Generated SQL",
     "ru": "Сгенерированный SQL",
     "uk": "Згенерований SQL"
   },
-  "Сгенерированный SQL или ADO.NET example": {
+  "Generated SQL or ADO.NET example": {
     "en": "Generated SQL or ADO.NET example",
     "ru": "Сгенерированный SQL или ADO.NET example",
     "uk": "Згенерований SQL або приклад ADO.NET"
   },
-  "Параметров:": {
+  "Parameters:": {
     "en": "Parameters:",
     "ru": "Параметров:",
     "uk": "Параметрів:"
   },
-  "Результат хранится в памяти вкладки. Копирование и скачивание выполняются только по вашему действию.": {
+  "The result is kept in this tab's memory. Copying and downloading happen only when you choose.": {
     "en": "The result is kept in this tab's memory. Copying and downloading happen only when you choose.",
     "ru": "Результат хранится в памяти вкладки. Копирование и скачивание выполняются только по вашему действию.",
     "uk": "Результат зберігається в пам'яті вкладки. Копіювання та завантаження виконуються лише за вашою дією."
   },
-  "Сохраните рецепт, чтобы увидеть версии, lineage и результаты проверок.": {
+  "Save the recipe to see versions, lineage, and check results.": {
     "en": "Save the recipe to see versions, lineage, and check results.",
     "ru": "Сохраните рецепт, чтобы увидеть версии, lineage и результаты проверок.",
     "uk": "Збережіть рецепт, щоб побачити версії, походження даних і результати перевірок."
   },
-  "Вычисленные зависимости": {
+  "Computed dependencies": {
     "en": "Computed dependencies",
     "ru": "Вычисленные зависимости",
     "uk": "Обчислені залежності"
   },
-  "Зависимости ещё не установлены либо шаблон не обращается к объектам схемы. Проверьте диагностику совместимости.": {
+  "Dependencies have not been established yet, or the template does not reference schema objects. Check the compatibility diagnostics.": {
     "en": "Dependencies have not been established yet, or the template does not reference schema objects. Check the compatibility diagnostics.",
     "ru": "Зависимости ещё не установлены либо шаблон не обращается к объектам схемы. Проверьте диагностику совместимости.",
     "uk": "Залежності ще не визначено або шаблон не звертається до об'єктів схеми. Перевірте діагностику сумісності."
   },
-  "Синтетические fixtures": {
+  "Synthetic fixtures": {
     "en": "Synthetic fixtures",
     "ru": "Синтетические fixtures",
     "uk": "Синтетичні тестові набори"
   },
-  "Запустить проверки": {
+  "Run checks": {
     "en": "Run checks",
     "ru": "Запустить проверки",
     "uk": "Запустити перевірки"
   },
-  "Сервер создаёт тестовые значения по определениям типов и проверяет рендерер. Вставленные ID в эти проверки не передаются.": {
+  "The server creates test values from the type definitions and checks the renderer. Pasted IDs are not used in these checks.": {
     "en": "The server creates test values from the type definitions and checks the renderer. Pasted IDs are not used in these checks.",
     "ru": "Сервер создаёт тестовые значения по определениям типов и проверяет рендерер. Вставленные ID в эти проверки не передаются.",
     "uk": "Сервер створює тестові значення за визначеннями типів і перевіряє генератор. Вставлені ID не передаються в ці перевірки."
   },
-  "Проверки пройдены": {
+  "Checks passed": {
     "en": "Checks passed",
     "ru": "Проверки пройдены",
     "uk": "Перевірки пройдено"
   },
-  "Есть ошибки": {
+  "Errors found": {
     "en": "Errors found",
     "ru": "Есть ошибки",
     "uk": "Є помилки"
   },
-  "проверок": {
+  "checks": {
     "en": "checks",
     "ru": "проверок",
     "uk": "перевірок"
   },
-  "История версий": {
+  "Version history": {
     "en": "Version history",
     "ru": "История версий",
     "uk": "Історія версій"
   },
-  "Просмотреть SQL": {
+  "View SQL": {
     "en": "View SQL",
     "ru": "Просмотреть SQL",
     "uk": "Переглянути SQL"
   },
-  "Восстановить": {
+  "Restore": {
     "en": "Restore",
     "ru": "Восстановить",
     "uk": "Відновити"
   },
-  "SQL версии": {
+  "SQL for version": {
     "en": "SQL for version",
     "ru": "SQL версии",
     "uk": "SQL версії"
   },
-  "Закрыть": {
+  "Close": {
     "en": "Close",
     "ru": "Закрыть",
     "uk": "Закрити"
   },
-  "SQL версии {0}": {
+  "SQL for version {0}": {
     "en": "SQL for version {0}",
     "ru": "SQL версии {0}",
     "uk": "SQL версії {0}"
   },
-  "Один рецепт — много списков ID": {
+  "One recipe — many ID lists": {
     "en": "One recipe — many ID lists",
     "ru": "Один рецепт — много списков ID",
     "uk": "Один рецепт — багато списків ID"
   },
-  "Выберите сохранённый рецепт или создайте определение из реальной таблицы и колонки. SQL-шаблон и типы сохраняются; runtime-значения обрабатываются отдельно.": {
+  "Select a saved recipe or create a definition from a real table and column. The SQL template and types are saved; runtime values are processed separately.": {
     "en": "Select a saved recipe or create a definition from a real table and column. The SQL template and types are saved; runtime values are processed separately.",
     "ru": "Выберите сохранённый рецепт или создайте определение из реальной таблицы и колонки. SQL-шаблон и типы сохраняются; runtime-значения обрабатываются отдельно.",
     "uk": "Виберіть збережений рецепт або створіть визначення з реальної таблиці та колонки. SQL-шаблон і типи зберігаються; значення виконання обробляються окремо."
   },
-  "Создать рецепт": {
+  "Create recipe": {
     "en": "Create recipe",
     "ru": "Создать рецепт",
     "uk": "Створити рецепт"
   },
-  "Авто": {
+  "Auto": {
     "en": "Auto",
     "ru": "Авто",
     "uk": "Авто"
@@ -719,392 +719,392 @@
     "ru": "#temp + пакетные INSERT",
     "uk": "#temp + пакетні INSERT"
   },
-  "Типизированные входы": {
+  "Typed inputs": {
     "en": "Typed inputs",
     "ru": "Типизированные входы",
     "uk": "Типізовані вхідні дані"
   },
-  "+ Добавить вход": {
+  "+ Add input": {
     "en": "+ Add input",
     "ru": "+ Добавить вход",
     "uk": "+ Додати вхід"
   },
-  "У рецепта нет runtime-параметров. Добавьте вход и используйте его имя в SQL-шаблоне.": {
+  "This recipe has no runtime parameters. Add an input and use its name in the SQL template.": {
     "en": "This recipe has no runtime parameters. Add an input and use its name in the SQL template.",
     "ru": "У рецепта нет runtime-параметров. Добавьте вход и используйте его имя в SQL-шаблоне.",
     "uk": "Рецепт не має параметрів виконання. Додайте вхід і використовуйте його ім'я в SQL-шаблоні."
   },
-  "Вход": {
+  "Input": {
     "en": "Input",
     "ru": "Вход",
     "uk": "Вхід"
   },
-  "Имя": {
+  "Name": {
     "en": "Name",
     "ru": "Имя",
     "uk": "Ім'я"
   },
-  "Имя входа {0}": {
+  "Input {0} name": {
     "en": "Input {0} name",
     "ru": "Имя входа {0}",
     "uk": "Ім'я входу {0}"
   },
-  "SQL-тип": {
+  "SQL type": {
     "en": "SQL type",
     "ru": "SQL-тип",
     "uk": "SQL-тип"
   },
-  "Тип входа {0}": {
+  "Input {0} type": {
     "en": "Input {0} type",
     "ru": "Тип входа {0}",
     "uk": "Тип входу {0}"
   },
-  "Длина · -1=MAX": {
+  "Length · -1=MAX": {
     "en": "Length · -1=MAX",
     "ru": "Длина · -1=MAX",
     "uk": "Довжина · -1=MAX"
   },
-  "Максимальная длина входа {0}": {
+  "Input {0} maximum length": {
     "en": "Input {0} maximum length",
     "ru": "Максимальная длина входа {0}",
     "uk": "Максимальна довжина входу {0}"
   },
-  "Кодировка": {
+  "Encoding": {
     "en": "Encoding",
     "ru": "Кодировка",
     "uk": "Кодування"
   },
-  "Кодировка входа {0}": {
+  "Input {0} encoding": {
     "en": "Input {0} encoding",
     "ru": "Кодировка входа {0}",
     "uk": "Кодування входу {0}"
   },
-  "Удалить вход {0}": {
+  "Remove input {0}": {
     "en": "Remove input {0}",
     "ru": "Удалить вход {0}",
     "uk": "Видалити вхід {0}"
   },
-  "Удалить": {
+  "Remove": {
     "en": "Remove",
     "ru": "Удалить",
     "uk": "Видалити"
   },
-  "Collation входа {0}": {
+  "Input {0} collation": {
     "en": "Input {0} collation",
     "ru": "Collation входа {0}",
     "uk": "Параметр сортування входу {0}"
   },
-  "Для Unicode используйте nvarchar. Не-ASCII VARCHAR требует согласованных encoding и collation; UTF-8 — level150+.": {
+  "Use nvarchar for Unicode. Non-ASCII VARCHAR requires matching encoding and collation; UTF-8 requires level 150+.": {
     "en": "Use nvarchar for Unicode. Non-ASCII VARCHAR requires matching encoding and collation; UTF-8 requires level 150+.",
     "ru": "Для Unicode используйте nvarchar. Не-ASCII VARCHAR требует согласованных encoding и collation; UTF-8 — level150+.",
     "uk": "Для Unicode використовуйте nvarchar. Не-ASCII VARCHAR потребує узгоджених кодування й параметра сортування; UTF-8 — рівня 150+."
   },
-  "Удалять дубликаты": {
+  "Remove duplicates": {
     "en": "Remove duplicates",
     "ru": "Удалять дубликаты",
     "uk": "Видаляти дублікати"
   },
-  "Сохранять порядок": {
+  "Preserve order": {
     "en": "Preserve order",
     "ru": "Сохранять порядок",
     "uk": "Зберігати порядок"
   },
-  "Стратегия": {
+  "Strategy": {
     "en": "Strategy",
     "ru": "Стратегия",
     "uk": "Стратегія"
   },
-  "в IN (…)": {
+  "in IN (…) ": {
     "en": "in IN (…) ",
     "ru": "в IN (…)",
     "uk": "у IN (…) "
   },
-  "как rowset с Ordinal / Value": {
+  "as a rowset with Ordinal / Value": {
     "en": "as a rowset with Ordinal / Value",
     "ru": "как rowset с Ordinal / Value",
     "uk": "як набір рядків з Ordinal / Value"
   },
-  "Политики дубликатов и порядка сохраняются в определении рецепта. Введённые ID обрабатываются отдельно и в рецепт не записываются.": {
+  "Duplicate and order policies are saved in the recipe definition. Entered IDs are processed separately and are not stored in the recipe.": {
     "en": "Duplicate and order policies are saved in the recipe definition. Entered IDs are processed separately and are not stored in the recipe.",
     "ru": "Политики дубликатов и порядка сохраняются в определении рецепта. Введённые ID обрабатываются отдельно и в рецепт не записываются.",
     "uk": "Політики дублікатів і порядку зберігаються у визначенні рецепта. Введені ID обробляються окремо й не записуються в рецепт."
   },
-  "{0} по {1}": {
+  "{0} by {1}": {
     "en": "{0} by {1}",
     "ru": "{0} по {1}",
     "uk": "{0} за {1}"
   },
-  "Создать рецепт по таблице и полю": {
+  "Create a recipe from a table and column": {
     "en": "Create a recipe from a table and column",
     "ru": "Создать рецепт по таблице и полю",
     "uk": "Створити рецепт за таблицею та полем"
   },
-  "Таблица для рецепта": {
+  "Recipe table": {
     "en": "Recipe table",
     "ru": "Таблица для рецепта",
     "uk": "Таблиця для рецепта"
   },
-  "Поле для списка ID": {
+  "ID list column": {
     "en": "ID list column",
     "ru": "Поле для списка ID",
     "uk": "Поле для списку ID"
   },
-  "Выберите колонку": {
+  "Select a column": {
     "en": "Select a column",
     "ru": "Выберите колонку",
     "uk": "Виберіть колонку"
   },
-  "Создать черновик": {
+  "Create draft": {
     "en": "Create draft",
     "ru": "Создать черновик",
     "uk": "Створити чернетку"
   },
-  "Выберите реальное поле. Тип параметра заполнится из схемы; SQL и настройки можно проверить перед сохранением.": {
+  "Select a real column. The parameter type comes from the schema; review the SQL and settings before saving.": {
     "en": "Select a real column. The parameter type comes from the schema; review the SQL and settings before saving.",
     "ru": "Выберите реальное поле. Тип параметра заполнится из схемы; SQL и настройки можно проверить перед сохранением.",
     "uk": "Виберіть реальне поле. Тип параметра береться зі схеми; перевірте SQL і налаштування перед збереженням."
   },
-  "Не удалось найти маршрут.": {
+  "Could not find a path. #2": {
     "en": "Could not find a path.",
     "ru": "Не удалось найти маршрут.",
     "uk": "Не вдалося знайти маршрут."
   },
-  "Колонки маршрута недоступны. Обновите схему и найдите путь снова.": {
+  "Path columns are unavailable. Refresh the schema and find the path again.": {
     "en": "Path columns are unavailable. Refresh the schema and find the path again.",
     "ru": "Колонки маршрута недоступны. Обновите схему и найдите путь снова.",
     "uk": "Колонки маршруту недоступні. Оновіть схему та знайдіть шлях знову."
   },
-  "Не удалось подготовить SQL. Проверьте колонки и выбранные связи.": {
+  "Could not prepare the SQL. Check the columns and selected relationships.": {
     "en": "Could not prepare the SQL. Check the columns and selected relationships.",
     "ru": "Не удалось подготовить SQL. Проверьте колонки и выбранные связи.",
     "uk": "Не вдалося підготувати SQL. Перевірте колонки та вибрані зв'язки."
   },
-  "Создать рецепт по цепочке таблиц": {
+  "Create a recipe from a chain of tables": {
     "en": "Create a recipe from a chain of tables",
     "ru": "Создать рецепт по цепочке таблиц",
     "uk": "Створити рецепт за ланцюжком таблиць"
   },
-  "Начните со списка ID в исходной таблице. Выберите проверенный маршрут и поля результата из связанных таблиц.": {
+  "Start with an ID list in the source table. Select a verified path and output columns from related tables.": {
     "en": "Start with an ID list in the source table. Select a verified path and output columns from related tables.",
     "ru": "Начните со списка ID в исходной таблице. Выберите проверенный маршрут и поля результата из связанных таблиц.",
     "uk": "Почніть зі списку ID у вихідній таблиці. Виберіть перевірений маршрут і поля результату з пов'язаних таблиць."
   },
-  "Откуда начинаются ID и к какой таблице идти": {
+  "Where IDs start and which table to reach": {
     "en": "Where IDs start and which table to reach",
     "ru": "Откуда начинаются ID и к какой таблице идти",
     "uk": "Звідки починаються ID й до якої таблиці йти"
   },
-  "Цепочка: исходная таблица": {
+  "Chain: source table": {
     "en": "Chain: source table",
     "ru": "Цепочка: исходная таблица",
     "uk": "Ланцюжок: вихідна таблиця"
   },
-  "Цепочка: целевая таблица": {
+  "Chain: target table": {
     "en": "Chain: target table",
     "ru": "Цепочка: целевая таблица",
     "uk": "Ланцюжок: цільова таблиця"
   },
-  "Поле исходного списка ID": {
+  "Source ID list column": {
     "en": "Source ID list column",
     "ru": "Поле исходного списка ID",
     "uk": "Поле вихідного списку ID"
   },
-  "Поле ID для цепочки": {
+  "Chain ID column": {
     "en": "Chain ID column",
     "ru": "Поле ID для цепочки",
     "uk": "Поле ID для ланцюжка"
   },
-  "Название будущего рецепта": {
+  "New recipe name": {
     "en": "New recipe name",
     "ru": "Название будущего рецепта",
     "uk": "Назва майбутнього рецепта"
   },
-  "Название рецепта по цепочке": {
+  "Chain recipe name": {
     "en": "Chain recipe name",
     "ru": "Название рецепта по цепочке",
     "uk": "Назва рецепта за ланцюжком"
   },
-  "Поиск…": {
+  "Searching…": {
     "en": "Searching…",
     "ru": "Поиск…",
     "uk": "Пошук…"
   },
-  "Найти маршруты для рецепта": {
+  "Find paths for recipe": {
     "en": "Find paths for recipe",
     "ru": "Найти маршруты для рецепта",
     "uk": "Знайти маршрути для рецепта"
   },
-  "Тип списка ID:": {
+  "ID list type:": {
     "en": "ID list type:",
     "ru": "Тип списка ID:",
     "uk": "Тип списку ID:"
   },
-  ". Значения будут вводиться после сохранения рецепта.": {
+  ". Values will be entered after saving the recipe.": {
     "en": ". Values will be entered after saving the recipe.",
     "ru": ". Значения будут вводиться после сохранения рецепта.",
     "uk": ". Значення вводитимуться після збереження рецепта."
   },
-  "Выберите маршрут": {
+  "Select a path": {
     "en": "Select a path",
     "ru": "Выберите маршрут",
     "uk": "Виберіть маршрут"
   },
-  "Доверенный маршрут не найден. Создайте ручную связь или проверьте существующие связи в графе.": {
+  "No trusted path found. Create a manual relationship or review existing relationships in the graph.": {
     "en": "No trusted path found. Create a manual relationship or review existing relationships in the graph.",
     "ru": "Доверенный маршрут не найден. Создайте ручную связь или проверьте существующие связи в графе.",
     "uk": "Довірений маршрут не знайдено. Створіть ручний зв'язок або перевірте наявні зв'язки в графі."
   },
-  "Маршрут": {
+  "Path": {
     "en": "Path",
     "ru": "Маршрут",
     "uk": "Маршрут"
   },
-  "таблиц ·": {
+  "tables ·": {
     "en": "tables ·",
     "ru": "таблиц ·",
     "uk": "таблиць ·"
   },
-  "связей": {
+  "relationships": {
     "en": "relationships",
     "ru": "связей",
     "uk": "зв'язків"
   },
-  "Связи проверены сервером. Выберите маршрут для просмотра колонок.": {
+  "Relationships verified by the server. Select a path to view columns.": {
     "en": "Relationships verified by the server. Select a path to view columns.",
     "ru": "Связи проверены сервером. Выберите маршрут для просмотра колонок.",
     "uk": "Зв'язки перевірено сервером. Виберіть маршрут, щоб переглянути колонки."
   },
-  "Какие поля включить в результат": {
+  "Which columns to include in the result": {
     "en": "Which columns to include in the result",
     "ru": "Какие поля включить в результат",
     "uk": "Які поля включити в результат"
   },
-  "Читаем колонки таблиц…": {
+  "Reading table columns…": {
     "en": "Reading table columns…",
     "ru": "Читаем колонки таблиц…",
     "uk": "Читання колонок таблиць…"
   },
-  "Результат: {0}.{1}": {
+  "Output: {0}.{1}": {
     "en": "Output: {0}.{1}",
     "ru": "Результат: {0}.{1}",
     "uk": "Результат: {0}.{1}"
   },
-  "Имя результата {0}": {
+  "Output name {0}": {
     "en": "Output name {0}",
     "ru": "Имя результата {0}",
     "uk": "Ім'я результату {0}"
   },
-  "Поле {0} выше": {
+  "Move column {0} up": {
     "en": "Move column {0} up",
     "ru": "Поле {0} выше",
     "uk": "Перемістити поле {0} вище"
   },
-  "Поле {0} ниже": {
+  "Move column {0} down": {
     "en": "Move column {0} down",
     "ru": "Поле {0} ниже",
     "uk": "Перемістити поле {0} нижче"
   },
-  "Подготовка SQL…": {
+  "Preparing SQL…": {
     "en": "Preparing SQL…",
     "ru": "Подготовка SQL…",
     "uk": "Підготовка SQL…"
   },
-  "Предварительный SQL рецепта": {
+  "Preview recipe SQL": {
     "en": "Preview recipe SQL",
     "ru": "Предварительный SQL рецепта",
     "uk": "Попередній SQL рецепта"
   },
-  "Выбрано полей:": {
+  "Selected columns:": {
     "en": "Selected columns:",
     "ru": "Выбрано полей:",
     "uk": "Вибрано полів:"
   },
-  ". Порядок выбора определяет порядок колонок результата.": {
+  ". Selection order determines the order of output columns.": {
     "en": ". Selection order determines the order of output columns.",
     "ru": ". Порядок выбора определяет порядок колонок результата.",
     "uk": ". Порядок вибору визначає порядок колонок результату."
   },
-  "Проверьте SQL и создайте черновик": {
+  "Review the SQL and create a draft": {
     "en": "Review the SQL and create a draft",
     "ru": "Проверьте SQL и создайте черновик",
     "uk": "Перевірте SQL та створіть чернетку"
   },
-  "Загрузка SQL-редактора…": {
+  "Loading SQL editor…": {
     "en": "Loading SQL editor…",
     "ru": "Загрузка SQL-редактора…",
     "uk": "Завантаження SQL-редактора…"
   },
-  "Предварительный SQL цепочки": {
+  "Chain SQL preview": {
     "en": "Chain SQL preview",
     "ru": "Предварительный SQL цепочки",
     "uk": "Попередній SQL ланцюжка"
   },
-  "Создать черновик из цепочки": {
+  "Create draft from chain": {
     "en": "Create draft from chain",
     "ru": "Создать черновик из цепочки",
     "uk": "Створити чернетку з ланцюжка"
   },
-  "Шаблон откроется в редакторе. Сохранение рецепта выполняется отдельно.": {
+  "The template will open in the editor. Save the recipe separately.": {
     "en": "The template will open in the editor. Save the recipe separately.",
     "ru": "Шаблон откроется в редакторе. Сохранение рецепта выполняется отдельно.",
     "uk": "Шаблон відкриється в редакторі. Збереження рецепта виконується окремо."
   },
-  "JSON должен содержать определение рецепта.": {
+  "JSON must contain a recipe definition.": {
     "en": "JSON must contain a recipe definition.",
     "ru": "JSON должен содержать определение рецепта.",
     "uk": "JSON має містити визначення рецепта."
   },
-  "В JSON отсутствуют name, sqlTemplate, tags, databaseIds или inputs.": {
+  "JSON is missing name, sqlTemplate, tags, databaseIds, or inputs.": {
     "en": "JSON is missing name, sqlTemplate, tags, databaseIds, or inputs.",
     "ru": "В JSON отсутствуют name, sqlTemplate, tags, databaseIds или inputs.",
     "uk": "У JSON відсутні name, sqlTemplate, tags, databaseIds або inputs."
   },
-  "Выберите хотя бы одно поле результата.": {
+  "Select at least one output column.": {
     "en": "Select at least one output column.",
     "ru": "Выберите хотя бы одно поле результата.",
     "uk": "Виберіть принаймні одне поле результату."
   },
-  "В одном рецепте можно выбрать до 200 полей результата.": {
+  "A recipe can have up to 200 output columns.": {
     "en": "A recipe can have up to 200 output columns.",
     "ru": "В одном рецепте можно выбрать до 200 полей результата.",
     "uk": "В одному рецепті можна вибрати до 200 полів результату."
   },
-  "Имя поля результата должно содержать до 128 символов без управляющих знаков.": {
+  "Output names must be at most 128 characters and contain no control characters.": {
     "en": "Output names must be at most 128 characters and contain no control characters.",
     "ru": "Имя поля результата должно содержать до 128 символов без управляющих знаков.",
     "uk": "Ім'я поля результату має містити до 128 символів без керівних знаків."
   },
-  "Поля результата должны иметь разные имена. Укажите псевдоним для одинаковых колонок из разных таблиц.": {
+  "Output columns must have unique names. Add aliases for same-named columns from different tables.": {
     "en": "Output columns must have unique names. Add aliases for same-named columns from different tables.",
     "ru": "Поля результата должны иметь разные имена. Укажите псевдоним для одинаковых колонок из разных таблиц.",
     "uk": "Поля результату повинні мати різні імена. Укажіть псевдоніми для однойменних колонок із різних таблиць."
   },
-  "Выберите обе таблицы.": {
+  "Select both tables.": {
     "en": "Select both tables.",
     "ru": "Выберите обе таблицы.",
     "uk": "Виберіть обидві таблиці."
   },
-  "Добавьте хотя бы одну пару колонок.": {
+  "Add at least one column pair.": {
     "en": "Add at least one column pair.",
     "ru": "Добавьте хотя бы одну пару колонок.",
     "uk": "Додайте принаймні одну пару колонок."
   },
-  "Выберите обе колонки в каждой паре.": {
+  "Select both columns in every pair.": {
     "en": "Select both columns in every pair.",
     "ru": "Выберите обе колонки в каждой паре.",
     "uk": "Виберіть обидві колонки в кожній парі."
   },
-  "Колонка может входить в связь только один раз с каждой стороны.": {
+  "A column may appear only once on each side of a relationship.": {
     "en": "A column may appear only once on each side of a relationship.",
     "ru": "Колонка может входить в связь только один раз с каждой стороны.",
     "uk": "Колонка може входити у зв'язок лише один раз із кожного боку."
   },
-  "В исходной таблице больше нет одной из выбранных колонок.": {
+  "A selected column no longer exists in the source table.": {
     "en": "A selected column no longer exists in the source table.",
     "ru": "В исходной таблице больше нет одной из выбранных колонок.",
     "uk": "У вихідній таблиці більше немає однієї з вибраних колонок."
   },
-  "В целевой таблице больше нет одной из выбранных колонок.": {
+  "A selected column no longer exists in the target table.": {
     "en": "A selected column no longer exists in the target table.",
     "ru": "В целевой таблице больше нет одной из выбранных колонок.",
     "uk": "У цільовій таблиці більше немає однієї з вибраних колонок."

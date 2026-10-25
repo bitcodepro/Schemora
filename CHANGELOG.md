@@ -136,8 +136,8 @@ See docs/product-1.8.md for behaviour and limits.
 ## 1.0.0 — 2026-10-22
 
 - Phases1–5: multi-root discovery, SQLite v2 immutable snapshots, bounded jobs/SSE, incremental refresh.
-- ScriptDom static schema fallback и явная диагностика SDK/legacy tooling; read-only source staging.
-- Physical/EF/observed/inferred/user-confirmed relationships, Roslyn static mapping, C# SQL/Dapper candidates, trusted paths и React Flow canvas.
+- ScriptDom static schema fallback and explicit diagnostics for SDK/legacy tooling; read-only source staging.
+- Physical/EF/observed/inferred/user-confirmed relationships, Roslyn static mapping, C# SQL/Dapper candidates, trusted paths and React Flow canvas.
 - Typed ID processor, deterministic VALUES/temp/JSON generation, one parameter payload, quoted/Unicode/encoding validation, no runtime persistence.
 - Local Monaco, versioned recipe catalog, lineage, synthetic tests, export/import/clone/rollback.
 - Schema diff, impact statuses, conservative AST repair preview/approval/newversion.

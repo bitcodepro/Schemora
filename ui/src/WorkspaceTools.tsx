@@ -11,10 +11,10 @@ import CollectionSqlPanel from './CollectionSqlPanel';
 import BackupSchedulePanel from './BackupSchedulePanel';
 import type { RecipeEntry } from './recipeTypes';
 const validationLabels: Record<string, string> = {
-  Valid: 'Совместим',
-  Warning: 'Есть замечания',
-  Broken: 'Несовместим',
-  NeedsReview: 'Нужна проверка',
+  Valid: 'Compatible',
+  Warning: 'Has warnings',
+  Broken: 'Incompatible',
+  NeedsReview: 'Review required',
 };
 type Receipt = {
   id: string;

@@ -1,50 +1,50 @@
-# Расширения после V1
+# Post-V1 enhancements
 
-PostgreSQL и AI отложены по просьбе пользователя. Пользовательских пилотных репозиториев нет: проверки используют созданные SQL/C# проекты и временные репозитории. Они проверяют перечисленные сценарии, но не представляют чужую реальную кодовую базу.
+PostgreSQL and AI are deferred at the user's request. There are no user pilot repositories: checks use generated SQL/C# projects and temporary repositories. They cover the listed scenarios but do not represent someone else's real codebase.
 
-## Сборка SQL-проектов
+## Building SQL projects
 
-Планировщик читает XML и локальные inputs без выполнения MSBuild. Поддерживает SDK-style Microsoft.Build.Sql и legacy SSDT, sibling SQL ProjectReference, локальные ArtifactReference, обычные imports/props/targets, известные inherited configuration, SQLCMD include/variables. Служебная копия сохраняет структуру и перенаправляет output/intermediate каждого проекта в короткие отдельные каталоги служебной копии. При слишком длинном custom data-dir служебная копия переносится в приватную временную папку Windows; manifest остаётся в выбранном data-dir. Путь, который всё равно превышает ограничение запуска tooling, явно диагностируется. Source closure проверяется по содержимому до и после сборки; появление, удаление или изменение зависимого файла делает старую модель непригодной для повторного использования.
+The planner reads XML and local inputs without running MSBuild. It supports SDK-style Microsoft.Build.Sql and legacy SSDT, sibling SQL ProjectReference, local ArtifactReference, ordinary imports/props/targets, known inherited configuration, SQLCMD include/variables. The service copy keeps the structure and redirects each project's output/intermediate into short separate directories inside the service copy. If a custom data dir is too long, the service copy moves to a private Windows temp folder; the manifest stays in the chosen data dir. A path that still exceeds the tooling launch limit is diagnosed explicitly. The source closure is verified by content before and after the build; a dependent file appearing, disappearing or changing makes the old model unusable for reuse.
 
-Поддержаны закреплённые NuGet-пакеты с DACPAC: restore использует отдельный cache, проверяются состав пакета, identity/version и SHA512. Central package versions и локальные feeds входят в анализ; floating versions, package code/tasks и неоднозначный контекст явно диагностируются.
+Pinned NuGet packages with DACPACs are supported: restore uses a separate cache, and package contents, identity/version and SHA512 are verified. Central package versions and local feeds are included in the analysis; floating versions, package code/tasks and ambiguous context are diagnosed explicitly.
 
-Immutable build manifest хранит пути, типы inputs, размеры и SHA256, configuration, список проектов и hashed environment inputs. Значения SQLCMD/environment в manifest не сохраняются. Snapshot содержит BuildManifestId. API: POST /api/schema/build/plan, GET /api/build-manifests/{id}, GET /api/databases/{id}/build-manifest. Это локальный технический manifest с абсолютными путями; он отличается от portable workspace export.
+The immutable build manifest stores paths, input types, sizes and SHA256, configuration, the project list and hashed environment inputs. SQLCMD/environment values are not stored in the manifest. A snapshot contains BuildManifestId. API: POST /api/schema/build/plan, GET /api/build-manifests/{id}, GET /api/databases/{id}/build-manifest. This is a local technical manifest with absolute paths; it differs from the portable workspace export.
 
-Property functions, динамические imports, неизвестные custom tasks и смешанные SDK/legacy dependencies не объявляются полным переносимым контекстом. Возвращается BUILD_INPUTS_INCOMPLETE с конкретными diagnostics; остаётся внешний build и импорт DACPAC. Сборка требует явного доверия: MSBuild выполняется с правами пользователя.
+Property functions, dynamic imports, unknown custom tasks and mixed SDK/legacy dependencies are not declared a complete portable context. BUILD_INPUTS_INCOMPLETE is returned with specific diagnostics; the remaining option is an external build and DACPAC import. Building requires explicit trust: MSBuild runs with the user's rights.
 
-## Ручные связи и рецепты по маршруту
+## Manual relations and route-based recipes
 
-Редактор создаёт логическую связь между таблицами с упорядоченными парами колонок, названием и основанием. Изменение/удаление проверяет ожидаемую версию. Сохраняется точная форма колонок; изменение типа/nullability или исчезновение endpoint делает утверждение stale. Совместимость типов не доказывает уникальность бизнес-ключа. Физические FK сохраняют приоритет, а конфликтующая ручная связь требует отдельной проверки в графе.
+The editor creates a logical relation between tables with ordered column pairs, a name and a reason. Updating/deleting checks the expected version. The exact column shape is stored; a type/nullability change or a missing endpoint makes the assertion stale. Type compatibility does not prove business-key uniqueness. Physical FKs keep priority, and a conflicting manual relation requires a separate review in the graph.
 
-Конструктор рецепта принимает исходную колонку ID, выбранный доверенный маршрут и явную проекцию колонок промежуточных/конечной таблиц. Псевдонимы результата и порядок полей редактируются. Сервер заново проверяет непрерывность, доверие и составные JOIN conditions, создаёт typed input и проверяет SQL binder. Preview не сохраняет рецепт; затем пользователь открывает черновик и сохраняет обычную версию. Поддержаны int, bigint, uniqueidentifier, nvarchar(n), varchar(n); для varchar действует существующая явная политика кодировки.
+The recipe builder takes a source ID column, a chosen trusted route and an explicit projection of intermediate/final table columns. Result aliases and field order are editable. The server re-checks continuity, trust and composite JOIN conditions, creates a typed input and runs the SQL binder. Preview does not save the recipe; the user then opens the draft and saves a regular version. Supported types: int, bigint, uniqueidentifier, nvarchar(n), varchar(n); for varchar the existing explicit encoding policy applies.
 
-## Объекты БД
+## Database objects
 
-SchemaGraph дополнен Objects, Indexes и ObjectDependencies; SchemaTable — UniqueKeys. Старые snapshot JSON совместимы, отсутствующие списки считаются пустыми. Версия анализа снимка гарантирует однократный пересчёт старого каталога при Quick/Full Refresh, даже если исходные файлы не менялись. Таблицы остаются таблицами: view, procedure, scalar/table function и synonym представлены отдельными объектами.
+SchemaGraph gains Objects, Indexes and ObjectDependencies; SchemaTable gains UniqueKeys. Old snapshot JSON stays compatible; missing lists are treated as empty. The snapshot analysis version guarantees a one-time recomputation of an old catalog on Quick/Full Refresh even if source files did not change. Tables stay tables: views, procedures, scalar/table functions and synonyms are represented as separate objects.
 
-Доступны колонки/параметры, SQL definition, synonym target, unique constraints, index keys/direction/include/filter и dependency evidence. Определение ограничено 256 КиБ UTF-8 на объект и 32 МиБ суммарно; превышение явно диагностируется. Static analysis остаётся partial: вычисленные типы, result sets процедур, dynamic SQL и неразрешённые внешние ссылки не выдумываются. Неоднозначная зависимость сохраняет TargetName и пустой ToObjectId.
+Available: columns/parameters, SQL definition, synonym target, unique constraints, index keys/direction/include/filter and dependency evidence. Definitions are limited to 256 KiB of UTF-8 per object and 32 MiB in total; exceeding the limit is diagnosed explicitly. Static analysis stays partial: computed types, procedure result sets, dynamic SQL and unresolved external references are never invented. An ambiguous dependency keeps TargetName and an empty ToObjectId.
 
-Explorer использует серверную пагинацию; SQL definition загружается при открытии объекта. Detail показывает прямые зависимости, вызывающие объекты и транзитивное влияние на объекты/рецепты. Сравнение снимков учитывает definitions, параметры, unique keys, индексы и зависимости. Метаданные routines доступны для изучения; конструктор JOIN использует таблицы текущего relationship graph. Рецепты SELECT могут читать view с проверкой колонок; partial view требует review, изменение definition или замена view/table инвалидирует совместимость.
+The Explorer uses server-side pagination; the SQL definition loads when an object is opened. Detail shows direct dependencies, calling objects and transitive impact on objects/recipes. Snapshot comparison covers definitions, parameters, unique keys, indexes and dependencies. Routine metadata is available for exploration; the JOIN builder uses tables from the current relationship graph. SELECT recipes can read views with column checks; a partial view requires review, and a definition change or a view/table replacement invalidates compatibility.
 
-## Исправления SQL
+## SQL repairs
 
-Расширенный AST rewriter поддерживает доказуемые привязки колонок в SELECT с CTE, derived/scalar subqueries и UNION. Неоднозначные aliases/lineage, вычисленные выражения и неподдерживаемые контексты требуют ручной правки. Preview сохраняет форматирование и меняет только identifier spans; подтверждение по-прежнему создаёт новую версию с guards схемы, связей, рецепта и решения proposal.
+The extended AST rewriter supports provable column bindings in SELECT with CTEs, derived/scalar subqueries and UNION. Ambiguous aliases/lineage, computed expressions and unsupported contexts require manual editing. Preview keeps formatting and changes only identifier spans; confirmation still creates a new version with schema, relation, recipe and proposal-decision guards.
 
-## Автообновление и проверка выпуска
+## Auto-refresh and release verification
 
-Auto-refresh по умолчанию выключен. FileSystemWatcher объединяет события с задержкой 2–60 секунд; периодическая сверка 1–60 минут покрывает пропущенные события и внешние inputs. После запуска проверяются изменения за время отсутствия приложения. Переполнение/ошибка watcher планирует Full Rescan и переподключение. Встроенные output/cache folders и собственный data-dir исключены из событий.
+Auto-refresh is off by default. FileSystemWatcher coalesces events with a 2–60 second delay; periodic reconciliation every 1–60 minutes covers missed events and external inputs. On startup, changes made while the app was not running are checked. A watcher overflow/error schedules a Full Rescan and a reconnect. Built-in output/cache folders and the app's own data dir are excluded from events.
 
-Автообновление использует общую ограниченную очередь и проверяет зависимые рецепты. Оно запускает Quick/Full без доверия и никогда не вызывает Rebuild. Изменившийся SQL-проект показывается как partial до явной сборки.
+Auto-refresh uses the shared bounded queue and checks dependent recipes. It runs Quick/Full without trust and never triggers Rebuild. A changed SQL project is shown as partial until an explicit build.
 
-scripts/Test-Enhancements.ps1 проверяет ручные composite relations, версии, маршрут через три таблицы, объекты/impact, реальные файловые изменения, recipe invalidation, stale relation и restart. scripts/Test-Clean.ps1 создаёт копию исходников без bin/obj/node_modules/work/artifacts, сохраняет SHA256 inventory, устанавливает UI dependencies, собирает/test/publish и запускает все acceptance против созданного EXE. -Docker добавляет SQL Server execution и app schema extraction/recovery. Проверка выполняется на текущем Windows host; GitHub workflow запускается отдельно при наличии remote.
-
-
+scripts/Test-Enhancements.ps1 checks manual composite relations, versions, a route through three tables, objects/impact, real file changes, recipe invalidation, stale relations and restart. scripts/Test-Clean.ps1 creates a copy of the sources without bin/obj/node_modules/work/artifacts, saves a SHA256 inventory, installs UI dependencies, builds/tests/publishes and runs all acceptance checks against the produced EXE. -Docker adds SQL Server execution and app schema extraction/recovery. Verification runs on the current Windows host; the GitHub workflow runs separately when a remote exists.
 
 
-## Языки и порт запуска (1.2)
 
-Default locale — en; поддержаны ru и uk. Выбор хранится в UserSettings language и browser cache schemora.language, без runtime ID. Поддержанные значения проверяются сервером. Изменение языка обновляет подписанные компоненты без remount; загрузка старой настройки и последовательные записи не перезаписывают более новый выбор. Даты/числа следуют выбранной locale. Собственные сообщения переводятся по полным шаблонам с сохранением параметров; пользовательские names/descriptions/SQL/reasons сохраняются. Неизвестные сообщения внешнего tooling остаются исходными.
 
-schemora.json читается рядом с EXE, независимо от рабочего каталога: {"port":0}. Файл необязателен; explicit --config обязан существовать. Разрешено ровно одно integer поле port (0..65535), до16KiB. --port имеет приоритет. Настройка меняет только loopback port. Фиксированный занятый порт даёт LAUNCH_PORT_IN_USE и путь к JSON, без тихого fallback. Повторная сборка/публикация сохраняет существующий sidecar независимо от timestamps.
+## Languages and launch port (1.2)
 
-Test-Localization проверяет все три языка, сохранение после restart/fresh browser, rapid changes, live graph labels, unsaved recipe, runtime ID/error text и generated SQL. Test-Launch проверяет JSON/CLI precedence, отсутствие/некорректность файла, занятые порты и сохранение origin/token guards.
+The default locale is en; ru and uk are supported. The choice is stored in the UserSettings language and the browser cache key schemora.language, without runtime IDs. Supported values are validated by the server. Changing the language updates subscribed components without a remount; loading an old setting and successive writes do not overwrite a newer choice. Dates/numbers follow the selected locale. The app's own messages are translated from full templates with parameters preserved; user names/descriptions/SQL/reasons are kept as is. Unknown messages from external tooling stay in their original form.
+
+schemora.json is read next to the EXE, regardless of the working directory: {"port":0}. The file is optional; an explicit --config must exist. Exactly one integer field, port (0..65535), is allowed, up to 16 KiB. --port takes precedence. The setting changes only the loopback port. A fixed port that is in use yields LAUNCH_PORT_IN_USE and the JSON path, with no silent fallback. Rebuilding/republishing keeps an existing sidecar regardless of timestamps.
+
+Test-Localization checks all three languages, persistence after restart/fresh browser, rapid changes, live graph labels, an unsaved recipe, runtime ID/error text and generated SQL. Test-Launch checks JSON/CLI precedence, a missing/invalid file, ports in use and that origin/token guards are preserved.

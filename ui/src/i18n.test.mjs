@@ -92,10 +92,10 @@ test('literal text and escaped output remain text; SQL, identifiers and user con
 });
 test('existing status dictionaries resolve live rather than freezing the startup language', () => {
   setLocale('en');
-  const label = t('Подтверждена');
+  const label = t('Confirmed');
   assert.ok(!/[А-Яа-я]/.test(label));
   setLocale('uk');
-  assert.equal(t(label), messages['Подтверждена'].uk);
+  assert.equal(t(label), messages['Confirmed'].uk);
   setLocale('ru');
   assert.equal(t(label), 'Подтверждена');
   setLocale('en');

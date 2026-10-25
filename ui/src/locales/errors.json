@@ -386,7 +386,7 @@
   },
   "error.JOB_NOT_FOUND": {
     "en": "Job not found.",
-    "ru": "Задача не найдена.",
+    "ru": "Задание не найдено.",
     "uk": "Завдання не знайдено."
   },
   "error.LANGUAGE_INVALID": {
@@ -518,6 +518,11 @@
     "en": "Review the warnings first, then explicitly acknowledge manual SQL with unverified JOINs.",
     "ru": "Сначала проверьте предупреждения и явно подтвердите ручной SQL с непроверенными joins.",
     "uk": "Спочатку перевірте попередження та явно підтвердьте ручний SQL із неперевіреними JOIN."
+  },
+  "error.RECIPE_VERSION_NOT_FOUND": {
+    "en": "Version not found.",
+    "ru": "Версия не найдена.",
+    "uk": "Версію не знайдено."
   },
   "error.RECIPE_WORKSPACE_MISMATCH": {
     "en": "The recipe belongs to another workspace.",
@@ -653,6 +658,11 @@
     "en": "The database has no published schema yet. Check the scan diagnostics.",
     "ru": "У БД пока нет опубликованной схемы. Проверьте диагностику сканирования.",
     "uk": "БД ще не має опублікованої схеми. Перевірте діагностику сканування."
+  },
+  "error.SCHEMA_OBJECT_NOT_FOUND": {
+    "en": "Object not found.",
+    "ru": "Объект не найден.",
+    "uk": "Об’єкт не знайдено."
   },
   "error.SCHEMA_STALE": {
     "en": "Refresh the schema before saving a manual relationship.",

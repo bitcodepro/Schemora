@@ -24,7 +24,7 @@ public static class WorkspaceEndpoints
             {
                 var prior = RequireWorkspace(store, id);
                 if (queue.IsActive(id))
-                    throw new AppException("WORKSPACE_BUSY", "Дождитесь завершения задачи или отмените её перед изменением корней.", 409);
+                    throw new AppException("WORKSPACE_BUSY", "Wait for the job to finish or cancel it before changing root folders.", 409);
                 var workspace = Make(request, id, prior.CreatedAt);
                 Save(workspace, store);
                 return workspace;
@@ -55,30 +55,26 @@ public static class WorkspaceEndpoints
             "/api/databases/{id}/schema",
             (string id, CatalogStore store) =>
                 store.CurrentGraph(id)
-                ?? throw new AppException(
-                    "SCHEMA_NOT_FOUND",
-                    "У БД пока нет опубликованной схемы. Проверьте диагностику сканирования.",
-                    404
-                )
+                ?? throw new AppException("SCHEMA_NOT_FOUND", "The database has no published schema yet. Check the scan diagnostics.", 404)
         );
         app.MapGet("/api/databases/{id}/snapshots", (string id, CatalogStore store) => store.Snapshots(id));
         app.MapGet(
             "/api/schema/snapshots/{id}",
             (string id, CatalogStore store) =>
                 store.Get<SnapshotRecord>("SchemaSnapshots", id)?.Graph
-                ?? throw new AppException("SNAPSHOT_NOT_FOUND", "Снимок не найден.", 404)
+                ?? throw new AppException("SNAPSHOT_NOT_FOUND", "Snapshot not found.", 404)
         );
         app.MapGet("/api/jobs", (JobQueue queue) => queue.List());
         app.MapGet(
             "/api/jobs/{id}",
-            (string id, JobQueue queue) => queue.Get(id) ?? throw new AppException("JOB_NOT_FOUND", "Задача не найдена.", 404)
+            (string id, JobQueue queue) => queue.Get(id) ?? throw new AppException("JOB_NOT_FOUND", "Job not found.", 404)
         );
         app.MapDelete(
             "/api/jobs/{id}",
             (string id, JobQueue queue) =>
             {
                 if (queue.Get(id) is null)
-                    throw new AppException("JOB_NOT_FOUND", "Задача не найдена.", 404);
+                    throw new AppException("JOB_NOT_FOUND", "Job not found.", 404);
                 queue.Cancel(id);
                 return Results.Accepted();
             }
@@ -88,7 +84,7 @@ public static class WorkspaceEndpoints
             async (string id, HttpContext context, JobQueue queue) =>
             {
                 if (queue.Get(id) is null)
-                    throw new AppException("JOB_NOT_FOUND", "Задача не найдена.", 404);
+                    throw new AppException("JOB_NOT_FOUND", "Job not found.", 404);
                 context.Response.ContentType = "text/event-stream";
                 string? previous = null;
                 while (!context.RequestAborted.IsCancellationRequested)
@@ -125,23 +121,23 @@ public static class WorkspaceEndpoints
     }
 
     public static Workspace RequireWorkspace(CatalogStore store, string id) =>
-        store.Get<Workspace>("Workspaces", id) ?? throw new AppException("WORKSPACE_NOT_FOUND", "Рабочая область не найдена.", 404);
+        store.Get<Workspace>("Workspaces", id) ?? throw new AppException("WORKSPACE_NOT_FOUND", "Workspace not found.", 404);
 
     private static Workspace Make(WorkspaceRequest request, string id, DateTimeOffset createdAt)
     {
         var name = request.Name?.Trim();
         if (string.IsNullOrWhiteSpace(name) || name.Length > 160)
-            throw new AppException("WORKSPACE_NAME_INVALID", "Укажите название до 160 символов.");
+            throw new AppException("WORKSPACE_NAME_INVALID", "Enter a name of up to 160 characters.");
         if (request.Roots is null || request.Roots.Count is < 1 or > 20)
-            throw new AppException("WORKSPACE_ROOTS_INVALID", "Укажите от 1 до 20 локальных корневых папок.");
+            throw new AppException("WORKSPACE_ROOTS_INVALID", "Specify 1 to 20 local root folders.");
         var roots = request
             .Roots.Select(input =>
             {
                 if (!Path.IsPathFullyQualified(input))
-                    throw new AppException("LOCAL_ROOT_REQUIRED", "Нужен абсолютный путь к локальной папке.");
+                    throw new AppException("LOCAL_ROOT_REQUIRED", "An absolute path to a local folder is required.");
                 var path = Path.TrimEndingDirectorySeparator(Path.GetFullPath(input));
                 if (path.StartsWith(@"\\") || new Uri(path).IsUnc || !Directory.Exists(path))
-                    throw new AppException("LOCAL_ROOT_REQUIRED", "Папка не найдена или путь является сетевым.");
+                    throw new AppException("LOCAL_ROOT_REQUIRED", "The folder was not found or the path is a network path.");
                 LocalFiles.CheckNoLinks(path);
                 return path;
             })
@@ -153,7 +149,7 @@ public static class WorkspaceEndpoints
             .Distinct(StringComparer.Ordinal)
             .ToArray();
         if (excludes.Length > 100 || excludes.Any(s => s.Length > 500))
-            throw new AppException("EXCLUDES_TOO_LARGE", "Максимум 100 exclude patterns по 500 символов.");
+            throw new AppException("EXCLUDES_TOO_LARGE", "At most 100 exclusion patterns of up to 500 characters each.");
         return new(id, name, roots, excludes, createdAt);
     }
 

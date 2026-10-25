@@ -1,1165 +1,1165 @@
 {
-  "колонок": {
+  "columns": {
     "en": "columns",
     "ru": "колонок",
     "uk": "стовпців"
   },
-  "ещё": {
+  "more": {
     "en": "more",
     "ru": "ещё",
     "uk": "ще"
   },
-  "Не удалось загрузить рабочие области.": {
+  "Could not load workspaces.": {
     "en": "Could not load workspaces.",
     "ru": "Не удалось загрузить рабочие области.",
     "uk": "Не вдалося завантажити робочі області."
   },
-  "Каталог недоступен.": {
+  "Catalog unavailable.": {
     "en": "Catalog unavailable.",
     "ru": "Каталог недоступен.",
     "uk": "Каталог недоступний."
   },
-  "Положение восстановлено": {
+  "Layout restored": {
     "en": "Layout restored",
     "ru": "Положение восстановлено",
     "uk": "Розташування відновлено"
   },
-  "Не удалось загрузить положение графа.": {
+  "Could not load the graph layout.": {
     "en": "Could not load the graph layout.",
     "ru": "Не удалось загрузить положение графа.",
     "uk": "Не вдалося завантажити розташування графа."
   },
-  "Не удалось загрузить граф.": {
+  "Could not load the graph.": {
     "en": "Could not load the graph.",
     "ru": "Не удалось загрузить граф.",
     "uk": "Не вдалося завантажити граф."
   },
-  "Каталог связей недоступен.": {
+  "Relationship catalog unavailable.": {
     "en": "Relationship catalog unavailable.",
     "ru": "Каталог связей недоступен.",
     "uk": "Каталог зв’язків недоступний."
   },
-  "Таблица · {0}": {
+  "Table · {0}": {
     "en": "Table · {0}",
     "ru": "Таблица · {0}",
     "uk": "Таблиця · {0}"
   },
-  "Сохранение положения…": {
+  "Saving layout…": {
     "en": "Saving layout…",
     "ru": "Сохранение положения…",
     "uk": "Збереження розташування…"
   },
-  "Положение сохранено": {
+  "Layout saved": {
     "en": "Layout saved",
     "ru": "Положение сохранено",
     "uk": "Розташування збережено"
   },
-  "Положение не сохранено.": {
+  "Layout was not saved.": {
     "en": "Layout was not saved.",
     "ru": "Положение не сохранено.",
     "uk": "Розташування не збережено."
   },
-  "Решение не сохранено.": {
+  "Decision was not saved.": {
     "en": "Decision was not saved.",
     "ru": "Решение не сохранено.",
     "uk": "Рішення не збережено."
   },
-  "Не удалось найти путь.": {
+  "Could not find a path.": {
     "en": "Could not find a path.",
     "ru": "Не удалось найти путь.",
     "uk": "Не вдалося знайти шлях."
   },
-  "SQL скопирован": {
+  "SQL copied": {
     "en": "SQL copied",
     "ru": "SQL скопирован",
     "uk": "SQL скопійовано"
   },
-  "Копирование недоступно. Выделите SQL в поле и скопируйте вручную.": {
+  "Copying is unavailable. Select the SQL in the field and copy it manually.": {
     "en": "Copying is unavailable. Select the SQL in the field and copy it manually.",
     "ru": "Копирование недоступно. Выделите SQL в поле и скопируйте вручную.",
     "uk": "Копіювання недоступне. Виділіть SQL у полі та скопіюйте вручну."
   },
-  "Рабочая область": {
+  "Workspace": {
     "en": "Workspace",
     "ru": "Рабочая область",
     "uk": "Робоча область"
   },
-  "Рабочая область графа": {
+  "Graph workspace": {
     "en": "Graph workspace",
     "ru": "Рабочая область графа",
     "uk": "Робоча область графа"
   },
-  "Выберите область": {
+  "Select a workspace": {
     "en": "Select a workspace",
     "ru": "Выберите область",
     "uk": "Виберіть робочу область"
   },
-  "База данных": {
+  "Database": {
     "en": "Database",
     "ru": "База данных",
     "uk": "База даних"
   },
-  "Фильтр БД графа": {
+  "Graph database filter": {
     "en": "Graph database filter",
     "ru": "Фильтр БД графа",
     "uk": "Фільтр бази даних графа"
   },
-  "Все БД · межбазовые связи": {
+  "All databases · relationships across databases": {
     "en": "All databases · relationships across databases",
     "ru": "Все БД · межбазовые связи",
     "uk": "Усі бази даних · міжбазові зв’язки"
   },
-  "Обновить связи": {
+  "Refresh relationships": {
     "en": "Refresh relationships",
     "ru": "Обновить связи",
     "uk": "Оновити зв’язки"
   },
-  "Сначала создайте рабочую область": {
+  "Create a workspace first": {
     "en": "Create a workspace first",
     "ru": "Сначала создайте рабочую область",
     "uk": "Спочатку створіть робочу область"
   },
-  "Откройте «Рабочая область», укажите папки и выполните сканирование.": {
+  "Open “Workspace”, select folders, and run a scan.": {
     "en": "Open “Workspace”, select folders, and run a scan.",
     "ru": "Откройте «Рабочая область», укажите папки и выполните сканирование.",
     "uk": "Відкрийте «Робоча область», виберіть папки та запустіть сканування."
   },
-  "Поиск таблиц / полей": {
+  "Search tables / columns": {
     "en": "Search tables / columns",
     "ru": "Поиск таблиц / полей",
     "uk": "Пошук таблиць / стовпців"
   },
-  "Название таблицы или колонки…": {
+  "Table or column name…": {
     "en": "Table or column name…",
     "ru": "Название таблицы или колонки…",
     "uk": "Назва таблиці або стовпця…"
   },
-  "Поиск в графе": {
+  "Search the graph": {
     "en": "Search the graph",
     "ru": "Поиск в графе",
     "uk": "Пошук у графі"
   },
-  "Схема": {
+  "Schema": {
     "en": "Schema",
     "ru": "Схема",
     "uk": "Схема"
   },
-  "Все схемы": {
+  "All schemas": {
     "en": "All schemas",
     "ru": "Все схемы",
     "uk": "Усі схеми"
   },
-  "Фильтр схемы": {
+  "Schema filter": {
     "en": "Schema filter",
     "ru": "Фильтр схемы",
     "uk": "Фільтр схеми"
   },
-  "Минимальная уверенность": {
+  "Minimum confidence": {
     "en": "Minimum confidence",
     "ru": "Минимальная уверенность",
     "uk": "Мінімальна впевненість"
   },
-  "Типы связей": {
+  "Relationship types": {
     "en": "Relationship types",
     "ru": "Типы связей",
     "uk": "Типи зв’язків"
   },
-  "Таблица в фокусе": {
+  "Focused table": {
     "en": "Focused table",
     "ru": "Таблица в фокусе",
     "uk": "Таблиця у фокусі"
   },
-  "Весь загруженный фрагмент": {
+  "Entire loaded graph section": {
     "en": "Entire loaded graph section",
     "ru": "Весь загруженный фрагмент",
     "uk": "Увесь завантажений фрагмент"
   },
-  "Шагов от фокуса": {
+  "Hops from focus": {
     "en": "Hops from focus",
     "ru": "Шагов от фокуса",
     "uk": "Кроків від фокуса"
   },
-  "Количество шагов": {
+  "Number of hops": {
     "en": "Number of hops",
     "ru": "Количество шагов",
     "uk": "Кількість кроків"
   },
-  "0 · только таблица": {
+  "0 · table only": {
     "en": "0 · table only",
     "ru": "0 · только таблица",
     "uk": "0 · лише таблиця"
   },
-  "1 · прямые соседи": {
+  "1 · immediate neighbors": {
     "en": "1 · immediate neighbors",
     "ru": "1 · прямые соседи",
     "uk": "1 · прямі сусіди"
   },
-  "2 шага": {
+  "2 hops": {
     "en": "2 hops",
     "ru": "2 шага",
     "uk": "2 кроки"
   },
-  "3 шага": {
+  "3 hops": {
     "en": "3 hops",
     "ru": "3 шага",
     "uk": "3 кроки"
   },
-  "Фильтры и окрестность применяются на сервере. В одном фрагменте — до 150 таблиц. Поиск фокуса доступен по всему каталогу.": {
+  "Filters and neighborhoods are applied on the server. Each section contains up to 150 tables. Search for a focus table across the entire catalog.": {
     "en": "Filters and neighborhoods are applied on the server. Each section contains up to 150 tables. Search for a focus table across the entire catalog.",
     "ru": "Фильтры и окрестность применяются на сервере. В одном фрагменте — до 150 таблиц. Поиск фокуса доступен по всему каталогу.",
     "uk": "Фільтри та околи застосовуються на сервері. В одному фрагменті — до 150 таблиць. Пошук таблиці у фокусі доступний у всьому каталозі."
   },
-  "Метаданные прочитаны с замечаниями ·": {
+  "Metadata loaded with warnings ·": {
     "en": "Metadata loaded with issues ·",
     "ru": "Метаданные прочитаны с замечаниями ·",
     "uk": "Метадані прочитано із зауваженнями ·"
   },
-  "Обновление графа…": {
+  "Refreshing graph…": {
     "en": "Refreshing graph…",
     "ru": "Обновление графа…",
     "uk": "Оновлення графа…"
   },
-  "{0} из {1} таблиц · {2} связей": {
+  "{0} of {1} tables · {2} relationships": {
     "en": "{0} of {1} tables · {2} relationships",
     "ru": "{0} из {1} таблиц · {2} связей",
     "uk": "{0} із {1} таблиць · {2} зв’язків"
   },
-  "Фрагмент ограничен — выберите фокус или уточните фильтры": {
+  "Graph section limited — choose a focus or refine the filters": {
     "en": "Graph section limited — choose a focus or refine the filters",
     "ru": "Фрагмент ограничен — выберите фокус или уточните фильтры",
     "uk": "Фрагмент обмежено — виберіть фокус або уточніть фільтри"
   },
-  "Автораскладка": {
+  "Auto layout": {
     "en": "Auto layout",
     "ru": "Автораскладка",
     "uk": "Автоматичне розташування"
   },
-  "Увеличить": {
+  "Zoom in": {
     "en": "Zoom in",
     "ru": "Увеличить",
     "uk": "Збільшити"
   },
-  "Уменьшить": {
+  "Zoom out": {
     "en": "Zoom out",
     "ru": "Уменьшить",
     "uk": "Зменшити"
   },
-  "Показать весь фрагмент": {
+  "Fit the entire section": {
     "en": "Fit the entire section",
     "ru": "Показать весь фрагмент",
     "uk": "Показати весь фрагмент"
   },
-  "Миникарта схемы": {
+  "Schema minimap": {
     "en": "Schema minimap",
     "ru": "Миникарта схемы",
     "uk": "Мінікарта схеми"
   },
-  "В этом фрагменте нет таблиц.": {
+  "There are no tables in this section.": {
     "en": "There are no tables in this section.",
     "ru": "В этом фрагменте нет таблиц.",
     "uk": "У цьому фрагменті немає таблиць."
   },
-  "Обновите workspace или измените фильтры.": {
+  "Refresh the workspace or change the filters.": {
     "en": "Refresh the workspace or change the filters.",
     "ru": "Обновите workspace или измените фильтры.",
     "uk": "Оновіть робочу область або змініть фільтри."
   },
-  "Сплошная линия: сервер разрешает JOIN · пунктир: требуется проверка": {
+  "Solid line: the server allows JOIN · dashed: review required": {
     "en": "Solid line: the server allows JOIN · dashed: review required",
     "ru": "Сплошная линия: сервер разрешает JOIN · пунктир: требуется проверка",
     "uk": "Суцільна лінія: сервер дозволяє JOIN · пунктир: потрібна перевірка"
   },
-  "Перетаскивайте таблицы, положение сохраняется": {
+  "Drag tables to move them; the layout is saved": {
     "en": "Drag tables to move them; the layout is saved",
     "ru": "Перетаскивайте таблицы, положение сохраняется",
     "uk": "Перетягуйте таблиці — розташування зберігається"
   },
-  "Загрузка положения…": {
+  "Loading layout…": {
     "en": "Loading layout…",
     "ru": "Загрузка положения…",
     "uk": "Завантаження розташування…"
   },
-  "Связи workspace": {
+  "Workspace relationships": {
     "en": "Workspace relationships",
     "ru": "Связи workspace",
     "uk": "Зв’язки робочої області"
   },
-  "Название, тип или статус…": {
+  "Name, type, or status…": {
     "en": "Name, type, or status…",
     "ru": "Название, тип или статус…",
     "uk": "Назва, тип або стан…"
   },
-  "Поиск связей": {
+  "Search relationships": {
     "en": "Search relationships",
     "ru": "Поиск связей",
     "uk": "Пошук зв’язків"
   },
-  "Связи не найдены. Проверьте сканирование и привязки EF.": {
+  "No relationships found. Check the scan and EF bindings.": {
     "en": "No relationships found. Check the scan and EF bindings.",
     "ru": "Связи не найдены. Проверьте сканирование и привязки EF.",
     "uk": "Зв’язків не знайдено. Перевірте сканування та прив’язки EF."
   },
-  "Первые 250 из": {
+  "First 250 of": {
     "en": "First 250 of",
     "ru": "Первые 250 из",
     "uk": "Перші 250 із"
   },
-  "; уточните поиск.": {
+  "; refine your search.": {
     "en": "; refine your search.",
     "ru": "; уточните поиск.",
     "uk": "; уточніть пошук."
   },
-  "Доказательства связи": {
+  "Relationship evidence": {
     "en": "Relationship evidence",
     "ru": "Доказательства связи",
     "uk": "Докази зв’язку"
   },
-  "JOIN разрешён сервером": {
+  "JOIN allowed by the server": {
     "en": "JOIN allowed by the server",
     "ru": "JOIN разрешён сервером",
     "uk": "JOIN дозволено сервером"
   },
-  "JOIN не разрешён": {
+  "JOIN not allowed": {
     "en": "JOIN not allowed",
     "ru": "JOIN не разрешён",
     "uk": "JOIN не дозволено"
   },
-  "Решение пользователя:": {
+  "User decision:": {
     "en": "User decision:",
     "ru": "Решение пользователя:",
     "uk": "Рішення користувача:"
   },
-  "Основание решения": {
+  "Reason for the decision": {
     "en": "Reason for the decision",
     "ru": "Основание решения",
     "uk": "Підстава рішення"
   },
-  "Основание решения по связи": {
+  "Reason for the relationship decision": {
     "en": "Reason for the relationship decision",
     "ru": "Основание решения по связи",
     "uk": "Підстава рішення щодо зв’язку"
   },
-  "Почему эта логическая связь корректна или ошибочна?": {
+  "Why is this logical relationship correct or incorrect?": {
     "en": "Why is this logical relationship correct or incorrect?",
     "ru": "Почему эта логическая связь корректна или ошибочна?",
     "uk": "Чому цей логічний зв’язок правильний або хибний?"
   },
-  "Сохранение…": {
+  "Saving…": {
     "en": "Saving…",
     "ru": "Сохранение…",
     "uk": "Збереження…"
   },
-  "Подтвердить связь": {
+  "Confirm relationship": {
     "en": "Confirm relationship",
     "ru": "Подтвердить связь",
     "uk": "Підтвердити зв’язок"
   },
-  "Отклонить": {
+  "Reject": {
     "en": "Reject",
     "ru": "Отклонить",
     "uk": "Відхилити"
   },
-  "Решение сохраняется отдельно от схемы. Сервер перепроверяет совместимость ключей и конфликты.": {
+  "The decision is stored separately from the schema. The server rechecks key compatibility and conflicts.": {
     "en": "The decision is stored separately from the schema. The server rechecks key compatibility and conflicts.",
     "ru": "Решение сохраняется отдельно от схемы. Сервер перепроверяет совместимость ключей и конфликты.",
     "uk": "Рішення зберігається окремо від схеми. Сервер повторно перевіряє сумісність ключів і конфлікти."
   },
-  "Таблица": {
+  "Table": {
     "en": "Table",
     "ru": "Таблица",
     "uk": "Таблиця"
   },
-  "Фокус и соседи": {
+  "Focus and neighbors": {
     "en": "Focus and neighbors",
     "ru": "Фокус и соседи",
     "uk": "Фокус і сусіди"
   },
-  "Связи в загруженном фрагменте": {
+  "Relationships in the loaded section": {
     "en": "Relationships in the loaded section",
     "ru": "Связи в загруженном фрагменте",
     "uk": "Зв’язки в завантаженому фрагменті"
   },
-  "В этом фрагменте нет соседних связей.": {
+  "There are no neighboring relationships in this section.": {
     "en": "There are no neighboring relationships in this section.",
     "ru": "В этом фрагменте нет соседних связей.",
     "uk": "У цьому фрагменті немає сусідніх зв’язків."
   },
-  "Выберите ребро или таблицу": {
+  "Select an edge or table": {
     "en": "Select an edge or table",
     "ru": "Выберите ребро или таблицу",
     "uk": "Виберіть ребро або таблицю"
   },
-  "Для связи покажем источник, evidence, confidence и возможность использовать её в JOIN.": {
+  "View the relationship’s source, evidence, confidence, and whether it can be used in JOIN.": {
     "en": "View the relationship’s source, evidence, confidence, and whether it can be used in JOIN.",
     "ru": "Для связи покажем источник, evidence, confidence и возможность использовать её в JOIN.",
     "uk": "Для зв’язку буде показано джерело, докази, впевненість і можливість використання в JOIN."
   },
-  "Только доверенные сервером маршруты": {
+  "Only paths trusted by the server": {
     "en": "Only paths trusted by the server",
     "ru": "Только доверенные сервером маршруты",
     "uk": "Лише шляхи, яким довіряє сервер"
   },
-  "Исходная таблица": {
+  "Source table": {
     "en": "Source table",
     "ru": "Исходная таблица",
     "uk": "Вихідна таблиця"
   },
-  "Целевая таблица": {
+  "Target table": {
     "en": "Target table",
     "ru": "Целевая таблица",
     "uk": "Цільова таблиця"
   },
-  "Поиск…": {
+  "Searching…": {
     "en": "Searching…",
     "ru": "Поиск…",
     "uk": "Пошук…"
   },
-  "Найти пути": {
+  "Find paths": {
     "en": "Find paths",
     "ru": "Найти пути",
     "uk": "Знайти шляхи"
   },
-  "Доверенный путь не найден. Неподтверждённые кандидаты, отклонённые и конфликтующие связи не используются. Проверьте evidence и привязки EF.": {
+  "No trusted path found. Unconfirmed candidates, rejected relationships, and conflicting relationships are excluded. Check the evidence and EF bindings.": {
     "en": "No trusted path found. Unconfirmed candidates, rejected relationships, and conflicting relationships are excluded. Check the evidence and EF bindings.",
     "ru": "Доверенный путь не найден. Неподтверждённые кандидаты, отклонённые и конфликтующие связи не используются. Проверьте evidence и привязки EF.",
     "uk": "Довіреного шляху не знайдено. Непідтверджені кандидати, відхилені та конфліктні зв’язки не використовуються. Перевірте докази та прив’язки EF."
   },
-  "Найдено маршрутов: {0}. Выберите подходящий перед копированием SQL.": {
+  "Paths found: {0}. Select one before copying the SQL.": {
     "en": "Paths found: {0}. Select one before copying the SQL.",
     "ru": "Найдено маршрутов: {0}. Выберите подходящий перед копированием SQL.",
     "uk": "Знайдено шляхів: {0}. Виберіть потрібний перед копіюванням SQL."
   },
-  "Найден один доверенный маршрут.": {
+  "One trusted path found.": {
     "en": "One trusted path found.",
     "ru": "Найден один доверенный маршрут.",
     "uk": "Знайдено один довірений шлях."
   },
-  "Маршрут": {
+  "Path": {
     "en": "Path",
     "ru": "Маршрут",
     "uk": "Шлях"
   },
-  "связей": {
+  "relationships": {
     "en": "relationships",
     "ru": "связей",
     "uk": "зв’язків"
   },
-  "таблица": {
+  "table": {
     "en": "table",
     "ru": "таблица",
     "uk": "таблиця"
   },
-  "Создать рецепт": {
+  "Create recipe": {
     "en": "Create recipe",
     "ru": "Создать рецепт",
     "uk": "Створити рецепт"
   },
-  "Скопировать SQL": {
+  "Copy SQL": {
     "en": "Copy SQL",
     "ru": "Скопировать SQL",
     "uk": "Скопіювати SQL"
   },
-  "Предварительный JOIN SQL": {
+  "JOIN SQL preview": {
     "en": "JOIN SQL preview",
     "ru": "Предварительный JOIN SQL",
     "uk": "Попередній перегляд JOIN SQL"
   },
-  "Это предварительный SQL. Запросы не исполняются.": {
+  "This is a SQL preview. Queries are not executed.": {
     "en": "This is a SQL preview. Queries are not executed.",
     "ru": "Это предварительный SQL. Запросы не исполняются.",
     "uk": "Це попередній перегляд SQL. Запити не виконуються."
   },
-  "Выберите один из маршрутов, чтобы увидеть JOIN SQL.": {
+  "Select a path to view its JOIN SQL.": {
     "en": "Select a path to view its JOIN SQL.",
     "ru": "Выберите один из маршрутов, чтобы увидеть JOIN SQL.",
     "uk": "Виберіть один зі шляхів, щоб побачити JOIN SQL."
   },
-  "Подтверждена": {
+  "Confirmed": {
     "en": "Confirmed",
     "ru": "Подтверждена",
     "uk": "Підтверджено"
   },
-  "Проверьте конфликт": {
+  "Review conflict": {
     "en": "Review conflict",
     "ru": "Проверьте конфликт",
     "uk": "Перевірте конфлікт"
   },
-  "Схема изменилась": {
+  "Schema changed": {
     "en": "Schema changed",
     "ru": "Схема изменилась",
     "uk": "Схема змінилася"
   },
-  "Конфликт": {
+  "Conflict": {
     "en": "Conflict",
     "ru": "Конфликт",
     "uk": "Конфлікт"
   },
-  "Отклонена": {
+  "Rejected": {
     "en": "Rejected",
     "ru": "Отклонена",
     "uk": "Відхилено"
   },
-  "Ручные связи недоступны.": {
+  "Manual relationships unavailable.": {
     "en": "Manual relationships unavailable.",
     "ru": "Ручные связи недоступны.",
     "uk": "Ручні зв’язки недоступні."
   },
-  "Не удалось открыть связь. Возможно, одна из таблиц удалена из текущей схемы.": {
+  "Could not open the relationship. One of the tables may have been removed from the current schema.": {
     "en": "Could not open the relationship. One of the tables may have been removed from the current schema.",
     "ru": "Не удалось открыть связь. Возможно, одна из таблиц удалена из текущей схемы.",
     "uk": "Не вдалося відкрити зв’язок. Можливо, одну з таблиць видалено з поточної схеми."
   },
-  "Связь сохранена. Её можно использовать в маршрутах и рецептах.": {
+  "Relationship saved. It can be used in paths and recipes.": {
     "en": "Relationship saved. It can be used in paths and recipes.",
     "ru": "Связь сохранена. Её можно использовать в маршрутах и рецептах.",
     "uk": "Зв’язок збережено. Його можна використовувати у шляхах і рецептах."
   },
-  "Связь сохранена, но не разрешена для JOIN. Откройте доказательства в графе и проверьте конфликт.": {
+  "Relationship saved, but not allowed for JOIN. Open the evidence in the graph and review the conflict.": {
     "en": "Relationship saved, but not allowed for JOIN. Open the evidence in the graph and review the conflict.",
     "ru": "Связь сохранена, но не разрешена для JOIN. Откройте доказательства в графе и проверьте конфликт.",
     "uk": "Зв’язок збережено, але його не дозволено для JOIN. Відкрийте докази в графі та перевірте конфлікт."
   },
-  "Связь не сохранена.": {
+  "Relationship was not saved.": {
     "en": "Relationship was not saved.",
     "ru": "Связь не сохранена.",
     "uk": "Зв’язок не збережено."
   },
-  "Ручная связь удалена. Маршруты будут проверены заново.": {
+  "Manual relationship deleted. Paths will be checked again.": {
     "en": "Manual relationship deleted. Paths will be checked again.",
     "ru": "Ручная связь удалена. Маршруты будут проверены заново.",
     "uk": "Ручний зв’язок видалено. Шляхи буде перевірено знову."
   },
-  "Связь не удалена.": {
+  "Relationship was not deleted.": {
     "en": "Relationship was not deleted.",
     "ru": "Связь не удалена.",
     "uk": "Зв’язок не видалено."
   },
-  "Ручные связи": {
+  "Manual relationships": {
     "en": "Manual relationships",
     "ru": "Ручные связи",
     "uk": "Ручні зв’язки"
   },
-  "Укажите известное соответствие колонок, даже если в схеме нет внешнего ключа.": {
+  "Specify a known column mapping, even if the schema has no foreign key.": {
     "en": "Specify a known column mapping, even if the schema has no foreign key.",
     "ru": "Укажите известное соответствие колонок, даже если в схеме нет внешнего ключа.",
     "uk": "Укажіть відоме зіставлення стовпців, навіть якщо у схемі немає зовнішнього ключа."
   },
-  "+ Новая ручная связь": {
+  "+ New manual relationship": {
     "en": "+ New manual relationship",
     "ru": "+ Новая ручная связь",
     "uk": "+ Новий ручний зв’язок"
   },
-  "Загрузка связей…": {
+  "Loading relationships…": {
     "en": "Loading relationships…",
     "ru": "Загрузка связей…",
     "uk": "Завантаження зв’язків…"
   },
-  "Доступна для JOIN": {
+  "Available for JOIN": {
     "en": "Available for JOIN",
     "ru": "Доступна для JOIN",
     "uk": "Доступний для JOIN"
   },
-  "Не используется в JOIN": {
+  "Not used in JOIN": {
     "en": "Not used in JOIN",
     "ru": "Не используется в JOIN",
     "uk": "Не використовується в JOIN"
   },
-  "Изменить": {
+  "Edit": {
     "en": "Edit",
     "ru": "Изменить",
     "uk": "Змінити"
   },
-  "Удалить связь": {
+  "Delete relationship": {
     "en": "Delete relationship",
     "ru": "Удалить связь",
     "uk": "Видалити зв’язок"
   },
-  "Удалить «": {
+  "Delete “": {
     "en": "Delete “",
     "ru": "Удалить «",
     "uk": "Видалити «"
   },
-  "»? Рецепты с этой связью могут потребовать проверки.": {
+  "”? Recipes using this relationship may need review.": {
     "en": "”? Recipes using this relationship may need review.",
     "ru": "»? Рецепты с этой связью могут потребовать проверки.",
     "uk": "»? Рецепти з цим зв’язком можуть потребувати перевірки."
   },
-  "Удалить окончательно": {
+  "Delete permanently": {
     "en": "Delete permanently",
     "ru": "Удалить окончательно",
     "uk": "Видалити остаточно"
   },
-  "Оставить связь": {
+  "Keep relationship": {
     "en": "Keep relationship",
     "ru": "Оставить связь",
     "uk": "Залишити зв’язок"
   },
-  "Ручных связей пока нет. Начните с таблиц и колонок, соответствие которых вам известно.": {
+  "No manual relationships yet. Start with tables and columns whose mapping you know.": {
     "en": "No manual relationships yet. Start with tables and columns whose mapping you know.",
     "ru": "Ручных связей пока нет. Начните с таблиц и колонок, соответствие которых вам известно.",
     "uk": "Ручних зв’язків ще немає. Почніть із таблиць і стовпців, зіставлення яких вам відоме."
   },
-  "Ручная связь: исходная таблица": {
+  "Manual relationship: source table": {
     "en": "Manual relationship: source table",
     "ru": "Ручная связь: исходная таблица",
     "uk": "Ручний зв’язок: вихідна таблиця"
   },
-  "Ручная связь: целевая таблица": {
+  "Manual relationship: target table": {
     "en": "Manual relationship: target table",
     "ru": "Ручная связь: целевая таблица",
     "uk": "Ручний зв’язок: цільова таблиця"
   },
-  "Название связи": {
+  "Relationship name": {
     "en": "Relationship name",
     "ru": "Название связи",
     "uk": "Назва зв’язку"
   },
-  "Название ручной связи": {
+  "Manual relationship name": {
     "en": "Manual relationship name",
     "ru": "Название ручной связи",
     "uk": "Назва ручного зв’язку"
   },
-  "Например, документы → заказы": {
+  "For example, documents → orders": {
     "en": "For example, documents → orders",
     "ru": "Например, документы → заказы",
     "uk": "Наприклад, документи → замовлення"
   },
-  "Почему эти колонки соответствуют друг другу": {
+  "Why these columns correspond to each other": {
     "en": "Why these columns correspond to each other",
     "ru": "Почему эти колонки соответствуют друг другу",
     "uk": "Чому ці стовпці відповідають один одному"
   },
-  "Основание ручной связи": {
+  "Reason for the manual relationship": {
     "en": "Reason for the manual relationship",
     "ru": "Основание ручной связи",
     "uk": "Підстава ручного зв’язку"
   },
-  "Укажите источник знания о связи и важные условия…": {
+  "Specify the source of your knowledge about this relationship and any important conditions…": {
     "en": "Specify the source of your knowledge about this relationship and any important conditions…",
     "ru": "Укажите источник знания о связи и важные условия…",
     "uk": "Укажіть джерело відомостей про зв’язок і важливі умови…"
   },
-  "Сохранить изменения связи": {
+  "Save relationship changes": {
     "en": "Save relationship changes",
     "ru": "Сохранить изменения связи",
     "uk": "Зберегти зміни зв’язку"
   },
-  "Создать ручную связь": {
+  "Create manual relationship": {
     "en": "Create manual relationship",
     "ru": "Создать ручную связь",
     "uk": "Створити ручний зв’язок"
   },
-  "Закрыть редактор": {
+  "Close editor": {
     "en": "Close editor",
     "ru": "Закрыть редактор",
     "uk": "Закрити редактор"
   },
-  "Ручная связь не меняет SQL-проект. Сервер проверяет типы, порядок колонок и конфликты.": {
+  "A manual relationship does not change the SQL project. The server checks types, column order, and conflicts.": {
     "en": "A manual relationship does not change the SQL project. The server checks types, column order, and conflicts.",
     "ru": "Ручная связь не меняет SQL-проект. Сервер проверяет типы, порядок колонок и конфликты.",
     "uk": "Ручний зв’язок не змінює SQL-проєкт. Сервер перевіряє типи, порядок стовпців і конфлікти."
   },
-  "Колонки связи": {
+  "Relationship columns": {
     "en": "Relationship columns",
     "ru": "Колонки связи",
     "uk": "Стовпці зв’язку"
   },
-  "Пары сопоставляются по порядку": {
+  "Pairs are matched in order": {
     "en": "Pairs are matched in order",
     "ru": "Пары сопоставляются по порядку",
     "uk": "Пари зіставляються за порядком"
   },
-  "Исходная колонка {0}": {
+  "Source column {0}": {
     "en": "Source column {0}",
     "ru": "Исходная колонка {0}",
     "uk": "Вихідний стовпець {0}"
   },
-  "Выберите колонку": {
+  "Select a column": {
     "en": "Select a column",
     "ru": "Выберите колонку",
     "uk": "Виберіть стовпець"
   },
-  "· отсутствует": {
+  "· missing": {
     "en": "· missing",
     "ru": "· отсутствует",
     "uk": "· відсутній"
   },
-  "Целевая колонка {0}": {
+  "Target column {0}": {
     "en": "Target column {0}",
     "ru": "Целевая колонка {0}",
     "uk": "Цільовий стовпець {0}"
   },
-  "Пару {0} выше": {
+  "Move pair {0} up": {
     "en": "Move pair {0} up",
     "ru": "Пару {0} выше",
     "uk": "Перемістити пару {0} вище"
   },
-  "Пару {0} ниже": {
+  "Move pair {0} down": {
     "en": "Move pair {0} down",
     "ru": "Пару {0} ниже",
     "uk": "Перемістити пару {0} нижче"
   },
-  "Удалить пару {0}": {
+  "Delete pair {0}": {
     "en": "Delete pair {0}",
     "ru": "Удалить пару {0}",
     "uk": "Видалити пару {0}"
   },
-  "Удалить": {
+  "Remove": {
     "en": "Delete",
     "ru": "Удалить",
     "uk": "Видалити"
   },
-  ". Сервер проверит совместимость типов, длину и ключи перед сохранением.": {
+  ". The server will check type compatibility, length, and keys before saving.": {
     "en": ". The server will check type compatibility, length, and keys before saving.",
     "ru": ". Сервер проверит совместимость типов, длину и ключи перед сохранением.",
     "uk": ". Сервер перевірить сумісність типів, довжину та ключі перед збереженням."
   },
-  "+ Добавить пару колонок": {
+  "+ Add column pair": {
     "en": "+ Add column pair",
     "ru": "+ Добавить пару колонок",
     "uk": "+ Додати пару стовпців"
   },
-  "Выберите таблицу": {
+  "Select a table": {
     "en": "Select a table",
     "ru": "Выберите таблицу",
     "uk": "Виберіть таблицю"
   },
-  "Поиск таблиц недоступен.": {
+  "Table search unavailable.": {
     "en": "Table search unavailable.",
     "ru": "Поиск таблиц недоступен.",
     "uk": "Пошук таблиць недоступний."
   },
-  "Поиск: {0}": {
+  "Search: {0}": {
     "en": "Search: {0}",
     "ru": "Поиск: {0}",
     "uk": "Пошук: {0}"
   },
-  "Поиск по всем таблицам…": {
+  "Search all tables…": {
     "en": "Search all tables…",
     "ru": "Поиск по всем таблицам…",
     "uk": "Пошук у всіх таблицях…"
   },
-  "{0} найдено{1}": {
+  "{0} found{1}": {
     "en": "{0} found{1}",
     "ru": "{0} найдено{1}",
     "uk": "{0} знайдено{1}"
   },
-  " · показаны первые {0}; уточните поиск": {
+  " · showing the first {0}; refine your search": {
     "en": " · showing the first {0}; refine your search",
     "ru": " · показаны первые {0}; уточните поиск",
     "uk": " · показано перші {0}; уточніть пошук"
   },
-  "Серверный поиск по каталогу": {
+  "Server search across the catalog": {
     "en": "Server search across the catalog",
     "ru": "Серверный поиск по каталогу",
     "uk": "Пошук у каталозі на сервері"
   },
-  "Каталог объектов недоступен.": {
+  "Object catalog unavailable.": {
     "en": "Object catalog unavailable.",
     "ru": "Каталог объектов недоступен.",
     "uk": "Каталог об’єктів недоступний."
   },
-  "Не удалось открыть объект.": {
+  "Could not open the object.": {
     "en": "Could not open the object.",
     "ru": "Не удалось открыть объект.",
     "uk": "Не вдалося відкрити об’єкт."
   },
-  "Обозреватель объектов": {
+  "Object explorer": {
     "en": "Object explorer",
     "ru": "Обозреватель объектов",
     "uk": "Оглядач об’єктів"
   },
-  "Поиск объектов схемы": {
+  "Search schema objects": {
     "en": "Search schema objects",
     "ru": "Поиск объектов схемы",
     "uk": "Пошук об’єктів схеми"
   },
-  "Имя объекта…": {
+  "Object name…": {
     "en": "Object name…",
     "ru": "Имя объекта…",
     "uk": "Назва об’єкта…"
   },
-  "Тип объекта схемы": {
+  "Schema object type": {
     "en": "Schema object type",
     "ru": "Тип объекта схемы",
     "uk": "Тип об’єкта схеми"
   },
-  "Все объекты": {
+  "All objects": {
     "en": "All objects",
     "ru": "Все объекты",
     "uk": "Усі об’єкти"
   },
-  "Объектов: {0}": {
+  "Objects: {0}": {
     "en": "Objects: {0}",
     "ru": "Объектов: {0}",
     "uk": "Об’єктів: {0}"
   },
-  "Объектов по этому фильтру нет.": {
+  "No objects match this filter.": {
     "en": "No objects match this filter.",
     "ru": "Объектов по этому фильтру нет.",
     "uk": "За цим фільтром об’єктів немає."
   },
-  "← Назад": {
+  "← Back": {
     "en": "← Back",
     "ru": "← Назад",
     "uk": "← Назад"
   },
-  "Далее →": {
+  "Next →": {
     "en": "Next →",
     "ru": "Далее →",
     "uk": "Далі →"
   },
-  "Читаем метаданные объекта…": {
+  "Reading object metadata…": {
     "en": "Reading object metadata…",
     "ru": "Читаем метаданные объекта…",
     "uk": "Читання метаданих об’єкта…"
   },
-  "Выберите объект в каталоге.": {
+  "Select an object in the catalog.": {
     "en": "Select an object in the catalog.",
     "ru": "Выберите объект в каталоге.",
     "uk": "Виберіть об’єкт у каталозі."
   },
-  "Частичные метаданные": {
+  "Partial metadata": {
     "en": "Partial metadata",
     "ru": "Частичные метаданные",
     "uk": "Часткові метадані"
   },
-  "Возвращает": {
+  "Returns": {
     "en": "Returns",
     "ru": "Возвращает",
     "uk": "Повертає"
   },
-  "Ссылается на:": {
+  "References:": {
     "en": "References:",
     "ru": "Ссылается на:",
     "uk": "Посилається на:"
   },
-  "Для этого объекта доступны частичные сведения. Неподтверждённые столбцы и связи не используются как точная схема.": {
+  "Only partial information is available for this object. Unverified columns and relationships are not treated as an exact schema.": {
     "en": "Only partial information is available for this object. Unverified columns and relationships are not treated as an exact schema.",
     "ru": "Для этого объекта доступны частичные сведения. Неподтверждённые столбцы и связи не используются как точная схема.",
     "uk": "Для цього об’єкта доступні часткові відомості. Непідтверджені стовпці та зв’язки не використовуються як точна схема."
   },
-  "Колонки ·": {
+  "Columns ·": {
     "en": "Columns ·",
     "ru": "Колонки ·",
     "uk": "Стовпці ·"
   },
-  "Колонка": {
+  "Column": {
     "en": "Column",
     "ru": "Колонка",
     "uk": "Стовпець"
   },
-  "Тип": {
+  "Type": {
     "en": "Type",
     "ru": "Тип",
     "uk": "Тип"
   },
-  "да": {
+  "yes": {
     "en": "yes",
     "ru": "да",
     "uk": "так"
   },
-  "нет": {
+  "no": {
     "en": "no",
     "ru": "нет",
     "uk": "ні"
   },
-  "Параметры ·": {
+  "Parameters ·": {
     "en": "Parameters ·",
     "ru": "Параметры ·",
     "uk": "Параметри ·"
   },
-  "Имя": {
+  "Name": {
     "en": "Name",
     "ru": "Имя",
     "uk": "Назва"
   },
-  "Направление": {
+  "Direction": {
     "en": "Direction",
     "ru": "Направление",
     "uk": "Напрямок"
   },
-  "Уникальные ключи": {
+  "Unique keys": {
     "en": "Unique keys",
     "ru": "Уникальные ключи",
     "uk": "Унікальні ключі"
   },
-  "Индексы ·": {
+  "Indexes ·": {
     "en": "Indexes ·",
     "ru": "Индексы ·",
     "uk": "Індекси ·"
   },
-  "Включены:": {
+  "Included:": {
     "en": "Included:",
     "ru": "Включены:",
     "uk": "Включено:"
   },
-  "Фильтр:": {
+  "Filter:": {
     "en": "Filter:",
     "ru": "Фильтр:",
     "uk": "Фільтр:"
   },
-  "Использует объекты": {
+  "Uses objects": {
     "en": "Uses objects",
     "ru": "Использует объекты",
     "uk": "Використовує об’єкти"
   },
-  "Зависимые объекты": {
+  "Dependent objects": {
     "en": "Dependent objects",
     "ru": "Зависимые объекты",
     "uk": "Залежні об’єкти"
   },
-  "Зависимый объект": {
+  "Dependent object": {
     "en": "Dependent object",
     "ru": "Зависимый объект",
     "uk": "Залежний об’єкт"
   },
-  "Целевой объект не разрешён в текущей модели.": {
+  "The target object is unresolved in the current model.": {
     "en": "The target object is unresolved in the current model.",
     "ru": "Целевой объект не разрешён в текущей модели.",
     "uk": "Цільовий об’єкт не визначено в поточній моделі."
   },
-  "Открыть объект": {
+  "Open object": {
     "en": "Open object",
     "ru": "Открыть объект",
     "uk": "Відкрити об’єкт"
   },
-  "Область влияния:": {
+  "Impact:": {
     "en": "Impact:",
     "ru": "Область влияния:",
     "uk": "Область впливу:"
   },
-  "объектов ·": {
+  "objects ·": {
     "en": "objects ·",
     "ru": "объектов ·",
     "uk": "об’єктів ·"
   },
-  "рецептов. Совместимость рецептов проверяется при обновлении схемы.": {
+  "recipes. Recipe compatibility is checked when the schema is refreshed.": {
     "en": "recipes. Recipe compatibility is checked when the schema is refreshed.",
     "ru": "рецептов. Совместимость рецептов проверяется при обновлении схемы.",
     "uk": "рецептів. Сумісність рецептів перевіряється під час оновлення схеми."
   },
-  "Определение SQL": {
+  "SQL definition": {
     "en": "SQL definition",
     "ru": "Определение SQL",
     "uk": "Визначення SQL"
   },
-  "Загрузка SQL-редактора…": {
+  "Loading SQL editor…": {
     "en": "Loading SQL editor…",
     "ru": "Загрузка SQL-редактора…",
     "uk": "Завантаження SQL-редактора…"
   },
-  "Определение объекта SQL": {
+  "SQL object definition": {
     "en": "SQL object definition",
     "ru": "Определение объекта SQL",
     "uk": "Визначення об’єкта SQL"
   },
-  "Определение SQL недоступно в этом источнике.": {
+  "The SQL definition is unavailable from this source.": {
     "en": "The SQL definition is unavailable from this source.",
     "ru": "Определение SQL недоступно в этом источнике.",
     "uk": "Визначення SQL недоступне в цьому джерелі."
   },
-  "Состав результата не определён в текущем источнике. Выполнение SQL для получения колонок не выполнялось.": {
+  "The result columns are unknown in the current source. SQL was not executed to discover columns.": {
     "en": "The result columns are unknown in the current source. SQL was not executed to discover columns.",
     "ru": "Состав результата не определён в текущем источнике. Выполнение SQL для получения колонок не выполнялось.",
     "uk": "Склад результату не визначено в поточному джерелі. SQL для отримання стовпців не виконувався."
   },
-  "Представление": {
+  "View": {
     "en": "View",
     "ru": "Представление",
     "uk": "Подання"
   },
-  "Процедура": {
+  "Procedure": {
     "en": "Procedure",
     "ru": "Процедура",
     "uk": "Процедура"
   },
-  "Скалярная функция": {
+  "Scalar function": {
     "en": "Scalar function",
     "ru": "Скалярная функция",
     "uk": "Скалярна функція"
   },
-  "Табличная функция": {
+  "Table-valued function": {
     "en": "Table-valued function",
     "ru": "Табличная функция",
     "uk": "Таблична функція"
   },
-  "Синоним": {
+  "Synonym": {
     "en": "Synonym",
     "ru": "Синоним",
     "uk": "Синонім"
   },
-  "Совместим": {
+  "Compatible": {
     "en": "Compatible",
     "ru": "Совместим",
     "uk": "Сумісний"
   },
-  "Есть замечания": {
+  "Has warnings": {
     "en": "Has warnings",
     "ru": "Есть замечания",
     "uk": "Є зауваження"
   },
-  "Несовместим": {
+  "Incompatible": {
     "en": "Incompatible",
     "ru": "Несовместим",
     "uk": "Несумісний"
   },
-  "Нужна проверка": {
+  "Review required": {
     "en": "Needs review",
     "ru": "Нужна проверка",
     "uk": "Потрібна перевірка"
   },
-  "Предложено": {
+  "Proposed": {
     "en": "Proposed",
     "ru": "Предложено",
     "uk": "Запропоновано"
   },
-  "Применено": {
+  "Applied": {
     "en": "Applied",
     "ru": "Применено",
     "uk": "Застосовано"
   },
-  "Отклонено": {
+  "Rejected #2": {
     "en": "Rejected",
     "ru": "Отклонено",
     "uk": "Відхилено"
   },
-  "Таблица добавлена": {
+  "Table added": {
     "en": "Table added",
     "ru": "Таблица добавлена",
     "uk": "Таблицю додано"
   },
-  "Таблица удалена": {
+  "Table removed": {
     "en": "Table removed",
     "ru": "Таблица удалена",
     "uk": "Таблицю видалено"
   },
-  "Колонка добавлена": {
+  "Column added": {
     "en": "Column added",
     "ru": "Колонка добавлена",
     "uk": "Стовпець додано"
   },
-  "Колонка удалена": {
+  "Column removed": {
     "en": "Column removed",
     "ru": "Колонка удалена",
     "uk": "Стовпець видалено"
   },
-  "Изменён тип": {
+  "Type changed": {
     "en": "Type changed",
     "ru": "Изменён тип",
     "uk": "Тип змінено"
   },
-  "Изменён NULL": {
+  "NULL changed": {
     "en": "NULL changed",
     "ru": "Изменён NULL",
     "uk": "NULL змінено"
   },
-  "Изменён PK": {
+  "PK changed": {
     "en": "PK changed",
     "ru": "Изменён PK",
     "uk": "PK змінено"
   },
-  "Добавлен FK": {
+  "FK added": {
     "en": "FK added",
     "ru": "Добавлен FK",
     "uk": "FK додано"
   },
-  "Удалён FK": {
+  "FK removed": {
     "en": "FK removed",
     "ru": "Удалён FK",
     "uk": "FK видалено"
   },
-  "Изменён FK": {
+  "FK changed": {
     "en": "FK changed",
     "ru": "Изменён FK",
     "uk": "FK змінено"
   },
-  "Рабочие области недоступны.": {
+  "Workspaces unavailable.": {
     "en": "Workspaces unavailable.",
     "ru": "Рабочие области недоступны.",
     "uk": "Робочі області недоступні."
   },
-  "Не удалось загрузить изменения.": {
+  "Could not load changes.": {
     "en": "Could not load changes.",
     "ru": "Не удалось загрузить изменения.",
     "uk": "Не вдалося завантажити зміни."
   },
-  "Состояние не обновлено.": {
+  "State was not refreshed.": {
     "en": "State was not refreshed.",
     "ru": "Состояние не обновлено.",
     "uk": "Стан не оновлено."
   },
-  "Снимки недоступны.": {
+  "Snapshots unavailable.": {
     "en": "Snapshots unavailable.",
     "ru": "Снимки недоступны.",
     "uk": "Знімки недоступні."
   },
-  "Сравнение не выполнено.": {
+  "Comparison failed.": {
     "en": "Comparison failed.",
     "ru": "Сравнение не выполнено.",
     "uk": "Порівняння не виконано."
   },
-  "Рецепт или предложения недоступны.": {
+  "Recipe or proposals unavailable.": {
     "en": "Recipe or proposals unavailable.",
     "ru": "Рецепт или предложения недоступны.",
     "uk": "Рецепт або пропозиції недоступні."
   },
-  "Предложение создано. Просмотрите SQL diff и подтвердите применение отдельным действием.": {
+  "Proposal created. Review the SQL diff, then approve it in a separate action.": {
     "en": "Proposal created. Review the SQL diff, then approve it in a separate action.",
     "ru": "Предложение создано. Просмотрите SQL diff и подтвердите применение отдельным действием.",
     "uk": "Пропозицію створено. Перегляньте відмінності SQL і підтвердьте застосування окремою дією."
   },
-  "Сервер не сформировал безопасное предложение.": {
+  "The server could not create a safe proposal.": {
     "en": "The server could not create a safe proposal.",
     "ru": "Сервер не сформировал безопасное предложение.",
     "uk": "Сервер не сформував безпечної пропозиції."
   },
-  "Исправление применено как версия {0}. Предыдущие версии доступны для отката.": {
+  "Repair applied as version {0}. Previous versions are available for rollback.": {
     "en": "Repair applied as version {0}. Previous versions are available for rollback.",
     "ru": "Исправление применено как версия {0}. Предыдущие версии доступны для отката.",
     "uk": "Виправлення застосовано як версію {0}. Попередні версії доступні для відкату."
   },
-  "Предложение не применено. Обновите контекст и повторите preview.": {
+  "Proposal was not applied. Refresh the context and create a new preview.": {
     "en": "Proposal was not applied. Refresh the context and create a new preview.",
     "ru": "Предложение не применено. Обновите контекст и повторите preview.",
     "uk": "Пропозицію не застосовано. Оновіть контекст і повторіть попередній перегляд."
   },
-  "Предложение отклонено.": {
+  "Proposal rejected.": {
     "en": "Proposal rejected.",
     "ru": "Предложение отклонено.",
     "uk": "Пропозицію відхилено."
   },
-  "Рабочая область изменений": {
+  "Changes workspace": {
     "en": "Changes workspace",
     "ru": "Рабочая область изменений",
     "uk": "Робоча область змін"
   },
-  "Загрузка…": {
+  "Loading…": {
     "en": "Loading…",
     "ru": "Загрузка…",
     "uk": "Завантаження…"
   },
-  "Обновить изменения": {
+  "Refresh changes": {
     "en": "Refresh changes",
     "ru": "Обновить изменения",
     "uk": "Оновити зміни"
   },
-  "Скрыть ошибку": {
+  "Dismiss error": {
     "en": "Dismiss error",
     "ru": "Скрыть ошибку",
     "uk": "Приховати помилку"
   },
-  "Выберите рабочую область": {
+  "Select a workspace #2": {
     "en": "Select a workspace",
     "ru": "Выберите рабочую область",
     "uk": "Виберіть робочу область"
   },
-  "Сравнение снимков и проверка рецептов доступны после первого сканирования.": {
+  "Snapshot comparisons and recipe checks are available after the first scan.": {
     "en": "Snapshot comparisons and recipe checks are available after the first scan.",
     "ru": "Сравнение снимков и проверка рецептов доступны после первого сканирования.",
     "uk": "Порівняння знімків і перевірка рецептів доступні після першого сканування."
   },
-  "Изменения схемы": {
+  "Schema changes": {
     "en": "Schema changes",
     "ru": "Изменения схемы",
     "uk": "Зміни схеми"
@@ -1169,412 +1169,412 @@
     "ru": "Неизменяемые снимки",
     "uk": "Незмінні знімки"
   },
-  "База для сравнения снимков": {
+  "Database for snapshot comparison": {
     "en": "Database for snapshot comparison",
     "ru": "База для сравнения снимков",
     "uk": "База даних для порівняння знімків"
   },
-  "Выберите БД": {
+  "Select a database": {
     "en": "Select a database",
     "ru": "Выберите БД",
     "uk": "Виберіть базу даних"
   },
-  "До": {
+  "Before": {
     "en": "Before",
     "ru": "До",
     "uk": "До"
   },
-  "Снимок до изменений": {
+  "Snapshot before changes": {
     "en": "Snapshot before changes",
     "ru": "Снимок до изменений",
     "uk": "Знімок до змін"
   },
-  "Выберите исходный снимок": {
+  "Select the original snapshot": {
     "en": "Select the original snapshot",
     "ru": "Выберите исходный снимок",
     "uk": "Виберіть початковий знімок"
   },
-  "табл.": {
+  "tables": {
     "en": "tables",
     "ru": "табл.",
     "uk": "табл."
   },
-  "После": {
+  "After": {
     "en": "After",
     "ru": "После",
     "uk": "Після"
   },
-  "Снимок после изменений": {
+  "Snapshot after changes": {
     "en": "Snapshot after changes",
     "ru": "Снимок после изменений",
     "uk": "Знімок після змін"
   },
-  "Выберите новый снимок": {
+  "Select the new snapshot": {
     "en": "Select the new snapshot",
     "ru": "Выберите новый снимок",
     "uk": "Виберіть новий знімок"
   },
-  "Сравнение метаданных…": {
+  "Comparing metadata…": {
     "en": "Comparing metadata…",
     "ru": "Сравнение метаданных…",
     "uk": "Порівняння метаданих…"
   },
-  "Нужны два снимка одной БД. Измените исходники и выполните Quick Refresh или Rebuild в workspace.": {
+  "Two snapshots of the same database are required. Change the sources and run Quick Refresh or Rebuild in the workspace.": {
     "en": "Two snapshots of the same database are required. Change the sources and run Quick Refresh or Rebuild in the workspace.",
     "ru": "Нужны два снимка одной БД. Измените исходники и выполните Quick Refresh или Rebuild в workspace.",
     "uk": "Потрібні два знімки однієї бази даних. Змініть вихідні файли та виконайте Quick Refresh або Rebuild у робочій області."
   },
-  "Выберите разные снимки для сравнения.": {
+  "Select different snapshots to compare.": {
     "en": "Select different snapshots to compare.",
     "ru": "Выберите разные снимки для сравнения.",
     "uk": "Виберіть різні знімки для порівняння."
   },
-  "Выберите исходный и новый снимок.": {
+  "Select the original and new snapshots.": {
     "en": "Select the original and new snapshots.",
     "ru": "Выберите исходный и новый снимок.",
     "uk": "Виберіть початковий і новий знімки."
   },
-  "изменений": {
+  "changes": {
     "en": "changes",
     "ru": "изменений",
     "uk": "змін"
   },
-  "возможных переименований": {
+  "possible renames": {
     "en": "possible renames",
     "ru": "возможных переименований",
     "uk": "можливих перейменувань"
   },
-  "Структурное сходство — основание для проверки. Оно не доказывает переименование объекта.": {
+  "Structural similarity is a reason to investigate. It does not prove that an object was renamed.": {
     "en": "Structural similarity is a reason to investigate. It does not prove that an object was renamed.",
     "ru": "Структурное сходство — основание для проверки. Оно не доказывает переименование объекта.",
     "uk": "Структурна схожість — підстава для перевірки. Вона не доводить перейменування об’єкта."
   },
-  "Поиск изменений схемы": {
+  "Search schema changes": {
     "en": "Search schema changes",
     "ru": "Поиск изменений схемы",
     "uk": "Пошук змін схеми"
   },
-  "Таблица, колонка или тип изменения…": {
+  "Table, column, or change type…": {
     "en": "Table, column, or change type…",
     "ru": "Таблица, колонка или тип изменения…",
     "uk": "Таблиця, стовпець або тип зміни…"
   },
-  "Тип изменения схемы": {
+  "Schema change type": {
     "en": "Schema change type",
     "ru": "Тип изменения схемы",
     "uk": "Тип зміни схеми"
   },
-  "Все изменения": {
+  "All changes": {
     "en": "All changes",
     "ru": "Все изменения",
     "uk": "Усі зміни"
   },
-  "Изменение": {
+  "Change": {
     "en": "Change",
     "ru": "Изменение",
     "uk": "Зміна"
   },
-  "Объект": {
+  "Object": {
     "en": "Object",
     "ru": "Объект",
     "uk": "Об’єкт"
   },
-  "Изменений по этому фильтру нет.": {
+  "No changes match this filter.": {
     "en": "No changes match this filter.",
     "ru": "Изменений по этому фильтру нет.",
     "uk": "За цим фільтром змін немає."
   },
-  "Сравниваемая структура не изменилась.": {
+  "The compared structure has not changed.": {
     "en": "The compared structure has not changed.",
     "ru": "Сравниваемая структура не изменилась.",
     "uk": "Порівнювана структура не змінилася."
   },
-  "Первые300 из": {
+  "First 300 of": {
     "en": "First 300 of",
     "ru": "Первые300 из",
     "uk": "Перші 300 із"
   },
-  "; уточните фильтры.": {
+  "; refine the filters.": {
     "en": "; refine the filters.",
     "ru": "; уточните фильтры.",
     "uk": "; уточніть фільтри."
   },
-  "Возможные переименования ·": {
+  "Possible renames ·": {
     "en": "Possible renames ·",
     "ru": "Возможные переименования ·",
     "uk": "Можливі перейменування ·"
   },
-  "Поля замены заполнены из кандидата. Укажите собственное основание и создайте preview.": {
+  "Replacement fields filled from a candidate. Provide your own reason and create a preview.": {
     "en": "Replacement fields filled from a candidate. Provide your own reason and create a preview.",
     "ru": "Поля замены заполнены из кандидата. Укажите собственное основание и создайте preview.",
     "uk": "Поля заміни заповнено з кандидата. Укажіть власну підставу та створіть попередній перегляд."
   },
-  "Заполнить замену": {
+  "Fill replacement fields": {
     "en": "Fill replacement fields",
     "ru": "Заполнить замену",
     "uk": "Заповнити заміну"
   },
-  "Совместимость рецептов": {
+  "Recipe compatibility": {
     "en": "Recipe compatibility",
     "ru": "Совместимость рецептов",
     "uk": "Сумісність рецептів"
   },
-  "По текущей схеме": {
+  "Against the current schema": {
     "en": "Against the current schema",
     "ru": "По текущей схеме",
     "uk": "За поточною схемою"
   },
-  "Открыть рецепт": {
+  "Open recipe": {
     "en": "Open recipe",
     "ru": "Открыть рецепт",
     "uk": "Відкрити рецепт"
   },
-  "Последние совместимые снимки": {
+  "Latest compatible snapshots": {
     "en": "Latest compatible snapshots",
     "ru": "Последние совместимые снимки",
     "uk": "Останні сумісні знімки"
   },
-  "Не зафиксированы": {
+  "Not recorded": {
     "en": "Not recorded",
     "ru": "Не зафиксированы",
     "uk": "Не зафіксовано"
   },
-  "Создайте рецепты, чтобы отслеживать влияние изменений схемы.": {
+  "Create recipes to track the impact of schema changes.": {
     "en": "Create recipes to track the impact of schema changes.",
     "ru": "Создайте рецепты, чтобы отслеживать влияние изменений схемы.",
     "uk": "Створіть рецепти, щоб відстежувати вплив змін схеми."
   },
-  "Предложить исправление колонки": {
+  "Propose a column repair": {
     "en": "Propose a column repair",
     "ru": "Предложить исправление колонки",
     "uk": "Запропонувати виправлення стовпця"
   },
-  "Preview → проверка → подтверждение": {
+  "Preview → review → approval": {
     "en": "Preview → review → approval",
     "ru": "Preview → проверка → подтверждение",
     "uk": "Попередній перегляд → перевірка → підтвердження"
   },
-  "Рецепт": {
+  "Recipe": {
     "en": "Recipe",
     "ru": "Рецепт",
     "uk": "Рецепт"
   },
-  "Рецепт для исправления": {
+  "Recipe to repair": {
     "en": "Recipe to repair",
     "ru": "Рецепт для исправления",
     "uk": "Рецепт для виправлення"
   },
-  "Выберите рецепт": {
+  "Select a recipe": {
     "en": "Select a recipe",
     "ru": "Выберите рецепт",
     "uk": "Виберіть рецепт"
   },
-  "Таблица в выбранной БД": {
+  "Table in the selected database": {
     "en": "Table in the selected database",
     "ru": "Таблица в выбранной БД",
     "uk": "Таблиця у вибраній базі даних"
   },
-  "Таблица для исправления": {
+  "Table to repair": {
     "en": "Table to repair",
     "ru": "Таблица для исправления",
     "uk": "Таблиця для виправлення"
   },
-  "Старая колонка в SQL": {
+  "Old column in SQL": {
     "en": "Old column in SQL",
     "ru": "Старая колонка в SQL",
     "uk": "Старий стовпець у SQL"
   },
-  "Старая колонка": {
+  "Old column": {
     "en": "Old column",
     "ru": "Старая колонка",
     "uk": "Старий стовпець"
   },
-  "Имя удалённого/переименованного поля": {
+  "Name of the removed/renamed column": {
     "en": "Name of the removed/renamed column",
     "ru": "Имя удалённого/переименованного поля",
     "uk": "Назва видаленого/перейменованого стовпця"
   },
-  "Новая колонка в текущем снимке": {
+  "New column in the current snapshot": {
     "en": "New column in the current snapshot",
     "ru": "Новая колонка в текущем снимке",
     "uk": "Новий стовпець у поточному знімку"
   },
-  "Новая колонка": {
+  "New column": {
     "en": "New column",
     "ru": "Новая колонка",
     "uk": "Новий стовпець"
   },
-  "Выберите замену": {
+  "Select a replacement": {
     "en": "Select a replacement",
     "ru": "Выберите замену",
     "uk": "Виберіть заміну"
   },
-  "Основание замены": {
+  "Reason for the replacement": {
     "en": "Reason for the replacement",
     "ru": "Основание замены",
     "uk": "Підстава заміни"
   },
-  "Основание исправления": {
+  "Reason for the repair": {
     "en": "Reason for the repair",
     "ru": "Основание исправления",
     "uk": "Підстава виправлення"
   },
-  "Укажите подтверждённый источник соответствия старого и нового поля…": {
+  "Provide a verified source for the mapping between the old and new columns…": {
     "en": "Provide a verified source for the mapping between the old and new columns…",
     "ru": "Укажите подтверждённый источник соответствия старого и нового поля…",
     "uk": "Укажіть підтверджене джерело зіставлення старого й нового стовпців…"
   },
-  "Выбранная БД не входит в область этого рецепта. Измените БД сравнения или выберите другой рецепт.": {
+  "The selected database is outside this recipe’s scope. Change the comparison database or select another recipe.": {
     "en": "The selected database is outside this recipe’s scope. Change the comparison database or select another recipe.",
     "ru": "Выбранная БД не входит в область этого рецепта. Измените БД сравнения или выберите другой рецепт.",
     "uk": "Вибрана база даних не входить до області цього рецепта. Змініть базу даних для порівняння або виберіть інший рецепт."
   },
-  "Таблицы нет в выбранном новом снимке. Такое изменение требует ручного редактирования рецепта.": {
+  "The table is missing from the selected new snapshot. This change requires editing the recipe manually.": {
     "en": "The table is missing from the selected new snapshot. This change requires editing the recipe manually.",
     "ru": "Таблицы нет в выбранном новом снимке. Такое изменение требует ручного редактирования рецепта.",
     "uk": "Таблиці немає у вибраному новому знімку. Така зміна потребує ручного редагування рецепта."
   },
-  "Сервер привязывает ссылки к таблицам через SQL AST, проверяет замену и сохраняет только предложение. Смысл SQL оценивается при просмотре diff.": {
+  "The server binds references to tables using the SQL AST, validates the replacement, and saves only a proposal. Assess SQL semantics when reviewing the diff.": {
     "en": "The server binds references to tables using the SQL AST, validates the replacement, and saves only a proposal. Assess SQL semantics when reviewing the diff.",
     "ru": "Сервер привязывает ссылки к таблицам через SQL AST, проверяет замену и сохраняет только предложение. Смысл SQL оценивается при просмотре diff.",
     "uk": "Сервер прив’язує посилання до таблиць через SQL AST, перевіряє заміну та зберігає лише пропозицію. Зміст SQL оцінюється під час перегляду відмінностей."
   },
-  "Обработка…": {
+  "Processing…": {
     "en": "Processing…",
     "ru": "Обработка…",
     "uk": "Обробка…"
   },
-  "Создать preview": {
+  "Create preview": {
     "en": "Create preview",
     "ru": "Создать preview",
     "uk": "Створити попередній перегляд"
   },
-  "Предложения исправлений": {
+  "Repair proposals": {
     "en": "Repair proposals",
     "ru": "Предложения исправлений",
     "uk": "Пропозиції виправлень"
   },
-  "Предложение исправления": {
+  "Repair proposal": {
     "en": "Repair proposal",
     "ru": "Предложение исправления",
     "uk": "Пропозиція виправлення"
   },
-  "· замен": {
+  "· replacements: ": {
     "en": "· replacements: ",
     "ru": "· замен",
     "uk": "· замін: "
   },
-  "Версия": {
+  "Version": {
     "en": "Version",
     "ru": "Версия",
     "uk": "Версія"
   },
-  "замен": {
+  "replacements": {
     "en": "replacements",
     "ru": "замен",
     "uk": "замін"
   },
-  "Применено в v": {
+  "Applied in v": {
     "en": "Applied in v",
     "ru": "Применено в v",
     "uk": "Застосовано у v"
   },
-  "До · сохранённое определение": {
+  "Before · saved definition": {
     "en": "Before · saved definition",
     "ru": "До · сохранённое определение",
     "uk": "До · збережене визначення"
   },
-  "После · предложенный SQL": {
+  "After · proposed SQL": {
     "en": "After · proposed SQL",
     "ru": "После · предложенный SQL",
     "uk": "Після · запропонований SQL"
   },
-  "Загрузка локального SQL diff…": {
+  "Loading local SQL diff…": {
     "en": "Loading local SQL diff…",
     "ru": "Загрузка локального SQL diff…",
     "uk": "Завантаження локального порівняння SQL…"
   },
-  "SQL diff предложения исправления": {
+  "Repair proposal SQL diff": {
     "en": "Repair proposal SQL diff",
     "ru": "SQL diff предложения исправления",
     "uk": "Відмінності SQL у пропозиції виправлення"
   },
-  "Подтверждение просмотра SQL diff": {
+  "Confirmation of SQL diff review": {
     "en": "Confirmation of SQL diff review",
     "ru": "Подтверждение просмотра SQL diff",
     "uk": "Підтвердження перегляду відмінностей SQL"
   },
-  "Я просмотрел все изменения SQL и подтверждаю указанное основание замены.": {
+  "I have reviewed all SQL changes and confirm the stated reason for the replacement.": {
     "en": "I have reviewed all SQL changes and confirm the stated reason for the replacement.",
     "ru": "Я просмотрел все изменения SQL и подтверждаю указанное основание замены.",
     "uk": "Я переглянув усі зміни SQL і підтверджую зазначену підставу заміни."
   },
-  "Предложенный SQL ещё требует исправления или ручной проверки. Сервер не применит его как безопасную замену.": {
+  "The proposed SQL still needs correction or manual review. The server will not apply it as a safe replacement.": {
     "en": "The proposed SQL still needs correction or manual review. The server will not apply it as a safe replacement.",
     "ru": "Предложенный SQL ещё требует исправления или ручной проверки. Сервер не применит его как безопасную замену.",
     "uk": "Запропонований SQL ще потребує виправлення або ручної перевірки. Сервер не застосує його як безпечну заміну."
   },
-  "Применение…": {
+  "Applying…": {
     "en": "Applying…",
     "ru": "Применение…",
     "uk": "Застосування…"
   },
-  "Подтвердить и создать версию": {
+  "Approve and create version": {
     "en": "Approve and create version",
     "ru": "Подтвердить и создать версию",
     "uk": "Підтвердити та створити версію"
   },
-  "Отклонить предложение": {
+  "Reject proposal": {
     "en": "Reject proposal",
     "ru": "Отклонить предложение",
     "uk": "Відхилити пропозицію"
   },
-  "Открыть рецепт и историю для отката": {
+  "Open recipe and history for rollback": {
     "en": "Open recipe and history for rollback",
     "ru": "Открыть рецепт и историю для отката",
     "uk": "Відкрити рецепт та історію для відкату"
   },
-  "Предложений нет. Выберите старую и новую колонку и создайте preview.": {
+  "No proposals yet. Select the old and new columns and create a preview.": {
     "en": "No proposals yet. Select the old and new columns and create a preview.",
     "ru": "Предложений нет. Выберите старую и новую колонку и создайте preview.",
     "uk": "Пропозицій немає. Виберіть старий і новий стовпці та створіть попередній перегляд."
   },
-  "Подтверждённая": {
+  "Confirmed #2": {
     "en": "Confirmed",
     "ru": "Подтверждённая",
     "uk": "Підтверджений"
   },
-  "SQL из C# / Dapper": {
+  "SQL from C# / Dapper": {
     "en": "SQL from C# / Dapper",
     "ru": "SQL из C# / Dapper",
     "uk": "SQL із C# / Dapper"
   },
-  "Кандидат": {
+  "Candidate": {
     "en": "Candidate",
     "ru": "Кандидат",
     "uk": "Кандидат"
   },
-  "Физический FK": {
+  "Physical FK": {
     "en": "Physical FK",
     "ru": "Физический FK",
     "uk": "Фізичний FK"
   },
-  "Точный ORM mapping": {
+  "Exact ORM mapping": {
     "en": "Exact ORM mapping",
     "ru": "Точный ORM mapping",
     "uk": "Точне зіставлення ORM"
   },
-  "Требует проверки": {
+  "Needs review": {
     "en": "Needs review",
     "ru": "Требует проверки",
     "uk": "Потребує перевірки"
   },
-  "Наблюдаемый JOIN": {
+  "Observed JOIN": {
     "en": "Observed JOIN",
     "ru": "Наблюдаемый JOIN",
     "uk": "Спостережений JOIN"
   },
-  "Требует повторной проверки": {
+  "Needs another review": {
     "en": "Needs another review",
     "ru": "Требует повторной проверки",
     "uk": "Потребує повторної перевірки"

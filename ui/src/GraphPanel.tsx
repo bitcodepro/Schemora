@@ -118,10 +118,10 @@ const SchemaTableNode = memo(function SchemaTableNode({ data, selected }: NodePr
             })}
           </div>
           <div className="flow-table-count">
-            {table.columns.length} {t('колонок')}
+            {table.columns.length} {t('columns')}
             {table.columns.length > shown.length && (
               <span>
-                {t('ещё')} {table.columns.length - shown.length}
+                {t('more')} {table.columns.length - shown.length}
               </span>
             )}
           </div>
@@ -263,15 +263,15 @@ export default function GraphPanel({
         if (loaded.databases.some(database => database.id === initialDatabaseId)) setDatabaseId(initialDatabaseId);
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Каталог недоступен.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Catalog unavailable.')));
       });
     request<{ value: unknown }>(`/api/settings/${encodeURIComponent('graph:' + workspaceId)}`, { signal: controller.signal })
       .then(loaded => {
         setPositions(readPositions(loaded.value));
-        setSaveState(t('Положение восстановлено'));
+        setSaveState(t('Layout restored'));
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setSaveState(errorMessage(cause, t('Не удалось загрузить положение графа.')));
+        if (!controller.signal.aborted) setSaveState(errorMessage(cause, t('Could not load the graph layout.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setPositionsLoaded(true);
@@ -307,7 +307,7 @@ export default function GraphPanel({
       request<WorkspaceGraph>(`/api/workspaces/${encodeURIComponent(workspaceId)}/graph?${parameters}`, { signal: controller.signal })
         .then(setGraph)
         .catch(cause => {
-          if (!controller.signal.aborted) setGraphError(errorMessage(cause, t('Не удалось загрузить граф.')));
+          if (!controller.signal.aborted) setGraphError(errorMessage(cause, t('Could not load the graph.')));
         })
         .finally(() => {
           if (!controller.signal.aborted) setLoading(false);
@@ -332,7 +332,7 @@ export default function GraphPanel({
         setRelationTotal(page.total);
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setRelationsError(errorMessage(cause, t('Каталог связей недоступен.')));
+        if (!controller.signal.aborted) setRelationsError(errorMessage(cause, t('Relationship catalog unavailable.')));
       });
     return () => controller.abort();
   }, [workspaceId, refresh, relationOffset, relationQuery]);
@@ -495,7 +495,7 @@ export default function GraphPanel({
     for (const table of [focusTable, fromTable, toTable]) if (table) known.set(table.id, table);
     return known;
   }, [graph, focusTable, fromTable, toTable]);
-  const tableName = (id: string) => (knownTables.has(id) ? qualifiedTableName(knownTables.get(id)!) : t('Таблица · {0}', id.slice(0, 12)));
+  const tableName = (id: string) => (knownTables.has(id) ? qualifiedTableName(knownTables.get(id)!) : t('Table · {0}', id.slice(0, 12)));
   const selectedRelation =
     relations.find(relation => relation.id === selectedRelationId) || graph?.relations.find(relation => relation.id === selectedRelationId);
   const selectedTable = knownTables.get(selectedTableId);
@@ -508,7 +508,7 @@ export default function GraphPanel({
   function persistPositions(next: GraphPositions) {
     const targetWorkspace = workspaceId;
     setPositions(next);
-    setSaveState(t('Сохранение положения…'));
+    setSaveState(t('Saving layout…'));
     saveQueue.current = saveQueue.current
       .catch(() => undefined)
       .then(async () => {
@@ -517,9 +517,9 @@ export default function GraphPanel({
             method: 'PUT',
             body: JSON.stringify({ value: { version: 1, positions: next } }),
           });
-          if (workspaceRef.current === targetWorkspace) setSaveState(t('Положение сохранено'));
+          if (workspaceRef.current === targetWorkspace) setSaveState(t('Layout saved'));
         } catch (cause) {
-          if (workspaceRef.current === targetWorkspace) setSaveState(errorMessage(cause, t('Положение не сохранено.')));
+          if (workspaceRef.current === targetWorkspace) setSaveState(errorMessage(cause, t('Layout was not saved.')));
         }
       });
   }
@@ -546,7 +546,7 @@ export default function GraphPanel({
       setPathIndex(null);
       setRefresh(previous => previous + 1);
     } catch (cause) {
-      setDecisionError(errorMessage(cause, t('Решение не сохранено.')));
+      setDecisionError(errorMessage(cause, t('Decision was not saved.')));
     } finally {
       setDecisionBusy(false);
     }
@@ -573,7 +573,7 @@ export default function GraphPanel({
         if (found.length === 1) setPathIndex(0);
       }
     } catch (cause) {
-      if (!controller.signal.aborted) setPathError(errorMessage(cause, t('Не удалось найти путь.')));
+      if (!controller.signal.aborted) setPathError(errorMessage(cause, t('Could not find a path.')));
     } finally {
       if (pathRequest.current === controller) {
         pathRequest.current = null;
@@ -586,9 +586,9 @@ export default function GraphPanel({
     if (!selectedPath) return;
     try {
       await navigator.clipboard.writeText(selectedPath.sql);
-      setCopyState(t('SQL скопирован'));
+      setCopyState(t('SQL copied'));
     } catch {
-      setCopyState(t('Копирование недоступно. Выделите SQL в поле и скопируйте вручную.'));
+      setCopyState(t('Copying is unavailable. Select the SQL in the field and copy it manually.'));
     }
   }
 
@@ -605,7 +605,7 @@ export default function GraphPanel({
         if (workspaceRef.current === targetWorkspace) setCatalog(loaded);
       })
       .catch(cause => {
-        if (workspaceRef.current === targetWorkspace) setError(errorMessage(cause, t('Каталог недоступен.')));
+        if (workspaceRef.current === targetWorkspace) setError(errorMessage(cause, t('Catalog unavailable.')));
       });
   }
 
@@ -618,14 +618,14 @@ export default function GraphPanel({
     <div className="relationship-panel">
       <div className="relationship-top-filters">
         <label>
-          <span className="field-label">{t('База данных')}</span>
+          <span className="field-label">{t('Database')}</span>
           <select
-            aria-label={t('Фильтр БД графа')}
+            aria-label={t('Graph database filter')}
             value={databaseId}
             onChange={event => setDatabaseId(event.target.value)}
             disabled={!workspaceId || pathBusy || decisionBusy}
           >
-            <option value="">{t('Все БД · межбазовые связи')}</option>
+            <option value="">{t('All databases · relationships across databases')}</option>
             {catalog?.databases.map(database => (
               <option value={database.id} key={database.id}>
                 {database.name}
@@ -634,7 +634,7 @@ export default function GraphPanel({
           </select>
         </label>
         <button className="secondary-button" disabled={!workspaceId || loading} onClick={refreshRelationships}>
-          {t('Обновить связи')}
+          {t('Refresh relationships')}
         </button>
       </div>
       {error && (
@@ -644,25 +644,25 @@ export default function GraphPanel({
       )}
       {!workspaceId ? (
         <div className="panel-placeholder">
-          <strong>{t('Сначала создайте рабочую область')}</strong>
-          <p>{t('Откройте «Рабочая область», укажите папки и выполните сканирование.')}</p>
+          <strong>{t('Create a workspace first')}</strong>
+          <p>{t('Open “Workspace”, select folders, and run a scan.')}</p>
         </div>
       ) : (
         <>
           <section className="relationship-filter-card">
             <div className="graph-filter-row">
               <label>
-                <span className="field-label">{t('Поиск таблиц / полей')}</span>
+                <span className="field-label">{t('Search tables / columns')}</span>
                 <input
                   type="search"
                   value={query}
                   onChange={event => setQuery(event.target.value)}
-                  placeholder={t('Название таблицы или колонки…')}
-                  aria-label={t('Поиск в графе')}
+                  placeholder={t('Table or column name…')}
+                  aria-label={t('Search the graph')}
                 />
               </label>
               <label>
-                <span className="field-label">{t('Схема')}</span>
+                <span className="field-label">{t('Schema')}</span>
                 <input
                   list="graph-schema-options"
                   value={schema}
@@ -670,8 +670,8 @@ export default function GraphPanel({
                     setSchema(event.target.value);
                     setFocusTable(null);
                   }}
-                  placeholder={t('Все схемы')}
-                  aria-label={t('Фильтр схемы')}
+                  placeholder={t('All schemas')}
+                  aria-label={t('Schema filter')}
                 />
                 <datalist id="graph-schema-options">
                   {knownSchemas.map(name => (
@@ -681,7 +681,7 @@ export default function GraphPanel({
               </label>
               <label className="confidence-filter">
                 <span className="field-label">
-                  {t('Минимальная уверенность')} <strong>{minimumConfidence}%</strong>
+                  {t('Minimum confidence')} <strong>{minimumConfidence}%</strong>
                 </span>
                 <input
                   type="range"
@@ -690,11 +690,11 @@ export default function GraphPanel({
                   step="5"
                   value={minimumConfidence}
                   onChange={event => setMinimumConfidence(Number(event.target.value))}
-                  aria-label={t('Минимальная уверенность')}
+                  aria-label={t('Minimum confidence')}
                 />
               </label>
             </div>
-            <div className="relation-kind-filters" aria-label={t('Типы связей')}>
+            <div className="relation-kind-filters" aria-label={t('Relationship types')}>
               {relationKinds.map(kind => (
                 <button
                   key={kind}
@@ -712,23 +712,23 @@ export default function GraphPanel({
                 workspaceId={workspaceId}
                 databaseId={databaseId}
                 schema={schema}
-                label={t('Таблица в фокусе')}
+                label={t('Focused table')}
                 value={focusTable}
                 onChange={setFocusTable}
-                emptyLabel={t('Весь загруженный фрагмент')}
+                emptyLabel={t('Entire loaded graph section')}
               />
               <label className="hops-picker">
-                <span className="field-label">{t('Шагов от фокуса')}</span>
-                <select value={hops} onChange={event => setHops(Number(event.target.value))} aria-label={t('Количество шагов')}>
-                  <option value="0">{t('0 · только таблица')}</option>
-                  <option value="1">{t('1 · прямые соседи')}</option>
-                  <option value="2">{t('2 шага')}</option>
-                  <option value="3">{t('3 шага')}</option>
+                <span className="field-label">{t('Hops from focus')}</span>
+                <select value={hops} onChange={event => setHops(Number(event.target.value))} aria-label={t('Number of hops')}>
+                  <option value="0">{t('0 · table only')}</option>
+                  <option value="1">{t('1 · immediate neighbors')}</option>
+                  <option value="2">{t('2 hops')}</option>
+                  <option value="3">{t('3 hops')}</option>
                 </select>
               </label>
               <div className="graph-scope-note">
                 {t(
-                  'Фильтры и окрестность применяются на сервере. В одном фрагменте — до 150 таблиц. Поиск фокуса доступен по всему каталогу.',
+                  'Filters and neighborhoods are applied on the server. Each section contains up to 150 tables. Search for a focus table across the entire catalog.',
                 )}
               </div>
             </div>
@@ -741,7 +741,7 @@ export default function GraphPanel({
           {Boolean(graph?.diagnostics.length) && (
             <details className="model-diagnostics" open={graph?.diagnostics.some(item => item.severity.toLowerCase() === 'error')}>
               <summary>
-                {t('Метаданные прочитаны с замечаниями ·')} {graph?.diagnostics.length}
+                {t('Metadata loaded with warnings ·')} {graph?.diagnostics.length}
               </summary>
               {graph?.diagnostics.map((diagnostic, index) => (
                 <div className={`alert ${diagnostic.severity === 'error' ? 'error' : 'warning'}`} key={`${diagnostic.code}-${index}`}>
@@ -757,9 +757,14 @@ export default function GraphPanel({
             <div className="flow-browser-toolbar">
               <span>
                 {loading
-                  ? t('Обновление графа…')
-                  : t('{0} из {1} таблиц · {2} связей', graph?.tables.length || 0, graph?.totalTables || 0, graph?.relations.length || 0)}
-                {graph?.truncated && <b>{t('Фрагмент ограничен — выберите фокус или уточните фильтры')}</b>}
+                  ? t('Refreshing graph…')
+                  : t(
+                      '{0} of {1} tables · {2} relationships',
+                      graph?.tables.length || 0,
+                      graph?.totalTables || 0,
+                      graph?.relations.length || 0,
+                    )}
+                {graph?.truncated && <b>{t('Graph section limited — choose a focus or refine the filters')}</b>}
               </span>
               <button
                 className="text-button"
@@ -776,7 +781,7 @@ export default function GraphPanel({
                   }
                 }}
               >
-                {t('Автораскладка')}
+                {t('Auto layout')}
               </button>
               <button className="text-button" disabled={!nodes.length || exportBusy} onClick={() => void exportGraph('png')}>
                 {t('Export PNG')}
@@ -833,9 +838,9 @@ export default function GraphPanel({
                 zoomOnScroll
                 zoomOnPinch
                 ariaLabelConfig={{
-                  'controls.zoomIn.ariaLabel': t('Увеличить'),
-                  'controls.zoomOut.ariaLabel': t('Уменьшить'),
-                  'controls.fitView.ariaLabel': t('Показать весь фрагмент'),
+                  'controls.zoomIn.ariaLabel': t('Zoom in'),
+                  'controls.zoomOut.ariaLabel': t('Zoom out'),
+                  'controls.fitView.ariaLabel': t('Fit the entire section'),
                 }}
               >
                 <Background variant={BackgroundVariant.Dots} gap={21} size={1} color={token('--border-strong')} />
@@ -843,7 +848,7 @@ export default function GraphPanel({
                 <MiniMap
                   pannable
                   zoomable
-                  ariaLabel={t('Миникарта схемы')}
+                  ariaLabel={t('Schema minimap')}
                   nodeColor={node =>
                     (view.bySchema && colorsBySchema.get((node.data as TableNode['data']).table.schema)) || token('--bg-active')
                   }
@@ -854,16 +859,16 @@ export default function GraphPanel({
               </ReactFlow>
               {!loading && !graph?.tables.length && (
                 <div className="flow-empty">
-                  {t('В этом фрагменте нет таблиц.')}
+                  {t('There are no tables in this section.')}
                   <br />
-                  {t('Обновите workspace или измените фильтры.')}
+                  {t('Refresh the workspace or change the filters.')}
                 </div>
               )}
             </div>
             <div className="flow-browser-footer">
-              <span>{t('Сплошная линия: сервер разрешает JOIN · пунктир: требуется проверка')}</span>
+              <span>{t('Solid line: the server allows JOIN · dashed: review required')}</span>
               <span>
-                {tMessage(saveState) || (positionsLoaded ? t('Перетаскивайте таблицы, положение сохраняется') : t('Загрузка положения…'))}
+                {tMessage(saveState) || (positionsLoaded ? t('Drag tables to move them; the layout is saved') : t('Loading layout…'))}
               </span>
             </div>
           </section>
@@ -871,13 +876,13 @@ export default function GraphPanel({
             <section className="relation-catalog">
               <div className="section-heading">
                 <h2>
-                  {t('Связи workspace')} <span className="section-count">{relationTotal}</span>
+                  {t('Workspace relationships')} <span className="section-count">{relationTotal}</span>
                 </h2>
               </div>
               <input
                 type="search"
-                placeholder={t('Название, тип или статус…')}
-                aria-label={t('Поиск связей')}
+                placeholder={t('Name, type, or status…')}
+                aria-label={t('Search relationships')}
                 value={relationQuery}
                 onChange={event => setRelationQuery(event.target.value)}
               />
@@ -899,7 +904,7 @@ export default function GraphPanel({
                     <em>{Math.round(relation.confidence * 100)}%</em>
                   </button>
                 ))}
-                {!filteredRelations.length && <p className="muted-text">{t('Связи не найдены. Проверьте сканирование и привязки EF.')}</p>}
+                {!filteredRelations.length && <p className="muted-text">{t('No relationships found. Check the scan and EF bindings.')}</p>}
               </div>
               {relationTotal > 100 && (
                 <div className="enhancement-actions">
@@ -924,8 +929,8 @@ export default function GraphPanel({
               )}
               {filteredRelations.length > 250 && (
                 <p className="workspace-limit-note">
-                  {t('Первые 250 из')} {filteredRelations.length}
-                  {t('; уточните поиск.')}
+                  {t('First 250 of')} {filteredRelations.length}
+                  {t('; refine your search.')}
                 </p>
               )}
             </section>
@@ -933,9 +938,9 @@ export default function GraphPanel({
               {selectedRelation ? (
                 <>
                   <div className="section-heading">
-                    <h2>{t('Доказательства связи')}</h2>
+                    <h2>{t('Relationship evidence')}</h2>
                     <span className={selectedRelation.canUseForJoin ? 'confirmed-tag' : 'neutral-tag'}>
-                      {selectedRelation.canUseForJoin ? t('JOIN разрешён сервером') : t('JOIN не разрешён')}
+                      {selectedRelation.canUseForJoin ? t('JOIN allowed by the server') : t('JOIN not allowed')}
                     </span>
                   </div>
                   <h3>{selectedRelation.name}</h3>
@@ -965,7 +970,7 @@ export default function GraphPanel({
                   </div>
                   {selectedRelation.reviewReason && (
                     <p className="relation-review-reason">
-                      {t('Решение пользователя:')}{' '}
+                      {t('User decision:')}{' '}
                       {selectedRelation.evidence.some(item => ['user-decision', 'manual-relation'].includes(item.source))
                         ? selectedRelation.reviewReason
                         : tMessage(selectedRelation.reviewReason)}
@@ -987,13 +992,13 @@ export default function GraphPanel({
                     selectedRelation.status !== 'stale' && (
                       <div className="relation-decision">
                         <label className="field-label">
-                          {t('Основание решения')}
+                          {t('Reason for the decision')}
                           <textarea
-                            aria-label={t('Основание решения по связи')}
+                            aria-label={t('Reason for the relationship decision')}
                             value={decisionReason}
                             maxLength={1000}
                             onChange={event => setDecisionReason(event.target.value)}
-                            placeholder={t('Почему эта логическая связь корректна или ошибочна?')}
+                            placeholder={t('Why is this logical relationship correct or incorrect?')}
                             disabled={decisionBusy}
                             rows={3}
                           />
@@ -1004,17 +1009,19 @@ export default function GraphPanel({
                             disabled={decisionBusy || !decisionReason.trim()}
                             onClick={() => void decide('confirmed')}
                           >
-                            {decisionBusy ? t('Сохранение…') : t('Подтвердить связь')}
+                            {decisionBusy ? t('Saving…') : t('Confirm relationship')}
                           </button>
                           <button
                             className="secondary-button"
                             disabled={decisionBusy || !decisionReason.trim()}
                             onClick={() => void decide('rejected')}
                           >
-                            {t('Отклонить')}
+                            {t('Reject')}
                           </button>
                         </div>
-                        <p>{t('Решение сохраняется отдельно от схемы. Сервер перепроверяет совместимость ключей и конфликты.')}</p>
+                        <p>
+                          {t('The decision is stored separately from the schema. The server rechecks key compatibility and conflicts.')}
+                        </p>
                         {decisionError && (
                           <p className="job-error" role="alert">
                             {tMessage(decisionError)}
@@ -1026,9 +1033,9 @@ export default function GraphPanel({
               ) : selectedTable ? (
                 <>
                   <div className="section-heading">
-                    <h2>{t('Таблица')}</h2>
+                    <h2>{t('Table')}</h2>
                     <button className="text-button" onClick={() => setFocusTable(selectedTable)}>
-                      {t('Фокус и соседи')}
+                      {t('Focus and neighbors')}
                     </button>
                   </div>
                   <h3>{qualifiedTableName(selectedTable)}</h3>
@@ -1041,19 +1048,19 @@ export default function GraphPanel({
                       </div>
                     ))}
                   </div>
-                  <h4 className="nearby-title">{t('Связи в загруженном фрагменте')}</h4>
+                  <h4 className="nearby-title">{t('Relationships in the loaded section')}</h4>
                   {nearbyRelations.map(relation => (
                     <button className="nearby-relation" key={relation.id} onClick={() => selectRelation(relation)}>
                       {relation.name}
                       <span>{t(kindLabels[relation.kind]) || relation.kind}</span>
                     </button>
                   ))}
-                  {!nearbyRelations.length && <p className="muted-text">{t('В этом фрагменте нет соседних связей.')}</p>}
+                  {!nearbyRelations.length && <p className="muted-text">{t('There are no neighboring relationships in this section.')}</p>}
                 </>
               ) : (
                 <div className="relation-detail-empty">
-                  <strong>{t('Выберите ребро или таблицу')}</strong>
-                  <p>{t('Для связи покажем источник, evidence, confidence и возможность использовать её в JOIN.')}</p>
+                  <strong>{t('Select an edge or table')}</strong>
+                  <p>{t('View the relationship’s source, evidence, confidence, and whether it can be used in JOIN.')}</p>
                 </div>
               )}
             </section>
@@ -1064,13 +1071,13 @@ export default function GraphPanel({
               <div className="section-title">
                 <h2>{t('Path / Join Explorer')}</h2>
               </div>
-              <span className="quiet-label">{t('Только доверенные сервером маршруты')}</span>
+              <span className="quiet-label">{t('Only paths trusted by the server')}</span>
             </div>
             <div className="path-picker-row">
               <TablePicker
                 workspaceId={workspaceId}
                 databaseId={databaseId}
-                label={t('Исходная таблица')}
+                label={t('Source table')}
                 value={fromTable}
                 onChange={setFromTable}
                 disabled={pathBusy}
@@ -1079,7 +1086,7 @@ export default function GraphPanel({
               <TablePicker
                 workspaceId={workspaceId}
                 databaseId={databaseId}
-                label={t('Целевая таблица')}
+                label={t('Target table')}
                 value={toTable}
                 onChange={setToTable}
                 disabled={pathBusy}
@@ -1089,7 +1096,7 @@ export default function GraphPanel({
                 disabled={!fromTable || !toTable || fromTable.id === toTable.id || pathBusy}
                 onClick={() => void findPaths()}
               >
-                {pathBusy ? t('Поиск…') : t('Найти пути')}
+                {pathBusy ? t('Searching…') : t('Find paths')}
               </button>
             </div>
             {pathError && (
@@ -1100,7 +1107,7 @@ export default function GraphPanel({
             {paths && !paths.length && (
               <div className="path-no-result">
                 {t(
-                  'Доверенный путь не найден. Неподтверждённые кандидаты, отклонённые и конфликтующие связи не используются. Проверьте evidence и привязки EF.',
+                  'No trusted path found. Unconfirmed candidates, rejected relationships, and conflicting relationships are excluded. Check the evidence and EF bindings.',
                 )}
               </div>
             )}
@@ -1109,8 +1116,8 @@ export default function GraphPanel({
                 <div className="path-choices">
                   <p>
                     {paths.length > 1
-                      ? t('Найдено маршрутов: {0}. Выберите подходящий перед копированием SQL.', paths.length)
-                      : t('Найден один доверенный маршрут.')}
+                      ? t('Paths found: {0}. Select one before copying the SQL.', paths.length)
+                      : t('One trusted path found.')}
                   </p>
                   {paths.map((path, index) => (
                     <button
@@ -1122,7 +1129,7 @@ export default function GraphPanel({
                       }}
                     >
                       <span>
-                        {t('Маршрут')} {index + 1} · {path.relationIds.length} {t('связей')}
+                        {t('Path')} {index + 1} · {path.relationIds.length} {t('relationships')}
                       </span>
                       <strong>{path.tableIds.map(tableName).join(' → ')}</strong>
                     </button>
@@ -1138,18 +1145,18 @@ export default function GraphPanel({
                           onClick={() =>
                             onCreateRecipe({
                               workspaceId,
-                              name: `${fromTable?.name || t('Таблица')} → ${toTable?.name || t('таблица')}`,
+                              name: `${fromTable?.name || t('Table')} → ${toTable?.name || t('table')}`,
                               sqlTemplate: selectedPath.sql,
                               databaseIds: catalog?.databases.map(database => database.id) || [],
                               inputs: [],
                             })
                           }
                         >
-                          {t('Создать рецепт')}
+                          {t('Create recipe')}
                         </button>
                       )}
                       <button className="secondary-button" onClick={() => void copySql()}>
-                        {t('Скопировать SQL')}
+                        {t('Copy SQL')}
                       </button>
                     </div>
                     {selectedPath.explanations?.length ? (
@@ -1165,18 +1172,18 @@ export default function GraphPanel({
                       </p>
                     ))}
                     <textarea
-                      aria-label={t('Предварительный JOIN SQL')}
+                      aria-label={t('JOIN SQL preview')}
                       readOnly
                       value={selectedPath.sql}
                       spellCheck={false}
                       rows={Math.min(18, Math.max(5, selectedPath.sql.split('\n').length + 1))}
                     />
                     <p className="copy-state" role="status">
-                      {tMessage(copyState) || t('Это предварительный SQL. Запросы не исполняются.')}
+                      {tMessage(copyState) || t('This is a SQL preview. Queries are not executed.')}
                     </p>
                   </div>
                 ) : (
-                  <div className="path-no-result">{t('Выберите один из маршрутов, чтобы увидеть JOIN SQL.')}</div>
+                  <div className="path-no-result">{t('Select a path to view its JOIN SQL.')}</div>
                 )}
               </>
             )}

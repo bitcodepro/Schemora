@@ -71,7 +71,7 @@ export default function ShortcutsHelp() {
       >
         <div className="section-heading">
           <h2 id="shortcuts-title">{t('Keyboard shortcuts')}</h2>
-          <button ref={close} className="icon-button" aria-label={t('Закрыть')} onClick={hide}>
+          <button ref={close} className="icon-button" aria-label={t('Close')} onClick={hide}>
             ×
           </button>
         </div>

@@ -37,11 +37,11 @@ export default function DatabaseAliases({ databases, onSaved }: { databases: Dat
         method: 'PUT',
         body: JSON.stringify({ name: name.trim(), reason: reason.trim() }),
       });
-      setSaved(t('Соответствие сохранено. Новые JOIN используют указанное имя БД.'));
+      setSaved(t('Mapping saved. New JOINs will use the specified database name.'));
       setReason('');
       onSaved();
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось сохранить SQL-имя БД.')));
+      setError(errorMessage(cause, t('Could not save the SQL database name.')));
     } finally {
       setBusy(false);
     }
@@ -49,23 +49,23 @@ export default function DatabaseAliases({ databases, onSaved }: { databases: Dat
 
   return (
     <details className="ef-mappings database-aliases">
-      <summary>{t('SQL-имена баз данных · для межбазовых JOIN')}</summary>
+      <summary>{t('SQL database names · for cross-database JOINs')}</summary>
       <div className="ef-mapping-body">
         <p>
           {t(
-            'Укажите фактическое имя БД в SQL Server, если оно отличается от имени SQL-проекта. Сопоставление сохраняется с основанием и используется при генерации трёхчастных имён.',
+            'Enter the actual SQL Server database name if it differs from the SQL project name. The mapping is saved with a reason and used to generate three-part names.',
           )}
         </p>
         <div className="alias-form">
           <label>
-            <span className="field-label">{t('База в каталоге')}</span>
+            <span className="field-label">{t('Database in catalog')}</span>
             <select
-              aria-label={t('База для сопоставления SQL-имени')}
+              aria-label={t('Database for SQL name mapping')}
               value={databaseId}
               disabled={busy || !databases.length}
               onChange={event => setDatabaseId(event.target.value)}
             >
-              <option value="">{t('Выберите БД')}</option>
+              <option value="">{t('Select a database')}</option>
               {databases.map(database => (
                 <option value={database.id} key={database.id}>
                   {database.name}
@@ -74,31 +74,31 @@ export default function DatabaseAliases({ databases, onSaved }: { databases: Dat
             </select>
           </label>
           <label>
-            <span className="field-label">{t('Имя в SQL Server')}</span>
+            <span className="field-label">{t('Name in SQL Server')}</span>
             <input
-              aria-label={t('SQL-имя базы данных')}
+              aria-label={t('SQL database name')}
               value={name}
               maxLength={128}
               disabled={busy || !selected}
               onChange={event => setName(event.target.value)}
-              placeholder={t('Например, Billing_Archive')}
+              placeholder={t('For example, Billing_Archive')}
             />
           </label>
           <label className="alias-reason">
-            <span className="field-label">{t('Основание сопоставления')}</span>
+            <span className="field-label">{t('Mapping reason')}</span>
             <textarea
-              aria-label={t('Основание сопоставления имени БД')}
+              aria-label={t('Database name mapping reason')}
               value={reason}
               maxLength={1000}
               rows={2}
               disabled={busy || !selected}
               onChange={event => setReason(event.target.value)}
-              placeholder={t('Источник фактического имени базы…')}
+              placeholder={t('Source of the actual database name…')}
             />
           </label>
         </div>
         <button className="secondary-button" disabled={busy || !selected || !name.trim() || !reason.trim()} onClick={() => void save()}>
-          {busy ? t('Сохранение…') : t('Сохранить SQL-имя')}
+          {busy ? t('Saving…') : t('Save SQL name')}
         </button>
         {error && (
           <p className="job-error" role="alert">

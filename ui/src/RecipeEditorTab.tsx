@@ -46,16 +46,16 @@ export default function RecipeEditorTab({
     <div className="recipe-authoring">
       <div className="recipe-metadata-row">
         <label>
-          <span className="field-label">{t('Название')}</span>
+          <span className="field-label">{t('Name #2')}</span>
           <input
             value={draft.name}
             maxLength={160}
             onChange={event => onEdit({ name: event.target.value })}
-            aria-label={t('Название рецепта')}
+            aria-label={t('Recipe name')}
           />
         </label>
         <label>
-          <span className="field-label">{t('Теги · через запятую')}</span>
+          <span className="field-label">{t('Tags · comma-separated')}</span>
           <input
             value={tagText}
             onChange={event => {
@@ -71,22 +71,22 @@ export default function RecipeEditorTab({
                 ],
               });
             }}
-            aria-label={t('Теги рецепта')}
+            aria-label={t('Recipe tags')}
           />
         </label>
       </div>
       <label>
-        <span className="field-label">{t('Описание')}</span>
+        <span className="field-label">{t('Description')}</span>
         <textarea
           value={draft.description}
           rows={2}
           maxLength={8000}
           onChange={event => onEdit({ description: event.target.value })}
-          aria-label={t('Описание рецепта')}
+          aria-label={t('Recipe description')}
         />
       </label>
       <div className="recipe-db-options">
-        <span className="field-label">{t('Базы данных, доступные шаблону')}</span>
+        <span className="field-label">{t('Databases available to the template')}</span>
         <div>
           {catalog?.databases.map(database => (
             <label key={database.id}>
@@ -107,24 +107,24 @@ export default function RecipeEditorTab({
         </div>
       </div>
       <div className="recipe-sql-heading">
-        <h3>{t('SQL-шаблон')}</h3>
+        <h3>{t('SQL template')}</h3>
         <button className="text-button" onClick={() => importSqlInput.current?.click()}>
-          {t('Импорт .sql в редактор')}
+          {t('Import .sql into editor')}
         </button>
         <input type="file" accept=".sql,text/plain" ref={importSqlInput} hidden onChange={onImportSql} />
       </div>
-      <Suspense fallback={<div className="monaco-loading">{t('Загрузка локального SQL-редактора…')}</div>}>
+      <Suspense fallback={<div className="monaco-loading">{t('Loading the local SQL editor…')}</div>}>
         <SqlEditor
           key={editorKey}
-          label={t('SQL-шаблон рецепта')}
+          label={t('Recipe SQL template')}
           value={draft.sqlTemplate}
           onChange={value => onEdit({ sqlTemplate: value })}
         />
       </Suspense>
       <p className="template-help">
-        {t('Разрешённые выражения:')} <code>IN (&#123;&#123;ids:Ids&#125;&#125;)</code> {t('и')}{' '}
+        {t('Allowed expressions:')} <code>IN (&#123;&#123;ids:Ids&#125;&#125;)</code> {t('and')}{' '}
         <code>JOIN &#123;&#123;table:Ids&#125;&#125; AS i ON i.Value = t.Id</code>
-        {t('. Имена таблиц и условия остаются читаемым SQL.')}
+        {t('. Table names and conditions remain readable SQL.')}
       </p>
       <RecipeInputFields inputs={draft.inputs} valueInputs={valueInputs} onChange={inputs => onEdit({ inputs })} />
       <div className="recipe-compatibility">
@@ -134,15 +134,15 @@ export default function RecipeEditorTab({
             {[110, 120, 130, 140, 150, 160, 170].map(level => (
               <option key={level} value={level}>
                 {level}
-                {level === 130 ? t(' · минимум для OPENJSON') : ''}
+                {level === 130 ? t(' · minimum for OPENJSON') : ''}
               </option>
             ))}
           </select>
         </label>
-        <p>{t('Уровень влияет на доступные стратегии SQL. В режиме Auto сервер выбирает подходящую форму списка.')}</p>
+        <p>{t('The level determines which SQL strategies are available. In Auto mode, the server chooses a suitable list format.')}</p>
       </div>
       {!inputShapeValid && (
-        <p className="job-error">{t('Имена входов должны быть уникальными: латинские буквы, цифры и _, начало с буквы.')}</p>
+        <p className="job-error">{t('Input names must be unique: Latin letters, digits, and _, starting with a letter.')}</p>
       )}
       <div className="recipe-save-actions">
         <button
@@ -150,13 +150,13 @@ export default function RecipeEditorTab({
           disabled={busy || !draft.name.trim() || !draft.sqlTemplate.trim() || !draft.databaseIds.length || !inputShapeValid}
           onClick={onSave}
         >
-          {busy ? t('Сохранение…') : existing ? t('Сохранить новую версию') : imported ? t('Сохранить импорт') : t('Сохранить рецепт')}
+          {busy ? t('Saving…') : existing ? t('Save new version') : imported ? t('Save import') : t('Save recipe')}
         </button>
         <button className="secondary-button" disabled={!existing || busy} onClick={onClone}>
-          {t('Создать копию')}
+          {t('Create copy')}
         </button>
         <button className="secondary-button" disabled={!existing || busy} onClick={onExport}>
-          {t('Экспорт JSON')}
+          {t('Export JSON')}
         </button>
       </div>
     </div>

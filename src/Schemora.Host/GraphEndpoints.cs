@@ -90,7 +90,7 @@ public static class GraphEndpoints
             {
                 var graph = await service.Get(id, ct);
                 if (!graph.Tables.Any(t => t.Table.Id == request.FromTableId) || !graph.Tables.Any(t => t.Table.Id == request.ToTableId))
-                    throw new AppException("TABLE_NOT_FOUND", "Выберите таблицы текущей модели.", 404);
+                    throw new AppException("TABLE_NOT_FOUND", "Select tables from the current model.", 404);
                 return new RelationshipPathFinder()
                     .Find(graph, request.FromTableId, request.ToTableId)
                     .Select(p => new
@@ -134,7 +134,7 @@ public static class GraphEndpoints
                     !store.All<DiscoveredSource>("Sources", id).Any(p => p.Id == request.ProjectId && p.Kind == "csharpProject")
                     || !store.All<DatabaseInfo>("Databases", id).Any(d => d.Id == request.DatabaseId)
                 )
-                    throw new AppException("EF_MAPPING_INVALID", "Выберите обнаруженный C#-проект и БД этой рабочей области.");
+                    throw new AppException("EF_MAPPING_INVALID", "Select a discovered C# project and a database from this workspace.");
                 store.Put("UserSettings", "ef-map:" + id + ":" + request.ProjectId, id, request);
                 service.Invalidate(id);
                 return request;
@@ -145,14 +145,17 @@ public static class GraphEndpoints
             (string id, DatabaseAlias request, CatalogStore store, RelationshipService service) =>
             {
                 var database =
-                    store.Get<DatabaseInfo>("Databases", id) ?? throw new AppException("DATABASE_NOT_FOUND", "БД не найдена.", 404);
+                    store.Get<DatabaseInfo>("Databases", id) ?? throw new AppException("DATABASE_NOT_FOUND", "Database not found.", 404);
                 if (
                     string.IsNullOrWhiteSpace(request.Name)
                     || request.Name.Length > 128
                     || request.Name.Any(char.IsControl)
                     || string.IsNullOrWhiteSpace(request.Reason)
                 )
-                    throw new AppException("DATABASE_NAME_INVALID", "Нужны SQL-имя БД (до128 символов) и основание сопоставления.");
+                    throw new AppException(
+                        "DATABASE_NAME_INVALID",
+                        "A SQL database name (up to 128 characters) and a mapping reason are required."
+                    );
                 var alias = request with { Name = request.Name.Trim() };
                 store.Batch([
                     new("UserSettings", "db-name:" + id, database.WorkspaceId, alias),
@@ -176,7 +179,7 @@ public static class GraphEndpoints
             {
                 ValidateSettingKey(key);
                 if (request.Value.GetRawText().Length > 256 * 1024)
-                    throw new AppException("SETTING_TOO_LARGE", "Настройка превышает 256 КиБ.");
+                    throw new AppException("SETTING_TOO_LARGE", "The setting exceeds 256 KiB.");
                 if (
                     key == "language"
                     && (request.Value.ValueKind != JsonValueKind.String || request.Value.GetString() is not ("en" or "ru" or "uk"))
@@ -196,7 +199,7 @@ public static class GraphEndpoints
             && key != "language"
             && !Regex.IsMatch(key, "^(graph|recipe-picks):[a-f0-9]{32}$", RegexOptions.CultureInvariant)
         )
-            throw new AppException("SETTING_KEY_INVALID", "Неизвестная настройка интерфейса.");
+            throw new AppException("SETTING_KEY_INVALID", "Unknown interface setting.");
     }
 
     private static IEnumerable<RelationshipTable> Filter(

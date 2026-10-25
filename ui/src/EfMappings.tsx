@@ -36,7 +36,7 @@ export default function EfMappings({
         setChoices(Object.fromEntries(loaded.projects.map(project => [project.projectId, project.databaseId || ''])));
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Не удалось получить привязки EF.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Could not load EF bindings.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setBusy(false);
@@ -64,7 +64,7 @@ export default function EfMappings({
       );
       onSaved();
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось сохранить привязку проекта.')));
+      setError(errorMessage(cause, t('Could not save the project binding.')));
     } finally {
       setSavingId('');
     }
@@ -75,12 +75,12 @@ export default function EfMappings({
       <AnalysisCoverage key={workspaceId} workspaceId={workspaceId} />
       <details className="ef-mappings">
         <summary>
-          {t('C# → БД · EF / Dapper')} {mappings && <span>{mappings.projects.length}</span>}
+          {t('C# → Database · EF / Dapper')} {mappings && <span>{mappings.projects.length}</span>}
         </summary>
         <div className="ef-mapping-body">
           <p>
             {t(
-              'Для нескольких БД укажите соответствие C#-проектов явно. EF mappings анализируются как ORM-связи; SQL из Dapper — как наблюдаемые JOIN. Dapper splitOn описывает materialization и сам по себе не подтверждает FK. При единственной БД сервер может установить однозначную привязку.',
+              'For multiple databases, explicitly map each C# project to a database. EF mappings are analyzed as ORM relationships; SQL from Dapper is treated as observed JOINs. Dapper splitOn describes materialization and does not by itself confirm a foreign key. With a single database, the server can establish an unambiguous binding.',
             )}
           </p>
           {error && (
@@ -89,19 +89,19 @@ export default function EfMappings({
             </div>
           )}
           {busy ? (
-            <p className="muted-text">{t('Загрузка проектов…')}</p>
+            <p className="muted-text">{t('Loading projects…')}</p>
           ) : mappings?.projects.length ? (
             <div className="ef-project-list">
               {mappings.projects.map(project => (
                 <div className="ef-project" key={project.projectId}>
                   <code>{project.path}</code>
                   <select
-                    aria-label={t('База для {0}', project.path)}
+                    aria-label={t('Database for {0}', project.path)}
                     value={choices[project.projectId] || ''}
                     onChange={event => setChoices(previous => ({ ...previous, [project.projectId]: event.target.value }))}
                     disabled={Boolean(savingId)}
                   >
-                    <option value="">{t('Не привязан к БД')}</option>
+                    <option value="">{t('Not bound to a database')}</option>
                     {mappings.databases.map(database => (
                       <option key={database.id} value={database.id}>
                         {database.name}
@@ -113,13 +113,13 @@ export default function EfMappings({
                     disabled={Boolean(savingId) || !choices[project.projectId] || choices[project.projectId] === project.databaseId}
                     onClick={() => void save(project.projectId)}
                   >
-                    {savingId === project.projectId ? t('Сохранение…') : t('Привязать')}
+                    {savingId === project.projectId ? t('Saving…') : t('Bind')}
                   </button>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="muted-text">{t('В каталоге нет C#-проектов. Обновите рабочую область, чтобы обнаружить их.')}</p>
+            <p className="muted-text">{t('The catalog contains no C# projects. Refresh the workspace to discover them.')}</p>
           )}
         </div>
       </details>

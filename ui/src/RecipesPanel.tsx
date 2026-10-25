@@ -190,7 +190,7 @@ export default function RecipesPanel({
     });
     setTagText('');
     setTab('editor');
-    setNotice(t('Черновик создан из выбранной схемы. Проверьте SQL и сохраните рецепт.'));
+    setNotice(t('Draft created from the selected schema. Review the SQL and save the recipe.'));
     setError('');
   }
   function newRecipe() {
@@ -255,7 +255,7 @@ export default function RecipesPanel({
         }
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Не удалось загрузить каталог рецептов.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Could not load the recipe catalog.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
@@ -291,7 +291,7 @@ export default function RecipesPanel({
       const loaded = await request<RecipeEntry[]>(`/api/workspaces/${encodeURIComponent(target)}/recipes`);
       if (workspaceRef.current === target) setEntries(loaded);
     } catch (cause) {
-      setError(errorMessage(cause, t('Каталог не обновлён.')));
+      setError(errorMessage(cause, t('The catalog was not refreshed.')));
     } finally {
       setLoading(false);
     }
@@ -316,9 +316,9 @@ export default function RecipesPanel({
       if (!current()) return;
       setEntries(previous => [...previous.filter(entry => entry.definition.id !== saved.definition.id), saved]);
       openEntry(saved, 'editor');
-      setNotice(t('Сохранена версия {0}.', saved.definition.version));
+      setNotice(t('Version {0} saved.', saved.definition.version));
     } catch (cause) {
-      if (current()) setError(errorMessage(cause, t('Рецепт не сохранён.')));
+      if (current()) setError(errorMessage(cause, t('The recipe was not saved.')));
     } finally {
       setBusy(false);
     }
@@ -331,14 +331,14 @@ export default function RecipesPanel({
     try {
       const copied = await request<RecipeEntry>(`/api/recipes/${encodeURIComponent(selectedId)}/clone`, {
         method: 'POST',
-        body: JSON.stringify({ name: t('{0} · копия', selectedEntry.definition.name) }),
+        body: JSON.stringify({ name: t('{0} · copy', selectedEntry.definition.name) }),
       });
       if (!current()) return;
       setEntries(previous => [...previous, copied]);
       openEntry(copied, 'editor');
-      setNotice(t('Копия рецепта создана.'));
+      setNotice(t('Recipe copy created.'));
     } catch (cause) {
-      if (current()) setError(errorMessage(cause, t('Не удалось скопировать рецепт.')));
+      if (current()) setError(errorMessage(cause, t('Could not copy the recipe.')));
     } finally {
       setBusy(false);
     }
@@ -348,7 +348,7 @@ export default function RecipesPanel({
     event.target.value = '';
     if (!file) return;
     if (file.size > 512 * 1024) {
-      setError(t('SQL-файл превышает 512 КиБ. Выберите отдельный запрос для рецепта.'));
+      setError(t('The SQL file exceeds 512 KiB. Select a single query for the recipe.'));
       return;
     }
     setBusy(true);
@@ -356,9 +356,9 @@ export default function RecipesPanel({
       const text = await file.text();
       if (draft) changeDraft({ sqlTemplate: text, ...(draft.name.trim() ? {} : { name: file.name.replace(/\.sql$/i, '') }) });
       setTab('editor');
-      setNotice(t('SQL-файл загружен в черновик. Сохраните рецепт после проверки.'));
+      setNotice(t('SQL file loaded into the draft. Save the recipe after reviewing it.'));
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось прочитать SQL-файл.')));
+      setError(errorMessage(cause, t('Could not read the SQL file.')));
     } finally {
       setBusy(false);
     }
@@ -368,7 +368,7 @@ export default function RecipesPanel({
     event.target.value = '';
     if (!file) return;
     if (file.size > 1024 * 1024) {
-      setError(t('JSON-рецепт превышает1 МиБ.'));
+      setError(t('The JSON recipe exceeds 1 MiB.'));
       return;
     }
     setBusy(true);
@@ -383,9 +383,9 @@ export default function RecipesPanel({
       setDraft({ ...definition, id: '', version: 0, databaseIds: definition.databaseIds.filter(id => known.has(id)) });
       setTagText(definition.tags.join(', '));
       setTab('editor');
-      setNotice(t('JSON открыт для проверки. Выберите БД этой рабочей области и сохраните импортированный рецепт.'));
+      setNotice(t('JSON opened for review. Select databases in this workspace and save the imported recipe.'));
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось импортировать определение.')));
+      setError(errorMessage(cause, t('Could not import the definition.')));
     } finally {
       setBusy(false);
     }
@@ -396,7 +396,7 @@ export default function RecipesPanel({
       const envelope = await request<unknown>(`/api/recipes/${encodeURIComponent(selectedId)}/export`);
       saveDownload(JSON.stringify(envelope, null, 2), filename(selectedEntry.definition.name) + '.recipe.json', 'application/json');
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось экспортировать рецепт.')));
+      setError(errorMessage(cause, t('Could not export the recipe.')));
     }
   }
   async function rollback(version: RecipeVersion) {
@@ -412,9 +412,9 @@ export default function RecipesPanel({
       if (!current()) return;
       setEntries(previous => previous.map(entry => (entry.definition.id === restored.definition.id ? restored : entry)));
       openEntry(restored, 'editor');
-      setNotice(t('Версия {0} восстановлена как новая версия {1}.', version.version, restored.definition.version));
+      setNotice(t('Version {0} restored as new version {1}.', version.version, restored.definition.version));
     } catch (cause) {
-      if (current()) setError(errorMessage(cause, t('Не удалось восстановить версию.')));
+      if (current()) setError(errorMessage(cause, t('Could not restore the version.')));
     } finally {
       setBusy(false);
     }
@@ -430,7 +430,7 @@ export default function RecipesPanel({
       runtime.setAcknowledgeReview(false);
       runtime.setRendered(null);
     } catch (cause) {
-      runtime.setRuntimeError(errorMessage(cause, t('Совместимость не проверена.')));
+      runtime.setRuntimeError(errorMessage(cause, t('Compatibility was not checked.')));
     } finally {
       setBusy(false);
     }
@@ -452,7 +452,7 @@ export default function RecipesPanel({
     render: () => {
       setTab('runtime');
       if (runtime.canRender && !runtime.parseBusy && !runtime.renderBusy && !busy) void runtime.renderRecipe();
-      else setNotice(t('Сначала сохраните рецепт и проверьте входы. Ошибки ID блокируют генерацию.'));
+      else setNotice(t('Save the recipe and validate the inputs first. ID errors block generation.'));
     },
   };
   useEffect(() => {
@@ -496,13 +496,13 @@ export default function RecipesPanel({
               if (leaveDraft()) newRecipe();
             }}
           >
-            {t('+ Новый рецепт')}
+            {t('+ New recipe')}
           </button>
           <button className="secondary-button" disabled={!workspaceId || busy} onClick={() => importJsonInput.current?.click()}>
-            {t('Импорт JSON')}
+            {t('Import JSON')}
           </button>
           <button className="secondary-button" disabled={!workspaceId || busy || loading} onClick={() => void refreshCatalog()}>
-            {t('Обновить')}
+            {t('Refresh')}
           </button>
           <input type="file" accept=".json,application/json" ref={importJsonInput} onChange={event => void importJson(event)} hidden />
         </div>
@@ -510,7 +510,7 @@ export default function RecipesPanel({
       {error && (
         <div className="alert error" role="alert">
           <p>{tMessage(error)}</p>
-          <button className="icon-button" aria-label={t('Скрыть ошибку')} onClick={() => setError('')}>
+          <button className="icon-button" aria-label={t('Dismiss error')} onClick={() => setError('')}>
             ×
           </button>
         </div>
@@ -522,8 +522,8 @@ export default function RecipesPanel({
       )}
       {!workspaceId ? (
         <div className="panel-placeholder">
-          <strong>{t('Выберите рабочую область')}</strong>
-          <p>{t('Рецепты связываются со снимками схем и остаются в локальном хранилище.')}</p>
+          <strong>{t('Select a workspace #2')}</strong>
+          <p>{t('Recipes are linked to schema snapshots and remain in local storage.')}</p>
         </div>
       ) : (
         <>
@@ -560,22 +560,22 @@ export default function RecipesPanel({
                   <div className="recipe-editor-heading">
                     <div>
                       <span className="object-kind">SQL SERVER RECIPE {selectedEntry && `· v${selectedEntry.definition.version}`}</span>
-                      <h2>{draft.name || t('Новый рецепт')}</h2>
+                      <h2>{draft.name || t('New recipe')}</h2>
                     </div>
-                    <span className={dirty ? 'neutral-tag' : 'confirmed-tag'}>{dirty ? t('Черновик · не сохранён') : t('Сохранено')}</span>
+                    <span className={dirty ? 'neutral-tag' : 'confirmed-tag'}>{dirty ? t('Draft · not saved') : t('Saved')}</span>
                   </div>
                   <div className="recipe-main-tabs">
                     <button className={tab === 'editor' ? 'selected' : ''} onClick={() => setTab('editor')}>
-                      {t('Определение')}
+                      {t('Definition')}
                     </button>
                     <button className={tab === 'runtime' ? 'selected' : ''} onClick={() => setTab('runtime')}>
-                      {t('Входы и SQL')}
+                      {t('Inputs and SQL')}
                     </button>
                     <button className={tab === 'regression' ? 'selected' : ''} onClick={() => setTab('regression')}>
                       {t('Regression fixtures')}
                     </button>
                     <button className={tab === 'history' ? 'selected' : ''} onClick={() => setTab('history')}>
-                      {t('Версии и lineage')}
+                      {t('Versions and lineage')}
                     </button>
                   </div>
                   {tab === 'editor' ? (
@@ -618,20 +618,20 @@ export default function RecipesPanel({
                     />
                   ) : (
                     <div className="recipe-history">
-                      <p className="muted-text">{t('Сохраните рецепт, чтобы увидеть версии, lineage и результаты проверок.')}</p>
+                      <p className="muted-text">{t('Save the recipe to see versions, lineage, and check results.')}</p>
                     </div>
                   )}
                 </>
               ) : (
                 <div className="recipe-editor-empty">
-                  <strong>{t('Один рецепт — много списков ID')}</strong>
+                  <strong>{t('One recipe — many ID lists')}</strong>
                   <p>
                     {t(
-                      'Выберите сохранённый рецепт или создайте определение из реальной таблицы и колонки. SQL-шаблон и типы сохраняются; runtime-значения обрабатываются отдельно.',
+                      'Select a saved recipe or create a definition from a real table and column. The SQL template and types are saved; runtime values are processed separately.',
                     )}
                   </p>
                   <button className="primary-button" onClick={newRecipe}>
-                    {t('Создать рецепт')}
+                    {t('Create recipe')}
                   </button>
                 </div>
               )}

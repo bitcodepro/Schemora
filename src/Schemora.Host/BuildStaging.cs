@@ -85,7 +85,7 @@ internal static class BuildStaging
             }
             if (length != input.Length || Convert.ToHexStringLower(hash.GetHashAndReset()) != input.Sha256)
                 throw Changed();
-            AppException Changed() => new("BUILD_INPUT_CHANGED", "Исходный файл изменился перед служебным копированием. Повторите сборку.");
+            AppException Changed() => new("BUILD_INPUT_CHANGED", "A source file changed before staging. Run the build again.");
         }
         var originalProps = plan
             .Manifest.Projects.Select(p => Path.Combine(Path.GetDirectoryName(p)!, "Directory.Build.props"))

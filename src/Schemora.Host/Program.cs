@@ -167,7 +167,7 @@ app.Use(
             {
                 context.Response.StatusCode = 401;
                 await context.Response.WriteAsJsonAsync(
-                    new { Code = "SESSION_REQUIRED", Message = "Откройте интерфейс через ссылку текущего запуска Schemora." }
+                    new { Code = "SESSION_REQUIRED", Message = "Open the interface using the link from the current Schemora launch." }
                 );
                 return;
             }
@@ -236,7 +236,7 @@ app.Use(
                 {
                     Code = code,
                     Message = input
-                        ? "Операция не завершена. Проверьте формат файла и доступность инструментов."
+                        ? "The operation did not complete. Check the file format and tool availability."
                         : "Internal error in Schemora. The operation was not completed; report the operation number from the diagnostics journal.",
                     OperationId = operationId,
                 }

@@ -12,17 +12,17 @@ public static class LocalFiles
     public static string Validate(string? input, string extension)
     {
         if (string.IsNullOrWhiteSpace(input) || !Path.IsPathFullyQualified(input))
-            throw new AppException("ABSOLUTE_PATH_REQUIRED", "Укажите абсолютный путь к локальному файлу.");
+            throw new AppException("ABSOLUTE_PATH_REQUIRED", "Enter an absolute path to a local file.");
         var path = Path.GetFullPath(input);
         if (path.StartsWith(@"\\") || new Uri(path).IsUnc)
-            throw new AppException("LOCAL_PATH_REQUIRED", "Сетевые пути не поддерживаются. Выберите локальный файл.");
+            throw new AppException("LOCAL_PATH_REQUIRED", "Network paths are not supported. Select a local file.");
         if (!string.Equals(Path.GetExtension(path), extension, StringComparison.OrdinalIgnoreCase))
-            throw new AppException("FILE_TYPE_INVALID", $"Ожидается файл {extension}.");
+            throw new AppException("FILE_TYPE_INVALID", $"Expected a {extension} file.");
         if (!File.Exists(path))
-            throw new AppException("FILE_NOT_FOUND", "Файл не найден.", 404);
+            throw new AppException("FILE_NOT_FOUND", "File not found.", 404);
         CheckNoLinks(path);
         if (new FileInfo(path).Length > 128L * 1024 * 1024)
-            throw new AppException("FILE_TOO_LARGE", "Поддерживаются файлы размером до 128 МБ.");
+            throw new AppException("FILE_TOO_LARGE", "Files up to 128 MB are supported.");
         return path;
     }
 
@@ -31,7 +31,7 @@ public static class LocalFiles
         for (string? current = path; current is not null; current = Path.GetDirectoryName(current))
         {
             if ((File.GetAttributes(current) & FileAttributes.ReparsePoint) != 0)
-                throw new AppException("SYMLINK_NOT_SUPPORTED", "Символические ссылки и junction не поддерживаются.");
+                throw new AppException("SYMLINK_NOT_SUPPORTED", "Symbolic links and junctions are not supported.");
             if (Path.GetPathRoot(current) == current)
                 break;
         }
@@ -63,7 +63,7 @@ public static class LocalFiles
                 cancellationToken.ThrowIfCancellationRequested();
                 var attributes = File.GetAttributes(child);
                 if ((attributes & FileAttributes.ReparsePoint) != 0)
-                    throw new AppException("SYMLINK_NOT_SUPPORTED", "Сборка отменена: каталог проекта содержит ссылку или junction.");
+                    throw new AppException("SYMLINK_NOT_SUPPORTED", "Build cancelled: the project directory contains a link or junction.");
                 var name = Path.GetFileName(child);
                 if ((attributes & FileAttributes.Directory) != 0)
                 {
@@ -73,7 +73,10 @@ public static class LocalFiles
                 }
                 bytes += new FileInfo(child).Length;
                 if (++count > 20_000 || bytes > 512L * 1024 * 1024)
-                    throw new AppException("PROJECT_TOO_LARGE", "Служебная копия проекта превышает лимит: 20 000 файлов / 512 МБ.");
+                    throw new AppException(
+                        "PROJECT_TOO_LARGE",
+                        "The staging copy of the project exceeds the limit: 20,000 files / 512 MB."
+                    );
                 File.Copy(child, Path.Combine(entry.To, name));
             }
         }

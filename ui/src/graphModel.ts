@@ -47,20 +47,20 @@ export const relationKinds: RelationKind[] = [
 export const kindLabels: Record<RelationKind, string> = {
   'declared-fk': 'Declared FK',
   'orm-mapping': 'ORM mapping',
-  'user-confirmed': 'Подтверждённая',
+  'user-confirmed': 'Confirmed #2',
   'observed-join': 'Observed join',
-  'embedded-sql-candidate': 'SQL из C# / Dapper',
-  'inferred-candidate': 'Кандидат',
+  'embedded-sql-candidate': 'SQL from C# / Dapper',
+  'inferred-candidate': 'Candidate',
 };
 export const statusLabels: Record<RelationStatus, string> = {
-  physical: 'Физический FK',
-  mapped: 'Точный ORM mapping',
-  candidate: 'Требует проверки',
-  observed: 'Наблюдаемый JOIN',
-  confirmed: 'Подтверждена',
-  rejected: 'Отклонена',
-  conflict: 'Конфликт',
-  stale: 'Требует повторной проверки',
+  physical: 'Physical FK',
+  mapped: 'Exact ORM mapping',
+  candidate: 'Needs review',
+  observed: 'Observed JOIN',
+  confirmed: 'Confirmed',
+  rejected: 'Rejected',
+  conflict: 'Conflict',
+  stale: 'Needs another review',
 };
 
 export const kindColors: Record<RelationKind, string> = {

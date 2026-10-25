@@ -29,12 +29,12 @@
     "ru": "Выберите en, ru или uk для языка интерфейса.",
     "uk": "Виберіть en, ru або uk для мови інтерфейсу."
   },
-  "Сеанс недействителен. Откройте Schemora по ссылке, созданной при запуске приложения.": {
+  "The session is invalid. Open Schemora using the link created when the application starts.": {
     "en": "The session is invalid. Open Schemora using the link created when the application starts.",
     "ru": "Сеанс недействителен. Откройте Schemora по ссылке, созданной при запуске приложения.",
     "uk": "Сеанс недійсний. Відкрийте Schemora за посиланням, створеним під час запуску застосунку."
   },
-  "Ошибка запроса ({0})": {
+  "Request failed ({0})": {
     "en": "Request failed ({0})",
     "ru": "Ошибка запроса ({0})",
     "uk": "Помилка запиту ({0})"

@@ -73,7 +73,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
         select(wanted || loaded[0]?.id || '');
         return loaded;
       } catch (cause) {
-        setError(errorMessage(cause, t('Не удалось загрузить рабочие области.')));
+        setError(errorMessage(cause, t('Could not load workspaces.')));
         return [];
       } finally {
         setLoading(false);
@@ -116,12 +116,12 @@ export function WorkspaceSelector({ className }: { className: string }) {
   return (
     <label className={className}>
       <select
-        aria-label={t('Рабочая область')}
+        aria-label={t('Workspace')}
         value={workspaceId}
         disabled={loading && !workspaces.length}
         onChange={event => select(event.target.value)}
       >
-        {!workspaces.length && <option value="">{loading ? t('Загрузка…') : t('Нет рабочих областей')}</option>}
+        {!workspaces.length && <option value="">{loading ? t('Loading…') : t('No workspaces')}</option>}
         {workspaces.map(item => (
           <option value={item.id} key={item.id}>
             {item.name}

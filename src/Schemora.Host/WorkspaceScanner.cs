@@ -29,16 +29,16 @@ public sealed class WorkspaceScanner(
     )
     {
         if (mode is not ("quick" or "full" or "rebuild"))
-            throw new AppException("SCAN_MODE_INVALID", "Выберите quick, full или rebuild.");
+            throw new AppException("SCAN_MODE_INVALID", "Choose Quick Refresh, Full Rescan, or Rebuild.");
         if (mode == "rebuild" && !trustProjects)
-            throw new AppException("PROJECT_TRUST_REQUIRED", "Пересборка выполняет код проектов. Подтвердите доверие к ним.", 403);
+            throw new AppException("PROJECT_TRUST_REQUIRED", "Rebuilding executes project code. Confirm that you trust the projects.", 403);
         var started = DateTimeOffset.UtcNow;
         var previous = store.All<DiscoveredSource>("Sources", workspace.Id);
         var previousByPath = previous.ToDictionary(
             s => s.Path,
             OperatingSystem.IsWindows() ? StringComparer.OrdinalIgnoreCase : StringComparer.Ordinal
         );
-        progress("Обнаружение проектов и fingerprint файлов", 5);
+        progress("Discovering projects and fingerprinting files", 5);
         var discoveryCache = previousByPath.ToDictionary(
             pair => pair.Key,
             pair => pair.Value.Kind.EndsWith("Sql", StringComparison.Ordinal) ? pair.Value with { Kind = "sql" } : pair.Value,
@@ -49,7 +49,7 @@ public sealed class WorkspaceScanner(
         if (!found.Complete)
             throw new AppException(
                 "DISCOVERY_INCOMPLETE",
-                "Обнаружение не завершено; предыдущий каталог сохранён без изменений. Устраните ошибки и повторите Full Rescan. "
+                "Discovery did not finish; the previous catalog was preserved unchanged. Resolve the errors and run Full Rescan again. "
                     + string.Join(" | ", found.Diagnostics.Take(50)),
                 422
             );
@@ -73,7 +73,7 @@ public sealed class WorkspaceScanner(
         var old = store.All<DatabaseInfo>("Databases", workspace.Id).ToDictionary(d => d.Id);
         var groups = Group(workspace, sources, diagnostics);
         if (selectedDatabase is not null && groups.All(g => g.Id != selectedDatabase))
-            throw new AppException("DATABASE_NOT_FOUND", "Выбранная БД больше не обнаружена. Выполните Full Rescan.", 404);
+            throw new AppException("DATABASE_NOT_FOUND", "The selected database is no longer discovered. Run Full Rescan.", 404);
         var databases = new List<DatabaseInfo>();
         var snapshots = new List<SnapshotRecord>();
         var partial = diagnostics.Count > 0;
@@ -81,7 +81,7 @@ public sealed class WorkspaceScanner(
         {
             ct.ThrowIfCancellationRequested();
             var group = groups[i];
-            progress($"Анализ {group.Name} ({i + 1}/{groups.Count})", 15 + 75.0 * i / Math.Max(1, groups.Count));
+            progress($"Analyzing {group.Name} ({i + 1}/{groups.Count})", 15 + 75.0 * i / Math.Max(1, groups.Count));
             old.TryGetValue(group.Id, out var prior);
             // Bin artifacts have no verified provenance for these source fingerprints.
             // Only explicit Rebuild establishes an authoritative project model.
@@ -138,7 +138,7 @@ public sealed class WorkspaceScanner(
                                     new(
                                         "warning",
                                         "BUILD_REQUIRED_FOR_AUTHORITATIVE_MODEL",
-                                        "Нет подтверждённого DACPAC для текущих fingerprints. Показана частичная статическая схема; условия SQL-проекта и внешние references не вычислялись. Для авторитетной модели выполните Rebuild с доверием к проекту."
+                                        "No verified DACPAC matches the current fingerprints. A partial static schema is shown; SQL project conditions and external references were not evaluated. Run Rebuild with explicit project trust to obtain an authoritative model."
                                     )
                                 )
                                 .ToArray(),
@@ -151,7 +151,7 @@ public sealed class WorkspaceScanner(
                                     new(
                                         "warning",
                                         "DATABASE_MAPPING_INFERRED",
-                                        "SQL-файлы сгруппированы по каталогу. Проверьте соответствие отдельной БД; выберите более узкий workspace root при неоднозначности."
+                                        "SQL files were grouped by directory. Check that each group corresponds to a separate database; choose a narrower workspace root if the grouping is ambiguous."
                                     )
                                 )
                                 .ToArray(),
@@ -206,7 +206,7 @@ public sealed class WorkspaceScanner(
             sources.Count(s => !previousByPath.TryGetValue(s.Path, out var value) || value.Hash != s.Hash)
             + previous.Count(s => !currentIds.Contains(s.Id));
         ct.ThrowIfCancellationRequested();
-        progress("Транзакционная публикация каталога и snapshots", 95);
+        progress("Publishing the catalog and snapshots in a transaction", 95);
         var outcome = new ScanOutcome(
             changed,
             sources.Length - sources.Count(s => !previousByPath.TryGetValue(s.Path, out var value) || value.Hash != s.Hash),
@@ -279,7 +279,7 @@ public sealed class WorkspaceScanner(
             }
             catch (Exception ex)
             {
-                diagnostics.Add($"{project.Path}: некорректный XML проекта: {ex.Message}");
+                diagnostics.Add($"{project.Path}: invalid project XML: {ex.Message}");
             }
             result.Add(
                 new(Identity.Hash(workspace.Id + ":db:" + Identity.PathKey(project.Path)), name, project.Path, "sqlProject", members)

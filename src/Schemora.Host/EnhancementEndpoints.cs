@@ -13,21 +13,22 @@ public static class EnhancementEndpoints
         app.MapGet(
             "/api/build-manifests/{manifestId}",
             (string manifestId, SqlProjectBuilder builder) =>
-                builder.ReadManifest(manifestId) ?? throw new AppException("BUILD_MANIFEST_NOT_FOUND", "Манифест сборки не найден.", 404)
+                builder.ReadManifest(manifestId) ?? throw new AppException("BUILD_MANIFEST_NOT_FOUND", "Build manifest not found.", 404)
         );
         app.MapGet(
             "/api/databases/{databaseId}/build-manifest",
             (string databaseId, CatalogStore store, SqlProjectBuilder builder) =>
             {
                 var database =
-                    store.Get<DatabaseInfo>("Databases", databaseId) ?? throw new AppException("DATABASE_NOT_FOUND", "БД не найдена.", 404);
+                    store.Get<DatabaseInfo>("Databases", databaseId)
+                    ?? throw new AppException("DATABASE_NOT_FOUND", "Database not found.", 404);
                 var snapshot = database.CurrentSnapshotId is { } snapshotId
                     ? store.Get<SnapshotRecord>("SchemaSnapshots", snapshotId)
                     : null;
                 return snapshot?.BuildManifestId is { } manifestId
                     ? Results.Ok(builder.ReadManifest(manifestId))
                     : Results.NotFound(
-                        new { Code = "BUILD_MANIFEST_NOT_FOUND", Message = "У этого снимка нет проверенного манифеста сборки." }
+                        new { Code = "BUILD_MANIFEST_NOT_FOUND", Message = "This snapshot has no verified build manifest." }
                     );
             }
         );
@@ -60,7 +61,7 @@ public static class EnhancementEndpoints
                 var graph = await service.Get(id, ct);
                 var table =
                     graph.Tables.FirstOrDefault(t => t.Table.Id == tableId)
-                    ?? throw new AppException("TABLE_NOT_FOUND", "Таблица не найдена.", 404);
+                    ?? throw new AppException("TABLE_NOT_FOUND", "Table not found.", 404);
                 return new
                 {
                     table.DatabaseId,

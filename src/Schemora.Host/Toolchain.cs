@@ -126,14 +126,14 @@ public sealed class Toolchain(string dataDirectory)
                 ".NET SDK",
                 Dotnet,
                 ["--version"],
-                "Не найден .NET SDK. Установите .NET 10 SDK для SDK-style SQL-проектов.",
+                ".NET SDK not found. Install .NET 10 SDK for SDK-style SQL projects.",
                 cancellationToken
             ),
             Probe(
                 "Docker",
                 Docker,
                 ["version", "--format", "{{.Server.Version}}"],
-                "Docker CLI не найден; импорт DACPAC доступен без Docker.",
+                "Docker CLI not found; DACPAC import is available without Docker.",
                 cancellationToken
             ),
             Probe(
@@ -144,7 +144,7 @@ public sealed class Toolchain(string dataDirectory)
                     Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".dotnet", "tools", "sqlpackage.exe")
                 ),
                 ["/Version"],
-                "SqlPackage не найден; нужен только для отдельного Docker publish smoke-теста.",
+                "SqlPackage not found; it is needed only for the separate Docker publish smoke test.",
                 cancellationToken
             ),
         };
@@ -156,8 +156,8 @@ public sealed class Toolchain(string dataDirectory)
                 legacy.MsBuild,
                 null,
                 legacy.MsBuild is null
-                    ? "Не найден Visual Studio MSBuild. Установите Visual Studio Build Tools с MSBuild."
-                    : "MSBuild найден. Legacy SQL-проекты требуют SSDT из той же установки."
+                    ? "Visual Studio MSBuild not found. Install Visual Studio Build Tools with MSBuild."
+                    : "MSBuild found. Legacy SQL projects require SSDT from the same installation."
             )
         );
         capabilities.Add(
@@ -167,8 +167,8 @@ public sealed class Toolchain(string dataDirectory)
                 legacy.SsdtTargets,
                 null,
                 legacy.Ready
-                    ? "Совместимая пара MSBuild + SSDT targets найдена."
-                    : "Не найдена совместимая пара MSBuild + SQL Server Data Tools targets. Добавьте SQL Server Data Tools в Visual Studio / Build Tools или импортируйте готовый DACPAC."
+                    ? "Compatible MSBuild and SSDT targets were found."
+                    : "No compatible MSBuild and SQL Server Data Tools targets were found. Add SQL Server Data Tools to Visual Studio / Build Tools or import an existing DACPAC."
             )
         );
         return new
@@ -200,7 +200,7 @@ public sealed class Toolchain(string dataDirectory)
                 result.ExitCode == 0,
                 path,
                 result.ExitCode == 0 ? text : null,
-                result.ExitCode == 0 ? "Доступен." : $"Инструмент найден, но проверка завершилась с кодом {result.ExitCode}: {text}"
+                result.ExitCode == 0 ? "Available." : $"The tool was found, but the check exited with code {result.ExitCode}: {text}"
             );
         }
         catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
@@ -209,7 +209,7 @@ public sealed class Toolchain(string dataDirectory)
         }
         catch (Exception ex)
         {
-            return new Capability(name, false, path, null, $"Инструмент найден, но недоступен: {ex.Message}");
+            return new Capability(name, false, path, null, $"The tool was found but is unavailable: {ex.Message}");
         }
     }
 }

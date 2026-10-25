@@ -104,15 +104,15 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
           </div>
         </section>
       )}
-      <section className="source-card" aria-label={t('Источник схемы')}>
+      <section className="source-card" aria-label={t('Schema source')}>
         <div className="source-header">
           <div className="section-title">
             <Icon name="folder" />
-            <h2>{t('Источник схемы')}</h2>
+            <h2>{t('Schema source')}</h2>
           </div>
-          <span className="quiet-label">{t('Только метаданные')}</span>
+          <span className="quiet-label">{t('Metadata only')}</span>
         </div>
-        <div className="segmented" role="tablist" aria-label={t('Тип источника')}>
+        <div className="segmented" role="tablist" aria-label={t('Source type')}>
           <button
             role="tab"
             aria-selected={sourceMode === 'import'}
@@ -124,7 +124,7 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
             }}
           >
             <Icon name="file" size={15} />
-            {t('Готовый DACPAC')}
+            {t('Existing DACPAC')}
           </button>
           <button
             role="tab"
@@ -150,12 +150,12 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
             }}
           >
             <Icon name="layers" size={15} />
-            {t('SQL Server в Docker')}
+            {t('SQL Server in Docker')}
           </button>
         </div>
         <form onSubmit={event => void openSchema(event)}>
           <label className="field-label" htmlFor="source-path">
-            {sourceMode !== 'build' ? t('Путь к файлу .dacpac') : t('Путь к файлу .sqlproj (SDK-style или legacy SSDT)')}
+            {sourceMode !== 'build' ? t('Path to .dacpac file') : t('Path to .sqlproj file (SDK-style or legacy SSDT)')}
           </label>
           <div className="source-input-row">
             <div className="path-input">
@@ -189,33 +189,33 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
               {busy ? <span className="spinner" /> : <Icon name="arrow" size={17} />}{' '}
               {busy
                 ? sourceMode === 'build'
-                  ? t('Сборка проекта…')
-                  : t('Чтение модели…')
+                  ? t('Building project…')
+                  : t('Reading model…')
                 : sourceMode === 'build'
-                  ? t('Собрать и открыть')
+                  ? t('Build and open')
                   : sourceMode === 'docker'
-                    ? t('Прочитать через SQL Server')
-                    : t('Открыть схему')}
+                    ? t('Read via SQL Server')
+                    : t('Open schema')}
             </button>
           </div>
           {sourceMode === 'build' ? (
             <label className="trust-checkbox">
               <input type="checkbox" checked={trustProject} onChange={event => setTrustProject(event.target.checked)} disabled={busy} />
-              <span>{t('Я доверяю этому проекту. Сборка может выполнять код и MSBuild targets из репозитория.')}</span>
+              <span>{t('I trust this project. Building may execute code and MSBuild targets from the repository.')}</span>
             </label>
           ) : sourceMode === 'docker' ? (
             <label className="trust-checkbox">
               <input type="checkbox" checked={allowDocker} onChange={event => setAllowDocker(event.target.checked)} disabled={busy} />
               <span>
                 {t(
-                  'Создать временный SQL Server контейнер (только схема). DACPAC будет развёрнут изолированно; данные и deployment-скрипты не переносятся.',
+                  'Create a temporary SQL Server container (schema only). The DACPAC will be deployed in isolation; data and deployment scripts are not transferred.',
                 )}
               </span>
             </label>
           ) : (
             <p className="field-hint">
               <Icon name="shield" size={14} />
-              {t('Импорт читает модель DACPAC без подключения к базе и выполнения deployment-скриптов.')}
+              {t('Import reads the DACPAC model without connecting to a database or running deployment scripts.')}
             </p>
           )}
         </form>
@@ -223,10 +223,10 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
           <div className="alert error" role="alert">
             <Icon name="info" />
             <div>
-              <strong>{t('Не удалось получить схему')}</strong>
+              <strong>{t('Could not load the schema')}</strong>
               <p>{tMessage(error)}</p>
             </div>
-            <button className="icon-button" aria-label={t('Скрыть ошибку')} onClick={() => setError('')}>
+            <button className="icon-button" aria-label={t('Dismiss error')} onClick={() => setError('')}>
               <Icon name="close" size={16} />
             </button>
           </div>
@@ -245,17 +245,18 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
               </div>
             </div>
             <div className="schema-count">
-              <strong>{tables.length}</strong> {t('таблиц')} <span>·</span> <strong>{graph.relations.length}</strong> {t('связей')}
+              <strong>{tables.length}</strong> {t('tables #2')} <span>·</span> <strong>{graph.relations.length}</strong>{' '}
+              {t('relationships')}
             </div>
             <button className="secondary-button" onClick={() => downloadGraph(graph)}>
               <Icon name="code" size={15} />
-              {t('Экспорт JSON')}
+              {t('Export JSON')}
             </button>
           </div>
           {graph.diagnostics.length > 0 && (
             <details className="model-diagnostics" open={graph.diagnostics.some(item => item.severity.toLowerCase() === 'error')}>
               <summary>
-                {t('Метаданные прочитаны с замечаниями ·')} {graph.diagnostics.length}
+                {t('Metadata loaded with warnings ·')} {graph.diagnostics.length}
               </summary>
               {graph.diagnostics.map((diagnostic, index) => (
                 <div
@@ -271,23 +272,23 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
               ))}
             </details>
           )}
-          <section className="schema-browser" aria-label={t('Каталог объектов')} data-database-id={databaseId || undefined}>
+          <section className="schema-browser" aria-label={t('Object catalog')} data-database-id={databaseId || undefined}>
             <div className="browser-toolbar">
               <div className="view-tabs">
                 <button className={view === 'tables' ? 'selected' : ''} onClick={() => setView('tables')}>
                   <Icon name="table" size={16} />
-                  {t('Таблицы')}
+                  {t('Tables')}
                 </button>
                 <button className={view === 'graph' ? 'selected' : ''} onClick={() => setView('graph')}>
                   <Icon name="branch" size={16} />
-                  {t('Обзор связей')}
+                  {t('Relationship overview')}
                 </button>
                 <button className={view === 'objects' ? 'selected' : ''} onClick={() => setView('objects')}>
                   <Icon name="file" size={16} />
-                  {t('Все объекты')}
+                  {t('All objects')}
                 </button>
               </div>
-              <span className="quiet-label">{t('Метаданные схемы')}</span>
+              <span className="quiet-label">{t('Schema metadata')}</span>
             </div>
             {view === 'objects' ? (
               <ObjectExplorer
@@ -305,8 +306,8 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                   <label className="search-field">
                     <Icon name="search" size={15} />
                     <input
-                      aria-label={t('Поиск таблиц и колонок')}
-                      placeholder={t('Таблица или колонка…')}
+                      aria-label={t('Search tables and columns')}
+                      placeholder={t('Table or column…')}
                       value={query}
                       onChange={event => setQuery(event.target.value)}
                     />
@@ -328,7 +329,7 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                         </button>
                       ))
                     ) : (
-                      <p className="no-results">{tables.length ? t('Ничего не найдено') : t('В модели нет таблиц')}</p>
+                      <p className="no-results">{tables.length ? t('No results') : t('The model contains no tables')}</p>
                     )}
                     {filtered.length > listLimit && (
                       <button className="text-button table-list-more" onClick={() => setListLimit(limit => limit + listPage)}>
@@ -349,17 +350,17 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                           </h3>
                         </div>
                         <span className="neutral-tag">
-                          {selected.columns.length} {t('колонок')}
+                          {selected.columns.length} {t('columns')}
                         </span>
                       </div>
                       <div className="column-table-wrap">
                         <table className="column-table">
                           <thead>
                             <tr>
-                              <th>{t('Колонка')}</th>
-                              <th>{t('Тип данных')}</th>
+                              <th>{t('Column')}</th>
+                              <th>{t('Data type')}</th>
                               <th>NULL</th>
-                              <th>{t('Ключ')}</th>
+                              <th>{t('Key')}</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -369,7 +370,7 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                                 <td className="type-text">{column.dataType}</td>
                                 <td>
                                   <span className={column.isNullable ? 'nullable' : 'not-null'}>
-                                    {column.isNullable ? t('да') : t('нет')}
+                                    {column.isNullable ? t('yes') : t('no')}
                                   </span>
                                 </td>
                                 <td>
@@ -391,7 +392,7 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                       <div className="relations-section">
                         <h4>
                           <Icon name="branch" size={16} />
-                          {t('Связи таблицы')} <span>{selectedRelations.length}</span>
+                          {t('Table relationships')} <span>{selectedRelations.length}</span>
                         </h4>
                         {selectedRelations.length ? (
                           selectedRelations.map(relation => (
@@ -414,14 +415,14 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                             </div>
                           ))
                         ) : (
-                          <p className="muted-text">{t('В модели нет объявленных внешних ключей для этой таблицы.')}</p>
+                          <p className="muted-text">{t('The model contains no declared foreign keys for this table.')}</p>
                         )}
                       </div>
                     </>
                   ) : (
                     <div className="detail-empty">
                       <Icon name="table" size={32} />
-                      <p>{t('Выберите таблицу в каталоге')}</p>
+                      <p>{t('Select a table in the catalog')}</p>
                     </div>
                   )}
                 </div>
@@ -430,7 +431,7 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
               <div className="graph-view">
                 <div className="graph-note">
                   <Icon name="info" size={15} />
-                  {t('Обзор физических FK. Выберите таблицу, чтобы открыть её колонки.')}
+                  {t('Physical foreign key overview. Select a table to open its columns.')}
                 </div>
                 {overview.partial && (
                   <p className="muted-text graph-partial" role="status">
@@ -488,11 +489,11 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                             <strong>{table.name}</strong>
                           </span>
                           <small>
-                            {table.schema} <b>·</b> {table.columns.length} {t('колонок')}
+                            {table.schema} <b>·</b> {table.columns.length} {t('columns')}
                           </small>
                           <span className="graph-key">
                             <Icon name="key" size={12} />
-                            {table.primaryKey.length ? table.primaryKey.join(', ') : t('Нет первичного ключа')}
+                            {table.primaryKey.length ? table.primaryKey.join(', ') : t('No primary key')}
                           </span>
                         </button>
                       ))}
@@ -501,7 +502,7 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
                 ) : (
                   <div className="detail-empty">
                     <Icon name="branch" size={32} />
-                    <p>{t('В модели нет таблиц для отображения')}</p>
+                    <p>{t('The model contains no tables to display')}</p>
                   </div>
                 )}
               </div>
@@ -509,8 +510,8 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
           </section>
           <div className="snapshot-note">
             <Icon name="check" size={14} />
-            {t('Модель прочитана')} {new Date(graph.extractedAt).toLocaleString(localeTag())}
-            <span>{t('Deployment-скрипты не выполнялись')}</span>
+            {t('Model loaded')} {new Date(graph.extractedAt).toLocaleString(localeTag())}
+            <span>{t('Deployment scripts were not executed')}</span>
           </div>
         </>
       ) : openingDatabaseId || loadingCatalog ? (
@@ -535,21 +536,21 @@ export default function SchemaCatalogPage({ browser }: { browser: SchemaBrowser 
               <Icon name="branch" size={18} />
             </span>
           </div>
-          <div className="eyebrow">{t('НАЧНИТЕ С МОДЕЛИ')}</div>
-          <h2>{t('Ваша схема — целиком и наглядно')}</h2>
+          <div className="eyebrow">{t('START WITH A MODEL')}</div>
+          <h2>{t('Your entire schema at a glance')}</h2>
           <p>
-            {t('Укажите локальный DACPAC или SQL-проект выше.')}
+            {t('Enter a local DACPAC or SQL project path above.')}
             <br />
-            {t('Schemora покажет таблицы, типы, первичные и внешние ключи.')}
+            {t('Schemora shows tables, data types, primary keys, and foreign keys.')}
           </p>
           <div className="empty-features">
             <span>
               <Icon name="shield" size={16} />
-              {t('Без подключения к рабочей БД')}
+              {t('No connection to your production database')}
             </span>
             <span>
               <Icon name="check" size={16} />
-              {t('Без отправки данных в сеть')}
+              {t('No data sent over the network')}
             </span>
           </div>
         </section>

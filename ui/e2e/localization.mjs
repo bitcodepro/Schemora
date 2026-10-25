@@ -20,8 +20,10 @@ report.success = false;
 let browser,
   page,
   locale = 'en';
+// Catalog keys are English; a Russian or Ukrainian label used in a test still finds its entry.
+const entry = key => dictionaries[key] || Object.values(dictionaries).find(item => item.ru === key || item.uk === key);
 const L = (key, ...values) =>
-  (dictionaries[key]?.[locale] || key).replace(/\{(\d+)\}/g, (all, index) => (index < values.length ? String(values[index]) : all));
+  (entry(key)?.[locale] || key).replace(/\{(\d+)\}/g, (all, index) => (index < values.length ? String(values[index]) : all));
 async function poll(action, message, timeout = 45000) {
   const deadline = Date.now() + timeout;
   while (Date.now() < deadline) {
@@ -85,7 +87,7 @@ try {
       await poll(async () => (await page.locator('html').getAttribute('lang')) === 'uk', 'Restart lost server locale');
       assert.equal(await page.locator('[data-testid=language-selector]').first().inputValue(), 'uk');
       assert.equal((await api('/api/settings/language')).body.value, 'uk');
-      await page.getByRole('button', { name: L('Рабочая область'), exact: true }).waitFor();
+      await page.getByRole('button', { name: L('Workspace'), exact: true }).waitFor();
     });
     await check('rapid language changes persist the last choice without stale startup overwrite', async () => {
       const picker = page.locator('[data-testid=language-selector]').first();
@@ -120,11 +122,11 @@ try {
     await check('all three locales switch navigation, headings, settings and aria labels live', async () => {
       for (const next of ['ru', 'uk', 'en']) {
         await language(next);
-        await page.getByRole('button', { name: L('Настройки и инструменты'), exact: true }).click();
+        await page.getByRole('button', { name: L('Settings and tools'), exact: true }).click();
         await page.getByRole('heading', { name: L('Interface language'), exact: true }).waitFor();
         assert.equal(await page.locator('.settings-card [data-testid=language-selector]').inputValue(), next);
-        await page.getByRole('button', { name: L('Рабочая область'), exact: true }).click();
-        await page.getByRole('textbox', { name: L('Название'), exact: true }).waitFor();
+        await page.getByRole('button', { name: L('Workspace'), exact: true }).click();
+        await page.getByRole('textbox', { name: L('Name #2'), exact: true }).waitFor();
       }
     });
     await check('unsupported language values are rejected without changing the saved choice', async () => {
@@ -137,12 +139,12 @@ try {
     });
     let workspaceId;
     await check('localized workspace creation preserves user-authored Unicode names', async () => {
-      await page.getByRole('textbox', { name: L('Название'), exact: true }).fill('Локалізація / Localization');
-      await page.getByRole('textbox', { name: L('Корневые папки · по одной в строке'), exact: true }).fill(fixtureRoot);
+      await page.getByRole('textbox', { name: L('Name #2'), exact: true }).fill('Локалізація / Localization');
+      await page.getByRole('textbox', { name: L('Root folders · one per line'), exact: true }).fill(fixtureRoot);
       const response = page.waitForResponse(
         response => response.url().endsWith('/api/workspaces') && response.request().method() === 'POST',
       );
-      await page.getByRole('button', { name: L('Создать область'), exact: true }).click();
+      await page.getByRole('button', { name: L('Create workspace'), exact: true }).click();
       workspaceId = (await (await response).json()).id;
       const scan = page.waitForResponse(response => response.url().endsWith('/scan') && response.request().method() === 'POST');
       await page.getByRole('button', { name: L('Full Rescan'), exact: true }).click();
@@ -154,17 +156,17 @@ try {
       await language('en');
     });
     await check('relationship labels update in the existing graph and preserve the chosen JOIN path', async () => {
-      await page.getByRole('button', { name: L('Связи и пути'), exact: true }).click();
+      await page.getByRole('button', { name: L('Relationships and paths'), exact: true }).click();
       await poll(async () => (await page.locator('.react-flow__node').count()) === 2, 'Graph missing');
       await named('Исходная таблица', 'Transactions');
       await named('Целевая таблица', 'Accounts');
-      await page.getByRole('button', { name: L('Найти пути'), exact: true }).click();
-      const preview = page.getByRole('textbox', { name: L('Предварительный JOIN SQL'), exact: true });
+      await page.getByRole('button', { name: L('Find paths'), exact: true }).click();
+      const preview = page.getByRole('textbox', { name: L('JOIN SQL preview'), exact: true });
       await preview.waitFor();
       const sql = await preview.inputValue();
       for (const next of ['uk', 'ru', 'en']) {
         await language(next);
-        assert.equal(await page.getByRole('textbox', { name: L('Предварительный JOIN SQL'), exact: true }).inputValue(), sql);
+        assert.equal(await page.getByRole('textbox', { name: L('JOIN SQL preview'), exact: true }).inputValue(), sql);
         const edge = page.locator('.react-flow__edge-text');
         await poll(
           async () => (await edge.allTextContents()).some(text => text.includes(L('Declared FK'))),
@@ -176,59 +178,59 @@ try {
     const description = 'Описание пользователя / опис користувача <tag>';
     let recipe;
     await check('language changes preserve an unsaved recipe and its SQL editor model', async () => {
-      await page.getByRole('button', { name: L('SQL-рецепты'), exact: true }).click();
-      await page.getByText(L('Создать рецепт по таблице и полю'), { exact: true }).click();
+      await page.getByRole('button', { name: L('SQL recipes'), exact: true }).click();
+      await page.getByText(L('Create a recipe from a table and column'), { exact: true }).click();
       await named('Таблица для рецепта', 'Transactions');
-      await page.getByRole('combobox', { name: L('Поле для списка ID'), exact: true }).selectOption('ExternalId');
-      await page.getByRole('button', { name: L('Создать черновик'), exact: true }).click();
+      await page.getByRole('combobox', { name: L('ID list column'), exact: true }).selectOption('ExternalId');
+      await page.getByRole('button', { name: L('Create draft'), exact: true }).click();
       await page.locator('.sql-editor .monaco-editor').waitFor();
-      await page.getByRole('textbox', { name: L('Название рецепта'), exact: true }).fill(name);
-      await page.getByRole('textbox', { name: L('Описание рецепта'), exact: true }).fill(description);
+      await page.getByRole('textbox', { name: L('Recipe name'), exact: true }).fill(name);
+      await page.getByRole('textbox', { name: L('Recipe description'), exact: true }).fill(description);
       const sql = await page.locator('.sql-editor .view-lines').innerText();
       for (const next of ['ru', 'uk', 'en']) {
         await language(next);
-        assert.equal(await page.getByRole('textbox', { name: L('Название рецепта'), exact: true }).inputValue(), name);
-        assert.equal(await page.getByRole('textbox', { name: L('Описание рецепта'), exact: true }).inputValue(), description);
+        assert.equal(await page.getByRole('textbox', { name: L('Recipe name'), exact: true }).inputValue(), name);
+        assert.equal(await page.getByRole('textbox', { name: L('Recipe description'), exact: true }).inputValue(), description);
         assert.equal(await page.locator('.sql-editor .view-lines').innerText(), sql);
       }
       const response = page.waitForResponse(
         response => /\/workspaces\/[^/]+\/recipes$/.test(new URL(response.url()).pathname) && response.request().method() === 'POST',
       );
-      await page.getByRole('button', { name: L('Сохранить рецепт'), exact: true }).click();
+      await page.getByRole('button', { name: L('Save recipe'), exact: true }).click();
       recipe = await (await response).json();
       assert.equal(recipe.definition.name, name);
       assert.equal(recipe.definition.description, description);
-      await page.getByText(L('Сохранено'), { exact: true }).waitFor();
+      await page.getByText(L('Saved'), { exact: true }).waitFor();
     });
     await check('existing parser diagnostics retranslate while ID text and raw invalid values stay intact', async () => {
-      await page.getByRole('button', { name: L('Входы и SQL'), exact: true }).click();
-      await page.getByRole('textbox', { name: L('Список ID: {0}', 'Ids'), exact: true }).fill('not-an-int');
+      await page.getByRole('button', { name: L('Inputs and SQL'), exact: true }).click();
+      await page.getByRole('textbox', { name: L('ID list: {0}', 'Ids'), exact: true }).fill('not-an-int');
       const response = page.waitForResponse(response => response.url().endsWith('/api/inputs/parse'));
-      await page.getByRole('button', { name: L('Проверить все ID'), exact: true }).click();
+      await page.getByRole('button', { name: L('Validate all IDs'), exact: true }).click();
       assert.equal((await (await response).json()).statistics.invalid, 1);
       const key = 'Value must be a signed {0} within its SQL Server range, using ASCII digits.';
       for (const next of ['en', 'ru', 'uk']) {
         await language(next);
-        assert.equal(await page.getByRole('textbox', { name: L('Список ID: {0}', 'Ids'), exact: true }).inputValue(), 'not-an-int');
+        assert.equal(await page.getByRole('textbox', { name: L('ID list: {0}', 'Ids'), exact: true }).inputValue(), 'not-an-int');
         assert.equal(await page.locator('.input-error-table p').innerText(), L(key, 'int'));
         assert.ok((await page.locator('.input-error-table').innerText()).includes('not-an-int'));
       }
     });
     await check('valid runtime IDs and generated SQL survive language changes without browser or recipe persistence', async () => {
       const ids = '99887766\n99887766\n88776655';
-      await page.getByRole('textbox', { name: L('Список ID: {0}', 'Ids'), exact: true }).fill(ids);
+      await page.getByRole('textbox', { name: L('ID list: {0}', 'Ids'), exact: true }).fill(ids);
       const parsed = page.waitForResponse(response => response.url().endsWith('/api/inputs/parse'));
-      await page.getByRole('button', { name: L('Проверить все ID'), exact: true }).click();
+      await page.getByRole('button', { name: L('Validate all IDs'), exact: true }).click();
       assert.equal((await (await parsed).json()).statistics.valid, 3);
       const rendered = page.waitForResponse(response => response.url().endsWith('/render'));
-      await page.getByRole('button', { name: L('Сформировать SQL'), exact: true }).click();
+      await page.getByRole('button', { name: L('Generate SQL'), exact: true }).click();
       const result = await (await rendered).json();
       assert.ok(result.sql.includes('99887766'));
       await page.locator('.recipe-output .monaco-editor').waitFor();
       const output = await page.locator('.recipe-output .view-lines').innerText();
       for (const next of ['en', 'ru', 'uk']) {
         await language(next);
-        assert.equal(await page.getByRole('textbox', { name: L('Список ID: {0}', 'Ids'), exact: true }).inputValue(), ids);
+        assert.equal(await page.getByRole('textbox', { name: L('ID list: {0}', 'Ids'), exact: true }).inputValue(), ids);
         assert.equal(await page.locator('.recipe-output .view-lines').innerText(), output);
       }
       const storage = await page.evaluate(() =>

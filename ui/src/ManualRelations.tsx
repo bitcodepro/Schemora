@@ -26,11 +26,11 @@ type ManualRelation = {
   canUseForJoin: boolean;
 };
 const states: Record<string, string> = {
-  confirmed: 'Подтверждена',
-  candidate: 'Проверьте конфликт',
-  stale: 'Схема изменилась',
-  conflict: 'Конфликт',
-  rejected: 'Отклонена',
+  confirmed: 'Confirmed',
+  candidate: 'Review conflict',
+  stale: 'Schema changed',
+  conflict: 'Conflict',
+  rejected: 'Rejected',
 };
 export default function ManualRelations({ workspaceId, onChanged }: { workspaceId: string; onChanged: () => void }) {
   useLocale();
@@ -66,7 +66,7 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
     void request<ManualRelation[]>(base, { signal: controller.signal })
       .then(setRecords)
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Ручные связи недоступны.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Manual relationships unavailable.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
@@ -107,7 +107,9 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
       setNotice('');
     } catch (cause) {
       if (revision.current === requestRevision)
-        setError(errorMessage(cause, t('Не удалось открыть связь. Возможно, одна из таблиц удалена из текущей схемы.')));
+        setError(
+          errorMessage(cause, t('Could not open the relationship. One of the tables may have been removed from the current schema.')),
+        );
     } finally {
       if (revision.current === requestRevision) setLoading(false);
     }
@@ -136,12 +138,12 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
       setEditing(false);
       setNotice(
         saved.canUseForJoin
-          ? t('Связь сохранена. Её можно использовать в маршрутах и рецептах.')
-          : t('Связь сохранена, но не разрешена для JOIN. Откройте доказательства в графе и проверьте конфликт.'),
+          ? t('Relationship saved. It can be used in paths and recipes.')
+          : t('Relationship saved, but not allowed for JOIN. Open the evidence in the graph and review the conflict.'),
       );
       onChanged();
     } catch (cause) {
-      if (currentWorkspace.current === target) setError(errorMessage(cause, t('Связь не сохранена.')));
+      if (currentWorkspace.current === target) setError(errorMessage(cause, t('Relationship was not saved.')));
     } finally {
       if (currentWorkspace.current === target) setBusy(false);
     }
@@ -159,10 +161,10 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
         setSelected(null);
         setEditing(false);
       }
-      setNotice(t('Ручная связь удалена. Маршруты будут проверены заново.'));
+      setNotice(t('Manual relationship deleted. Paths will be checked again.'));
       onChanged();
     } catch (cause) {
-      if (currentWorkspace.current === target) setError(errorMessage(cause, t('Связь не удалена.')));
+      if (currentWorkspace.current === target) setError(errorMessage(cause, t('Relationship was not deleted.')));
     } finally {
       if (currentWorkspace.current === target) setBusy(false);
     }
@@ -171,11 +173,11 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
     <section className="enhancement-card manual-relations">
       <div className="section-heading">
         <div>
-          <h2>{t('Ручные связи')}</h2>
-          <p className="muted-text">{t('Укажите известное соответствие колонок, даже если в схеме нет внешнего ключа.')}</p>
+          <h2>{t('Manual relationships')}</h2>
+          <p className="muted-text">{t('Specify a known column mapping, even if the schema has no foreign key.')}</p>
         </div>
         <button className="secondary-button" disabled={busy || loading || !workspaceId} onClick={create}>
-          {t('+ Новая ручная связь')}
+          {t('+ New manual relationship')}
         </button>
       </div>
       {error && (
@@ -188,7 +190,7 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
           {tMessage(notice)}
         </p>
       )}
-      {loading && <p className="muted-text">{t('Загрузка связей…')}</p>}
+      {loading && <p className="muted-text">{t('Loading relationships…')}</p>}
       {records.length > 0 && (
         <div className="manual-relation-list">
           {records.map(record => (
@@ -197,7 +199,7 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
                 <strong>{record.name}</strong>
                 <small>
                   {t(states[record.status]) || record.status} · v{record.version} ·{' '}
-                  {record.canUseForJoin ? t('Доступна для JOIN') : t('Не используется в JOIN')}
+                  {record.canUseForJoin ? t('Available for JOIN') : t('Not used in JOIN')}
                 </small>
                 <code>
                   {record.fromColumns.join(', ')} → {record.toColumns.join(', ')}
@@ -205,24 +207,24 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
                 <p className="muted-text">{record.reason}</p>
               </div>
               <button className="text-button" disabled={busy || loading} onClick={() => void edit(record)}>
-                {t('Изменить')}
+                {t('Edit')}
               </button>
               <button className="text-button danger-text" disabled={busy || loading} onClick={() => setDeleteId(record.id)}>
-                {t('Удалить связь')}
+                {t('Delete relationship')}
               </button>
               {deleteId === record.id && (
                 <div className="manual-delete-confirm">
                   <p>
-                    {t('Удалить «')}
+                    {t('Delete “')}
                     {record.name}
-                    {t('»? Рецепты с этой связью могут потребовать проверки.')}
+                    {t('”? Recipes using this relationship may need review.')}
                   </p>
                   <div className="enhancement-actions">
                     <button className="secondary-button" disabled={busy} onClick={() => void remove(record)}>
-                      {t('Удалить окончательно')}
+                      {t('Delete permanently')}
                     </button>
                     <button className="text-button" disabled={busy} onClick={() => setDeleteId('')}>
-                      {t('Оставить связь')}
+                      {t('Keep relationship')}
                     </button>
                   </div>
                 </div>
@@ -232,14 +234,14 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
         </div>
       )}
       {!records.length && !editing && !loading && (
-        <p className="muted-text">{t('Ручных связей пока нет. Начните с таблиц и колонок, соответствие которых вам известно.')}</p>
+        <p className="muted-text">{t('No manual relationships yet. Start with tables and columns whose mapping you know.')}</p>
       )}
       {editing && (
         <div className="manual-relation-form">
           <div className="enhancement-grid">
             <TablePicker
               workspaceId={workspaceId}
-              label={t('Ручная связь: исходная таблица')}
+              label={t('Manual relationship: source table')}
               value={fromTable}
               disabled={busy}
               onChange={table => {
@@ -249,7 +251,7 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
             />
             <TablePicker
               workspaceId={workspaceId}
-              label={t('Ручная связь: целевая таблица')}
+              label={t('Manual relationship: target table')}
               value={toTable}
               disabled={busy}
               onChange={table => {
@@ -259,27 +261,27 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
             />
           </div>
           <label className="manual-relation-name">
-            <span className="field-label">{t('Название связи')}</span>
+            <span className="field-label">{t('Relationship name')}</span>
             <input
-              aria-label={t('Название ручной связи')}
+              aria-label={t('Manual relationship name')}
               value={name}
               maxLength={160}
               disabled={busy}
               onChange={event => setName(event.target.value)}
-              placeholder={t('Например, документы → заказы')}
+              placeholder={t('For example, documents → orders')}
             />
           </label>
           <OrderedColumnPairs fromTable={fromTable} toTable={toTable} value={pairs} onChange={setPairs} disabled={busy} />
           <label className="repair-reason">
-            <span className="field-label">{t('Почему эти колонки соответствуют друг другу')}</span>
+            <span className="field-label">{t('Why these columns correspond to each other')}</span>
             <textarea
-              aria-label={t('Основание ручной связи')}
+              aria-label={t('Reason for the manual relationship')}
               value={reason}
               maxLength={2000}
               rows={3}
               disabled={busy}
               onChange={event => setReason(event.target.value)}
-              placeholder={t('Укажите источник знания о связи и важные условия…')}
+              placeholder={t('Specify the source of your knowledge about this relationship and any important conditions…')}
             />
           </label>
           {issues.length > 0 && (
@@ -295,7 +297,7 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
               disabled={busy || issues.length > 0 || !name.trim() || !reason.trim()}
               onClick={() => void save()}
             >
-              {busy ? t('Сохранение…') : selected ? t('Сохранить изменения связи') : t('Создать ручную связь')}
+              {busy ? t('Saving…') : selected ? t('Save relationship changes') : t('Create manual relationship')}
             </button>
             <button
               className="text-button"
@@ -305,9 +307,11 @@ export default function ManualRelations({ workspaceId, onChanged }: { workspaceI
                 setEditing(false);
               }}
             >
-              {t('Закрыть редактор')}
+              {t('Close editor')}
             </button>
-            <p className="muted-text">{t('Ручная связь не меняет SQL-проект. Сервер проверяет типы, порядок колонок и конфликты.')}</p>
+            <p className="muted-text">
+              {t('A manual relationship does not change the SQL project. The server checks types, column order, and conflicts.')}
+            </p>
           </div>
         </div>
       )}

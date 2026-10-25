@@ -4,10 +4,10 @@ import type { RecipeEntry } from './recipeTypes';
 export const formatDate = (value: string) => new Date(value).toLocaleString(localeTag());
 
 export const statusLabels: Record<RecipeEntry['validation']['status'], string> = {
-  Valid: 'Совместим',
-  Warning: 'Есть замечания',
-  Broken: 'Несовместим',
-  NeedsReview: 'Нужна проверка',
+  Valid: 'Compatible',
+  Warning: 'Has warnings',
+  Broken: 'Incompatible',
+  NeedsReview: 'Review required',
 };
 
 export function saveDownload(contents: string, name: string, mime: string) {

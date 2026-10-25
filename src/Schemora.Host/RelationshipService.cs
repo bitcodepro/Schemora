@@ -167,7 +167,7 @@ public sealed class RelationshipService(CatalogStore store, RelationshipAnalyzer
                         new(
                             "warning",
                             "EF_DATABASE_MAPPING_REQUIRED",
-                            $"Выберите БД для C#-проекта {project.Path}; mapping не применяется сразу ко всем БД."
+                            $"Select a database for C# project {project.Path}; the mapping is not applied to all databases at once."
                         )
                     );
                     continue;
@@ -223,7 +223,8 @@ public sealed class RelationshipService(CatalogStore store, RelationshipAnalyzer
                     {
                         Status = "stale",
                         IsTrusted = false,
-                        ReviewReason = "Исходная связь больше не подтверждается текущей схемой; решение сохранено для проверки.",
+                        ReviewReason =
+                            "The current schema no longer supports the original relationship; the decision has been retained for review.",
                     }
                 );
             var staleDatabaseIds = databases
@@ -243,12 +244,15 @@ public sealed class RelationshipService(CatalogStore store, RelationshipAnalyzer
                             {
                                 Status = "stale",
                                 IsTrusted = false,
-                                ReviewReason = "БД доступна только по предыдущему снимку; обновите модель перед построением JOIN.",
+                                ReviewReason =
+                                    "The database is available only from a previous snapshot; refresh the model before building JOINs.",
                             }
                             : e
                     )
                     .ToList();
-                diagnostics.Add(new("warning", "SCHEMA_STALE", "Связи БД с ошибкой обновления исключены из доверенных маршрутов."));
+                diagnostics.Add(
+                    new("warning", "SCHEMA_STALE", "Relationships from databases that failed to refresh are excluded from trusted routes.")
+                );
             }
             graph = graph with { Relations = edges, Diagnostics = graph.Diagnostics.Concat(diagnostics).ToArray() };
             if (!(store.Get<StoragePolicy>("UserSettings", "storage-policy") ?? new()).LowMemory)
@@ -268,19 +272,22 @@ public sealed class RelationshipService(CatalogStore store, RelationshipAnalyzer
     public async Task<RelationshipEdge> Decide(string workspaceId, string relationId, string decision, string? reason, CancellationToken ct)
     {
         if (decision is not ("confirmed" or "rejected"))
-            throw new AppException("RELATION_DECISION_INVALID", "Выберите confirmed или rejected.");
+            throw new AppException("RELATION_DECISION_INVALID", "Choose confirmed or rejected.");
         if (string.IsNullOrWhiteSpace(reason) || reason.Length > 2000)
-            throw new AppException("RELATION_REASON_REQUIRED", "Добавьте основание решения (до 2000 символов).");
+            throw new AppException("RELATION_REASON_REQUIRED", "Add a reason for the decision (up to 2000 characters).");
         var snapshot = await GetSnapshot(workspaceId, ct);
         var revision = snapshot.Revision;
         var graph = snapshot.Graph;
         var edge =
             graph.Relations.FirstOrDefault(e => e.Relation.Id == relationId)
-            ?? throw new AppException("RELATION_NOT_FOUND", "Связь не найдена в текущем графе.", 404);
+            ?? throw new AppException("RELATION_NOT_FOUND", "Relationship not found in the current graph.", 404);
         if (edge.Relation.Kind == "declared-fk")
-            throw new AppException("PHYSICAL_FK_IMMUTABLE", "Физический FK определяется схемой; измените источник и обновите модель.");
+            throw new AppException(
+                "PHYSICAL_FK_IMMUTABLE",
+                "A physical foreign key is defined by the schema; edit the source and refresh the model."
+            );
         if (edge.Status == "stale")
-            throw new AppException("RELATION_STALE", "Устаревшая связь требует нового сопоставления таблиц и колонок.");
+            throw new AppException("RELATION_STALE", "The stale relationship needs a new table and column mapping.");
         var saved = new SavedRelationDecision(
             relationId,
             decision == "confirmed" ? "confirm" : "reject",
@@ -293,7 +300,7 @@ public sealed class RelationshipService(CatalogStore store, RelationshipAnalyzer
             if (revision != ContextRevision(workspaceId))
                 throw new AppException(
                     "RELATION_CONTEXT_CHANGED",
-                    "Модель изменилась во время принятия решения. Обновите граф и повторите действие.",
+                    "The model changed while applying the decision. Refresh the graph and try again.",
                     409
                 );
             store.Put("RelationOverrides", relationId, workspaceId, saved);

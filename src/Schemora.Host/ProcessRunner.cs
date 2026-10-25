@@ -79,7 +79,7 @@ public static class ProcessRunner
                 );
             if (cancellationToken.IsCancellationRequested)
                 throw new OperationCanceledException(cancellationToken);
-            throw new AppException("PROCESS_TIMEOUT", "Внешний инструмент превысил допустимое время выполнения.", 408);
+            throw new AppException("PROCESS_TIMEOUT", "The external tool exceeded its execution time limit.", 408);
         }
     }
 

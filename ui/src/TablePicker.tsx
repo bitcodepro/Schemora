@@ -26,7 +26,7 @@ export default function TablePicker({
   label,
   value,
   onChange,
-  emptyLabel = t('Выберите таблицу'),
+  emptyLabel = t('Select a table'),
   disabled,
 }: Props) {
   useLocale();
@@ -50,7 +50,7 @@ export default function TablePicker({
       request<TablePage>(`/api/workspaces/${encodeURIComponent(workspaceId)}/tables?${parameters}`, { signal: controller.signal })
         .then(setPage)
         .catch(cause => {
-          if (!controller.signal.aborted) setError(errorMessage(cause, t('Поиск таблиц недоступен.')));
+          if (!controller.signal.aborted) setError(errorMessage(cause, t('Table search unavailable.')));
         })
         .finally(() => {
           if (!controller.signal.aborted) setBusy(false);
@@ -70,8 +70,8 @@ export default function TablePicker({
         <input
           type="search"
           className="table-picker-search"
-          aria-label={t('Поиск: {0}', label)}
-          placeholder={t('Поиск по всем таблицам…')}
+          aria-label={t('Search: {0}', label)}
+          placeholder={t('Search all tables…')}
           value={query}
           onChange={event => setQuery(event.target.value)}
           disabled={disabled || !workspaceId}
@@ -85,7 +85,7 @@ export default function TablePicker({
           onChange(choices.find(table => table.id === event.target.value) || (value?.id === event.target.value ? value : null))
         }
       >
-        <option value="">{busy ? t('Поиск…') : emptyLabel}</option>
+        <option value="">{busy ? t('Searching…') : emptyLabel}</option>
         {value && !choices.some(table => table.id === value.id) && <option value={value.id}>{qualifiedTableName(value)}</option>}
         {choices.map(table => (
           <option key={table.id} value={table.id}>
@@ -97,9 +97,13 @@ export default function TablePicker({
         {error ? (
           <span role="alert">{tMessage(error)}</span>
         ) : page ? (
-          t('{0} найдено{1}', page.total, page.total > choices.length ? t(' · показаны первые {0}; уточните поиск', choices.length) : '')
+          t(
+            '{0} found{1}',
+            page.total,
+            page.total > choices.length ? t(' · showing the first {0}; refine your search', choices.length) : '',
+          )
         ) : (
-          t('Серверный поиск по каталогу')
+          t('Server search across the catalog')
         )}
       </div>
     </div>

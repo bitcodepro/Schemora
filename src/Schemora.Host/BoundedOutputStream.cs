@@ -43,7 +43,7 @@ internal sealed class BoundedOutputStream(Stream inner, long maximum) : Stream
     private void Check(long value)
     {
         if (value > maximum)
-            throw new AppException("DOCKER_SCRIPT_TOO_LARGE", "Сгенерированный deployment script превышает 64 MiB.", 422);
+            throw new AppException("DOCKER_SCRIPT_TOO_LARGE", "The generated deployment script exceeds 64 MiB.", 422);
     }
 
     protected override void Dispose(bool disposing)

@@ -271,7 +271,7 @@ public sealed partial class CatalogStore
                     || !current.Excludes.SequenceEqual(expectedWorkspace.Excludes, StringComparer.Ordinal)
                 )
                     throw new InvalidOperationException(
-                        "Конфигурация рабочей области изменилась во время сканирования; результат не опубликован. Повторите сканирование новых корней."
+                        "The workspace configuration changed during the scan; the result was not published. Scan the new root folders again."
                     );
             }
             var records = new List<StoredRecord>();
