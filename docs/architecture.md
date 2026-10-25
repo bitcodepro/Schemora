@@ -1,29 +1,29 @@
-# Архитектура
+# Architecture
 
-Schemora — один локальный ASP.NET Core процесс с embedded React/Vite UI. Публикация win-x64 self-contained single-file включает UI, SQLite native runtime, DacFx, ScriptDom и embedded Roslyn metadata references. Для запуска EXE не нужны Node или установленный .NET runtime.
+Schemora is a single local ASP.NET Core process with an embedded React/Vite UI. The self-contained single-file win-x64 publish includes the UI, the SQLite native runtime, DacFx, ScriptDom and embedded Roslyn metadata references. Running the EXE requires neither Node nor an installed .NET runtime.
 
-Модули:
+Modules:
 - Host: API, session security, staging/build tooling, jobs, workspace/relationship/recipe/change services.
 - SqlServer: DacFx metadata, ScriptDom static DDL classification/reader, schema diff.
 - Workspaces: read-only discovery, fingerprints, SQLite catalog/migrations/backup/recovery.
-- Relationships: Roslyn EF mapping, embedded C# SQL/Dapper evidence, conservative candidates и trusted path finder.
-- RecipeEngine: typed ID parser, DSL, deterministic SQL renderer, SQL dependency binder и conservative AST column repair.
+- Relationships: Roslyn EF mapping, embedded C# SQL/Dapper evidence, conservative candidates and trusted path finder.
+- RecipeEngine: typed ID parser, DSL, deterministic SQL renderer, SQL dependency binder and conservative AST column repair.
 
-SQLite работает в WAL. Catalog schema v2 добавляет expression indexes; перед migration v1 автоматически создаётся SQLite backup. Snapshot и recipe version immutable. Публикация источников/БД/snapshots атомарна; старые snapshots сохраняются после удаления источника. Один writer-host на data-directory удерживает файловую блокировку; после crash handle освобождается ОС.
+SQLite runs in WAL mode. Catalog schema v2 adds expression indexes; a SQLite backup is created automatically before migrating from v1. Snapshots and recipe versions are immutable. Publishing sources/databases/snapshots is atomic; old snapshots are kept after a source is removed. A single writer host per data directory holds a file lock; after a crash the OS releases the handle.
 
-Очередь BackgroundService bounded16, один worker, одна активная задача на workspace. Quick использует timestamp/length+hash cache; Full/Rebuild rehash. Full нужен также после изменения содержимого с сохранением timestamp и length у обычных discovered sources. Для авторитетной SQL-project модели verified build closure всегда заново хешируется, включая внешние и ignored inputs. Незавершённый discovery не заменяет рабочий каталог. Публикация старой задачи отклоняется после изменения roots/excludes. После публикации проверяются рецепты; ошибки одной БД сохраняют прошлый snapshot с failed/stale статусом.
+The BackgroundService queue is bounded to 16, with one worker and one active job per workspace. Quick uses a timestamp/length+hash cache; Full/Rebuild rehash. Full is also needed after a content change that keeps the timestamp and length of ordinary discovered sources. For an authoritative SQL project model, the verified build closure is always rehashed, including external and ignored inputs. An unfinished discovery does not replace the working catalog. Publishing a stale job is rejected after roots/excludes change. After publishing, recipes are checked; errors in one database keep its previous snapshot with a failed/stale status.
 
-DACPAC читается внутри процесса без Docker. SQL project build: detect SDK/legacy → stage source/inherited configuration в приватный служебный каталог → dotnet/MSBuild → fresh DACPAC → DacFx. Bin/obj артефакт автоматически не считается актуальным. Static SQL всегда помечен partial. Сборка требует доверия: произвольные MSBuild targets не являются sandboxed. Планировщик собирает bounded closure локальных sibling projects/imports/ArtifactReference/SQLCMD, проверяет source hashes и сохраняет immutable build manifest. Pinned NuGet DACPAC packages восстанавливаются в private stage/cache и включаются в hashed inputs. Непроверяемый динамический контекст явно требует внешней сборки и DACPAC.
+DACPACs are read in-process without Docker. SQL project build: detect SDK/legacy → stage source/inherited configuration into a private service directory → dotnet/MSBuild → fresh DACPAC → DacFx. A bin/obj artifact is never assumed to be current. Static SQL is always marked partial. Building requires trust: arbitrary MSBuild targets are not sandboxed. The planner collects a bounded closure of local sibling projects/imports/ArtifactReference/SQLCMD, verifies source hashes and saves an immutable build manifest. Pinned NuGet DACPAC packages are restored into a private stage/cache and included in the hashed inputs. Unverifiable dynamic context explicitly requires an external build and a DACPAC.
 
-Relationship model отделяет confidence от trust. Physical FK и доказанный EF mapping trusted; SQL/Dapper joins и naming candidates требуют подтверждения с основанием. Отдельные DB identity предотвращают смешивание одноимённых таблиц. C#→БД задаётся явно при нескольких БД. Dapper splitOn не устанавливает FK.
+The relationship model separates confidence from trust. Physical FKs and proven EF mappings are trusted; SQL/Dapper joins and naming candidates require confirmation with a stated reason. Separate DB identities prevent mixing tables with the same name. C#→DB mapping is set explicitly when there are several databases. Dapper splitOn does not establish an FK.
 
-Recipes сохраняют определения и derived lineage; runtime IDs/SQL/payload transient. ScriptDom binder проверяет доступные scopes и диагностирует неоднозначность. После schema change отсутствующий dependency Broken; изменение типа относительно last-compatible snapshot NeedsReview. Repair preview патчит только AST identifier spans в однозначно связанных SELECT/CTE/subquery/UNION contexts; apply — явное подтверждение с новой immutable версией.
+Recipes store definitions and derived lineage; runtime IDs/SQL/payload are transient. The ScriptDom binder checks available scopes and diagnoses ambiguity. After a schema change, a missing dependency is Broken; a type change relative to the last-compatible snapshot is NeedsReview. Repair preview patches only AST identifier spans in unambiguously bound SELECT/CTE/subquery/UNION contexts; apply is an explicit confirmation that creates a new immutable version.
 
-API защищён текущим fragment launch token, точным Host/Origin и Fetch Metadata; Kestrel слушает только 127.0.0.1. CSP запрещает внешние scripts/connect, Monaco workers bundled locally. Private runtime launch info позволяет повторному запуску открыть текущую сессию; если ACL пользовательского data-dir не позволяет приватность, token там не сохраняется.
+The API is protected by the current fragment launch token, an exact Host/Origin and Fetch Metadata; Kestrel listens only on 127.0.0.1. CSP forbids external scripts/connect; Monaco workers are bundled locally. Private runtime launch info lets a repeated launch open the current session; if the ACL of the user's data dir cannot guarantee privacy, the token is not stored there.
 
-PostgreSQL и AI исключены из V1. Нет выполнения сгенерированных запросов на бизнес-БД и загрузки пользовательских assemblies/source generators. Ограничения анализаторов отражаются diagnostics, а не фиктивной достоверной схемой.
+PostgreSQL and AI are excluded from V1. Generated queries are never executed against business databases, and user assemblies/source generators are never loaded. Analyzer limitations are reported as diagnostics rather than as a fictitious authoritative schema.
 
 
-AutoRefreshService отслеживает корни через FileSystemWatcher, debounce и periodic reconciliation; использует общую очередь только Quick/Full. SchemaObjectService предоставляет paged objects/detail/dependencies/transitive impact. ManualRelationService и ChainRecipeBuilder используют ту же relationship-context revision, что сохранение/генерация рецептов. Детали и границы расширений: enhancements.md.
+AutoRefreshService watches roots via FileSystemWatcher, debounce and periodic reconciliation; it uses the shared queue for Quick/Full only. SchemaObjectService provides paged objects/detail/dependencies/transitive impact. ManualRelationService and ChainRecipeBuilder use the same relationship-context revision as recipe saving/generation. Details and extension boundaries: enhancements.md.
 
 

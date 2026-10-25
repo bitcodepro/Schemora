@@ -1,30 +1,30 @@
 # Schemora
 
-Локальное приложение для SQL Server. Собирает из ваших репозиториев модель нескольких баз данных, показывает связи между таблицами с указанием, откуда каждая связь известна, строит проверяемые JOIN и превращает список ID в готовый SQL по сохранённому рецепту. Не подключается к рабочим базам и ничего не отправляет в сеть.
+A local desktop tool for SQL Server. It builds a model of several databases from your repositories, shows how tables relate and where each relationship comes from, builds verifiable JOINs, and turns a list of IDs into ready-to-run SQL from a saved recipe. It never connects to production databases and sends nothing over the network.
 
-Один EXE для Windows x64: сервер, интерфейс и анализаторы работают в одном процессе на `127.0.0.1`. PostgreSQL и AI пока не поддерживаются.
+One EXE for Windows x64: the server, the UI and the analyzers run in a single process on `127.0.0.1`. PostgreSQL and AI features are not supported yet.
 
-## Что умеет
+## What it does
 
-- **Рабочие области.** Несколько корневых папок с SQL-проектами (SDK-style и legacy SSDT), отдельными `.sql`, DACPAC и C#-проектами. Full Rescan находит проекты, Quick Refresh обновляет изменённые файлы, автообновление следит за папками.
-- **Каталог схем.** Таблицы, представления, процедуры, функции, синонимы, индексы и уникальные ключи выбранной области; поиск по SQL-определениям; история снимков.
-- **Связи и пути.** Объявленные FK, EF Core mappings, JOIN из C#/Dapper, наблюдаемые и предполагаемые связи — каждая со своим основанием и уверенностью. Непроверенная связь не попадает в автоматический JOIN, пока вы её не подтвердите. Path Explorer строит JOIN только по доверенным связям.
-- **SQL-рецепты.** Версионируемые шаблоны со списками `{{ids:Ids}}` / `{{table:Ids}}` и одиночными значениями `{{value:From}}` (например, период «с/по»), типизированные входы (целые и decimal, GUID, строки, даты с быстрым выбором «сегодня / начало месяца…», bit), политика дубликатов и порядка. Вставьте ID или загрузите файл — получите автономный SQL или запрос с одним JSON-параметром. Любая ошибка ввода блокирует генерацию. Одиночное значение можно сделать необязательным: пустое поле даёт `NULL`. Часто используемые значения можно сохранить под именем — они шифруются для вашей учётной записи Windows. Избранные и недавние рецепты, SQL для целой коллекции рецептов одним скриптом.
-- **Изменения схемы.** Diff снимков, влияние на рецепты, кандидаты на переименование, исправление через AST с предпросмотром и отдельным подтверждением. Сравнение двух разных баз области или базы с DACPAC-файлом с другого стенда: HTML-отчёт и черновик скрипта миграции только для просмотра (удаляющие шаги закомментированы, приложение его не выполняет).
-- **Качество области.** Настраиваемые правила (таблицы без PK, FK без индекса, дубликаты индексов и т. д.) с обоснованным подавлением находок.
-- **Поиск.** `Ctrl+K` ищет по разделам, таблицам, полям, SQL-коду и рецептам текущей области; `?` показывает все горячие клавиши.
-- **Граф** связей: раскраска по схемам, компактные карточки, экспорт в PNG и SVG.
-- Интерфейс на английском, русском и украинском; тёмная и светлая темы.
+- **Workspaces.** Several root folders with SQL projects (SDK-style and legacy SSDT), loose `.sql` files, DACPACs and C# projects. Full Rescan discovers projects, Quick Refresh updates changed files, and auto-refresh watches the folders.
+- **Schema catalog.** Tables, views, procedures, functions, synonyms, indexes and unique keys of the selected workspace; search in SQL definitions; snapshot history.
+- **Relationships and paths.** Declared FKs, EF Core mappings, JOINs found in C#/Dapper, observed and inferred relationships — each with its evidence and confidence. An unverified relationship is never used for an automatic JOIN until you confirm it. Path Explorer builds JOINs from trusted relationships only.
+- **SQL recipes.** Versioned templates with lists (`{{ids:Ids}}` / `{{table:Ids}}`) and single values (`{{value:From}}`, e.g. a from/to period); typed inputs (integers and decimal, GUID, strings, dates with "today / start of month…" shortcuts, bit); explicit duplicate and order policies. Paste IDs or load a file and get a standalone SQL script or a query with one JSON parameter. Any input error blocks generation. A single value can be optional: an empty field renders `NULL`. Frequently used values can be saved under a name — they are encrypted for your Windows account. Favourite and recent recipes, and one script for a whole recipe collection.
+- **Schema changes.** Snapshot diffs, impact on recipes, rename candidates, and AST-based repairs with a preview and a separate confirmation. Compare two databases of a workspace, or a database with a DACPAC from another environment, with an HTML report and a review-only migration draft (data-losing steps are commented out; Schemora never runs it).
+- **Workspace quality.** Configurable rules (tables without a PK, FKs without an index, duplicate indexes and more) with justified suppression of findings.
+- **Search.** `Ctrl+K` searches pages, tables, columns, SQL code and recipes of the current workspace; `?` lists all keyboard shortcuts.
+- **Relationship graph** with colouring by schema, compact cards, and PNG/SVG export.
+- UI in English, Russian and Ukrainian; dark and light themes.
 
-## Запуск
+## Running
 
-Запустите `artifacts/win-x64/Schemora.Host.exe` — откроется браузер. Рядом с EXE не нужны DLL, Node или .NET runtime. Данные хранятся в `%LOCALAPPDATA%\Schemora`; один экземпляр работает с одним каталогом данных. Завершение работы и резервная копия — в Settings and tools.
+Start `artifacts/win-x64/Schemora.Host.exe` and a browser opens. No DLLs, Node or .NET runtime are needed next to the EXE. Data lives in `%LOCALAPPDATA%\Schemora`; one instance works with one data directory. Shutdown and backups are under Settings and tools.
 
-Для знакомства нажмите **Load tutorial project** на странице Workspace: появится учебная область с базой, связью и рецептом.
+To get started, press **Load tutorial project** on the Workspace page: it creates a sample workspace with a database, a relationship and a recipe.
 
-### Порт
+### Port
 
-Порт задаётся файлом `schemora.json` **рядом с EXE**:
+The port is set in `schemora.json` **next to the EXE**:
 
 ~~~json
 {
@@ -32,90 +32,90 @@
 }
 ~~~
 
-`0` — свободный порт выбирается автоматически; для постоянного укажите, например, `8088`. Если порт занят, запуск завершится с сообщением, где указаны порт и путь к JSON. Без файла используется `0`; некорректный JSON, лишние свойства и значения вне `0..65535` отклоняются. `--port 8088` имеет приоритет над файлом, `--config <путь>` выбирает другой файл. Сервер всегда слушает только `127.0.0.1`. Повторная публикация не перезаписывает ваш `schemora.json`.
+`0` picks a free port automatically; set a fixed one, e.g. `8088`, if you prefer. If the port is taken, startup stops with a message naming the port and the JSON path. Without the file `0` is used; invalid JSON, unknown properties and values outside `0..65535` are rejected. `--port 8088` overrides the file and `--config <path>` selects another file. The server always listens on `127.0.0.1` only. Publishing again does not overwrite your `schemora.json`.
 
-### Без браузера
+### Without a browser
 
 ~~~powershell
-Schemora.Host.exe --no-browser --session-file <новый-файл> --data-dir <каталог>
+Schemora.Host.exe --no-browser --session-file <new-file> --data-dir <directory>
 ~~~
 
-Файл сессии содержит временный токен — не добавляйте его в Git. Обычный запуск не печатает токен в stdout. Если в выбранном каталоге данных нельзя выставить приватные права, токен для повторного открытия не сохраняется; блокировка экземпляра продолжает работать.
+The session file contains a temporary token — do not commit it. A normal start never prints the token to stdout. If private permissions cannot be set on the chosen data directory, the token for reopening is not stored; the single-instance lock still works.
 
-### SQL из командной строки
+### SQL from the command line
 
-Рецепт, выгруженный кнопкой «Экспорт JSON», можно превратить в SQL без запуска интерфейса — в том числе пока приложение открыто:
+A recipe exported with **Export JSON** can be rendered without the UI, even while the app is running:
 
 ~~~powershell
 Schemora.Host.exe render --recipe orders.json --input From=2026-10-01 --input Ids=@ids.txt > orders.sql
 Schemora.Host.exe render --recipe orders.json --input Ids=@ids.txt --mode parameterized --out orders.json
 ~~~
 
-`--input Имя=значения` принимает то же, что поле ввода ID; `@файл` читает значения из файла. Несколько `--recipe` дают один скрипт: каждый рецепт — отдельный пакет (`GO`), а вход с одним именем получают все рецепты, где он есть. Параметризованный режим выводит JSON с SQL и параметром. Предупреждения пишутся в stderr; код выхода 0 — готово, 1 — ошибка параметров команды, 2 — ошибка рецепта или значений. `render --help` показывает полный синтаксис.
+`--input Name=values` accepts the same text as the ID box; `@file` reads values from a file. Several `--recipe` options produce one script: each recipe is its own batch (`GO`), and an input reaches every recipe that uses its name. Parameterized mode prints JSON with the SQL and the parameter. Warnings go to stderr; exit code 0 means success, 1 a command-line error, 2 a recipe or input error. `render --help` shows the full syntax.
 
-### Резервная копия
+### Backups
 
-Кнопка в настройках выгружает согласованную копию SQLite. Кроме того, приложение само копирует каталог в `backups\auto-*.sqlite` раз в сутки и хранит 7 последних копий; интервал и число копий меняются в Workspace quality → Analysis, search and recovery → Catalog health and recovery. Сохранённые значения рецептов в каталог и копии не попадают. Восстановление при остановленном приложении:
+A button in the settings downloads a consistent SQLite copy. In addition, the app copies the catalog to `backups\auto-*.sqlite` once a day and keeps the newest 7 copies; the interval and the number of copies are set in Workspace quality → Analysis, search and recovery → Catalog health and recovery. Saved recipe values are never part of the catalog or its copies. To restore while the app is stopped:
 
 ~~~powershell
 Schemora.Host.exe --data-dir E:\SchemoraData --restore-backup E:\Backups\schemora.sqlite
 ~~~
 
-Перед заменой сохраняется предыдущий каталог; повреждённая копия отклоняется. Миграция v1→v2 тоже делает резервную копию.
+The previous catalog is preserved before it is replaced, and a damaged copy is rejected. The v1→v2 migration also makes a backup.
 
-## Типичный сценарий
+## Typical workflow
 
-1. Создайте рабочую область, указав абсолютные пути к корням репозиториев; выбранная область действует на всех страницах.
-2. **Full Rescan** найдёт SQL/C# проекты и базы. Статический разбор SQL всегда частичный; для точной модели выберите **Rebuild** и подтвердите доверие к MSBuild targets (SDK-style собирается `dotnet build`, legacy SSDT — совместимой парой Visual Studio MSBuild + SSDT). Без инструментов доступны импорт готового DACPAC и частичный статический разбор.
-3. На странице связей изучите основания. При нескольких БД задайте соответствие C# → БД. JOIN из Dapper — кандидат; `splitOn` не является FK.
-4. Сохраните рецепт, вставьте ID и получите SQL. SQL с введёнными ID формируется локально, не выполняется приложением и не сохраняется ни в каталоге, ни в логах, ни в хранилище браузера.
-5. После изменения схемы обновите область: статусы рецептов пересчитаются, страница Changes покажет diff и предложит исправления.
+1. Create a workspace with absolute paths to your repository roots; the selected workspace applies to every page.
+2. **Full Rescan** discovers SQL/C# projects and databases. Static SQL parsing is always partial; for an exact model choose **Rebuild** and confirm that you trust the MSBuild targets (SDK-style projects build with `dotnet build`, legacy SSDT with a compatible Visual Studio MSBuild + SSDT pair). Without these tools you can still import a ready DACPAC or use partial static parsing.
+3. On the relationships page review the evidence. With several databases, map C# projects to databases. A JOIN found in Dapper is a candidate; `splitOn` is not an FK.
+4. Save a recipe, paste IDs and get SQL. SQL with your IDs is generated locally, never executed by the app, and never stored in the catalog, the logs or browser storage.
+5. After a schema change, refresh the workspace: recipe statuses are recalculated, and the Changes page shows the diff and proposes repairs.
 
-## Переносимая конфигурация
+## Portable configuration
 
-Экспорт v2 переносит рецепты, ручные связи, решения, сопоставления проектов и псевдонимы БД — без абсолютных путей и введённых ID (явно сохранённые искусственные тестовые значения входят). При импорте сначала выберите корни и просканируйте, затем сопоставьте БД и проекты и проверьте предпросмотр. Перенесённые связи требуют отдельного подтверждения; доверие к MSBuild не переносится.
+Export v2 carries recipes, manual relationships, decisions, project mappings and database aliases — without absolute paths or entered IDs (explicitly saved synthetic test values are included). To import, first choose the roots and scan, then map databases and projects and review the preview. Imported relationships need a separate confirmation; trust in MSBuild is never transferred.
 
-## Внешние инструменты
+## External tools
 
-| Действие | Что требуется |
+| Action | Requirements |
 |---|---|
-| Запуск, каталог, граф, рецепты, чтение DACPAC/SQL/C# | Только Windows x64 и браузер |
-| Сборка SDK-style SQL-проекта | .NET 10 SDK и SQL SDK проекта; restore может требовать сеть |
-| Сборка legacy SSDT | Visual Studio / Build Tools с совместимыми MSBuild + SSDT |
-| Предпросмотр схемы в Docker (необязательно) | Docker Desktop с Linux-контейнерами и образом SQL Server 2022 |
-| Разработка | .NET 10 SDK, Node 22.23.4 / npm 10.9.8, для приёмочных скриптов — PowerShell 7 (`pwsh`) |
+| Run, catalog, graph, recipes, reading DACPAC/SQL/C# | Windows x64 and a browser only |
+| Building an SDK-style SQL project | .NET 10 SDK and the project's SQL SDK; restore may need network access |
+| Building legacy SSDT | Visual Studio / Build Tools with a compatible MSBuild + SSDT |
+| Schema preview in Docker (optional) | Docker Desktop with Linux containers and a SQL Server 2022 image |
+| Development | .NET 10 SDK, Node 22.23.4 / npm 10.9.8, PowerShell 7 (`pwsh`) for the acceptance scripts |
 
-Docker-предпросмотр принимает только DACPAC со схемой и только после явного согласия: создаёт временный собственный контейнер без сети и портов на хосте, разворачивает схему без pre/post-скриптов и данных, читает системный каталог через `docker exec` и удаляет свои ресурсы. Приложение не принимает произвольные строки подключения. После аварийного завершения метки владения позволяют убрать контейнер при следующем запуске.
+The Docker preview accepts a schema-only DACPAC and runs only after explicit consent: it creates a temporary owned container without network or host ports, deploys the schema without pre/post scripts or data, reads the system catalog through `docker exec`, and removes its resources. The app never accepts arbitrary connection strings. After a crash, ownership labels let the next start clean up the container.
 
-## Ограничения
+## Limitations
 
-- Статический SQL не выполняет миграции и динамический SQL и не вычисляет условия SQL-проекта; для точной модели нужен Rebuild или DACPAC. Quick Refresh сравнивает время изменения и размер — Full Rescan пересчитывает хеши.
-- Поддерживается рабочее подмножество `.gitignore`; глобальные исключения Git и индекс не используются.
-- EF mappings из динамических хелперов, shadow properties и неизвестных символов проекта требуют проверки. Dapper извлекает только константный SQL и не выполняет C#.
-- Соседние SQL ProjectReference, локальные ArtifactReference и обычные imports собираются через проверенную служебную копию с неизменяемым манифестом входов. Динамические imports, property functions и неизвестные tasks диагностируются и требуют внешней сборки с импортом DACPAC.
-- Исправление через AST поддерживает доказуемые привязки в SELECT/CTE/подзапросах/UNION; неоднозначные выражения и DML правятся вручную. Кандидат на переименование не доказывает бизнес-смысл.
+- Static SQL parsing does not run migrations or dynamic SQL and does not evaluate SQL project conditions; an exact model needs Rebuild or a DACPAC. Quick Refresh compares modification time and size — Full Rescan recomputes hashes.
+- A working subset of `.gitignore` is supported; global Git excludes and the index are not used.
+- EF mappings from dynamic helpers, shadow properties and unknown project symbols need review. Dapper analysis extracts constant SQL only and never runs C#.
+- Neighbouring SQL ProjectReferences, local ArtifactReferences and plain imports are built from a verified staging copy with an immutable input manifest. Dynamic imports, property functions and unknown tasks are diagnosed and need an external build plus a DACPAC import.
+- AST repairs support provable bindings in SELECT/CTE/subqueries/UNION; ambiguous expressions and DML are fixed by hand. A rename candidate does not prove business meaning.
 
-## Разработка
+## Development
 
 ~~~powershell
 cd ui
 npm ci --cache ../work/npm-cache
 npm run format:check
-npm run test:graph; npm run test:recipes; npm run test:enhancements; npm run test:i18n
+npm test
 npm run build
 cd ..
 dotnet build Schemora.slnx -c Release
 dotnet test Schemora.slnx -c Release
 
 pwsh -File scripts/Publish.ps1
-pwsh -File scripts/Test-All.ps1                 # HTTP + Chrome приёмка против опубликованного EXE
-pwsh -File scripts/Test-GeneratedSql.ps1 -Run   # необязательно: реальный SQL Server во временном контейнере
+pwsh -File scripts/Test-All.ps1                 # HTTP + Chrome acceptance against the published EXE
+pwsh -File scripts/Test-GeneratedSql.ps1 -Run   # optional: a real SQL Server in a temporary container
 pwsh -File scripts/Test-DockerSchema.ps1 -Run
 ~~~
 
-- Код UI форматируется Prettier (`npm run format`). Тест i18n падает, если строка `t('…')` в интерфейсе не имеет перевода.
-- Цвета новых и общих поверхностей задаются токенами `--bg-*`, `--border-*`, `--text-*`, `--accent*` в `ui/src/styles.css`; светлая тема переопределяет их в `ui/src/light.css`.
-- Приёмочные скрипты принимают `-Executable <path>` и `-SkipBuild`. `Test-All.ps1` оставляет в `work/` только три последних прогона каждого вида.
-- Сборка SQL-проектов запускает `dotnet` с `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=false`, чтобы отдельный `DOTNET_CLI_HOME` каждой папки данных не дописывал пути в пользовательский PATH.
+- UI code is formatted with Prettier (`npm run format`). The i18n test fails when a `t('…')` string in the UI has no translation.
+- Colours come from role tokens (`--bg-*`, `--border-*`, `--text-*`, `--accent*`, status and tint tokens) in `ui/src/styles.css`; the light theme redefines them in `ui/src/light.css`.
+- Acceptance scripts accept `-Executable <path>` and `-SkipBuild`. `Test-All.ps1` keeps only the three latest runs of each kind in `work/`.
+- SQL project builds run `dotnet` with `DOTNET_ADD_GLOBAL_TOOLS_TO_PATH=false`, so each data directory's own `DOTNET_CLI_HOME` does not append entries to the user PATH.
 
-Документация: [архитектура](docs/architecture.md), [модель схемы](docs/schema-model.md), [формат рецептов](docs/recipe-format.md), [инструменты сборки](docs/toolchain.md), [безопасность](docs/security.md), [ход реализации](docs/implementation-progress.md). Подробности и границы по версиям — в [CHANGELOG](CHANGELOG.md) и `docs/product-*.md`.
+Documentation: [architecture](docs/architecture.md), [schema model](docs/schema-model.md), [recipe format](docs/recipe-format.md), [build tools](docs/toolchain.md), [security](docs/security.md), [implementation progress](docs/implementation-progress.md). Per-version details and limits are in the [CHANGELOG](CHANGELOG.md) and `docs/product-*.md`.

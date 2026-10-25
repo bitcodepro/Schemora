@@ -10,7 +10,9 @@ const dictionaries = {};
 for (const file of await fs.readdir(new URL('../src/locales/', import.meta.url)))
   if (file.endsWith('.json'))
     Object.assign(dictionaries, JSON.parse(await fs.readFile(new URL('../src/locales/' + file, import.meta.url), 'utf8')));
-const L = key => dictionaries[key]?.en || key;
+// Catalog keys are English; a Russian or Ukrainian label used in a test still finds its entry.
+const entry = key => dictionaries[key] || Object.values(dictionaries).find(item => item.ru === key || item.uk === key);
+const L = key => entry(key)?.en || key;
 const checks = [],
   errors = [];
 async function api(url, method = 'GET', body) {
@@ -57,7 +59,7 @@ try {
   await openApp(page, session.launchUrl);
   await page.locator('[data-testid=language-selector]').first().selectOption('en');
   const button = key => page.getByRole('button', { name: L(key), exact: true });
-  const workspace = page.getByRole('combobox', { name: L('Рабочая область'), exact: true });
+  const workspace = page.getByRole('combobox', { name: L('Workspace'), exact: true });
   const shown = id => page.locator('.schema-browser[data-database-id="' + id + '"]');
   async function openRecipe(name) {
     await page.locator('body').click({ position: { x: 5, y: 5 } });
@@ -69,28 +71,28 @@ try {
     await page.locator('.recipe-editor-heading').getByRole('heading', { name, exact: true }).waitFor();
   }
   await workspace.selectOption(a.workspace.id);
-  await button('Каталог схем').click();
+  await button('Schema catalog').click();
   await shown(a.database.id).waitFor();
   await page.locator('.table-item').filter({ hasText: 'AlphaMarker' }).click();
   const schemaAddress = page.url();
-  await button('SQL-рецепты').click();
+  await button('SQL recipes').click();
   await openRecipe('Period: new customers');
-  await button('Версии и lineage').click();
+  await button('Versions and lineage').click();
   await page.waitForFunction(() => location.hash.includes('tab=history'));
-  await button('Рабочая область').click();
+  await button('Workspace').click();
   await workspace.selectOption(b.workspace.id);
-  await button('SQL-рецепты').click();
+  await button('SQL recipes').click();
   await openRecipe('Orders for customers');
-  await button('Рабочая область').click();
+  await button('Workspace').click();
   await page.goBack();
   await page.locator('.recipe-editor-heading').getByRole('heading', { name: 'Orders for customers', exact: true }).waitFor();
   assert.equal(await workspace.inputValue(), b.workspace.id);
   await page.goBack();
-  await page.getByRole('heading', { name: L('Проекты, схемы и изменения'), exact: true }).waitFor();
+  await page.getByRole('heading', { name: L('Projects, schemas, and changes'), exact: true }).waitFor();
   await page.goBack();
   await page.locator('.recipe-editor-heading').getByRole('heading', { name: 'Period: new customers', exact: true }).waitFor();
   assert.equal(await workspace.inputValue(), a.workspace.id);
-  assert.equal(await button('Версии и lineage').getAttribute('class'), 'selected');
+  assert.equal(await button('Versions and lineage').getAttribute('class'), 'selected');
   await page.goBack();
   await shown(a.database.id).waitFor();
   await page.locator('.table-item.selected').filter({ hasText: 'AlphaMarker' }).waitFor();
@@ -104,8 +106,8 @@ try {
   assert.equal(await workspace.inputValue(), b.workspace.id);
   checks.push('Back and Forward restore workspace, database, table, recipe and tab');
 
-  await button('Определение').click();
-  await page.getByRole('textbox', { name: L('Название рецепта'), exact: true }).fill('Unsaved route draft');
+  await button('Definition').click();
+  await page.getByRole('textbox', { name: L('Recipe name'), exact: true }).fill('Unsaved route draft');
   const editingAddress = page.url();
   let dismissed = false;
   page.once('dialog', async dialog => {
@@ -115,10 +117,10 @@ try {
   await page.goBack();
   await page.waitForFunction(address => location.href === address, editingAddress);
   assert.equal(dismissed, true);
-  assert.equal(await page.getByRole('textbox', { name: L('Название рецепта'), exact: true }).inputValue(), 'Unsaved route draft');
+  assert.equal(await page.getByRole('textbox', { name: L('Recipe name'), exact: true }).inputValue(), 'Unsaved route draft');
   page.once('dialog', dialog => dialog.accept());
   await page.goBack();
-  await page.getByRole('heading', { name: L('Проекты, схемы и изменения'), exact: true }).waitFor();
+  await page.getByRole('heading', { name: L('Projects, schemas, and changes'), exact: true }).waitFor();
   checks.push('Dismissing Back keeps the address and unsaved draft; accepting it traverses history');
 
   await workspace.selectOption(a.workspace.id);
@@ -137,7 +139,7 @@ try {
     await blocked;
     await route.fulfill({ response }).catch(() => {});
   });
-  await button('Каталог схем').click();
+  await button('Schema catalog').click();
   await arrived;
   await workspace.selectOption(b.workspace.id);
   await shown(b.database.id).waitFor();
@@ -191,10 +193,10 @@ try {
   checks.push('A high-degree focus remains in the sixty-table overview and its view survives reload');
 
   await workspace.selectOption(a.workspace.id);
-  await button('SQL-рецепты').click();
+  await button('SQL recipes').click();
   await openRecipe('Orders for customers');
-  await button('Определение').click();
-  await page.getByRole('textbox', { name: L('Название рецепта'), exact: true }).fill('Delayed save in A');
+  await button('Definition').click();
+  await page.getByRole('textbox', { name: L('Recipe name'), exact: true }).fill('Delayed save in A');
   let releaseSave, saveArrived;
   const saveBlocked = new Promise(resolve => {
     releaseSave = resolve;
@@ -210,7 +212,7 @@ try {
     await saveBlocked;
     await route.fulfill({ response }).catch(() => {});
   });
-  await button('Сохранить новую версию').click();
+  await button('Save new version').click();
   await saveReceived;
   page.once('dialog', dialog => dialog.accept());
   await workspace.selectOption(b.workspace.id);

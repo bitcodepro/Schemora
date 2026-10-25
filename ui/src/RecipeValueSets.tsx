@@ -110,7 +110,7 @@ export default function RecipeValueSets({
           {t('Load')}
         </button>
         <button type="button" className="text-button danger-text" disabled={busy || !selected} onClick={() => void remove()}>
-          {t('Удалить')}
+          {t('Remove')}
         </button>
         <input
           type="text"

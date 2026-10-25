@@ -75,7 +75,7 @@ export default function App() {
         if (result.value === 'light' || result.value === 'dark') setTheme(result.value);
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setThemeError(cause instanceof Error ? cause.message : t('Не удалось прочитать тему.'));
+        if (!controller.signal.aborted) setThemeError(cause instanceof Error ? cause.message : t('Could not load the theme.'));
       });
     return () => controller.abort();
   }, []);
@@ -89,7 +89,7 @@ export default function App() {
     try {
       await request('/api/settings/theme', { method: 'PUT', body: JSON.stringify({ value }) });
     } catch (cause) {
-      setThemeError(cause instanceof Error ? cause.message : t('Не удалось сохранить тему.'));
+      setThemeError(cause instanceof Error ? cause.message : t('Could not save the theme.'));
     }
   }
   const [recipeSeed, setRecipeSeed] = useState<RecipeSeed | null>(null);
@@ -149,7 +149,7 @@ export default function App() {
       setDiagnostics(environment);
       setDockerRecovery(docker.recoveryDiagnostics);
     } catch (cause) {
-      setDiagnosticsError(cause instanceof Error ? cause.message : t('Не удалось проверить инструменты.'));
+      setDiagnosticsError(cause instanceof Error ? cause.message : t('Could not check the tools.'));
     } finally {
       setDiagnosticsBusy(false);
     }
@@ -179,7 +179,7 @@ export default function App() {
             event.preventDefault();
             navigate('schema');
           }}
-          aria-label={t('Schemora, главная')}
+          aria-label={t('Schemora, home')}
         >
           <span className="brand-icon">
             <Icon name="layers" size={23} />
@@ -189,55 +189,55 @@ export default function App() {
           </span>
         </a>
         <div className="workspace-label">
-          {t('РАБОЧАЯ ОБЛАСТЬ')} <span>{t('LOCAL')}</span>
+          {t('WORKSPACE')} <span>{t('LOCAL')}</span>
         </div>
         <WorkspaceSelector className="sidebar-workspace" />
-        <nav aria-label={t('Основная навигация')}>
+        <nav aria-label={t('Main navigation')}>
           <button
             aria-current={page === 'workspace' ? 'page' : undefined}
-            aria-label={t('Рабочая область')}
+            aria-label={t('Workspace')}
             className={`nav-item ${page === 'workspace' ? 'active' : ''}`}
             onClick={() => navigate('workspace')}
           >
             <Icon name="folder" />
-            {t('Рабочая область')}
+            {t('Workspace')}
           </button>
           <button
             aria-current={page === 'schema' ? 'page' : undefined}
-            aria-label={t('Каталог схем')}
+            aria-label={t('Schema catalog')}
             className={`nav-item ${page === 'schema' ? 'active' : ''}`}
             onClick={() => navigate('schema')}
           >
             <Icon name="table" />
-            {t('Каталог схем')}
+            {t('Schema catalog')}
             {schema.graph && <span className="nav-count">{schema.graph.tables.length}</span>}
           </button>
           <button
             aria-current={page === 'graph' ? 'page' : undefined}
-            aria-label={t('Связи и пути')}
+            aria-label={t('Relationships and paths')}
             className={`nav-item ${page === 'graph' ? 'active' : ''}`}
             onClick={() => navigate('graph')}
           >
             <Icon name="branch" />
-            {t('Связи и пути')}
+            {t('Relationships and paths')}
           </button>
           <button
             aria-current={page === 'recipes' ? 'page' : undefined}
-            aria-label={t('SQL-рецепты')}
+            aria-label={t('SQL recipes')}
             className={`nav-item ${page === 'recipes' ? 'active' : ''}`}
             onClick={() => navigate('recipes')}
           >
             <Icon name="code" />
-            {t('SQL-рецепты')}
+            {t('SQL recipes')}
           </button>
           <button
             aria-current={page === 'changes' ? 'page' : undefined}
-            aria-label={t('Изменения')}
+            aria-label={t('Changes')}
             className={`nav-item ${page === 'changes' ? 'active' : ''}`}
             onClick={() => navigate('changes')}
           >
             <Icon name="refresh" />
-            {t('Изменения')}
+            {t('Changes')}
           </button>
           <button
             aria-current={page === 'professional' ? 'page' : undefined}
@@ -253,22 +253,22 @@ export default function App() {
           <div className="privacy-note">
             <Icon name="shield" size={19} />
             <div>
-              {t('Локальная работа')}
-              <small>{t('Схемы остаются на компьютере')}</small>
+              {t('Working locally')}
+              <small>{t('Schemas stay on your computer')}</small>
             </div>
           </div>
           <button
             aria-current={page === 'diagnostics' ? 'page' : undefined}
-            aria-label={t('Настройки и инструменты')}
+            aria-label={t('Settings and tools')}
             className={`nav-item ${page === 'diagnostics' ? 'active' : ''}`}
             onClick={() => navigate('diagnostics')}
           >
             <Icon name="tool" />
-            {t('Настройки и инструменты')}
+            {t('Settings and tools')}
           </button>
           <div className="sidebar-version">
             <span className="status-dot" />
-            {t('Локальное приложение')}{' '}
+            {t('Local application')}{' '}
             <span title={appBuild ? t('Build {0}', appBuild) : undefined} data-build={appBuild || undefined}>
               {appVersion}
             </span>
@@ -278,34 +278,34 @@ export default function App() {
       <ShortcutsHelp />
       <CommandPalette
         pages={[
-          { page: 'workspace', label: t('Рабочая область') },
-          { page: 'schema', label: t('Каталог схем') },
-          { page: 'graph', label: t('Связи и пути') },
-          { page: 'recipes', label: t('SQL-рецепты') },
-          { page: 'changes', label: t('Изменения') },
+          { page: 'workspace', label: t('Workspace') },
+          { page: 'schema', label: t('Schema catalog') },
+          { page: 'graph', label: t('Relationships and paths') },
+          { page: 'recipes', label: t('SQL recipes') },
+          { page: 'changes', label: t('Changes') },
           { page: 'professional', label: t('Workspace quality') },
-          { page: 'diagnostics', label: t('Настройки и инструменты') },
+          { page: 'diagnostics', label: t('Settings and tools') },
         ]}
         onOpen={openFromPalette}
       />
       <main id="main-content" tabIndex={-1}>
         <header className="topbar">
           <div className="breadcrumbs">
-            {t('Рабочая область')} <span>/</span>{' '}
+            {t('Workspace')} <span>/</span>{' '}
             <strong>
               {page === 'professional'
                 ? t('Workspace quality and tools')
                 : page === 'workspace'
-                  ? t('Рабочая область')
+                  ? t('Workspace')
                   : page === 'schema'
-                    ? t('Каталог схем')
+                    ? t('Schema catalog')
                     : page === 'graph'
-                      ? t('Связи и пути')
+                      ? t('Relationships and paths')
                       : page === 'recipes'
-                        ? t('SQL-рецепты')
+                        ? t('SQL recipes')
                         : page === 'changes'
-                          ? t('Изменения схемы')
-                          : t('Инструменты и среда')}
+                          ? t('Schema changes')
+                          : t('Tools and environment')}
             </strong>
           </div>
           <div className="topbar-actions">
@@ -326,7 +326,7 @@ export default function App() {
             <LanguageSelector onChange={value => void changeLanguage(value)} />
             <span className="local-badge">
               <span className="status-dot" />
-              127.0.0.1 <span className="badge-divider">|</span> {t('Локальный сеанс')}
+              127.0.0.1 <span className="badge-divider">|</span> {t('Local session')}
             </span>
           </div>
         </header>
@@ -338,31 +338,33 @@ export default function App() {
                 {page === 'professional'
                   ? t('Workspace quality and tools')
                   : page === 'workspace'
-                    ? t('Проекты, схемы и изменения')
+                    ? t('Projects, schemas, and changes')
                     : page === 'schema'
-                      ? t('Исследуйте структуру данных')
+                      ? t('Explore your data structure')
                       : page === 'graph'
-                        ? t('Связи с понятным основанием')
+                        ? t('Relationships with clear evidence')
                         : page === 'recipes'
-                          ? t('Повторяемый SQL, проверяемые входы')
+                          ? t('Repeatable SQL, validated inputs')
                           : page === 'changes'
-                            ? t('Изменения без неожиданных правок')
-                            : t('Инструменты и среда')}
+                            ? t('Changes without unexpected edits')
+                            : t('Tools and environment')}
               </h1>
               <p>
                 {page === 'professional'
                   ? t('Review schema quality, trace analysis inputs and maintain your local catalog.')
                   : page === 'workspace'
-                    ? t('Добавьте корневые папки, обнаружьте проекты и поддерживайте локальные снимки схем.')
+                    ? t('Add root folders, discover projects, and maintain local schema snapshots.')
                     : page === 'schema'
-                      ? t('Откройте DACPAC или соберите SQL-проект. Получите модель таблиц и физических связей.')
+                      ? t('Open a DACPAC or build a SQL project to get a model of tables and physical relationships.')
                       : page === 'graph'
-                        ? t('Исследуйте FK, C# mappings и логические кандидаты. Подтверждайте связи и стройте проверяемые JOIN.')
+                        ? t(
+                            'Explore foreign keys, C# mappings, and candidate relationships. Confirm relationships and build verifiable JOINs.',
+                          )
                         : page === 'recipes'
-                          ? t('Сохраните SQL-шаблон и типы. Вставьте ID и получите детерминированный скрипт с точным отчётом.')
+                          ? t('Save a SQL template and input types. Paste IDs to generate a deterministic script with a detailed report.')
                           : page === 'changes'
-                            ? t('Сравните снимки, проверьте влияние на рецепты и просмотрите SQL diff перед подтверждением исправления.')
-                            : t('Проверьте доступность локальных инструментов перед сборкой и анализом.')}
+                            ? t('Compare snapshots, check the impact on recipes, and review the SQL diff before approving a repair.')
+                            : t('Check that local tools are available before building and analyzing.')}
               </p>
             </div>
             <div className="heading-icon">
@@ -388,8 +390,8 @@ export default function App() {
             <div className="alert warning">
               <Icon name="shield" />
               <div>
-                <strong>{t('Откройте приложение по ссылке запуска')}</strong>
-                <p>{t('В этой вкладке нет токена локального сеанса. Используйте ссылку, которую Schemora создаёт при запуске EXE.')}</p>
+                <strong>{t('Open the app using its launch link')}</strong>
+                <p>{t('This tab has no local session token. Use the link Schemora creates when you launch the EXE.')}</p>
               </div>
             </div>
           )}
@@ -409,12 +411,12 @@ export default function App() {
                 [
                   ['settings-tools', 'Tools'],
                   ['settings-language', 'Interface language'],
-                  ['settings-appearance', 'Оформление и команды'],
+                  ['settings-appearance', 'Appearance and shortcuts'],
                   ['settings-configuration', 'Portable workspace configuration'],
                   ['settings-history', 'Memory and history'],
                   ['settings-diagnostics', 'Diagnostics and support report'],
-                  ['settings-backup', 'Хранилище и резервная копия'],
-                  ['settings-session', 'Завершить локальный сеанс'],
+                  ['settings-backup', 'Storage and backup'],
+                  ['settings-session', 'End local session'],
                 ] as const
               ).map(([target, label]) => (
                 <button key={target} onClick={() => document.getElementById(target)?.scrollIntoView({ block: 'start' })}>
@@ -427,7 +429,7 @@ export default function App() {
             fallback={
               <div className="diagnostics-loading">
                 <span className="spinner" />
-                {t('Загрузка раздела…')}
+                {t('Loading section…')}
               </div>
             }
           >
@@ -484,7 +486,7 @@ export default function App() {
           <footer className="page-footer">
             <span>
               <Icon name="shield" size={13} />
-              {t('Анализ метаданных · запросы к рабочим БД не выполняются')}
+              {t('Metadata analysis · no queries are run against production databases')}
             </span>
             <span>Schemora / Schema Studio</span>
           </footer>

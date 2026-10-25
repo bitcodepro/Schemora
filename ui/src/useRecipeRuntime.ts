@@ -50,7 +50,7 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
   }
   function changeRuntimeInput(name: string, text: string) {
     if (text.length > 8 * 1024 * 1024) {
-      setRuntimeError(t('Список превышает8 миллионов символов. Вставка не принята.'));
+      setRuntimeError(t('The list exceeds 8 million characters. The paste was rejected.'));
       return;
     }
     invalidateRuntime();
@@ -66,7 +66,7 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
     event.target.value = '';
     if (!file) return;
     if (file.size > maximumFileBytes) {
-      setRuntimeError(t('Файл ID превышает8 МиБ. Содержимое не загружено.'));
+      setRuntimeError(t('The ID file exceeds 8 MiB. Its contents were not loaded.'));
       return;
     }
     const revision = runtimeRevision.current;
@@ -74,7 +74,7 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
       const contents = await file.text();
       if (runtimeRevision.current === revision) changeRuntimeInput(name, contents);
     } catch (cause) {
-      setRuntimeError(errorMessage(cause, t('Не удалось прочитать файл ID.')));
+      setRuntimeError(errorMessage(cause, t('Could not read the ID file.')));
     }
   }
   async function parseInputs() {
@@ -94,7 +94,7 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
         });
       if (!controller.signal.aborted && runtimeRevision.current === revision) setParsed(result);
     } catch (cause) {
-      if (!controller.signal.aborted) setRuntimeError(errorMessage(cause, t('Не удалось проверить список ID.')));
+      if (!controller.signal.aborted) setRuntimeError(errorMessage(cause, t('Could not validate the ID list.')));
     } finally {
       if (runtimeRevision.current === revision) setParseBusy(false);
     }
@@ -126,7 +126,7 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
         acknowledgeReview,
         expectedVersion: entry.definition.version,
       });
-      if (new Blob([body]).size > 16 * 1024 * 1024) throw new Error(t('Суммарный размер параметров превышает16 МиБ.'));
+      if (new Blob([body]).size > 16 * 1024 * 1024) throw new Error(t('The combined parameter size exceeds 16 MiB.'));
       const result = await request<RenderResult>(`/api/recipes/${encodeURIComponent(entry.definition.id)}/render`, {
         method: 'POST',
         body,
@@ -137,7 +137,7 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
         setOutputView(mode === 'parameterized' && result.parameterizedExample ? 'example' : 'sql');
       }
     } catch (cause) {
-      if (!controller.signal.aborted) setRuntimeError(errorMessage(cause, t('SQL не сформирован.')));
+      if (!controller.signal.aborted) setRuntimeError(errorMessage(cause, t('SQL was not generated.')));
     } finally {
       if (runtimeRevision.current === revision) setRenderBusy(false);
     }
@@ -164,9 +164,9 @@ export function useRecipeRuntime(draft: RecipeDefinition | null, entry: RecipeEn
     if (!output) return;
     try {
       await navigator.clipboard.writeText(output);
-      setCopyState(t('Скопировано в буфер обмена.'));
+      setCopyState(t('Copied to clipboard.'));
     } catch {
-      setCopyState(t('Копирование недоступно. Выделите текст и скопируйте вручную.'));
+      setCopyState(t('Copying is unavailable. Select the text and copy it manually.'));
     }
   }
 

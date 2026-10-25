@@ -46,7 +46,7 @@ export default function RecipeHistoryTab({
         setLineage(dependencies);
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setHistoryError(errorMessage(cause, t('История или зависимости недоступны.')));
+        if (!controller.signal.aborted) setHistoryError(errorMessage(cause, t('History or dependencies are unavailable.')));
       });
     return () => controller.abort();
   }, [recipeId, entry.definition.version]);
@@ -71,7 +71,7 @@ export default function RecipeHistoryTab({
     try {
       setTestResult(await request<RecipeTestResult>(`/api/recipes/${encodeURIComponent(recipeId)}/tests`, { method: 'POST', body: '{}' }));
     } catch (cause) {
-      setTestError(errorMessage(cause, t('Синтетические проверки не завершены.')));
+      setTestError(errorMessage(cause, t('Synthetic checks did not finish.')));
     } finally {
       setTestBusy(false);
     }
@@ -80,7 +80,7 @@ export default function RecipeHistoryTab({
     <div className="recipe-history">
       {historyError && <p className="job-error">{tMessage(historyError)}</p>}
       <section className="recipe-lineage">
-        <h3>{t('Вычисленные зависимости')}</h3>
+        <h3>{t('Computed dependencies')}</h3>
         {lineage.length ? (
           <div>
             {lineage.map((item, index) => (
@@ -95,26 +95,28 @@ export default function RecipeHistoryTab({
           </div>
         ) : (
           <p className="muted-text">
-            {t('Зависимости ещё не установлены либо шаблон не обращается к объектам схемы. Проверьте диагностику совместимости.')}
+            {t(
+              'Dependencies have not been established yet, or the template does not reference schema objects. Check the compatibility diagnostics.',
+            )}
           </p>
         )}
       </section>
       <section className="recipe-tests">
         <div className="section-heading">
-          <h3>{t('Синтетические fixtures')}</h3>
+          <h3>{t('Synthetic fixtures')}</h3>
           <button className="secondary-button" disabled={dirty || testBusy || busy} onClick={() => void runTests()}>
-            {testBusy ? t('Проверка…') : t('Запустить проверки')}
+            {testBusy ? t('Checking…') : t('Run checks')}
           </button>
         </div>
         <p>
-          {t('Сервер создаёт тестовые значения по определениям типов и проверяет рендерер. Вставленные ID в эти проверки не передаются.')}
+          {t('The server creates test values from the type definitions and checks the renderer. Pasted IDs are not used in these checks.')}
         </p>
         {testError && <p className="job-error">{tMessage(testError)}</p>}
         {testResult && (
           <div className="test-result">
             <strong>
-              {testResult.success ? t('Проверки пройдены') : t('Есть ошибки')} ·{' '}
-              {Array.isArray(testResult.checks) ? testResult.checks.length : testResult.checks} {t('проверок')}
+              {testResult.success ? t('Checks passed') : t('Errors found')} ·{' '}
+              {Array.isArray(testResult.checks) ? testResult.checks.length : testResult.checks} {t('checks')}
             </strong>
             <span>{formatDate(testResult.testedAt)}</span>
             {testResult.diagnostics.map((diagnostic, index) => (
@@ -126,7 +128,7 @@ export default function RecipeHistoryTab({
         )}
       </section>
       <section className="recipe-versions">
-        <h3>{t('История версий')}</h3>
+        <h3>{t('Version history')}</h3>
         {versions.map(version => (
           <div key={version.id} className="recipe-version-row">
             <div>
@@ -135,14 +137,14 @@ export default function RecipeHistoryTab({
               <small>{tMessage(version.reason)}</small>
             </div>
             <button className="text-button" onClick={() => setVersionPreview(version)}>
-              {t('Просмотреть SQL')}
+              {t('View SQL')}
             </button>
             <button
               className="secondary-button"
               disabled={busy || version.version === entry.definition.version}
               onClick={() => setVersionPreview(version)}
             >
-              {t('Восстановить')}
+              {t('Restore')}
             </button>
           </div>
         ))}
@@ -199,15 +201,15 @@ export default function RecipeHistoryTab({
             </button>
             <div className="section-heading">
               <h4>
-                {t('SQL версии')} {versionPreview.version}
+                {t('SQL for version')} {versionPreview.version}
               </h4>
               <button className="text-button" onClick={() => setVersionPreview(null)}>
-                {t('Закрыть')}
+                {t('Close')}
               </button>
             </div>
             <Suspense fallback={<textarea readOnly rows={10} value={versionPreview.definition.sqlTemplate} />}>
               <SqlEditor
-                label={t('SQL версии {0}', versionPreview.version)}
+                label={t('SQL for version {0}', versionPreview.version)}
                 value={versionPreview.definition.sqlTemplate}
                 readOnly
                 height={260}

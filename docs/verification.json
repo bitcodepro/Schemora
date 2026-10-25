@@ -646,35 +646,35 @@
             "available": true,
             "path": "C:\\Program Files\\dotnet\\dotnet.exe",
             "version": "10.0.402",
-            "detail": "Доступен."
+            "detail": "Available."
           },
           {
             "name": "Docker",
             "available": true,
             "path": "C:\\Users\\Fors\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe",
             "version": "29.7.2",
-            "detail": "Доступен."
+            "detail": "Available."
           },
           {
             "name": "SqlPackage",
             "available": false,
             "path": null,
             "version": null,
-            "detail": "SqlPackage не найден; нужен только для отдельного Docker publish smoke-теста."
+            "detail": "SqlPackage not found; it is only needed for the separate Docker publish smoke test."
           },
           {
             "name": "MSBuild",
             "available": true,
             "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
             "version": null,
-            "detail": "MSBuild найден. Legacy SQL-проекты требуют SSDT из той же установки."
+            "detail": "MSBuild found. Legacy SQL projects require SSDT from the same installation."
           },
           {
             "name": "SSDT",
             "available": true,
             "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VisualStudio\\v18.0\\SSDT\\Microsoft.Data.Tools.Schema.SqlTasks.targets",
             "version": null,
-            "detail": "Совместимая пара MSBuild + SSDT targets найдена."
+            "detail": "A compatible MSBuild + SSDT targets pair was found."
           }
         ]
       }

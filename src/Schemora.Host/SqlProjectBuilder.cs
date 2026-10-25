@@ -90,16 +90,16 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
         if (!trustProject)
             throw new AppException(
                 "PROJECT_TRUST_REQUIRED",
-                "Сборка выполняет MSBuild targets проекта. Подтвердите доверие к проекту перед запуском.",
+                "Building executes the project's MSBuild targets. Confirm that you trust the project before starting.",
                 403
             );
         var path = LocalFiles.Validate(input, ".sqlproj");
         var context = await Context(path, true, ct);
         var sourceDirectory = Path.GetDirectoryName(path)!;
         if (Within(toolchain.DataDirectory, sourceDirectory))
-            throw new AppException("BUILD_DATA_INSIDE_PROJECT", "Каталог служебных данных должен находиться вне собираемого проекта.");
+            throw new AppException("BUILD_DATA_INSIDE_PROJECT", "The application data directory must be outside the project being built.");
         if (!await gate.WaitAsync(0, ct))
-            throw new AppException("BUILD_BUSY", "Другая сборка уже выполняется. Дождитесь завершения.", 409);
+            throw new AppException("BUILD_BUSY", "Another build is already running. Wait for it to finish.", 409);
         var dataBuilds = Path.Combine(toolchain.DataDirectory, "builds");
         var builds = dataBuilds;
         var stage = Path.Combine(builds, Guid.NewGuid().ToString("N"));
@@ -115,14 +115,14 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
                 if (Within(builds, sourceDirectory))
                     throw new AppException(
                         "BUILD_STAGE_INSIDE_PROJECT",
-                        "Не удалось выбрать короткую служебную папку вне проекта; переместите проект или используйте DACPAC.",
+                        "Could not choose a short staging path outside the project; move the project or use a DACPAC.",
                         422
                     );
                 stage = Path.Combine(builds, Guid.NewGuid().ToString("N"));
                 if (BuildStaging.Map(stage, sourceDirectory).Length > 240)
                     throw new AppException(
                         "BUILD_PATH_TOO_LONG",
-                        "Путь проекта слишком длинный для запуска Windows tooling. Переместите проект ближе к корню диска или импортируйте готовый DACPAC.",
+                        "The project path is too long for Windows tooling. Move the project closer to the drive root or import an existing DACPAC.",
                         422
                     );
             }
@@ -150,7 +150,7 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
                 if (restore.ExitCode != 0)
                     throw new AppException(
                         "BUILD_PACKAGE_RESTORE_FAILED",
-                        "Не удалось восстановить pinned NuGet DACPAC packages в служебной копии.",
+                        "Could not restore pinned NuGet DACPAC packages in the staging copy.",
                         422,
                         restore.Output
                     );
@@ -161,12 +161,12 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
             if (!plan.Manifest.Complete)
                 throw new AppException(
                     "BUILD_INPUTS_INCOMPLETE",
-                    "Не удалось доказать полный переносимый набор исходных inputs. Проверьте diagnostics; для динамических imports/tasks используйте внешнюю сборку и импорт DACPAC.",
+                    "Could not verify the complete portable set of source inputs. Check the diagnostics; for dynamic imports/tasks, build externally and import the DACPAC.",
                     422,
                     JsonSerializer.Serialize(plan.Manifest.Diagnostics, CatalogStore.Json)
                 );
             if (plan.Manifest.Projects.Any(project => Within(toolchain.DataDirectory, Path.GetDirectoryName(project)!)))
-                throw new AppException("BUILD_DATA_INSIDE_PROJECT", "Каталог данных находится внутри одного из зависимых проектов.");
+                throw new AppException("BUILD_DATA_INSIDE_PROJECT", "The data directory is inside one of the dependency projects.");
             Directory.CreateDirectory(builds);
             LocalFiles.CheckNoLinks(builds);
             await BuildStaging.Copy(plan, stage, ct);
@@ -228,7 +228,7 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
             if (output.ExitCode != 0)
                 throw new AppException(
                     "SQL_BUILD_FAILED",
-                    "SQL-проект не собрался. Проверьте зависимости и диагностику инструмента; можно импортировать существующий DACPAC.",
+                    "The SQL project build failed. Check dependencies and tool diagnostics; you can import an existing DACPAC.",
                     422,
                     output.Output
                 );
@@ -249,7 +249,7 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
             if (artifact is null)
                 throw new AppException(
                     "DACPAC_OUTPUT_AMBIGUOUS",
-                    "Сборка завершилась, но выходной DACPAC корневого проекта не определён однозначно.",
+                    "The build finished, but the root project's output DACPAC could not be identified unambiguously.",
                     422
                 );
             var graph = reader.Read(artifact) with { SourcePath = path };
@@ -257,7 +257,7 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
             if (!check.Current)
                 throw new AppException(
                     "BUILD_INPUT_CHANGED",
-                    "Исходный dependency closure изменился во время сборки; результат не опубликован. Повторите Rebuild.",
+                    "The source dependency closure changed during the build; the result was not published. Run Rebuild again.",
                     409
                 );
             Directory.CreateDirectory(ManifestDirectory);
@@ -325,7 +325,10 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
                     ?.Value.Contains("Microsoft.Data.Tools.Schema.SqlTasks.targets", StringComparison.OrdinalIgnoreCase) == true
             );
         if (!isSdk && !legacy)
-            throw new AppException("PROJECT_FORMAT_UNSUPPORTED", "Поддерживаются Microsoft.Build.Sql SDK-style и legacy SSDT SQL-проекты.");
+            throw new AppException(
+                "PROJECT_FORMAT_UNSUPPORTED",
+                "Microsoft.Build.Sql SDK-style and legacy SSDT SQL projects are supported."
+            );
         LegacyTools? pair = null;
         var properties = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         var executable = Toolchain.Dotnet;
@@ -341,12 +344,12 @@ public sealed class SqlProjectBuilder(Toolchain toolchain, DacpacReader reader)
             else if (requireTools)
                 throw new AppException(
                     "SSDT_TOOLCHAIN_MISSING",
-                    "Нужна совместимая пара Visual Studio MSBuild + SSDT targets; можно импортировать готовый DACPAC.",
+                    "Compatible Visual Studio MSBuild and SSDT targets are required; you can import an existing DACPAC instead.",
                     422
                 );
         }
         else if (executable is null && requireTools)
-            throw new AppException("DOTNET_SDK_MISSING", "Не найден .NET SDK. Установите SDK или импортируйте готовый DACPAC.", 422);
+            throw new AppException("DOTNET_SDK_MISSING", ".NET SDK not found. Install the SDK or import an existing DACPAC.", 422);
         if (executable is not null)
             properties["SchemoraBuildExecutable"] = executable;
         properties["NuGetPackageRoot"] = Path.Combine(toolchain.DataDirectory, "nuget-packages") + Path.DirectorySeparatorChar;

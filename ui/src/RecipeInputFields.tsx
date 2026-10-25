@@ -4,7 +4,7 @@ import { defaultInput } from './recipeTypes';
 import type { InputType, RecipeInput, SqlStrategy } from './recipeTypes';
 const inputTypes: InputType[] = ['int', 'bigint', 'uniqueidentifier', 'nvarchar', 'varchar', 'date', 'datetime2', 'bit', 'decimal'];
 const strategies: { value: SqlStrategy; label: string }[] = [
-  { value: 'auto', label: 'Авто' },
+  { value: 'auto', label: 'Auto' },
   { value: 'values', label: 'VALUES' },
   { value: 'temp', label: '#temp + INSERT batches' },
   { value: 'openjson', label: 'OPENJSON · compatibility130+' },
@@ -42,36 +42,36 @@ export default function RecipeInputFields({
     <section className="recipe-input-definitions">
       <div className="section-heading">
         <h3>
-          {t('Типизированные входы')} <span>{inputs.length}</span>
+          {t('Typed inputs')} <span>{inputs.length}</span>
         </h3>
         <button className="text-button" onClick={add}>
-          {t('+ Добавить вход')}
+          {t('+ Add input')}
         </button>
       </div>
       {inputs.length === 0 && (
-        <p className="muted-text">{t('У рецепта нет runtime-параметров. Добавьте вход и используйте его имя в SQL-шаблоне.')}</p>
+        <p className="muted-text">{t('This recipe has no runtime parameters. Add an input and use its name in the SQL template.')}</p>
       )}
       {inputs.map((input, index) => (
         <fieldset className="recipe-input-definition" key={index}>
           <legend>
-            {t('Вход')} {index + 1}
+            {t('Input')} {index + 1}
           </legend>
           <div className="recipe-input-main-row">
             <label>
-              <span className="field-label">{t('Имя')}</span>
+              <span className="field-label">{t('Name')}</span>
               <input
                 value={input.name}
                 maxLength={64}
                 spellCheck={false}
-                aria-label={t('Имя входа {0}', index + 1)}
+                aria-label={t('Input {0} name', index + 1)}
                 onChange={event => change(index, { name: event.target.value })}
               />
             </label>
             <label>
-              <span className="field-label">{t('SQL-тип')}</span>
+              <span className="field-label">{t('SQL type')}</span>
               <select
                 value={input.type}
-                aria-label={t('Тип входа {0}', index + 1)}
+                aria-label={t('Input {0} type', index + 1)}
                 onChange={event => {
                   const typed = defaultInput(input.name, event.target.value as InputType);
                   onChange(
@@ -98,13 +98,13 @@ export default function RecipeInputFields({
             </label>
             {(input.type === 'nvarchar' || input.type === 'varchar') && (
               <label className="input-length-field">
-                <span className="field-label">{t('Длина · -1=MAX')}</span>
+                <span className="field-label">{t('Length · -1=MAX')}</span>
                 <input
                   type="number"
                   min="-1"
                   max={input.type === 'nvarchar' ? 4000 : 8000}
                   value={input.maxLength ?? ''}
-                  aria-label={t('Максимальная длина входа {0}', index + 1)}
+                  aria-label={t('Input {0} maximum length', index + 1)}
                   onChange={event => change(index, { maxLength: event.target.value ? Number(event.target.value) : undefined })}
                 />
               </label>
@@ -137,10 +137,10 @@ export default function RecipeInputFields({
             )}
             {input.type === 'varchar' && (
               <label>
-                <span className="field-label">{t('Кодировка')}</span>
+                <span className="field-label">{t('Encoding')}</span>
                 <select
                   value={input.encoding || 'ascii'}
-                  aria-label={t('Кодировка входа {0}', index + 1)}
+                  aria-label={t('Input {0} encoding', index + 1)}
                   onChange={event => change(index, { encoding: event.target.value })}
                 >
                   <option value="ascii">ASCII</option>
@@ -153,9 +153,9 @@ export default function RecipeInputFields({
             <button
               className="text-button danger-text"
               onClick={() => onChange(inputs.filter((_, position) => position !== index))}
-              aria-label={t('Удалить вход {0}', index + 1)}
+              aria-label={t('Remove input {0}', index + 1)}
             >
-              {t('Удалить')}
+              {t('Remove')}
             </button>
           </div>
           {(input.type === 'nvarchar' || input.type === 'varchar') && (
@@ -164,7 +164,7 @@ export default function RecipeInputFields({
               <select
                 value={input.collation || ''}
                 onChange={event => change(index, { collation: event.target.value || undefined })}
-                aria-label={t('Collation входа {0}', index + 1)}
+                aria-label={t('Input {0} collation', index + 1)}
               >
                 <option value="">DATABASE_DEFAULT</option>
                 {collations.map(collation => (
@@ -175,7 +175,7 @@ export default function RecipeInputFields({
               </select>
               {input.type === 'varchar' && (
                 <small>
-                  {t('Для Unicode используйте nvarchar. Не-ASCII VARCHAR требует согласованных encoding и collation; UTF-8 — level150+.')}
+                  {t('Use nvarchar for Unicode. Non-ASCII VARCHAR requires matching encoding and collation; UTF-8 requires level 150+.')}
                 </small>
               )}
             </label>
@@ -198,7 +198,7 @@ export default function RecipeInputFields({
           <div className="recipe-input-policies">
             <label>
               <input type="checkbox" checked={input.deduplicate} onChange={event => change(index, { deduplicate: event.target.checked })} />
-              {t('Удалять дубликаты')}
+              {t('Remove duplicates')}
             </label>
             <label>
               <input
@@ -206,10 +206,10 @@ export default function RecipeInputFields({
                 checked={input.preserveOrder}
                 onChange={event => change(index, { preserveOrder: event.target.checked })}
               />
-              {t('Сохранять порядок')}
+              {t('Preserve order')}
             </label>
             <label>
-              {t('Стратегия')}{' '}
+              {t('Strategy')}{' '}
               <select value={input.strategy || 'auto'} onChange={event => change(index, { strategy: event.target.value as SqlStrategy })}>
                 {strategies.map(strategy => (
                   <option key={strategy.value} value={strategy.value}>
@@ -220,14 +220,14 @@ export default function RecipeInputFields({
             </label>
           </div>
           <div className="recipe-placeholder-hint">
-            <code>{`{{ids:${input.name}}}`}</code> {t('в IN (…)')} <span>·</span> <code>{`{{table:${input.name}}}`}</code>{' '}
-            {t('как rowset с Ordinal / Value')} <span>·</span> <code>{`{{value:${input.name}}}`}</code> {t('as one value, e.g. a date')}
+            <code>{`{{ids:${input.name}}}`}</code> {t('in IN (…) ')} <span>·</span> <code>{`{{table:${input.name}}}`}</code>{' '}
+            {t('as a rowset with Ordinal / Value')} <span>·</span> <code>{`{{value:${input.name}}}`}</code> {t('as one value, e.g. a date')}
           </div>
         </fieldset>
       ))}
       <p className="recipe-policy-note">
         {t(
-          'Политики дубликатов и порядка сохраняются в определении рецепта. Введённые ID обрабатываются отдельно и в рецепт не записываются.',
+          'Duplicate and order policies are saved in the recipe definition. Entered IDs are processed separately and are not stored in the recipe.',
         )}
       </p>
     </section>

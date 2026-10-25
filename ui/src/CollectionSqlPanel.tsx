@@ -77,7 +77,7 @@ export default function CollectionSqlPanel({
         ),
       );
     } catch (cause) {
-      setError(errorMessage(cause, t('SQL не сформирован.')));
+      setError(errorMessage(cause, t('SQL was not generated.')));
     } finally {
       setBusy(false);
     }
@@ -86,9 +86,9 @@ export default function CollectionSqlPanel({
     if (!result?.sql) return;
     try {
       await navigator.clipboard.writeText(result.sql);
-      setCopied(t('Скопировано в буфер обмена.'));
+      setCopied(t('Copied to clipboard.'));
     } catch {
-      setCopied(t('Копирование недоступно. Выделите текст и скопируйте вручную.'));
+      setCopied(t('Copying is unavailable. Select the text and copy it manually.'));
     }
   }
   return (
@@ -118,7 +118,7 @@ export default function CollectionSqlPanel({
               value={text[input.name] || ''}
               rows={3}
               spellCheck={false}
-              placeholder={t('Вставьте ID из строк, CSV, TSV, SQL-списка или через пробел…')}
+              placeholder={t('Paste IDs from lines, CSV, TSV, a SQL list, or space-separated text…')}
               onChange={event => change(input.name, event.target.value)}
             />
           )}
@@ -126,9 +126,9 @@ export default function CollectionSqlPanel({
       ))}
       <div className="collection-sql-actions">
         <label>
-          <span className="field-label">{t('SQL-стратегия')}</span>
+          <span className="field-label">{t('SQL strategy')}</span>
           <select value={strategy} onChange={event => setStrategy(event.target.value as SqlStrategy)}>
-            <option value="auto">{t('Auto · по размеру и типу')}</option>
+            <option value="auto">{t('Auto · by size and type')}</option>
             <option value="values">VALUES</option>
             <option value="temp">{t('#temp + batch INSERT')}</option>
             <option value="openjson">{t('OPENJSON · compatibility130+')}</option>
@@ -140,7 +140,7 @@ export default function CollectionSqlPanel({
           {t('I reviewed recipes that need a manual check')}
         </label>
         <button className="primary-button" disabled={busy || !recipes.length} onClick={() => void generate()}>
-          {busy ? t('Генерация…') : t('Generate collection SQL')}
+          {busy ? t('Generating…') : t('Generate collection SQL')}
         </button>
       </div>
       {error && (
@@ -172,19 +172,19 @@ export default function CollectionSqlPanel({
             <>
               <div className="collection-sql-actions">
                 <button className="secondary-button" onClick={() => void copy()}>
-                  {t('Скопировать')}
+                  {t('Copy')}
                 </button>
                 <button
                   className="secondary-button"
-                  title={t('Файл будет содержать введённые значения')}
+                  title={t('The file will contain the entered values')}
                   onClick={() => saveDownload(result.sql!, filename(collectionName) + '.sql', 'text/plain;charset=utf-8')}
                 >
-                  {t('Скачать файл')}
+                  {t('Download file')}
                 </button>
                 <span role="status">{copied}</span>
               </div>
-              <Suspense fallback={<textarea readOnly value={result.sql} rows={14} aria-label={t('Сгенерированный SQL')} />}>
-                <SqlEditor label={t('Сгенерированный SQL')} value={result.sql} readOnly height={360} />
+              <Suspense fallback={<textarea readOnly value={result.sql} rows={14} aria-label={t('Generated SQL')} />}>
+                <SqlEditor label={t('Generated SQL')} value={result.sql} readOnly height={360} />
               </Suspense>
             </>
           ) : (

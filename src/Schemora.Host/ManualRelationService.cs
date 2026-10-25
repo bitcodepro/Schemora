@@ -89,7 +89,7 @@ public static class ManualRelationCatalog
             current ? "confirmed" : "stale",
             current,
             [new("manual-relation", "", null, $"{record.Name} (v{record.Version}): {record.Reason}")],
-            current ? record.Reason : "Колонки или их типы изменились. Откройте ручную связь и подтвердите новое сопоставление."
+            current ? record.Reason : "Columns or their types have changed. Open the manual relationship and confirm the new mapping."
         );
 }
 
@@ -109,7 +109,10 @@ public sealed class ManualRelationService(CatalogStore store, RelationshipServic
             || string.IsNullOrWhiteSpace(request.Reason)
             || request.Reason.Length > 2000
         )
-            throw new AppException("MANUAL_RELATION_INVALID", "Нужны название (до 160 символов) и основание связи (до 2000 символов).");
+            throw new AppException(
+                "MANUAL_RELATION_INVALID",
+                "A name (up to 160 characters) and a reason for the relationship (up to 2000 characters) are required."
+            );
         if (
             request.FromColumns is null
             || request.ToColumns is null
@@ -120,15 +123,15 @@ public sealed class ManualRelationService(CatalogStore store, RelationshipServic
             || request.FromColumns.Any(string.IsNullOrWhiteSpace)
             || request.ToColumns.Any(string.IsNullOrWhiteSpace)
         )
-            throw new AppException("MANUAL_RELATION_COLUMNS_INVALID", "Выберите от 1 до 32 уникальных упорядоченных пар колонок.");
+            throw new AppException("MANUAL_RELATION_COLUMNS_INVALID", "Select 1 to 32 unique, ordered column pairs.");
         var context = await relationships.GetSnapshot(workspaceId, ct);
         var from = context.Graph.Tables.FirstOrDefault(t => t.Table.Id == request.FromTableId);
         var to = context.Graph.Tables.FirstOrDefault(t => t.Table.Id == request.ToTableId);
         if (from is null || to is null)
-            throw new AppException("TABLE_NOT_FOUND", "Таблицы должны входить в текущую рабочую область.", 404);
+            throw new AppException("TABLE_NOT_FOUND", "The tables must belong to the current workspace.", 404);
         var databases = store.All<DatabaseInfo>("Databases", workspaceId);
         if (databases.Any(d => (d.Id == from.DatabaseId || d.Id == to.DatabaseId) && d.Status is "failed" or "unavailable" or "pending"))
-            throw new AppException("SCHEMA_STALE", "Обновите схему перед сохранением ручной связи.", 409);
+            throw new AppException("SCHEMA_STALE", "Refresh the schema before saving a manual relationship.", 409);
         var relation = new SchemaRelation(
             "",
             request.Name.Trim(),
@@ -140,31 +143,28 @@ public sealed class ManualRelationService(CatalogStore store, RelationshipServic
             1
         );
         if (!RelationshipRules.Valid(relation, context.Graph.Tables.ToDictionary(t => t.Table.Id, StringComparer.Ordinal)))
-            throw new AppException(
-                "MANUAL_RELATION_TYPES_INVALID",
-                "Каждая пара должна ссылаться на существующие колонки с совместимыми типами."
-            );
+            throw new AppException("MANUAL_RELATION_TYPES_INVALID", "Each pair must refer to existing columns with compatible types.");
         if (relation.FromTableId == relation.ToTableId && relation.FromColumns.SequenceEqual(relation.ToColumns))
-            throw new AppException("MANUAL_RELATION_IDENTITY", "Связь колонки с самой собой не задаёт JOIN.");
+            throw new AppException("MANUAL_RELATION_IDENTITY", "A column related to itself does not define a JOIN.");
         var now = DateTimeOffset.UtcNow;
         var saved = store.WithWriteLock(() =>
         {
             if (relationships.ContextRevision(workspaceId) != context.Revision)
-                throw new AppException("RELATION_CONTEXT_CHANGED", "Модель изменилась; обновите форму и повторите сохранение.", 409);
+                throw new AppException("RELATION_CONTEXT_CHANGED", "The model has changed; refresh the form and save again.", 409);
             var previous = id is null ? null : store.Get<ManualRelationRecord>("UserSettings", ManualRelationCatalog.Key(id));
             if (id is not null && (previous is null || previous.WorkspaceId != workspaceId))
-                throw new AppException("MANUAL_RELATION_NOT_FOUND", "Ручная связь не найдена.", 404);
+                throw new AppException("MANUAL_RELATION_NOT_FOUND", "Manual relationship not found.", 404);
             if (previous is not null && request.ExpectedVersion != previous.Version)
-                throw new AppException("MANUAL_RELATION_VERSION_CONFLICT", "Связь изменена в другом окне. Загрузите текущую версию.", 409);
+                throw new AppException(
+                    "MANUAL_RELATION_VERSION_CONFLICT",
+                    "The relationship was changed in another window. Load the current version.",
+                    409
+                );
             var duplicate = ManualRelationCatalog
                 .List(store, workspaceId)
                 .FirstOrDefault(r => r.Id != id && RelationshipRules.Identity(r.Relation) == RelationshipRules.Identity(relation));
             if (duplicate is not null)
-                throw new AppException(
-                    "MANUAL_RELATION_EXISTS",
-                    "Такое сопоставление уже существует. Откройте сохранённую ручную связь.",
-                    409
-                );
+                throw new AppException("MANUAL_RELATION_EXISTS", "This mapping already exists. Open the saved manual relationship.", 409);
             var record = new ManualRelationRecord(
                 "manual-relation",
                 id ?? Guid.NewGuid().ToString("N"),
@@ -199,9 +199,9 @@ public sealed class ManualRelationService(CatalogStore store, RelationshipServic
             WorkspaceEndpoints.RequireWorkspace(store, workspaceId);
             var record = store.Get<ManualRelationRecord>("UserSettings", ManualRelationCatalog.Key(id));
             if (record is null || record.WorkspaceId != workspaceId)
-                throw new AppException("MANUAL_RELATION_NOT_FOUND", "Ручная связь не найдена.", 404);
+                throw new AppException("MANUAL_RELATION_NOT_FOUND", "Manual relationship not found.", 404);
             if (record.Version != expectedVersion)
-                throw new AppException("MANUAL_RELATION_VERSION_CONFLICT", "Связь изменена в другом окне.", 409);
+                throw new AppException("MANUAL_RELATION_VERSION_CONFLICT", "The relationship was changed in another window.", 409);
             RemoveOwnedDecision(record);
             store.Delete("UserSettings", ManualRelationCatalog.Key(id));
             return true;

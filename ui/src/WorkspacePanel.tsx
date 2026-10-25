@@ -12,18 +12,18 @@ type Props = { onOpenSchema: (graph: Graph, database: Database, snapshotId?: str
 type ScanMode = 'quick' | 'full' | 'rebuild';
 const terminalStatuses = new Set(['completed', 'partial', 'failed', 'cancelled']);
 const labels: Record<string, string> = {
-  queued: 'В очереди',
-  running: 'Выполняется',
-  completed: 'Готово',
-  partial: 'Частичный результат',
-  failed: 'Ошибка',
-  cancelled: 'Отменено',
-  ready: 'Готова',
-  analyzed: 'Проанализирована',
-  discovered: 'Обнаружена',
-  pending: 'Ожидает анализа',
-  warning: 'Есть замечания',
-  broken: 'Ошибка',
+  queued: 'Queued',
+  running: 'Running',
+  completed: 'Completed',
+  partial: 'Partial result',
+  failed: 'Error',
+  cancelled: 'Cancelled',
+  ready: 'Ready',
+  analyzed: 'Analyzed',
+  discovered: 'Discovered',
+  pending: 'Awaiting analysis',
+  warning: 'Has warnings',
+  broken: 'Error',
   quick: 'Quick Refresh',
   full: 'Full Rescan',
   rebuild: 'Rebuild Schema',
@@ -121,7 +121,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
     setCatalogBusy(true);
     loadCatalog(activeId, controller.signal)
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Не удалось загрузить каталог.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Could not load the catalog.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setCatalogBusy(false);
@@ -151,7 +151,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       } catch (cause) {
         if (controller.signal.aborted) return;
         failures++;
-        setPollError(errorMessage(cause, t('Не удалось получить состояние задачи.')));
+        setPollError(errorMessage(cause, t('Could not retrieve the job status.')));
         if (failures >= 3) setPollPaused(true);
         else timer = setTimeout(() => void poll(), 1000);
       }
@@ -170,7 +170,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
     try {
       await loadCatalog(activeId);
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось обновить каталог.')));
+      setError(errorMessage(cause, t('Could not refresh the catalog.')));
     } finally {
       setCatalogBusy(false);
     }
@@ -200,7 +200,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       if (activeId === saved.id) await loadCatalog(saved.id);
       else setActiveId(saved.id);
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось сохранить рабочую область.')));
+      setError(errorMessage(cause, t('Could not save the workspace.')));
     } finally {
       setSaving(false);
     }
@@ -226,7 +226,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       setCancelling(false);
       setJobId(created.id);
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось запустить анализ.')));
+      setError(errorMessage(cause, t('Could not start the analysis.')));
     } finally {
       setStartingScan(false);
     }
@@ -239,7 +239,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       await request<unknown>(`/api/jobs/${encodeURIComponent(jobId)}`, { method: 'DELETE' });
       setPollPaused(false);
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось отменить задачу.')));
+      setError(errorMessage(cause, t('Could not cancel the job.')));
       setCancelling(false);
     }
   }
@@ -253,7 +253,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       );
       onOpenSchema(graph, database, snapshotId);
     } catch (cause) {
-      setError(errorMessage(cause, t('Не удалось открыть снимок схемы.')));
+      setError(errorMessage(cause, t('Could not open the schema snapshot.')));
     } finally {
       setOpeningId('');
     }
@@ -271,7 +271,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
     try {
       setSnapshots(await request<Snapshot[]>(`/api/databases/${encodeURIComponent(databaseId)}/snapshots`));
     } catch (cause) {
-      setSnapshotError(errorMessage(cause, t('Не удалось загрузить историю снимков.')));
+      setSnapshotError(errorMessage(cause, t('Could not load the snapshot history.')));
     } finally {
       setSnapshotsBusy(false);
     }
@@ -292,11 +292,11 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       <div className="workspace-switcher">
         <div className="workspace-switcher-actions">
           <button className="secondary-button" disabled={scanActive || saving || !sessionToken} onClick={() => editWorkspace()}>
-            {t('+ Новая область')}
+            {t('+ New workspace')}
           </button>
           {workspace && (
             <button className="secondary-button" disabled={scanActive || saving} onClick={() => editWorkspace(workspace)}>
-              {t('Настроить папки')}
+              {t('Configure folders')}
             </button>
           )}
         </div>
@@ -304,10 +304,10 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       {error && (
         <div className="alert error" role="alert">
           <div>
-            <strong>{t('Действие не выполнено')}</strong>
+            <strong>{t('Action failed')}</strong>
             <p>{tMessage(error)}</p>
           </div>
-          <button className="icon-button" onClick={() => setError('')} aria-label={t('Скрыть ошибку')}>
+          <button className="icon-button" onClick={() => setError('')} aria-label={t('Dismiss error')}>
             ×
           </button>
         </div>
@@ -316,30 +316,30 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
         <section className="workspace-editor source-card">
           <div className="source-header">
             <div className="section-title">
-              <h2>{draftId ? t('Настройки рабочей области') : t('Новая рабочая область')}</h2>
+              <h2>{draftId ? t('Workspace settings') : t('New workspace')}</h2>
             </div>
             {workspaces.length > 0 && (
               <button className="text-button" disabled={saving} onClick={() => setEditing(false)}>
-                {t('Закрыть')}
+                {t('Close')}
               </button>
             )}
           </div>
           <form onSubmit={event => void saveWorkspace(event)}>
             <label className="field-label" htmlFor="workspace-name">
-              {t('Название')}
+              {t('Name #2')}
             </label>
             <input
               className="workspace-text-input"
               id="workspace-name"
               value={draftName}
               onChange={event => setDraftName(event.target.value)}
-              placeholder={t('Например, Backend services')}
+              placeholder={t('For example, Backend services')}
               required
               disabled={saving}
             />
             <div className="workspace-form-columns">
               <label>
-                <span className="field-label">{t('Корневые папки · по одной в строке')}</span>
+                <span className="field-label">{t('Root folders · one per line')}</span>
                 <textarea
                   value={draftRoots}
                   onChange={event => setDraftRoots(event.target.value)}
@@ -351,7 +351,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                 />
               </label>
               <label>
-                <span className="field-label">{t('Исключения · glob-шаблоны по одному в строке')}</span>
+                <span className="field-label">{t('Exclusions · one glob pattern per line')}</span>
                 <textarea
                   value={draftExcludes}
                   onChange={event => setDraftExcludes(event.target.value)}
@@ -363,13 +363,13 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
               </label>
             </div>
             <div className="workspace-form-footer">
-              <p>{t('Сканирование читает исходники. Служебные данные и снимки хранятся отдельно от репозиториев.')}</p>
+              <p>{t('Scanning reads source files. Application data and snapshots are stored separately from repositories.')}</p>
               <button
                 className="primary-button"
                 type="submit"
                 disabled={saving || !sessionToken || !draftName.trim() || !lines(draftRoots).length}
               >
-                {saving ? t('Сохранение…') : draftId ? t('Сохранить настройки') : t('Создать область')}
+                {saving ? t('Saving…') : draftId ? t('Save settings') : t('Create workspace')}
               </button>
             </div>
           </form>
@@ -380,11 +380,11 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
           <section className="workspace-overview">
             <div className="workspace-summary-heading">
               <div>
-                <span className="eyebrow">{t('РАБОЧАЯ ОБЛАСТЬ')}</span>
+                <span className="eyebrow">{t('WORKSPACE')}</span>
                 <h2>{workspace.name}</h2>
               </div>
               <button className="secondary-button" disabled={catalogBusy} onClick={() => void refreshCatalog()}>
-                {catalogBusy ? t('Обновление…') : t('Обновить каталог')}
+                {catalogBusy ? t('Refreshing…') : t('Refresh catalog')}
               </button>
             </div>
             <div className="workspace-roots">
@@ -395,28 +395,28 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
             <div className="workspace-metrics">
               <div>
                 <strong>{catalog?.databases.length ?? '—'}</strong>
-                <span>{t('баз данных')}</span>
+                <span>{t('databases')}</span>
               </div>
               <div>
                 <strong>{catalog?.sources.length ?? '—'}</strong>
-                <span>{t('источников')}</span>
+                <span>{t('sources')}</span>
               </div>
               <div>
                 <strong>{warningSources}</strong>
-                <span>{t('с диагностикой')}</span>
+                <span>{t('with diagnostics')}</span>
               </div>
               <div>
                 <strong>{workspace.roots.length}</strong>
-                <span>{t('корневых папок')}</span>
+                <span>{t('root folders')}</span>
               </div>
             </div>
           </section>
           <section className="scan-controls source-card">
             <div className="source-header">
               <div className="section-title">
-                <h2>{t('Обновление модели')}</h2>
+                <h2>{t('Updating model')}</h2>
               </div>
-              <span className="quiet-label">{t('Фоновые задачи')}</span>
+              <span className="quiet-label">{t('Background jobs')}</span>
             </div>
             <div className="scan-actions">
               <button
@@ -433,13 +433,13 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
               >
                 {t('Full Rescan')}
               </button>
-              <p>{t('Quick: изменённые файлы. Full: повторное обнаружение всех источников. Оба режима работают без сборки проектов.')}</p>
+              <p>{t('Quick Refresh scans changed files. Full Rescan rediscovers all sources. Neither mode builds projects.')}</p>
             </div>
             <details className="rebuild-options">
-              <summary>{t('Пересобрать SQL-проект / DACPAC')}</summary>
+              <summary>{t('Rebuild SQL project / DACPAC')}</summary>
               <div className="rebuild-body">
                 <label className="field-label" htmlFor="rebuild-database">
-                  {t('Область пересборки')}
+                  {t('Rebuild scope')}
                 </label>
                 <select
                   id="rebuild-database"
@@ -447,7 +447,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                   onChange={event => setSelectedRebuildId(event.target.value)}
                   disabled={scanActive}
                 >
-                  <option value="">{t('Все найденные базы')}</option>
+                  <option value="">{t('All discovered databases')}</option>
                   {catalog?.databases.map(database => (
                     <option value={database.id} key={database.id}>
                       {database.name} · {sourceKindLabel(database.sourceKind)}
@@ -461,7 +461,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                     disabled={scanActive}
                     onChange={event => setTrustProjects(event.target.checked)}
                   />
-                  <span>{t('Я доверяю выбранным SQL-проектам. Пересборка может выполнять код MSBuild и сторонние build targets.')}</span>
+                  <span>{t('I trust the selected SQL projects. Rebuilding may execute MSBuild code and third-party build targets.')}</span>
                 </label>
                 <button
                   className="secondary-button"
@@ -475,21 +475,19 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
             {jobId && (
               <div className={`job-panel ${job && terminalStatuses.has(job.status.toLowerCase()) ? 'finished' : ''}`} role="status">
                 <div className="job-heading">
-                  <strong>{job ? label(job.kind) : t('Задача анализа')}</strong>
-                  <span className={job ? statusClass(job.status) : 'neutral-tag'}>
-                    {job ? label(job.status) : t('Получение состояния…')}
-                  </span>
+                  <strong>{job ? label(job.kind) : t('Analysis job')}</strong>
+                  <span className={job ? statusClass(job.status) : 'neutral-tag'}>{job ? label(job.status) : t('Retrieving status…')}</span>
                   {scanActive && (
                     <button className="text-button danger-text" onClick={() => void cancelScan()} disabled={cancelling}>
-                      {cancelling ? t('Отмена запрошена…') : t('Отменить')}
+                      {cancelling ? t('Cancellation requested…') : t('Cancel')}
                     </button>
                   )}
                 </div>
                 <div className="job-stage">
-                  <span>{tMessage(job?.stage) || t('Ожидаем информацию от сервера')}</span>
+                  <span>{tMessage(job?.stage) || t('Waiting for information from the server')}</span>
                   <span>{Math.round(Math.max(0, Math.min(100, job?.progress || 0)))}%</span>
                 </div>
-                <progress aria-label={t('Прогресс анализа')} max="100" value={Math.max(0, Math.min(100, job?.progress || 0))} />
+                <progress aria-label={t('Analysis progress')} max="100" value={Math.max(0, Math.min(100, job?.progress || 0))} />
                 {job?.error && <p className="job-error">{tMessage(job.error)}</p>}
                 {pollError && (
                   <p className="job-error">
@@ -502,7 +500,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                           setPollPaused(false);
                         }}
                       >
-                        {t('Повторить получение статуса')}
+                        {t('Retry status check')}
                       </button>
                     )}
                   </p>
@@ -510,12 +508,12 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                 <div className="job-timing">
                   {job?.startedAt && (
                     <span>
-                      {t('Начало:')} {formatDate(job.startedAt)}
+                      {t('Started:')} {formatDate(job.startedAt)}
                     </span>
                   )}
                   {job?.finishedAt && (
                     <span>
-                      {t('Завершение:')} {formatDate(job.finishedAt)}
+                      {t('Finished:')} {formatDate(job.finishedAt)}
                     </span>
                   )}
                 </div>
@@ -535,14 +533,14 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
           <section className="workspace-databases">
             <div className="section-heading">
               <h2>
-                {t('Базы данных')} <span className="section-count">{catalog?.databases.length || 0}</span>
+                {t('Databases')} <span className="section-count">{catalog?.databases.length || 0}</span>
               </h2>
-              <span className="quiet-label">{t('Каждый проект сохраняет собственную модель')}</span>
+              <span className="quiet-label">{t('Each project keeps its own model')}</span>
             </div>
             {catalogBusy && !catalog ? (
               <div className="panel-placeholder">
                 <span className="spinner" />
-                {t('Загружаем каталог…')}
+                {t('Loading catalog…')}
               </div>
             ) : catalog?.databases.length ? (
               <div className="database-cards">
@@ -559,14 +557,10 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                       {displayPath(database.sourcePath)}
                     </code>
                     <div className="database-meta">
-                      <span>
-                        {database.lastAnalyzedAt ? t('Обновлена {0}', formatDate(database.lastAnalyzedAt)) : t('Снимок ещё не создан')}
-                      </span>
+                      <span>{database.lastAnalyzedAt ? t('Updated {0}', formatDate(database.lastAnalyzedAt)) : t('No snapshot yet')}</span>
                       {database.status.toLowerCase() === 'partial' && (
                         <p>
-                          {t(
-                            'Статический анализ дал частичный результат. Проверьте диагностику источников и выполните доверенную пересборку при необходимости.',
-                          )}
+                          {t('Static analysis produced a partial result. Check source diagnostics and run a trusted rebuild if needed.')}
                         </p>
                       )}
                     </div>
@@ -576,14 +570,14 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                         disabled={!database.currentSnapshotId || Boolean(openingId)}
                         onClick={() => void openDatabase(database)}
                       >
-                        {openingId === database.id ? t('Открытие…') : t('Открыть схему')}
+                        {openingId === database.id ? t('Opening…') : t('Open schema')}
                       </button>
                       <button
                         className="text-button"
                         disabled={snapshotsBusy && snapshotDatabaseId === database.id}
                         onClick={() => void showSnapshots(database.id)}
                       >
-                        {snapshotDatabaseId === database.id ? t('Скрыть историю') : t('Снимки')}
+                        {snapshotDatabaseId === database.id ? t('Hide history') : t('Snapshots')}
                       </button>
                     </div>
                   </article>
@@ -591,8 +585,10 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
               </div>
             ) : (
               <div className="panel-placeholder">
-                <strong>{t('Базы пока не обнаружены')}</strong>
-                <p>{t('Запустите Full Rescan, чтобы найти SQL-проекты, DACPAC, C#-проекты и отдельные SQL-файлы в указанных папках.')}</p>
+                <strong>{t('No databases discovered yet')}</strong>
+                <p>
+                  {t('Run Full Rescan to discover SQL projects, DACPACs, C# projects, and standalone SQL files in the selected folders.')}
+                </p>
               </div>
             )}
           </section>
@@ -600,16 +596,16 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
             <section className="snapshot-history">
               <div className="section-heading">
                 <h2>
-                  {t('Снимки ·')} {snapshotDatabase.name}
+                  {t('Snapshots ·')} {snapshotDatabase.name}
                 </h2>
                 <button className="text-button" onClick={() => setSnapshotDatabaseId('')}>
-                  {t('Закрыть')}
+                  {t('Close')}
                 </button>
               </div>
               {snapshotsBusy ? (
                 <div className="panel-placeholder">
                   <span className="spinner" />
-                  {t('Загрузка снимков…')}
+                  {t('Loading snapshots…')}
                 </div>
               ) : snapshotError ? (
                 <div className="alert error">
@@ -620,9 +616,9 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                   <table className="workspace-table">
                     <thead>
                       <tr>
-                        <th>{t('Создан')}</th>
-                        <th>{t('Режим')}</th>
-                        <th>{t('Таблицы / связи')}</th>
+                        <th>{t('Created')}</th>
+                        <th>{t('Mode')}</th>
+                        <th>{t('Tables / relationships')}</th>
                         <th>{t('Fingerprint')}</th>
                         <th />
                       </tr>
@@ -644,7 +640,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                               disabled={Boolean(openingId)}
                               onClick={() => void openDatabase(snapshotDatabase, snapshot.id)}
                             >
-                              {openingId === snapshot.id ? t('Открытие…') : t('Открыть')}
+                              {openingId === snapshot.id ? t('Opening…') : t('Open')}
                             </button>
                           </td>
                         </tr>
@@ -653,24 +649,24 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                   </table>
                 </div>
               ) : (
-                <p className="muted-text">{t('Снимков ещё нет.')}</p>
+                <p className="muted-text">{t('No snapshots yet.')}</p>
               )}
             </section>
           )}
           <section className="workspace-sources">
             <div className="section-heading">
-              <h2>{t('Источники и проекты')}</h2>
+              <h2>{t('Sources and projects')}</h2>
               <span className="quiet-label">{t('SQL / C# / solutions / repositories')}</span>
             </div>
             <div className="source-filters">
               <input
-                aria-label={t('Поиск источников по пути')}
+                aria-label={t('Search sources by path')}
                 value={sourceQuery}
                 onChange={event => setSourceQuery(event.target.value)}
-                placeholder={t('Поиск по пути или типу…')}
+                placeholder={t('Search by path or type…')}
               />
-              <select aria-label={t('Фильтр типа источника')} value={sourceFilter} onChange={event => setSourceFilter(event.target.value)}>
-                <option value="all">{t('Все типы')}</option>
+              <select aria-label={t('Source type filter')} value={sourceFilter} onChange={event => setSourceFilter(event.target.value)}>
+                <option value="all">{t('All types')}</option>
                 {sourceKinds.map(kind => (
                   <option value={kind} key={kind}>
                     {sourceKindLabel(kind)}
@@ -678,7 +674,7 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                 ))}
               </select>
               <span>
-                {filteredSources.length} {t('источников')}
+                {filteredSources.length} {t('sources')}
               </span>
             </div>
             {visibleSources.length ? (
@@ -686,9 +682,9 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                 <table className="workspace-table">
                   <thead>
                     <tr>
-                      <th>{t('Тип')}</th>
-                      <th>{t('Путь / диагностика')}</th>
-                      <th>{t('Изменён')}</th>
+                      <th>{t('Type')}</th>
+                      <th>{t('Path / diagnostics')}</th>
+                      <th>{t('Modified')}</th>
                       <th>SHA-256</th>
                     </tr>
                   </thead>
@@ -717,31 +713,30 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
               </div>
             ) : (
               <p className="panel-placeholder">
-                {sourceQuery || sourceFilter !== 'all'
-                  ? t('Источники по этому фильтру не найдены.')
-                  : t('Запустите сканирование для заполнения каталога.')}
+                {sourceQuery || sourceFilter !== 'all' ? t('No sources match this filter.') : t('Run a scan to populate the catalog.')}
               </p>
             )}
             {filteredSources.length > visibleSources.length && (
               <p className="workspace-limit-note">
-                {t('Показаны первые')} {visibleSources.length} {t('из')} {filteredSources.length} {t('источников. Уточните поиск или тип.')}
+                {t('Showing the first')} {visibleSources.length} {t('of')} {filteredSources.length}{' '}
+                {t('sources. Refine the search or type filter.')}
               </p>
             )}
           </section>
           {Boolean(catalog?.scanRuns.length) && (
             <section className="scan-history">
               <div className="section-heading">
-                <h2>{t('Последние сканирования')}</h2>
+                <h2>{t('Recent scans')}</h2>
               </div>
               <div className="workspace-table-scroll">
                 <table className="workspace-table">
                   <thead>
                     <tr>
-                      <th>{t('Режим')}</th>
-                      <th>{t('Состояние')}</th>
-                      <th>{t('Начало')}</th>
-                      <th>{t('Обновления')}</th>
-                      <th>{t('Завершение / диагностика')}</th>
+                      <th>{t('Mode')}</th>
+                      <th>{t('Status')}</th>
+                      <th>{t('Started')}</th>
+                      <th>{t('Updates')}</th>
+                      <th>{t('Finished / diagnostics')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -753,9 +748,9 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
                         </td>
                         <td>{formatDate(run.startedAt)}</td>
                         <td>
-                          {run.changedSources ?? 0} {t('изменённых ·')} {run.unchangedSources ?? 0} {t('без изменений')}
+                          {run.changedSources ?? 0} {t('changed ·')} {run.unchangedSources ?? 0} {t('unchanged')}
                           <br />
-                          {run.databasesUpdated ?? 0} {t('обновлённых БД')}
+                          {run.databasesUpdated ?? 0} {t('databases updated')}
                         </td>
                         <td>
                           {formatDate(run.finishedAt)}
@@ -777,8 +772,8 @@ export default function WorkspacePanel({ onOpenSchema }: Props) {
       )}
       {!workspace && !editing && !listBusy && (
         <div className="panel-placeholder">
-          <strong>{t('Выберите рабочую область')}</strong>
-          <p>{t('Создайте область с одной или несколькими корневыми папками, чтобы начать обнаружение проектов.')}</p>
+          <strong>{t('Select a workspace #2')}</strong>
+          <p>{t('Create a workspace with one or more root folders to start discovering projects.')}</p>
         </div>
       )}
     </div>

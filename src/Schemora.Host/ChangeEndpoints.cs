@@ -66,7 +66,7 @@ public sealed class ChangeService(
             || after.DatabaseId != databaseId
             || before.WorkspaceId != after.WorkspaceId
         )
-            throw new AppException("SNAPSHOT_NOT_FOUND", "Выберите два снимка одной БД.", 404);
+            throw new AppException("SNAPSHOT_NOT_FOUND", "Select two snapshots of the same database.", 404);
         var result = differ.Compare(before.Graph, after.Graph);
         return new
         {
@@ -132,20 +132,16 @@ public sealed class ChangeService(
     {
         var recipe = recipes.Require(id);
         if (recipe.Definition.Version != request.ExpectedVersion)
-            throw new AppException("RECIPE_VERSION_CONFLICT", "Загрузите актуальную версию рецепта.", 409);
+            throw new AppException("RECIPE_VERSION_CONFLICT", "Load the latest recipe version.", 409);
         if (string.IsNullOrWhiteSpace(request.Reason) || request.Reason.Length > 2000)
-            throw new AppException("REPAIR_REASON_REQUIRED", "Укажите основание замены (до 2000 символов).");
+            throw new AppException("REPAIR_REASON_REQUIRED", "Enter a reason for the replacement (up to 2000 characters).");
         if (!recipe.Definition.DatabaseIds.Contains(request.DatabaseId))
-            throw new AppException("REPAIR_DATABASE_INVALID", "БД отсутствует в списке БД рецепта.");
+            throw new AppException("REPAIR_DATABASE_INVALID", "The database is not in the recipe's database list.");
         var revision = relationships.ContextRevision(recipe.WorkspaceId);
         var snapshots = Snapshots(recipe.WorkspaceId);
         var context = await relationships.GetSnapshot(recipe.WorkspaceId, ct);
         if (context.Revision != revision)
-            throw new AppException(
-                "REPAIR_CONTEXT_CHANGED",
-                "Модель изменилась во время предварительного просмотра. Повторите действие.",
-                409
-            );
+            throw new AppException("REPAIR_CONTEXT_CHANGED", "The model changed during the preview. Try again.", 409);
         var graph = context.Graph;
         if (request.Kind is not ("column" or "table" or "schema"))
             throw new AppException("REPAIR_KIND_INVALID", "Choose column, table or schema repair.");
@@ -163,7 +159,7 @@ public sealed class ChangeService(
         if (rewritten.ReplacementCount == 0 || rewritten.Diagnostics.Any(d => d.Severity == "error"))
             throw new AppException(
                 "REPAIR_UNSAFE",
-                "Не удалось однозначно связать замену. Исправьте этот SQL вручную.",
+                "Could not resolve the replacement unambiguously. Edit this SQL manually.",
                 422,
                 System.Text.Json.JsonSerializer.Serialize(rewritten.Diagnostics, CatalogStore.Json)
             );
@@ -192,7 +188,7 @@ public sealed class ChangeService(
                 || !Same(snapshots, Snapshots(recipe.WorkspaceId))
                 || revision != relationships.ContextRevision(recipe.WorkspaceId)
             )
-                throw new AppException("REPAIR_CONTEXT_CHANGED", "Схема или рецепт изменились; повторите предварительный просмотр.", 409);
+                throw new AppException("REPAIR_CONTEXT_CHANGED", "The schema or recipe has changed; generate the preview again.", 409);
             store.Put("RepairProposals", proposal.Id, proposal.WorkspaceId, proposal);
             return proposal;
         });
@@ -201,35 +197,26 @@ public sealed class ChangeService(
     public async Task<RecipeEntry> Approve(string id, int expectedVersion, CancellationToken ct)
     {
         var proposal =
-            store.Get<RepairProposal>("RepairProposals", id) ?? throw new AppException("REPAIR_NOT_FOUND", "Предложение не найдено.", 404);
+            store.Get<RepairProposal>("RepairProposals", id) ?? throw new AppException("REPAIR_NOT_FOUND", "Proposal not found.", 404);
         void Guard()
         {
             var latest =
-                store.Get<RepairProposal>("RepairProposals", id)
-                ?? throw new AppException("REPAIR_NOT_FOUND", "Предложение не найдено.", 404);
+                store.Get<RepairProposal>("RepairProposals", id) ?? throw new AppException("REPAIR_NOT_FOUND", "Proposal not found.", 404);
             if (latest.Status != "proposed")
-                throw new AppException("REPAIR_ALREADY_DECIDED", "Решение по предложению уже принято.", 409);
+                throw new AppException("REPAIR_ALREADY_DECIDED", "A decision has already been made on this proposal.", 409);
             var current = recipes.Require(proposal.RecipeId);
             if (
                 current.Definition.Version != expectedVersion
                 || expectedVersion != proposal.BaseVersion
                 || current.Definition.SqlTemplate != proposal.BeforeSql
             )
-                throw new AppException(
-                    "RECIPE_VERSION_CONFLICT",
-                    "Рецепт изменился после предварительного просмотра. Создайте новое предложение.",
-                    409
-                );
+                throw new AppException("RECIPE_VERSION_CONFLICT", "The recipe changed after the preview. Create a new proposal.", 409);
             if (
                 !Same(proposal.Snapshots, Snapshots(proposal.WorkspaceId))
                 || proposal.ContextRevision is null
                 || proposal.ContextRevision != relationships.ContextRevision(proposal.WorkspaceId)
             )
-                throw new AppException(
-                    "REPAIR_CONTEXT_CHANGED",
-                    "Модель или связи изменились; создайте новый предварительный просмотр.",
-                    409
-                );
+                throw new AppException("REPAIR_CONTEXT_CHANGED", "The model or relationships have changed; generate a new preview.", 409);
         }
         store.WithWriteLock(() =>
         {
@@ -246,7 +233,7 @@ public sealed class ChangeService(
                 Version = expectedVersion,
             },
             proposal.RecipeId,
-            "Подтверждённое исправление: " + proposal.Reason,
+            "Approved repair: " + proposal.Reason,
             ct,
             true,
             [new("RepairProposals", id, proposal.WorkspaceId, approved)],
@@ -259,10 +246,9 @@ public sealed class ChangeService(
         return store.WithWriteLock(() =>
         {
             var proposal =
-                store.Get<RepairProposal>("RepairProposals", id)
-                ?? throw new AppException("REPAIR_NOT_FOUND", "Предложение не найдено.", 404);
+                store.Get<RepairProposal>("RepairProposals", id) ?? throw new AppException("REPAIR_NOT_FOUND", "Proposal not found.", 404);
             if (proposal.Status != "proposed")
-                throw new AppException("REPAIR_ALREADY_DECIDED", "Решение уже принято.", 409);
+                throw new AppException("REPAIR_ALREADY_DECIDED", "A decision has already been made.", 409);
             var rejected = proposal with { Status = "rejected" };
             store.Put("RepairProposals", id, proposal.WorkspaceId, rejected);
             return rejected;

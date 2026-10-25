@@ -38,14 +38,14 @@ export async function request<T>(url: string, options?: RequestInit): Promise<T>
     } | null;
     if (response.status === 401 || (response.status === 403 && ['HOST_REJECTED', 'ORIGIN_REJECTED'].includes(error?.code || '')))
       throw new ApiError(
-        t('Сеанс недействителен. Откройте Schemora по ссылке, созданной при запуске приложения.'),
+        t('The session is invalid. Open Schemora using the link created when the application starts.'),
         error?.code || 'SESSION_REQUIRED',
         response.status,
         error?.operationId,
       );
     throw new ApiError(
       [
-        error?.message ? tError(error.code, error.message) : t('Ошибка запроса ({0})', response.status),
+        error?.message ? tError(error.code, error.message) : t('Request failed ({0})', response.status),
         error?.detail && tMessage(error.detail),
       ]
         .filter(Boolean)

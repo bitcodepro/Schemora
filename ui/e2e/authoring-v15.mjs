@@ -11,7 +11,9 @@ const dictionaries = {};
 for (const file of await fs.readdir(new URL('../src/locales/', import.meta.url)))
   if (file.endsWith('.json'))
     Object.assign(dictionaries, JSON.parse(await fs.readFile(new URL('../src/locales/' + file, import.meta.url), 'utf8')));
-const L = key => dictionaries[key]?.en || key;
+// Catalog keys are English; a Russian or Ukrainian label used in a test still finds its entry.
+const entry = key => dictionaries[key] || Object.values(dictionaries).find(item => item.ru === key || item.uk === key);
+const L = key => entry(key)?.en || key;
 async function api(url, method = 'GET', body) {
   const r = await fetch(session.origin + url, {
     method,
@@ -53,11 +55,11 @@ try {
   page.on('pageerror', e => errors.push(e.message));
   await openApp(page, session.launchUrl);
   // The host may hold several tutorial workspaces; choose this one in the shared selector like a user would.
-  await page.getByRole('combobox', { name: L('Рабочая область'), exact: true }).selectOption(tutorial.workspace.id);
+  await page.getByRole('combobox', { name: L('Workspace'), exact: true }).selectOption(tutorial.workspace.id);
   const button = key => page.getByRole('button', { name: L(key), exact: true });
-  await button('SQL-рецепты').click();
-  await button('Определение').click();
-  const name = page.getByRole('textbox', { name: L('Название рецепта'), exact: true });
+  await button('SQL recipes').click();
+  await button('Definition').click();
+  const name = page.getByRole('textbox', { name: L('Recipe name'), exact: true });
   // Wait until the opened recipe has loaded, so its late arrival cannot overwrite the typed name.
   for (let i = 0; i < 200 && (await name.inputValue()) !== 'Orders for customers'; i++) await new Promise(r => setTimeout(r, 100));
   assert.equal(await name.inputValue(), 'Orders for customers');
@@ -93,20 +95,20 @@ try {
   await page.evaluate(id => localStorage.removeItem('schemora.authoring-draft:' + id), tutorial.workspace.id);
   page.once('dialog', d => d.accept());
   await reloadApp(page);
-  await button('SQL-рецепты').click();
+  await button('SQL recipes').click();
   await button('Recover draft').click();
   await name.waitFor();
   assert.equal(await name.inputValue(), 'Recovered authoring draft');
   checks.push('Unsaved authoring definition recovers from local application storage after browser copy is removed');
   page.once('dialog', d => d.dismiss());
-  await button('Рабочая область').click();
+  await button('Workspace').click();
   assert.equal(await name.inputValue(), 'Recovered authoring draft');
   checks.push('Navigation cancellation retains editor changes');
-  await button('Сохранить новую версию').click();
-  await page.getByText(L('Сохранено'), { exact: true }).waitFor();
+  await button('Save new version').click();
+  await page.getByText(L('Saved'), { exact: true }).waitFor();
   assert.equal(await page.evaluate(id => localStorage.getItem('schemora.authoring-draft:' + id), tutorial.workspace.id), null);
   checks.push('Saving clears the recovered draft');
-  await button('Входы и SQL').click();
+  await button('Inputs and SQL').click();
   const ids = page.getByRole('textbox', { name: 'ID list: Ids', exact: true });
   await ids.fill('887766551');
   await page.evaluate(() => localStorage.setItem('test-marker', 'safe'));
@@ -137,21 +139,21 @@ try {
   );
   assert.ok(!JSON.stringify(listed).includes('887766551'));
   page.once('dialog', d => d.accept());
-  await valueSets.getByRole('button', { name: L('Удалить'), exact: true }).click();
+  await valueSets.getByRole('button', { name: L('Remove'), exact: true }).click();
   await valueSets
     .getByRole('combobox', { name: L('Saved values'), exact: true })
     .getByText(L('No saved values yet'))
     .waitFor({ state: 'attached' });
   assert.deepEqual(await api('/api/recipes/' + tutorial.recipeId + '/value-sets'), []);
   checks.push('Named values save encrypted on the host, load back into the inputs and delete; listings carry names only');
-  await button('Версии и lineage').click();
+  await button('Versions and lineage').click();
   await page
-    .getByRole('button', { name: L('Восстановить'), exact: true })
+    .getByRole('button', { name: L('Restore'), exact: true })
     .last()
     .click();
   await page.getByRole('heading', { name: L('Compare with current version'), exact: true }).waitFor();
   await button('Restore as new version').click();
-  await page.getByText(L('Сохранено'), { exact: true }).waitFor();
+  await page.getByText(L('Saved'), { exact: true }).waitFor();
   for (let i = 0; i < 100; i++) {
     if ((await api('/api/recipes/' + tutorial.recipeId)).definition.version === 3) break;
     await new Promise(r => setTimeout(r, 100));
@@ -160,9 +162,9 @@ try {
   assert.equal(recipe.definition.version, 3);
   assert.equal(recipe.definition.name, 'Orders for customers');
   checks.push('Version comparison restores history as a new revalidated version');
-  await button('Рабочая область').click();
+  await button('Workspace').click();
   const nav = page.getByRole('region', { name: 'Workspace navigator', exact: true });
-  await page.getByRole('combobox', { name: L('Рабочая область'), exact: true }).selectOption(tutorial.workspace.id);
+  await page.getByRole('combobox', { name: L('Workspace'), exact: true }).selectOption(tutorial.workspace.id);
   await nav.getByRole('searchbox', { name: 'Saved navigation filter', exact: true }).fill('Orders');
   await nav.getByRole('button', { name: 'Orders · Table', exact: true }).click();
   await page.getByRole('searchbox', { name: 'Search dependent recipes', exact: true }).fill('missing');
@@ -188,8 +190,8 @@ try {
   assert.ok(!selectedHtml.includes('<table>'));
   assert.ok(selectedHtml.includes('Recipe dependencies'));
   checks.push('Report section selection excludes object details and includes recipe dependencies');
-  await button('Связи и пути').click();
-  await page.getByRole('combobox', { name: L('Рабочая область'), exact: true }).selectOption(tutorial.workspace.id);
+  await button('Relationships and paths').click();
+  await page.getByRole('combobox', { name: L('Workspace'), exact: true }).selectOption(tutorial.workspace.id);
   await page.getByText('EF / Dapper analysis coverage', { exact: true }).click();
   await button('Refresh analysis coverage').click();
   await page.locator('.analysis-coverage').getByText('DAPPER_SQL_DYNAMIC', { exact: true }).waitFor();

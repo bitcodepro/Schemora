@@ -78,7 +78,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
       });
       if (current === revision.current) setPaths(found);
     } catch (cause) {
-      if (!requestController.signal.aborted) setError(errorMessage(cause, t('Не удалось найти маршрут.')));
+      if (!requestController.signal.aborted) setError(errorMessage(cause, t('Could not find a path. #2')));
     } finally {
       if (current === revision.current) setBusy(false);
     }
@@ -108,7 +108,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
       }
     } catch (cause) {
       if (!requestController.signal.aborted)
-        setError(errorMessage(cause, t('Колонки маршрута недоступны. Обновите схему и найдите путь снова.')));
+        setError(errorMessage(cause, t('Path columns are unavailable. Refresh the schema and find the path again.')));
     } finally {
       if (current === revision.current) setTablesBusy(false);
     }
@@ -147,7 +147,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
       if (current === revision.current) setPreview(result);
     } catch (cause) {
       if (!requestController.signal.aborted)
-        setError(errorMessage(cause, t('Не удалось подготовить SQL. Проверьте колонки и выбранные связи.')));
+        setError(errorMessage(cause, t('Could not prepare the SQL. Check the columns and selected relationships.')));
     } finally {
       if (current === revision.current) setBusy(false);
     }
@@ -168,9 +168,9 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
   const input = fromTable?.columns.find(column => column.name === inputColumn);
   return (
     <details className="enhancement-card chain-wizard">
-      <summary>{t('Создать рецепт по цепочке таблиц')}</summary>
+      <summary>{t('Create a recipe from a chain of tables')}</summary>
       <p className="muted-text">
-        {t('Начните со списка ID в исходной таблице. Выберите проверенный маршрут и поля результата из связанных таблиц.')}
+        {t('Start with an ID list in the source table. Select a verified path and output columns from related tables.')}
       </p>
       {error && (
         <div className="alert error" role="alert">
@@ -180,12 +180,12 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
       <div className="chain-step">
         <div className="chain-step-heading">
           <span>1</span>
-          <h3>{t('Откуда начинаются ID и к какой таблице идти')}</h3>
+          <h3>{t('Where IDs start and which table to reach')}</h3>
         </div>
         <div className="enhancement-grid">
           <TablePicker
             workspaceId={workspaceId}
-            label={t('Цепочка: исходная таблица')}
+            label={t('Chain: source table')}
             value={fromTable}
             disabled={busy}
             onChange={table => {
@@ -196,7 +196,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
           />
           <TablePicker
             workspaceId={workspaceId}
-            label={t('Цепочка: целевая таблица')}
+            label={t('Chain: target table')}
             value={toTable}
             disabled={busy}
             onChange={table => {
@@ -207,9 +207,9 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
         </div>
         <div className="enhancement-grid">
           <label>
-            <span className="field-label">{t('Поле исходного списка ID')}</span>
+            <span className="field-label">{t('Source ID list column')}</span>
             <select
-              aria-label={t('Поле ID для цепочки')}
+              aria-label={t('Chain ID column')}
               value={inputColumn}
               disabled={!fromTable || busy}
               onChange={event => {
@@ -217,7 +217,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                 setPreview(null);
               }}
             >
-              <option value="">{t('Выберите колонку')}</option>
+              <option value="">{t('Select a column')}</option>
               {fromTable?.columns.map(column => (
                 <option key={column.name} value={column.name} disabled={!inputFromSqlType('Ids', column.dataType)}>
                   {column.name} · {column.dataType}
@@ -226,9 +226,9 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
             </select>
           </label>
           <label>
-            <span className="field-label">{t('Название будущего рецепта')}</span>
+            <span className="field-label">{t('New recipe name')}</span>
             <input
-              aria-label={t('Название рецепта по цепочке')}
+              aria-label={t('Chain recipe name')}
               value={name}
               maxLength={160}
               disabled={busy}
@@ -245,12 +245,12 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
             disabled={!fromTable || !toTable || fromTable.id === toTable.id || busy || !inputColumn}
             onClick={() => void findPaths()}
           >
-            {busy ? t('Поиск…') : t('Найти маршруты для рецепта')}
+            {busy ? t('Searching…') : t('Find paths for recipe')}
           </button>
           {input && (
             <p className="muted-text">
-              {t('Тип списка ID:')} {input.dataType}
-              {t('. Значения будут вводиться после сохранения рецепта.')}
+              {t('ID list type:')} {input.dataType}
+              {t('. Values will be entered after saving the recipe.')}
             </p>
           )}
         </div>
@@ -259,11 +259,11 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
         <div className="chain-step">
           <div className="chain-step-heading">
             <span>2</span>
-            <h3>{t('Выберите маршрут')}</h3>
+            <h3>{t('Select a path')}</h3>
           </div>
           {!paths.length ? (
             <p className="object-warning">
-              {t('Доверенный маршрут не найден. Создайте ручную связь или проверьте существующие связи в графе.')}
+              {t('No trusted path found. Create a manual relationship or review existing relationships in the graph.')}
             </p>
           ) : (
             <div className="chain-route-list">
@@ -275,11 +275,11 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                   onClick={() => void choosePath(index)}
                 >
                   <strong>
-                    {t('Маршрут')} {index + 1} · {route.tableIds.length} {t('таблиц ·')} {route.relationIds.length} {t('связей')}
+                    {t('Path')} {index + 1} · {route.tableIds.length} {t('tables ·')} {route.relationIds.length} {t('relationships')}
                   </strong>
                   <small>
                     {route.explanations?.map(tMessage).join(' · ') ||
-                      t('Связи проверены сервером. Выберите маршрут для просмотра колонок.')}
+                      t('Relationships verified by the server. Select a path to view columns.')}
                   </small>
                   {route.warnings?.map((warning, warningIndex) => (
                     <p className="object-warning" key={warningIndex}>
@@ -296,10 +296,10 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
         <div className="chain-step">
           <div className="chain-step-heading">
             <span>3</span>
-            <h3>{t('Какие поля включить в результат')}</h3>
+            <h3>{t('Which columns to include in the result')}</h3>
           </div>
           {tablesBusy ? (
-            <p className="muted-text">{t('Читаем колонки таблиц…')}</p>
+            <p className="muted-text">{t('Reading table columns…')}</p>
           ) : (
             <>
               <div className="chain-column-groups">
@@ -311,7 +311,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                         <label className="chain-column-check" key={column.name}>
                           <input
                             type="checkbox"
-                            aria-label={t('Результат: {0}.{1}', table.name, column.name)}
+                            aria-label={t('Output: {0}.{1}', table.name, column.name)}
                             checked={columns.some(selected => selected.tableId === table.id && selected.columnName === column.name)}
                             disabled={busy}
                             onChange={() => toggleColumn(table.id, column.name)}
@@ -331,7 +331,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                       {index + 1}. {tables.find(table => table.id === column.tableId)?.name}.{column.columnName}
                     </span>
                     <input
-                      aria-label={t('Имя результата {0}', index + 1)}
+                      aria-label={t('Output name {0}', index + 1)}
                       value={column.alias ?? column.columnName}
                       maxLength={128}
                       disabled={busy}
@@ -345,7 +345,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                     <button
                       type="button"
                       className="secondary-button"
-                      aria-label={t('Поле {0} выше', index + 1)}
+                      aria-label={t('Move column {0} up', index + 1)}
                       disabled={busy || index === 0}
                       onClick={() => {
                         setPreview(null);
@@ -357,7 +357,7 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                     <button
                       type="button"
                       className="secondary-button"
-                      aria-label={t('Поле {0} ниже', index + 1)}
+                      aria-label={t('Move column {0} down', index + 1)}
                       disabled={busy || index === columns.length - 1}
                       onClick={() => {
                         setPreview(null);
@@ -381,11 +381,11 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
                   disabled={projectionErrors.length > 0 || !inputColumn || busy || !tables.length}
                   onClick={() => void buildPreview()}
                 >
-                  {busy ? t('Подготовка SQL…') : t('Предварительный SQL рецепта')}
+                  {busy ? t('Preparing SQL…') : t('Preview recipe SQL')}
                 </button>
                 <p className="muted-text">
-                  {t('Выбрано полей:')} {columns.length}
-                  {t('. Порядок выбора определяет порядок колонок результата.')}
+                  {t('Selected columns:')} {columns.length}
+                  {t('. Selection order determines the order of output columns.')}
                 </p>
               </div>
             </>
@@ -396,21 +396,21 @@ export default function ChainRecipeWizard({ workspaceId, onCreate }: { workspace
         <div className="chain-step chain-preview">
           <div className="chain-step-heading">
             <span>4</span>
-            <h3>{t('Проверьте SQL и создайте черновик')}</h3>
+            <h3>{t('Review the SQL and create a draft')}</h3>
           </div>
           {preview.warnings?.map((warning, index) => (
             <p className="object-warning" key={index}>
               {tMessage(warning)}
             </p>
           ))}
-          <Suspense fallback={<p className="object-loading">{t('Загрузка SQL-редактора…')}</p>}>
-            <SqlEditor label={t('Предварительный SQL цепочки')} value={preview.definition.sqlTemplate} readOnly height={300} />
+          <Suspense fallback={<p className="object-loading">{t('Loading SQL editor…')}</p>}>
+            <SqlEditor label={t('Chain SQL preview')} value={preview.definition.sqlTemplate} readOnly height={300} />
           </Suspense>
           <div className="enhancement-actions">
             <button className="primary-button" onClick={create}>
-              {t('Создать черновик из цепочки')}
+              {t('Create draft from chain')}
             </button>
-            <p className="muted-text">{t('Шаблон откроется в редакторе. Сохранение рецепта выполняется отдельно.')}</p>
+            <p className="muted-text">{t('The template will open in the editor. Save the recipe separately.')}</p>
           </div>
         </div>
       )}

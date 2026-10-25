@@ -14,7 +14,7 @@ public static class CatalogRecovery
             || !File.Exists(backupPath)
             || new FileInfo(backupPath).Attributes.HasFlag(FileAttributes.ReparsePoint)
         )
-            throw new InvalidOperationException("Выберите отдельный обычный файл резервной копии SQLite.");
+            throw new InvalidOperationException("Choose a separate, regular SQLite backup file.");
         using var source = new SqliteConnection(
             new SqliteConnectionStringBuilder
             {
@@ -28,21 +28,21 @@ public static class CatalogRecovery
         {
             check.CommandText = "PRAGMA quick_check";
             if ((string?)check.ExecuteScalar() != "ok")
-                throw new InvalidOperationException("Резервная копия повреждена.");
+                throw new InvalidOperationException("The backup is corrupted.");
         }
         using (var check = source.CreateCommand())
         {
             check.CommandText = "PRAGMA user_version";
             var version = Convert.ToInt32(check.ExecuteScalar());
             if (version is < 1 or > 2)
-                throw new InvalidOperationException("Версия резервной копии несовместима.");
+                throw new InvalidOperationException("The backup version is incompatible.");
         }
         using (var check = source.CreateCommand())
         {
             check.CommandText =
                 "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name IN ('Workspaces','Recipes','SchemaSnapshots','UserSettings')";
             if (Convert.ToInt32(check.ExecuteScalar()) != 4)
-                throw new InvalidOperationException("Файл не является каталогом Schemora.");
+                throw new InvalidOperationException("The file is not a Schemora catalog.");
         }
         var parent = Path.GetDirectoryName(catalogPath)!;
         Directory.CreateDirectory(parent);

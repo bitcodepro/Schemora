@@ -40,12 +40,12 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
     public JobInfo Enqueue(Workspace workspace, string mode, string? databaseId, bool trustProjects)
     {
         if (mode is not ("quick" or "full" or "rebuild"))
-            throw new AppException("SCAN_MODE_INVALID", "Выберите quick, full или rebuild.");
+            throw new AppException("SCAN_MODE_INVALID", "Choose Quick Refresh, Full Rescan, or Rebuild.");
         if (mode == "rebuild" && !trustProjects)
-            throw new AppException("PROJECT_TRUST_REQUIRED", "Подтвердите доверие перед сборкой проектов.", 403);
-        var job = new JobInfo(Guid.NewGuid().ToString("N"), workspace.Id, "scan:" + mode, "queued", "В очереди", 0, DateTimeOffset.UtcNow);
+            throw new AppException("PROJECT_TRUST_REQUIRED", "Confirm project trust before building.", 403);
+        var job = new JobInfo(Guid.NewGuid().ToString("N"), workspace.Id, "scan:" + mode, "queued", "Queued", 0, DateTimeOffset.UtcNow);
         if (!active.TryAdd(workspace.Id, job.Id))
-            throw new AppException("WORKSPACE_BUSY", "Сканирование этой рабочей области уже выполняется.", 409);
+            throw new AppException("WORKSPACE_BUSY", "This workspace is already being scanned.", 409);
         var cancel = new CancellationTokenSource();
         cancellations[job.Id] = cancel;
         Save(job);
@@ -54,8 +54,8 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
             active.TryRemove(workspace.Id, out _);
             cancellations.TryRemove(job.Id, out _);
             cancel.Dispose();
-            Save(job with { Status = "failed", Error = "Очередь заполнена", FinishedAt = DateTimeOffset.UtcNow });
-            throw new AppException("QUEUE_FULL", "Очередь локальных задач заполнена.", 429);
+            Save(job with { Status = "failed", Error = "Queue full", FinishedAt = DateTimeOffset.UtcNow });
+            throw new AppException("QUEUE_FULL", "The local job queue is full.", 429);
         }
         return job;
     }
@@ -107,8 +107,8 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
                 old with
                 {
                     Status = "failed",
-                    Stage = "Прервано предыдущим завершением приложения",
-                    Error = "Запустите задачу повторно",
+                    Stage = "Interrupted when the app previously stopped",
+                    Error = "Run the job again",
                     FinishedAt = DateTimeOffset.UtcNow,
                 }
             );
@@ -126,7 +126,7 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
                 try
                 {
                     linked.Token.ThrowIfCancellationRequested();
-                    job = job with { Status = "running", Stage = "Запуск", StartedAt = DateTimeOffset.UtcNow };
+                    job = job with { Status = "running", Stage = "Starting", StartedAt = DateTimeOffset.UtcNow };
                     Save(job);
                     var result = await scanner.Scan(
                         work.Workspace,
@@ -140,14 +140,14 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
                         },
                         linked.Token
                     );
-                    job = job with { Stage = "Проверка зависимых рецептов", Progress = 98 };
+                    job = job with { Stage = "Checking dependent recipes", Progress = 98 };
                     Save(job);
                     var recipesChecked = await recipes.RefreshWorkspace(work.Workspace.Id, linked.Token);
                     result = result with { RecipesChecked = recipesChecked };
                     job = job with
                     {
                         Status = result.Partial ? "partial" : "completed",
-                        Stage = "Готово",
+                        Stage = "Completed",
                         Progress = 100,
                         FinishedAt = DateTimeOffset.UtcNow,
                         Result = result,
@@ -155,7 +155,7 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
                 }
                 catch (OperationCanceledException)
                 {
-                    job = job with { Status = "cancelled", Stage = "Отменено", FinishedAt = DateTimeOffset.UtcNow };
+                    job = job with { Status = "cancelled", Stage = "Cancelled", FinishedAt = DateTimeOffset.UtcNow };
                 }
                 catch (Exception ex)
                 {
@@ -165,7 +165,7 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
                         jobId: job.Id,
                         error: ex is AppException ? null : ex
                     );
-                    job = job with { Status = "failed", Stage = "Ошибка", Error = ex.Message, FinishedAt = DateTimeOffset.UtcNow };
+                    job = job with { Status = "failed", Stage = "Error", Error = ex.Message, FinishedAt = DateTimeOffset.UtcNow };
                 }
                 finally
                 {
@@ -185,7 +185,7 @@ public sealed class JobQueue(CatalogStore store, WorkspaceScanner scanner, Recip
                 pair.Value.Cancel();
                 pair.Value.Dispose();
                 if (Get(pair.Key) is { } job)
-                    Save(job with { Status = "cancelled", Stage = "Приложение остановлено", FinishedAt = DateTimeOffset.UtcNow });
+                    Save(job with { Status = "cancelled", Stage = "Application stopped", FinishedAt = DateTimeOffset.UtcNow });
             }
         }
     }

@@ -16,7 +16,7 @@ export default function TableRecipeWizard({ workspaceId, onCreate }: { workspace
     if (!table || !selectedColumn || !input) return;
     onCreate({
       workspaceId,
-      name: t('{0} по {1}', table.name, columnName),
+      name: t('{0} by {1}', table.name, columnName),
       databaseIds: [table.databaseId],
       inputs: [input],
       sqlTemplate: `SELECT [t].*\nFROM ${quoteSqlIdentifier(table.databaseName)}.${quoteSqlIdentifier(table.schema)}.${quoteSqlIdentifier(table.name)} AS [t]\nWHERE [t].${quoteSqlIdentifier(columnName)} IN ({{ids:Ids}});`,
@@ -24,11 +24,11 @@ export default function TableRecipeWizard({ workspaceId, onCreate }: { workspace
   }
   return (
     <details className="recipe-table-wizard">
-      <summary>{t('Создать рецепт по таблице и полю')}</summary>
+      <summary>{t('Create a recipe from a table and column')}</summary>
       <div className="recipe-wizard-body">
         <TablePicker
           workspaceId={workspaceId}
-          label={t('Таблица для рецепта')}
+          label={t('Recipe table')}
           value={table}
           onChange={selected => {
             setTable(selected);
@@ -36,14 +36,14 @@ export default function TableRecipeWizard({ workspaceId, onCreate }: { workspace
           }}
         />
         <label>
-          <span className="field-label">{t('Поле для списка ID')}</span>
+          <span className="field-label">{t('ID list column')}</span>
           <select
-            aria-label={t('Поле для списка ID')}
+            aria-label={t('ID list column')}
             value={columnName}
             disabled={!table}
             onChange={event => setColumnName(event.target.value)}
           >
-            <option value="">{t('Выберите колонку')}</option>
+            <option value="">{t('Select a column')}</option>
             {table?.columns.map(column => (
               <option key={column.name} value={column.name} disabled={!inputFromSqlType('Ids', column.dataType)}>
                 {column.name} · {column.dataType}
@@ -52,9 +52,9 @@ export default function TableRecipeWizard({ workspaceId, onCreate }: { workspace
           </select>
         </label>
         <button className="secondary-button" disabled={!input} onClick={create}>
-          {t('Создать черновик')}
+          {t('Create draft')}
         </button>
-        <p>{t('Выберите реальное поле. Тип параметра заполнится из схемы; SQL и настройки можно проверить перед сохранением.')}</p>
+        <p>{t('Select a real column. The parameter type comes from the schema; review the SQL and settings before saving.')}</p>
       </div>
     </details>
   );

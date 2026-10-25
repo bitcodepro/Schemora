@@ -43,7 +43,7 @@ public sealed partial class RecipeService(
 )
 {
     public RecipeEntry Require(string id) =>
-        store.Get<RecipeEntry>("Recipes", id) ?? throw new AppException("RECIPE_NOT_FOUND", "Рецепт не найден.", 404);
+        store.Get<RecipeEntry>("Recipes", id) ?? throw new AppException("RECIPE_NOT_FOUND", "Recipe not found.", 404);
 
     public IReadOnlyList<RecipeEntry> List(string workspaceId)
     {
@@ -90,16 +90,16 @@ public sealed partial class RecipeService(
             || input.Tags.Any(t => t.Length > 80)
             || input.SqlTemplate.Length > 512 * 1024
         )
-            throw new AppException("RECIPE_DEFINITION_INVALID", "Проверьте название, описание, теги и размер SQL-шаблона.");
+            throw new AppException("RECIPE_DEFINITION_INVALID", "Check the name, description, tags, and SQL template size.");
         var revision = relationships.ContextRevision(workspaceId);
         var databases = store.All<DatabaseInfo>("Databases", workspaceId);
         if (input.DatabaseIds.Count == 0 || input.DatabaseIds.Any(id => databases.All(d => d.Id != id)))
-            throw new AppException("RECIPE_DATABASE_INVALID", "Выберите существующие БД этой рабочей области.");
+            throw new AppException("RECIPE_DATABASE_INVALID", "Select existing databases in this workspace.");
         var prior = existingId is not null ? Require(existingId) : null;
         if (prior is not null && prior.WorkspaceId != workspaceId)
-            throw new AppException("RECIPE_WORKSPACE_MISMATCH", "Рецепт принадлежит другой рабочей области.");
+            throw new AppException("RECIPE_WORKSPACE_MISMATCH", "The recipe belongs to another workspace.");
         if (prior is not null && input.Version != prior.Definition.Version)
-            throw new AppException("RECIPE_VERSION_CONFLICT", "Рецепт изменён в другом окне. Загрузите актуальную версию.", 409);
+            throw new AppException("RECIPE_VERSION_CONFLICT", "The recipe was changed in another window. Load the latest version.", 409);
         var definition = input with
         {
             Id = prior?.Definition.Id ?? Guid.NewGuid().ToString("N"),
@@ -110,13 +110,13 @@ public sealed partial class RecipeService(
         var snapshots = Snapshots(workspaceId);
         var context = await relationships.GetSnapshot(workspaceId, ct);
         if (context.Revision != revision)
-            throw new AppException("RELATION_CONTEXT_CHANGED", "Модель изменилась во время проверки. Повторите сохранение.", 409);
+            throw new AppException("RELATION_CONTEXT_CHANGED", "The model changed during validation. Save again.", 409);
         var graph = context.Graph;
         var validation = Validate(definition, graph, databases);
         if (requireUsable && validation.Status is not ("Valid" or "Warning"))
             throw new AppException(
                 "REPAIR_VALIDATION_FAILED",
-                "Исправление ещё требует ручной проверки; версия не создана.",
+                "The repair still needs manual review; no version was created.",
                 422,
                 JsonSerializer.Serialize(validation.Diagnostics, CatalogStore.Json)
             );
@@ -135,18 +135,22 @@ public sealed partial class RecipeService(
         return store.WithWriteLock(() =>
         {
             if (!Same(snapshots, Snapshots(workspaceId)))
-                throw new AppException("SCHEMA_CHANGED", "Схема изменилась во время проверки. Повторите сохранение.", 409);
+                throw new AppException("SCHEMA_CHANGED", "The schema changed during validation. Save again.", 409);
             if (revision != relationships.ContextRevision(workspaceId))
                 throw new AppException(
                     "RELATION_CONTEXT_CHANGED",
-                    "Связи или сопоставления источников изменились во время проверки. Повторите сохранение.",
+                    "Relationships or source mappings changed during validation. Save again.",
                     409
                 );
             if (prior is not null)
             {
                 var current = Require(prior.Definition.Id);
                 if (current.Definition.Version != prior.Definition.Version)
-                    throw new AppException("RECIPE_VERSION_CONFLICT", "Рецепт изменён в другом окне. Загрузите актуальную версию.", 409);
+                    throw new AppException(
+                        "RECIPE_VERSION_CONFLICT",
+                        "The recipe was changed in another window. Load the latest version.",
+                        409
+                    );
                 entry = entry with { Archived = current.Archived };
             }
             commitGuard?.Invoke();
@@ -204,10 +208,10 @@ public sealed partial class RecipeService(
             entry.WorkspaceId,
             entry.Definition with
             {
-                Name = string.IsNullOrWhiteSpace(name) ? entry.Definition.Name + " (копия)" : name,
+                Name = string.IsNullOrWhiteSpace(name) ? entry.Definition.Name + " (copy)" : name,
             },
             null,
-            "Копирование рецепта",
+            "Recipe copy",
             ct
         );
     }
@@ -246,8 +250,17 @@ public sealed partial class RecipeService(
         var current = Require(id);
         var source =
             Versions(id).FirstOrDefault(v => v.Version == version)
-            ?? throw new AppException("RECIPE_VERSION_NOT_FOUND", "Версия не найдена.", 404);
-        return await Save(current.WorkspaceId, source.Definition with { Version = expectedVersion }, id, "Откат к версии " + version, ct);
+            ?? throw new AppException("RECIPE_VERSION_NOT_FOUND", "Version not found.", 404);
+        return await Save(
+            current.WorkspaceId,
+            source.Definition with
+            {
+                Version = expectedVersion,
+            },
+            id,
+            "Rollback to version " + version,
+            ct
+        );
     }
 
     public async Task<RecipeValidationResult> Revalidate(string id, CancellationToken ct)
@@ -257,7 +270,7 @@ public sealed partial class RecipeService(
         var snapshots = Snapshots(entry.WorkspaceId);
         var context = await relationships.GetSnapshot(entry.WorkspaceId, ct);
         if (context.Revision != revision)
-            throw new AppException("SCHEMA_CHANGED", "Модель изменилась во время проверки. Повторите действие.", 409);
+            throw new AppException("SCHEMA_CHANGED", "The model changed during validation. Try again.", 409);
         var graph = context.Graph;
         var result = CheckPriorCompatibility(
             entry,
@@ -272,7 +285,7 @@ public sealed partial class RecipeService(
                 || !Same(snapshots, Snapshots(entry.WorkspaceId))
                 || revision != relationships.ContextRevision(entry.WorkspaceId)
             )
-                throw new AppException("SCHEMA_CHANGED", "Модель, связи или рецепт изменились; повторите проверку.", 409);
+                throw new AppException("SCHEMA_CHANGED", "The model, relationships, or recipe have changed; validate again.", 409);
             var updated = current with
             {
                 Validation = result,
@@ -338,11 +351,11 @@ public sealed partial class RecipeService(
                         new(
                             "warning",
                             "DEPENDENCY_OBJECT_KIND_CHANGED",
-                            "Изменился вид используемого объекта: "
+                            "The kind of a referenced object has changed: "
                                 + beforeKind
                                 + " → "
                                 + afterKind
-                                + ". Проверьте SQL и сохраните новую версию."
+                                + ". Review the SQL and save a new version."
                         )
                     );
                 if (
@@ -358,11 +371,11 @@ public sealed partial class RecipeService(
                         new(
                             "warning",
                             "DEPENDENCY_OBJECT_CHANGED",
-                            "Изменилось определение используемого объекта "
+                            "The definition of a referenced object has changed: "
                                 + afterObject.Schema
                                 + "."
                                 + afterObject.Name
-                                + ". Проверьте SQL и сохраните новую версию."
+                                + ". Review the SQL and save a new version."
                         )
                     );
             }
@@ -387,7 +400,7 @@ public sealed partial class RecipeService(
                         new(
                             "warning",
                             "DEPENDENCY_TYPE_CHANGED",
-                            $"Изменился тип/nullability используемой колонки {dependency.ColumnName}: {before.DataType} → {after.DataType}. Проверьте SQL и сохраните новую версию после проверки."
+                            $"The type/nullability of referenced column {dependency.ColumnName} changed: {before.DataType} → {after.DataType}. Review the SQL and save a new version after checking it."
                         )
                     );
             }
@@ -409,7 +422,7 @@ public sealed partial class RecipeService(
                         new SchemaDiagnostic(
                             "error",
                             "DATABASE_REMOVED",
-                            "БД рецепта больше нет в текущем каталоге: " + string.Join(", ", missing)
+                            "The recipe's database is no longer in the current catalog: " + string.Join(", ", missing)
                         )
                     )
                     .ToArray(),
@@ -426,7 +439,7 @@ public sealed partial class RecipeService(
                         new SchemaDiagnostic(
                             "warning",
                             "SCHEMA_STALE",
-                            "Некоторые БД доступны только по последнему успешному снимку; обновите модель перед использованием SQL."
+                            "Some databases are available only from their last successful snapshot; refresh the model before using the SQL."
                         )
                     )
                     .ToArray(),
@@ -458,14 +471,14 @@ public sealed partial class RecipeService(
         if (validation.Status == "Broken")
             throw new AppException(
                 "RECIPE_BROKEN",
-                "Рецепт несовместим с текущей схемой. Исправьте ошибки до генерации SQL.",
+                "The recipe is incompatible with the current schema. Fix the errors before generating SQL.",
                 422,
                 JsonSerializer.Serialize(validation.Diagnostics, CatalogStore.Json)
             );
         if (validation.Status == "NeedsReview" && !acknowledgeReview)
             throw new AppException(
                 "RECIPE_REVIEW_REQUIRED",
-                "Сначала проверьте предупреждения и явно подтвердите ручной SQL с непроверенными joins.",
+                "Review the warnings first, then explicitly acknowledge manual SQL with unverified JOINs.",
                 422,
                 JsonSerializer.Serialize(validation.Diagnostics, CatalogStore.Json)
             );
@@ -476,7 +489,11 @@ public sealed partial class RecipeService(
                 || !Same(snapshots, Snapshots(entry.WorkspaceId))
                 || revision != relationships.ContextRevision(entry.WorkspaceId)
             )
-                throw new AppException("RECIPE_CHANGED", "Рецепт, схема или связи изменились во время генерации. Повторите запрос.", 409);
+                throw new AppException(
+                    "RECIPE_CHANGED",
+                    "The recipe, schema, or relationships changed during generation. Submit the request again.",
+                    409
+                );
             return renderer.Render(entry.Definition, inputs, mode, strategy) with { RecipeVersion = entry.Definition.Version };
         });
     }
@@ -513,17 +530,17 @@ public sealed partial class RecipeService(
         try
         {
             var rendered = renderer.Render(entry.Definition, data, "standalone", "auto");
-            checks.Add("Синтетические typed inputs обработаны без ошибок");
+            checks.Add("Synthetic typed inputs were processed without errors");
             if (rendered.Statistics.All(p => p.Value.Invalid == 0 && p.Value.OutputCount > 0))
-                checks.Add("Число значений соответствует выбранной duplicate policy");
+                checks.Add("The value count matches the selected duplicate policy");
             var again = renderer.Render(entry.Definition, data, "standalone", "auto");
             if (rendered.Sql != again.Sql)
-                throw new InvalidOperationException("Детерминированность нарушена");
-            checks.Add("Повторный render даёт идентичный SQL");
+                throw new InvalidOperationException("Determinism check failed");
+            checks.Add("Rendering again produces identical SQL");
             if (optional.Length != 0)
             {
                 renderer.Render(entry.Definition, data.Where(p => !optional.Contains(p.Key)).ToDictionary(), "standalone", "auto");
-                checks.Add("Пустые необязательные значения дают NULL");
+                checks.Add("Empty optional values render as NULL");
             }
         }
         catch (RecipeEngineException ex)

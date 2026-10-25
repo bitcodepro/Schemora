@@ -47,10 +47,10 @@ export type ObjectDetail = CatalogObject & {
   impact?: { objectIds: string[]; recipeIds: string[] };
 };
 export const objectKindNames: Record<SchemaObjectKind, string> = {
-  table: 'Таблица',
-  view: 'Представление',
-  procedure: 'Процедура',
-  scalarFunction: 'Скалярная функция',
-  tableFunction: 'Табличная функция',
-  synonym: 'Синоним',
+  table: 'Table',
+  view: 'View',
+  procedure: 'Procedure',
+  scalarFunction: 'Scalar function',
+  tableFunction: 'Table-valued function',
+  synonym: 'Synonym',
 };

@@ -21,7 +21,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
         if (!allowIsolatedDocker)
             throw new AppException(
                 "DOCKER_OPT_IN_REQUIRED",
-                "Подтвердите запуск отдельного временного Docker-контейнера только для проверки схемы DACPAC.",
+                "Confirm that a separate temporary Docker container may be started solely to verify the DACPAC schema.",
                 403
             );
         var path = LocalFiles.Validate(input, ".dacpac");
@@ -30,11 +30,11 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             Toolchain.Docker
             ?? throw new AppException(
                 "DOCKER_MISSING",
-                "Docker CLI не найден. Установите Docker Desktop или используйте импорт DACPAC без Docker.",
+                "Docker CLI not found. Install Docker Desktop or import the DACPAC without Docker.",
                 422
             );
         if (!await gate.WaitAsync(0, cancellationToken))
-            throw new AppException("DOCKER_BUSY", "Другая проверка Docker уже выполняется.", 409);
+            throw new AppException("DOCKER_BUSY", "Another Docker check is already running.", 409);
         var owner = Guid.NewGuid().ToString("N");
         var name = "schemora-schema-" + owner;
         var marker = new OwnedRun(owner, name, "schemora-net-" + owner);
@@ -101,7 +101,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                 cancellationToken: ct
             );
             if (daemon.ExitCode != 0)
-                throw new AppException("DOCKER_UNAVAILABLE", "Docker daemon недоступен. Запустите Docker Desktop.", 422, daemon.Output);
+                throw new AppException("DOCKER_UNAVAILABLE", "The Docker daemon is unavailable. Start Docker Desktop.", 422, daemon.Output);
             operationStage = "container-start";
             attempted = true;
             var started = await ProcessRunner.Run(
@@ -138,7 +138,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             if (started.ExitCode != 0 || !IsContainerId(started.Output.Trim()))
                 throw new AppException(
                     "DOCKER_START_FAILED",
-                    "Не удалось запустить временный SQL Server 2022. Проверьте образ и доступную память Docker.",
+                    "Could not start the temporary SQL Server 2022. Check the image and available Docker memory.",
                     422,
                     started.Output
                 );
@@ -146,7 +146,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             operationStage = "isolation-check";
             var inspected = await ProcessRunner.Run(docker, ["inspect", containerId], cancellationToken: ct);
             if (inspected.ExitCode != 0)
-                throw new AppException("DOCKER_INSPECT_FAILED", "Не удалось проверить временный контейнер.", 422);
+                throw new AppException("DOCKER_INSPECT_FAILED", "Could not inspect the temporary container.", 422);
             using var json = JsonDocument.Parse(inspected.Output);
             var container = json.RootElement[0];
             if (
@@ -161,7 +161,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             )
                 throw new AppException(
                     "DOCKER_ISOLATION_FAILED",
-                    "Контейнер должен быть собственным, без сети, host mounts и опубликованных портов.",
+                    "The container must belong to this app, with no network, host mounts, or published ports.",
                     422
                 );
             operationStage = "sql-readiness";
@@ -176,7 +176,12 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                 if (probe.ExitCode == 0)
                     break;
                 if (DateTimeOffset.UtcNow >= readyBy)
-                    throw new AppException("DOCKER_SQL_NOT_READY", "Временный SQL Server не запустился за 120 секунд.", 422, probe.Output);
+                    throw new AppException(
+                        "DOCKER_SQL_NOT_READY",
+                        "The temporary SQL Server did not start within 120 seconds.",
+                        422,
+                        probe.Output
+                    );
                 await Task.Delay(TimeSpan.FromSeconds(2), ct);
             }
             var remoteScript = "/tmp/schemora-" + owner + ".sql";
@@ -190,7 +195,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             if (copied.ExitCode != 0)
                 throw new AppException(
                     "DOCKER_SCRIPT_COPY_FAILED",
-                    "Не удалось передать сгенерированную схему в собственный контейнер.",
+                    "Could not transfer the generated schema to the app-owned container.",
                     422,
                     copied.Output
                 );
@@ -204,7 +209,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                 failureExitCode = publish.ExitCode;
                 throw new AppException(
                     "DOCKER_SCHEMA_PUBLISH_FAILED",
-                    "Сгенерированная DacFx схема не развернулась в SQL Server 2022. Pre/post scripts и данные исключены; проверьте совместимость модели или используйте импорт DACPAC.",
+                    "The DacFx-generated schema could not be deployed to SQL Server 2022. Pre/post scripts and data were excluded; check model compatibility or import the DACPAC.",
                     422,
                     publish.Output
                 );
@@ -260,7 +265,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                 detail = detail.Replace(secret, "[REDACTED]", StringComparison.Ordinal);
                 throw new AppException(
                     "DOCKER_CATALOG_FAILED",
-                    "Не удалось прочитать фактические sys metadata временного SQL Server.",
+                    "Could not read the actual system catalog metadata from the temporary SQL Server.",
                     422,
                     detail[..Math.Min(1500, detail.Length)]
                 );
@@ -276,7 +281,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             if (metadataCopy.ExitCode == 0)
                 LocalFiles.CheckNoLinks(metadataPath);
             if (metadataCopy.ExitCode != 0 || !File.Exists(metadataPath) || new FileInfo(metadataPath).Length > 128L * 1024 * 1024)
-                throw new AppException("DOCKER_CATALOG_SIZE", "Метаданные Docker недоступны или превышают допустимый размер.", 422);
+                throw new AppException("DOCKER_CATALOG_SIZE", "Docker metadata is unavailable or exceeds the size limit.", 422);
             var metadataText = await File.ReadAllTextAsync(metadataPath, Encoding.Unicode, ct);
             try
             {
@@ -351,7 +356,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
         {
             throw new AppException(
                 "DOCKER_PRIVATE_STAGE_DENIED",
-                "Нельзя создать или защитить временный каталог Docker. Нужен каталог данных с правом создания приватного ACL; защита не ослаблялась.",
+                "Cannot create or secure the temporary Docker directory. The data directory must allow a private ACL to be created; security was not weakened.",
                 422
             );
         }
@@ -418,11 +423,11 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
             if (cleanupError is not null)
                 throw new AppException(
                     "DOCKER_CLEANUP_FAILED",
-                    "Не удалось полностью удалить временные ресурсы. Проверьте собственный контейнер "
+                    "Could not remove all temporary resources. Check the app-owned container "
                         + name
-                        + " и каталог docker-runs/"
+                        + " and the docker-runs/ directory"
                         + owner
-                        + " в каталоге данных.",
+                        + " in the data directory.",
                     500
                 );
         }
@@ -447,7 +452,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                     new(
                         "warning",
                         "DOCKER_RECOVERY_LIMIT",
-                        "Проверены первые 20 временных Docker-запусков; оставшиеся будут проверены при следующем запуске."
+                        "The first 20 temporary Docker runs were checked; the rest will be checked on the next app launch."
                     )
                 );
             foreach (var directory in directories.Take(20))
@@ -482,7 +487,7 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                 new(
                     "warning",
                     "DOCKER_RECOVERY_PENDING",
-                    "Очистка собственного предыдущего Docker-запуска отложена: Docker недоступен или проверка владельца не прошла. Каталог docker-runs сохранён; чужие ресурсы не удалялись."
+                    "Cleanup of a previous app-owned Docker run was deferred: Docker is unavailable or ownership verification failed. The docker-runs directory was preserved; resources owned by others were not removed."
                 )
             );
         }
@@ -586,19 +591,19 @@ public sealed class DockerSchemaReader(Toolchain toolchain, DacpacReader reader,
                 if (!allowed.Contains(entry.FullName) || !names.Add(entry.FullName))
                     throw new AppException(
                         "DACPAC_SCHEMA_ONLY_REQUIRED",
-                        "Docker принимает только schema-only DACPAC без pre/post scripts, данных и дополнительных payload entries.",
+                        "Docker accepts only schema-only DACPACs without pre/post scripts, data, or additional payload entries.",
                         422
                     );
                 total += entry.Length;
                 if (entry.Length > 128L * 1024 * 1024 || total > 256L * 1024 * 1024)
-                    throw new AppException("DACPAC_EXPANDED_TOO_LARGE", "Распакованный DACPAC превышает допустимый объём метаданных.", 422);
+                    throw new AppException("DACPAC_EXPANDED_TOO_LARGE", "The unpacked DACPAC exceeds the metadata size limit.", 422);
             }
             if (!names.Contains("model.xml") || !names.Contains("DacMetadata.xml"))
-                throw new AppException("DACPAC_INVALID", "DACPAC не содержит обязательных метаданных схемы.", 422);
+                throw new AppException("DACPAC_INVALID", "The DACPAC does not contain the required schema metadata.", 422);
         }
         catch (InvalidDataException)
         {
-            throw new AppException("DACPAC_INVALID", "Файл не является корректным DACPAC ZIP-пакетом.", 422);
+            throw new AppException("DACPAC_INVALID", "The file is not a valid DACPAC ZIP package.", 422);
         }
     }
 

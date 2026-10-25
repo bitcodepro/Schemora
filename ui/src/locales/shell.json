@@ -1,25 +1,25 @@
 {
-  "Не удалось прочитать тему.": {
+  "Could not load the theme.": {
     "en": "Could not load the theme.",
     "ru": "Не удалось прочитать тему.",
     "uk": "Не вдалося завантажити тему."
   },
-  "Не удалось сохранить тему.": {
+  "Could not save the theme.": {
     "en": "Could not save the theme.",
     "ru": "Не удалось сохранить тему.",
     "uk": "Не вдалося зберегти тему."
   },
-  "Не удалось проверить инструменты.": {
+  "Could not check the tools.": {
     "en": "Could not check the tools.",
     "ru": "Не удалось проверить инструменты.",
     "uk": "Не вдалося перевірити інструменти."
   },
-  "Не удалось открыть схему.": {
+  "Could not open the schema.": {
     "en": "Could not open the schema.",
     "ru": "Не удалось открыть схему.",
     "uk": "Не вдалося відкрити схему."
   },
-  "Schemora, главная": {
+  "Schemora, home": {
     "en": "Schemora, home",
     "ru": "Schemora, главная",
     "uk": "Schemora, головна"
@@ -29,7 +29,7 @@
     "ru": "СТУДИЯ SQL-СХЕМ",
     "uk": "СТУДІЯ SQL-СХЕМ"
   },
-  "РАБОЧАЯ ОБЛАСТЬ": {
+  "WORKSPACE": {
     "en": "WORKSPACE",
     "ru": "РАБОЧАЯ ОБЛАСТЬ",
     "uk": "РОБОЧА ОБЛАСТЬ"
@@ -39,67 +39,67 @@
     "ru": "ЛОКАЛЬНО",
     "uk": "ЛОКАЛЬНО"
   },
-  "Основная навигация": {
+  "Main navigation": {
     "en": "Main navigation",
     "ru": "Основная навигация",
     "uk": "Основна навігація"
   },
-  "Рабочая область": {
+  "Workspace": {
     "en": "Workspace",
     "ru": "Рабочая область",
     "uk": "Робоча область"
   },
-  "Каталог схем": {
+  "Schema catalog": {
     "en": "Schema catalog",
     "ru": "Каталог схем",
     "uk": "Каталог схем"
   },
-  "Связи и пути": {
+  "Relationships and paths": {
     "en": "Relationships and paths",
     "ru": "Связи и пути",
     "uk": "Зв’язки та шляхи"
   },
-  "SQL-рецепты": {
+  "SQL recipes": {
     "en": "SQL recipes",
     "ru": "SQL-рецепты",
     "uk": "SQL-рецепти"
   },
-  "Изменения": {
+  "Changes": {
     "en": "Changes",
     "ru": "Изменения",
     "uk": "Зміни"
   },
-  "Локальная работа": {
+  "Working locally": {
     "en": "Working locally",
     "ru": "Локальная работа",
     "uk": "Локальна робота"
   },
-  "Схемы остаются на компьютере": {
+  "Schemas stay on your computer": {
     "en": "Schemas stay on your computer",
     "ru": "Схемы остаются на компьютере",
     "uk": "Схеми залишаються на комп’ютері"
   },
-  "Настройки и инструменты": {
+  "Settings and tools": {
     "en": "Settings and tools",
     "ru": "Настройки и инструменты",
     "uk": "Налаштування та інструменти"
   },
-  "Локальное приложение": {
+  "Local application": {
     "en": "Local application",
     "ru": "Локальное приложение",
     "uk": "Локальний застосунок"
   },
-  "Изменения схемы": {
+  "Schema changes": {
     "en": "Schema changes",
     "ru": "Изменения схемы",
     "uk": "Зміни схеми"
   },
-  "Инструменты и среда": {
+  "Tools and environment": {
     "en": "Tools and environment",
     "ru": "Инструменты и среда",
     "uk": "Інструменти та середовище"
   },
-  "Локальный сеанс": {
+  "Local session": {
     "en": "Local session",
     "ru": "Локальный сеанс",
     "uk": "Локальний сеанс"
@@ -109,352 +109,352 @@
     "ru": "SQL SERVER · ЛОКАЛЬНАЯ РАБОЧАЯ ОБЛАСТЬ",
     "uk": "SQL SERVER · ЛОКАЛЬНА РОБОЧА ОБЛАСТЬ"
   },
-  "Проекты, схемы и изменения": {
+  "Projects, schemas, and changes": {
     "en": "Projects, schemas, and changes",
     "ru": "Проекты, схемы и изменения",
     "uk": "Проєкти, схеми та зміни"
   },
-  "Исследуйте структуру данных": {
+  "Explore your data structure": {
     "en": "Explore your data structure",
     "ru": "Исследуйте структуру данных",
     "uk": "Досліджуйте структуру даних"
   },
-  "Связи с понятным основанием": {
+  "Relationships with clear evidence": {
     "en": "Relationships with clear evidence",
     "ru": "Связи с понятным основанием",
     "uk": "Зв’язки зі зрозумілим обґрунтуванням"
   },
-  "Повторяемый SQL, проверяемые входы": {
+  "Repeatable SQL, validated inputs": {
     "en": "Repeatable SQL, validated inputs",
     "ru": "Повторяемый SQL, проверяемые входы",
     "uk": "Відтворюваний SQL, перевірені вхідні дані"
   },
-  "Изменения без неожиданных правок": {
+  "Changes without unexpected edits": {
     "en": "Changes without unexpected edits",
     "ru": "Изменения без неожиданных правок",
     "uk": "Зміни без несподіваних правок"
   },
-  "Добавьте корневые папки, обнаружьте проекты и поддерживайте локальные снимки схем.": {
+  "Add root folders, discover projects, and maintain local schema snapshots.": {
     "en": "Add root folders, discover projects, and maintain local schema snapshots.",
     "ru": "Добавьте корневые папки, обнаружьте проекты и поддерживайте локальные снимки схем.",
     "uk": "Додайте кореневі папки, знайдіть проєкти та підтримуйте локальні знімки схем."
   },
-  "Откройте DACPAC или соберите SQL-проект. Получите модель таблиц и физических связей.": {
+  "Open a DACPAC or build a SQL project to get a model of tables and physical relationships.": {
     "en": "Open a DACPAC or build a SQL project to get a model of tables and physical relationships.",
     "ru": "Откройте DACPAC или соберите SQL-проект. Получите модель таблиц и физических связей.",
     "uk": "Відкрийте DACPAC або зберіть SQL-проєкт, щоб отримати модель таблиць і фізичних зв’язків."
   },
-  "Исследуйте FK, C# mappings и логические кандидаты. Подтверждайте связи и стройте проверяемые JOIN.": {
+  "Explore foreign keys, C# mappings, and candidate relationships. Confirm relationships and build verifiable JOINs.": {
     "en": "Explore foreign keys, C# mappings, and candidate relationships. Confirm relationships and build verifiable JOINs.",
     "ru": "Исследуйте FK, C# mappings и логические кандидаты. Подтверждайте связи и стройте проверяемые JOIN.",
     "uk": "Досліджуйте FK, зіставлення C# і можливі логічні зв’язки. Підтверджуйте зв’язки та створюйте JOIN, які можна перевірити."
   },
-  "Сохраните SQL-шаблон и типы. Вставьте ID и получите детерминированный скрипт с точным отчётом.": {
+  "Save a SQL template and input types. Paste IDs to generate a deterministic script with a detailed report.": {
     "en": "Save a SQL template and input types. Paste IDs to generate a deterministic script with a detailed report.",
     "ru": "Сохраните SQL-шаблон и типы. Вставьте ID и получите детерминированный скрипт с точным отчётом.",
     "uk": "Збережіть SQL-шаблон і типи вхідних даних. Вставте ID й отримайте детермінований скрипт із точним звітом."
   },
-  "Сравните снимки, проверьте влияние на рецепты и просмотрите SQL diff перед подтверждением исправления.": {
+  "Compare snapshots, check the impact on recipes, and review the SQL diff before approving a repair.": {
     "en": "Compare snapshots, check the impact on recipes, and review the SQL diff before approving a repair.",
     "ru": "Сравните снимки, проверьте влияние на рецепты и просмотрите SQL diff перед подтверждением исправления.",
     "uk": "Порівняйте знімки, перевірте вплив на рецепти та перегляньте зміни SQL перед підтвердженням виправлення."
   },
-  "Проверьте доступность локальных инструментов перед сборкой и анализом.": {
+  "Check that local tools are available before building and analyzing.": {
     "en": "Check that local tools are available before building and analyzing.",
     "ru": "Проверьте доступность локальных инструментов перед сборкой и анализом.",
     "uk": "Перевірте доступність локальних інструментів перед збиранням та аналізом."
   },
-  "Откройте приложение по ссылке запуска": {
+  "Open the app using its launch link": {
     "en": "Open the app using its launch link",
     "ru": "Откройте приложение по ссылке запуска",
     "uk": "Відкрийте застосунок за посиланням запуску"
   },
-  "В этой вкладке нет токена локального сеанса. Используйте ссылку, которую Schemora создаёт при запуске EXE.": {
+  "This tab has no local session token. Use the link Schemora creates when you launch the EXE.": {
     "en": "This tab has no local session token. Use the link Schemora creates when you launch the EXE.",
     "ru": "В этой вкладке нет токена локального сеанса. Используйте ссылку, которую Schemora создаёт при запуске EXE.",
     "uk": "У цій вкладці немає токена локального сеансу. Скористайтеся посиланням, яке Schemora створює під час запуску EXE."
   },
-  "Загрузка раздела…": {
+  "Loading section…": {
     "en": "Loading section…",
     "ru": "Загрузка раздела…",
     "uk": "Завантаження розділу…"
   },
-  "Источник схемы": {
+  "Schema source": {
     "en": "Schema source",
     "ru": "Источник схемы",
     "uk": "Джерело схеми"
   },
-  "Только метаданные": {
+  "Metadata only": {
     "en": "Metadata only",
     "ru": "Только метаданные",
     "uk": "Лише метадані"
   },
-  "Тип источника": {
+  "Source type": {
     "en": "Source type",
     "ru": "Тип источника",
     "uk": "Тип джерела"
   },
-  "Готовый DACPAC": {
+  "Existing DACPAC": {
     "en": "Existing DACPAC",
     "ru": "Готовый DACPAC",
     "uk": "Готовий DACPAC"
   },
-  "SQL Server в Docker": {
+  "SQL Server in Docker": {
     "en": "SQL Server in Docker",
     "ru": "SQL Server в Docker",
     "uk": "SQL Server у Docker"
   },
-  "Путь к файлу .dacpac": {
+  "Path to .dacpac file": {
     "en": "Path to .dacpac file",
     "ru": "Путь к файлу .dacpac",
     "uk": "Шлях до файлу .dacpac"
   },
-  "Путь к файлу .sqlproj (SDK-style или legacy SSDT)": {
+  "Path to .sqlproj file (SDK-style or legacy SSDT)": {
     "en": "Path to .sqlproj file (SDK-style or legacy SSDT)",
     "ru": "Путь к файлу .sqlproj (SDK-style или legacy SSDT)",
     "uk": "Шлях до файлу .sqlproj (на основі SDK або застарілого SSDT)"
   },
-  "Сборка проекта…": {
+  "Building project…": {
     "en": "Building project…",
     "ru": "Сборка проекта…",
     "uk": "Збирання проєкту…"
   },
-  "Чтение модели…": {
+  "Reading model…": {
     "en": "Reading model…",
     "ru": "Чтение модели…",
     "uk": "Читання моделі…"
   },
-  "Собрать и открыть": {
+  "Build and open": {
     "en": "Build and open",
     "ru": "Собрать и открыть",
     "uk": "Зібрати й відкрити"
   },
-  "Прочитать через SQL Server": {
+  "Read via SQL Server": {
     "en": "Read via SQL Server",
     "ru": "Прочитать через SQL Server",
     "uk": "Прочитати через SQL Server"
   },
-  "Открыть схему": {
+  "Open schema": {
     "en": "Open schema",
     "ru": "Открыть схему",
     "uk": "Відкрити схему"
   },
-  "Я доверяю этому проекту. Сборка может выполнять код и MSBuild targets из репозитория.": {
+  "I trust this project. Building may execute code and MSBuild targets from the repository.": {
     "en": "I trust this project. Building may execute code and MSBuild targets from the repository.",
     "ru": "Я доверяю этому проекту. Сборка может выполнять код и MSBuild targets из репозитория.",
     "uk": "Я довіряю цьому проєкту. Збирання може виконувати код і цілі MSBuild із репозиторію."
   },
-  "Создать временный SQL Server контейнер (только схема). DACPAC будет развёрнут изолированно; данные и deployment-скрипты не переносятся.": {
+  "Create a temporary SQL Server container (schema only). The DACPAC will be deployed in isolation; data and deployment scripts are not transferred.": {
     "en": "Create a temporary SQL Server container (schema only). The DACPAC will be deployed in isolation; data and deployment scripts are not transferred.",
     "ru": "Создать временный SQL Server контейнер (только схема). DACPAC будет развёрнут изолированно; данные и deployment-скрипты не переносятся.",
     "uk": "Створити тимчасовий контейнер SQL Server (лише схема). DACPAC буде розгорнуто ізольовано; дані та скрипти розгортання не переносяться."
   },
-  "Импорт читает модель DACPAC без подключения к базе и выполнения deployment-скриптов.": {
+  "Import reads the DACPAC model without connecting to a database or running deployment scripts.": {
     "en": "Import reads the DACPAC model without connecting to a database or running deployment scripts.",
     "ru": "Импорт читает модель DACPAC без подключения к базе и выполнения deployment-скриптов.",
     "uk": "Імпорт читає модель DACPAC без підключення до бази даних і виконання скриптів розгортання."
   },
-  "Не удалось получить схему": {
+  "Could not load the schema": {
     "en": "Could not load the schema",
     "ru": "Не удалось получить схему",
     "uk": "Не вдалося завантажити схему"
   },
-  "Скрыть ошибку": {
+  "Dismiss error": {
     "en": "Dismiss error",
     "ru": "Скрыть ошибку",
     "uk": "Приховати помилку"
   },
-  "таблиц": {
+  "tables #2": {
     "en": "tables",
     "ru": "таблиц",
     "uk": "таблиць"
   },
-  "связей": {
+  "relationships": {
     "en": "relationships",
     "ru": "связей",
     "uk": "зв’язків"
   },
-  "Экспорт JSON": {
+  "Export JSON": {
     "en": "Export JSON",
     "ru": "Экспорт JSON",
     "uk": "Експорт JSON"
   },
-  "Метаданные прочитаны с замечаниями ·": {
+  "Metadata loaded with warnings ·": {
     "en": "Metadata loaded with warnings ·",
     "ru": "Метаданные прочитаны с замечаниями ·",
     "uk": "Метадані прочитано із зауваженнями ·"
   },
-  "Каталог объектов": {
+  "Object catalog": {
     "en": "Object catalog",
     "ru": "Каталог объектов",
     "uk": "Каталог об’єктів"
   },
-  "Таблицы": {
+  "Tables": {
     "en": "Tables",
     "ru": "Таблицы",
     "uk": "Таблиці"
   },
-  "Обзор связей": {
+  "Relationship overview": {
     "en": "Relationship overview",
     "ru": "Обзор связей",
     "uk": "Огляд зв’язків"
   },
-  "Все объекты": {
+  "All objects": {
     "en": "All objects",
     "ru": "Все объекты",
     "uk": "Усі об’єкти"
   },
-  "Метаданные схемы": {
+  "Schema metadata": {
     "en": "Schema metadata",
     "ru": "Метаданные схемы",
     "uk": "Метадані схеми"
   },
-  "Поиск таблиц и колонок": {
+  "Search tables and columns": {
     "en": "Search tables and columns",
     "ru": "Поиск таблиц и колонок",
     "uk": "Пошук таблиць і стовпців"
   },
-  "Таблица или колонка…": {
+  "Table or column…": {
     "en": "Table or column…",
     "ru": "Таблица или колонка…",
     "uk": "Таблиця або стовпець…"
   },
-  "Ничего не найдено": {
+  "No results": {
     "en": "No results",
     "ru": "Ничего не найдено",
     "uk": "Нічого не знайдено"
   },
-  "В модели нет таблиц": {
+  "The model contains no tables": {
     "en": "The model contains no tables",
     "ru": "В модели нет таблиц",
     "uk": "У моделі немає таблиць"
   },
-  "колонок": {
+  "columns": {
     "en": "columns",
     "ru": "колонок",
     "uk": "стовпців"
   },
-  "Колонка": {
+  "Column": {
     "en": "Column",
     "ru": "Колонка",
     "uk": "Стовпець"
   },
-  "Тип данных": {
+  "Data type": {
     "en": "Data type",
     "ru": "Тип данных",
     "uk": "Тип даних"
   },
-  "Ключ": {
+  "Key": {
     "en": "Key",
     "ru": "Ключ",
     "uk": "Ключ"
   },
-  "да": {
+  "yes": {
     "en": "yes",
     "ru": "да",
     "uk": "так"
   },
-  "нет": {
+  "no": {
     "en": "no",
     "ru": "нет",
     "uk": "ні"
   },
-  "Связи таблицы": {
+  "Table relationships": {
     "en": "Table relationships",
     "ru": "Связи таблицы",
     "uk": "Зв’язки таблиці"
   },
-  "В модели нет объявленных внешних ключей для этой таблицы.": {
+  "The model contains no declared foreign keys for this table.": {
     "en": "The model contains no declared foreign keys for this table.",
     "ru": "В модели нет объявленных внешних ключей для этой таблицы.",
     "uk": "У моделі немає оголошених зовнішніх ключів для цієї таблиці."
   },
-  "Выберите таблицу в каталоге": {
+  "Select a table in the catalog": {
     "en": "Select a table in the catalog",
     "ru": "Выберите таблицу в каталоге",
     "uk": "Виберіть таблицю в каталозі"
   },
-  "Обзор физических FK. Выберите таблицу, чтобы открыть её колонки.": {
+  "Physical foreign key overview. Select a table to open its columns.": {
     "en": "Physical foreign key overview. Select a table to open its columns.",
     "ru": "Обзор физических FK. Выберите таблицу, чтобы открыть её колонки.",
     "uk": "Огляд фізичних FK. Виберіть таблицю, щоб відкрити її стовпці."
   },
-  "Нет первичного ключа": {
+  "No primary key": {
     "en": "No primary key",
     "ru": "Нет первичного ключа",
     "uk": "Немає первинного ключа"
   },
-  "В модели нет таблиц для отображения": {
+  "The model contains no tables to display": {
     "en": "The model contains no tables to display",
     "ru": "В модели нет таблиц для отображения",
     "uk": "У моделі немає таблиць для відображення"
   },
-  "Модель прочитана": {
+  "Model loaded": {
     "en": "Model loaded",
     "ru": "Модель прочитана",
     "uk": "Модель прочитано"
   },
-  "Deployment-скрипты не выполнялись": {
+  "Deployment scripts were not executed": {
     "en": "Deployment scripts were not executed",
     "ru": "Deployment-скрипты не выполнялись",
     "uk": "Скрипти розгортання не виконувалися"
   },
-  "НАЧНИТЕ С МОДЕЛИ": {
+  "START WITH A MODEL": {
     "en": "START WITH A MODEL",
     "ru": "НАЧНИТЕ С МОДЕЛИ",
     "uk": "ПОЧНІТЬ ІЗ МОДЕЛІ"
   },
-  "Ваша схема — целиком и наглядно": {
+  "Your entire schema at a glance": {
     "en": "Your entire schema at a glance",
     "ru": "Ваша схема — целиком и наглядно",
     "uk": "Уся ваша схема — наочно"
   },
-  "Укажите локальный DACPAC или SQL-проект выше.": {
+  "Enter a local DACPAC or SQL project path above.": {
     "en": "Enter a local DACPAC or SQL project path above.",
     "ru": "Укажите локальный DACPAC или SQL-проект выше.",
     "uk": "Укажіть шлях до локального DACPAC або SQL-проєкту вище."
   },
-  "Schemora покажет таблицы, типы, первичные и внешние ключи.": {
+  "Schemora shows tables, data types, primary keys, and foreign keys.": {
     "en": "Schemora shows tables, data types, primary keys, and foreign keys.",
     "ru": "Schemora покажет таблицы, типы, первичные и внешние ключи.",
     "uk": "Schemora покаже таблиці, типи даних, первинні та зовнішні ключі."
   },
-  "Без подключения к рабочей БД": {
+  "No connection to your production database": {
     "en": "No connection to your production database",
     "ru": "Без подключения к рабочей БД",
     "uk": "Без підключення до робочої БД"
   },
-  "Без отправки данных в сеть": {
+  "No data sent over the network": {
     "en": "No data sent over the network",
     "ru": "Без отправки данных в сеть",
     "uk": "Без надсилання даних у мережу"
   },
-  "Готовность инструментов": {
+  "Tool readiness": {
     "en": "Tool readiness",
     "ru": "Готовность инструментов",
     "uk": "Готовність інструментів"
   },
-  "Проверка…": {
+  "Checking…": {
     "en": "Checking…",
     "ru": "Проверка…",
     "uk": "Перевірка…"
   },
-  "Проверить снова": {
+  "Check again": {
     "en": "Check again",
     "ru": "Проверить снова",
     "uk": "Перевірити знову"
   },
-  "Проверка недоступна": {
+  "Check unavailable": {
     "en": "Check unavailable",
     "ru": "Проверка недоступна",
     "uk": "Перевірка недоступна"
   },
-  "Доступен": {
+  "Available": {
     "en": "Available",
     "ru": "Доступен",
     "uk": "Доступний"
   },
-  "Недоступен": {
+  "Unavailable #2": {
     "en": "Unavailable",
     "ru": "Недоступен",
     "uk": "Недоступний"
@@ -464,87 +464,87 @@
     "ru": "Среда выполнения",
     "uk": "Середовище виконання"
   },
-  "Система": {
+  "System": {
     "en": "System",
     "ru": "Система",
     "uk": "Система"
   },
-  "Данные приложения": {
+  "Application data": {
     "en": "Application data",
     "ru": "Данные приложения",
     "uk": "Дані застосунку"
   },
-  "Для чтения готового DACPAC Docker и SDK сборки SQL-проектов не требуются.": {
+  "Reading an existing DACPAC does not require Docker or a SQL project build SDK.": {
     "en": "Reading an existing DACPAC does not require Docker or a SQL project build SDK.",
     "ru": "Для чтения готового DACPAC Docker и SDK сборки SQL-проектов не требуются.",
     "uk": "Для читання готового DACPAC не потрібні Docker чи SDK для збирання SQL-проєктів."
   },
-  "Проверяем локальную среду…": {
+  "Checking the local environment…": {
     "en": "Checking the local environment…",
     "ru": "Проверяем локальную среду…",
     "uk": "Перевіряємо локальне середовище…"
   },
-  "Проверка инструментов появится после открытия локального сеанса.": {
+  "Tool checks will be available once a local session is open.": {
     "en": "Tool checks will be available once a local session is open.",
     "ru": "Проверка инструментов появится после открытия локального сеанса.",
     "uk": "Перевірка інструментів стане доступною після відкриття локального сеансу."
   },
-  "Анализ метаданных · запросы к рабочим БД не выполняются": {
+  "Metadata analysis · no queries are run against production databases": {
     "en": "Metadata analysis · no queries are run against production databases",
     "ru": "Анализ метаданных · запросы к рабочим БД не выполняются",
     "uk": "Аналіз метаданих · запити до робочих БД не виконуються"
   },
-  "В очереди": {
+  "Queued": {
     "en": "Queued",
     "ru": "В очереди",
     "uk": "У черзі"
   },
-  "Выполняется": {
+  "Running": {
     "en": "Running",
     "ru": "Выполняется",
     "uk": "Виконується"
   },
-  "Готово": {
+  "Completed": {
     "en": "Completed",
     "ru": "Готово",
     "uk": "Завершено"
   },
-  "Частичный результат": {
+  "Partial result": {
     "en": "Partial result",
     "ru": "Частичный результат",
     "uk": "Частковий результат"
   },
-  "Ошибка": {
+  "Error": {
     "en": "Error",
     "ru": "Ошибка",
     "uk": "Помилка"
   },
-  "Отменено": {
+  "Cancelled": {
     "en": "Cancelled",
     "ru": "Отменено",
     "uk": "Скасовано"
   },
-  "Готова": {
+  "Ready": {
     "en": "Ready",
     "ru": "Готова",
     "uk": "Готова"
   },
-  "Проанализирована": {
+  "Analyzed": {
     "en": "Analyzed",
     "ru": "Проанализирована",
     "uk": "Проаналізована"
   },
-  "Обнаружена": {
+  "Discovered": {
     "en": "Discovered",
     "ru": "Обнаружена",
     "uk": "Виявлена"
   },
-  "Ожидает анализа": {
+  "Awaiting analysis": {
     "en": "Awaiting analysis",
     "ru": "Ожидает анализа",
     "uk": "Очікує на аналіз"
   },
-  "Есть замечания": {
+  "Has warnings": {
     "en": "Has warnings",
     "ru": "Есть замечания",
     "uk": "Є зауваження"
@@ -559,912 +559,912 @@
     "ru": "Полное сканирование",
     "uk": "Повне сканування"
   },
-  "Не удалось загрузить рабочие области.": {
+  "Could not load workspaces.": {
     "en": "Could not load workspaces.",
     "ru": "Не удалось загрузить рабочие области.",
     "uk": "Не вдалося завантажити робочі області."
   },
-  "Не удалось загрузить каталог.": {
+  "Could not load the catalog.": {
     "en": "Could not load the catalog.",
     "ru": "Не удалось загрузить каталог.",
     "uk": "Не вдалося завантажити каталог."
   },
-  "Не удалось получить состояние задачи.": {
+  "Could not retrieve the job status.": {
     "en": "Could not retrieve the job status.",
     "ru": "Не удалось получить состояние задачи.",
     "uk": "Не вдалося отримати стан завдання."
   },
-  "Не удалось обновить каталог.": {
+  "Could not refresh the catalog.": {
     "en": "Could not refresh the catalog.",
     "ru": "Не удалось обновить каталог.",
     "uk": "Не вдалося оновити каталог."
   },
-  "Не удалось сохранить рабочую область.": {
+  "Could not save the workspace.": {
     "en": "Could not save the workspace.",
     "ru": "Не удалось сохранить рабочую область.",
     "uk": "Не вдалося зберегти робочу область."
   },
-  "Не удалось запустить анализ.": {
+  "Could not start the analysis.": {
     "en": "Could not start the analysis.",
     "ru": "Не удалось запустить анализ.",
     "uk": "Не вдалося запустити аналіз."
   },
-  "Не удалось отменить задачу.": {
+  "Could not cancel the job.": {
     "en": "Could not cancel the job.",
     "ru": "Не удалось отменить задачу.",
     "uk": "Не вдалося скасувати завдання."
   },
-  "Не удалось открыть снимок схемы.": {
+  "Could not open the schema snapshot.": {
     "en": "Could not open the schema snapshot.",
     "ru": "Не удалось открыть снимок схемы.",
     "uk": "Не вдалося відкрити знімок схеми."
   },
-  "Не удалось загрузить историю снимков.": {
+  "Could not load the snapshot history.": {
     "en": "Could not load the snapshot history.",
     "ru": "Не удалось загрузить историю снимков.",
     "uk": "Не вдалося завантажити історію знімків."
   },
-  "Загрузка…": {
+  "Loading…": {
     "en": "Loading…",
     "ru": "Загрузка…",
     "uk": "Завантаження…"
   },
-  "Выберите рабочую область": {
+  "Select a workspace #2": {
     "en": "Select a workspace",
     "ru": "Выберите рабочую область",
     "uk": "Виберіть робочу область"
   },
-  "+ Новая область": {
+  "+ New workspace": {
     "en": "+ New workspace",
     "ru": "+ Новая область",
     "uk": "+ Нова область"
   },
-  "Настроить папки": {
+  "Configure folders": {
     "en": "Configure folders",
     "ru": "Настроить папки",
     "uk": "Налаштувати папки"
   },
-  "Действие не выполнено": {
+  "Action failed": {
     "en": "Action failed",
     "ru": "Действие не выполнено",
     "uk": "Дію не виконано"
   },
-  "Настройки рабочей области": {
+  "Workspace settings": {
     "en": "Workspace settings",
     "ru": "Настройки рабочей области",
     "uk": "Налаштування робочої області"
   },
-  "Новая рабочая область": {
+  "New workspace": {
     "en": "New workspace",
     "ru": "Новая рабочая область",
     "uk": "Нова робоча область"
   },
-  "Закрыть": {
+  "Close": {
     "en": "Close",
     "ru": "Закрыть",
     "uk": "Закрити"
   },
-  "Название": {
+  "Name #2": {
     "en": "Name",
     "ru": "Название",
     "uk": "Назва"
   },
-  "Например, Backend services": {
+  "For example, Backend services": {
     "en": "For example, Backend services",
     "ru": "Например, Backend services",
     "uk": "Наприклад, Серверні служби"
   },
-  "Корневые папки · по одной в строке": {
+  "Root folders · one per line": {
     "en": "Root folders · one per line",
     "ru": "Корневые папки · по одной в строке",
     "uk": "Кореневі папки · по одній у рядку"
   },
-  "Исключения · glob-шаблоны по одному в строке": {
+  "Exclusions · one glob pattern per line": {
     "en": "Exclusions · one glob pattern per line",
     "ru": "Исключения · glob-шаблоны по одному в строке",
     "uk": "Виключення · по одному glob-шаблону в рядку"
   },
-  "Сканирование читает исходники. Служебные данные и снимки хранятся отдельно от репозиториев.": {
+  "Scanning reads source files. Application data and snapshots are stored separately from repositories.": {
     "en": "Scanning reads source files. Application data and snapshots are stored separately from repositories.",
     "ru": "Сканирование читает исходники. Служебные данные и снимки хранятся отдельно от репозиториев.",
     "uk": "Сканування читає вихідні файли. Службові дані та знімки зберігаються окремо від репозиторіїв."
   },
-  "Сохранение…": {
+  "Saving…": {
     "en": "Saving…",
     "ru": "Сохранение…",
     "uk": "Збереження…"
   },
-  "Сохранить настройки": {
+  "Save settings": {
     "en": "Save settings",
     "ru": "Сохранить настройки",
     "uk": "Зберегти налаштування"
   },
-  "Создать область": {
+  "Create workspace": {
     "en": "Create workspace",
     "ru": "Создать область",
     "uk": "Створити область"
   },
-  "Обновление…": {
+  "Refreshing…": {
     "en": "Refreshing…",
     "ru": "Обновление…",
     "uk": "Оновлення…"
   },
-  "Обновить каталог": {
+  "Refresh catalog": {
     "en": "Refresh catalog",
     "ru": "Обновить каталог",
     "uk": "Оновити каталог"
   },
-  "баз данных": {
+  "databases": {
     "en": "databases",
     "ru": "баз данных",
     "uk": "баз даних"
   },
-  "источников": {
+  "sources": {
     "en": "sources",
     "ru": "источников",
     "uk": "джерел"
   },
-  "с диагностикой": {
+  "with diagnostics": {
     "en": "with diagnostics",
     "ru": "с диагностикой",
     "uk": "з діагностикою"
   },
-  "корневых папок": {
+  "root folders": {
     "en": "root folders",
     "ru": "корневых папок",
     "uk": "кореневих папок"
   },
-  "Обновление модели": {
+  "Updating model": {
     "en": "Updating model",
     "ru": "Обновление модели",
     "uk": "Оновлення моделі"
   },
-  "Фоновые задачи": {
+  "Background jobs": {
     "en": "Background jobs",
     "ru": "Фоновые задачи",
     "uk": "Фонові завдання"
   },
-  "Quick: изменённые файлы. Full: повторное обнаружение всех источников. Оба режима работают без сборки проектов.": {
+  "Quick Refresh scans changed files. Full Rescan rediscovers all sources. Neither mode builds projects.": {
     "en": "Quick Refresh scans changed files. Full Rescan rediscovers all sources. Neither mode builds projects.",
     "ru": "Quick: изменённые файлы. Full: повторное обнаружение всех источников. Оба режима работают без сборки проектов.",
     "uk": "Швидке оновлення перевіряє змінені файли. Повне сканування повторно виявляє всі джерела. Обидва режими працюють без збирання проєктів."
   },
-  "Пересобрать SQL-проект / DACPAC": {
+  "Rebuild SQL project / DACPAC": {
     "en": "Rebuild SQL project / DACPAC",
     "ru": "Пересобрать SQL-проект / DACPAC",
     "uk": "Перезібрати SQL-проєкт / DACPAC"
   },
-  "Область пересборки": {
+  "Rebuild scope": {
     "en": "Rebuild scope",
     "ru": "Область пересборки",
     "uk": "Область перезбирання"
   },
-  "Все найденные базы": {
+  "All discovered databases": {
     "en": "All discovered databases",
     "ru": "Все найденные базы",
     "uk": "Усі знайдені бази"
   },
-  "Я доверяю выбранным SQL-проектам. Пересборка может выполнять код MSBuild и сторонние build targets.": {
+  "I trust the selected SQL projects. Rebuilding may execute MSBuild code and third-party build targets.": {
     "en": "I trust the selected SQL projects. Rebuilding may execute MSBuild code and third-party build targets.",
     "ru": "Я доверяю выбранным SQL-проектам. Пересборка может выполнять код MSBuild и сторонние build targets.",
     "uk": "Я довіряю вибраним SQL-проєктам. Перезбирання може виконувати код MSBuild і сторонні цілі збирання."
   },
-  "Задача анализа": {
+  "Analysis job": {
     "en": "Analysis job",
     "ru": "Задача анализа",
     "uk": "Завдання аналізу"
   },
-  "Получение состояния…": {
+  "Retrieving status…": {
     "en": "Retrieving status…",
     "ru": "Получение состояния…",
     "uk": "Отримання стану…"
   },
-  "Отмена запрошена…": {
+  "Cancellation requested…": {
     "en": "Cancellation requested…",
     "ru": "Отмена запрошена…",
     "uk": "Надіслано запит на скасування…"
   },
-  "Отменить": {
+  "Cancel": {
     "en": "Cancel",
     "ru": "Отменить",
     "uk": "Скасувати"
   },
-  "Ожидаем информацию от сервера": {
+  "Waiting for information from the server": {
     "en": "Waiting for information from the server",
     "ru": "Ожидаем информацию от сервера",
     "uk": "Очікуємо на інформацію від сервера"
   },
-  "Прогресс анализа": {
+  "Analysis progress": {
     "en": "Analysis progress",
     "ru": "Прогресс анализа",
     "uk": "Перебіг аналізу"
   },
-  "Повторить получение статуса": {
+  "Retry status check": {
     "en": "Retry status check",
     "ru": "Повторить получение статуса",
     "uk": "Повторити перевірку стану"
   },
-  "Начало:": {
+  "Started:": {
     "en": "Started:",
     "ru": "Начало:",
     "uk": "Початок:"
   },
-  "Завершение:": {
+  "Finished:": {
     "en": "Finished:",
     "ru": "Завершение:",
     "uk": "Завершення:"
   },
-  "Базы данных": {
+  "Databases": {
     "en": "Databases",
     "ru": "Базы данных",
     "uk": "Бази даних"
   },
-  "Каждый проект сохраняет собственную модель": {
+  "Each project keeps its own model": {
     "en": "Each project keeps its own model",
     "ru": "Каждый проект сохраняет собственную модель",
     "uk": "Кожен проєкт зберігає власну модель"
   },
-  "Загружаем каталог…": {
+  "Loading catalog…": {
     "en": "Loading catalog…",
     "ru": "Загружаем каталог…",
     "uk": "Завантаження каталогу…"
   },
-  "Обновлена {0}": {
+  "Updated {0}": {
     "en": "Updated {0}",
     "ru": "Обновлена {0}",
     "uk": "Оновлена {0}"
   },
-  "Снимок ещё не создан": {
+  "No snapshot yet": {
     "en": "No snapshot yet",
     "ru": "Снимок ещё не создан",
     "uk": "Знімок ще не створено"
   },
-  "Статический анализ дал частичный результат. Проверьте диагностику источников и выполните доверенную пересборку при необходимости.": {
+  "Static analysis produced a partial result. Check source diagnostics and run a trusted rebuild if needed.": {
     "en": "Static analysis produced a partial result. Check source diagnostics and run a trusted rebuild if needed.",
     "ru": "Статический анализ дал частичный результат. Проверьте диагностику источников и выполните доверенную пересборку при необходимости.",
     "uk": "Статичний аналіз дав частковий результат. Перевірте діагностику джерел і за потреби виконайте перезбирання довірених проєктів."
   },
-  "Открытие…": {
+  "Opening…": {
     "en": "Opening…",
     "ru": "Открытие…",
     "uk": "Відкриття…"
   },
-  "Скрыть историю": {
+  "Hide history": {
     "en": "Hide history",
     "ru": "Скрыть историю",
     "uk": "Приховати історію"
   },
-  "Снимки": {
+  "Snapshots": {
     "en": "Snapshots",
     "ru": "Снимки",
     "uk": "Знімки"
   },
-  "Базы пока не обнаружены": {
+  "No databases discovered yet": {
     "en": "No databases discovered yet",
     "ru": "Базы пока не обнаружены",
     "uk": "Бази даних ще не знайдено"
   },
-  "Запустите Full Rescan, чтобы найти SQL-проекты, DACPAC, C#-проекты и отдельные SQL-файлы в указанных папках.": {
+  "Run Full Rescan to discover SQL projects, DACPACs, C# projects, and standalone SQL files in the selected folders.": {
     "en": "Run Full Rescan to discover SQL projects, DACPACs, C# projects, and standalone SQL files in the selected folders.",
     "ru": "Запустите Full Rescan, чтобы найти SQL-проекты, DACPAC, C#-проекты и отдельные SQL-файлы в указанных папках.",
     "uk": "Запустіть повне сканування, щоб знайти SQL-проєкти, DACPAC, C#-проєкти й окремі SQL-файли у вказаних папках."
   },
-  "Снимки ·": {
+  "Snapshots ·": {
     "en": "Snapshots ·",
     "ru": "Снимки ·",
     "uk": "Знімки ·"
   },
-  "Загрузка снимков…": {
+  "Loading snapshots…": {
     "en": "Loading snapshots…",
     "ru": "Загрузка снимков…",
     "uk": "Завантаження знімків…"
   },
-  "Создан": {
+  "Created": {
     "en": "Created",
     "ru": "Создан",
     "uk": "Створено"
   },
-  "Режим": {
+  "Mode": {
     "en": "Mode",
     "ru": "Режим",
     "uk": "Режим"
   },
-  "Таблицы / связи": {
+  "Tables / relationships": {
     "en": "Tables / relationships",
     "ru": "Таблицы / связи",
     "uk": "Таблиці / зв’язки"
   },
-  "Открыть": {
+  "Open": {
     "en": "Open",
     "ru": "Открыть",
     "uk": "Відкрити"
   },
-  "Снимков ещё нет.": {
+  "No snapshots yet.": {
     "en": "No snapshots yet.",
     "ru": "Снимков ещё нет.",
     "uk": "Знімків ще немає."
   },
-  "Источники и проекты": {
+  "Sources and projects": {
     "en": "Sources and projects",
     "ru": "Источники и проекты",
     "uk": "Джерела та проєкти"
   },
-  "Поиск источников по пути": {
+  "Search sources by path": {
     "en": "Search sources by path",
     "ru": "Поиск источников по пути",
     "uk": "Пошук джерел за шляхом"
   },
-  "Поиск по пути или типу…": {
+  "Search by path or type…": {
     "en": "Search by path or type…",
     "ru": "Поиск по пути или типу…",
     "uk": "Пошук за шляхом або типом…"
   },
-  "Фильтр типа источника": {
+  "Source type filter": {
     "en": "Source type filter",
     "ru": "Фильтр типа источника",
     "uk": "Фільтр типу джерела"
   },
-  "Все типы": {
+  "All types": {
     "en": "All types",
     "ru": "Все типы",
     "uk": "Усі типи"
   },
-  "Тип": {
+  "Type": {
     "en": "Type",
     "ru": "Тип",
     "uk": "Тип"
   },
-  "Путь / диагностика": {
+  "Path / diagnostics": {
     "en": "Path / diagnostics",
     "ru": "Путь / диагностика",
     "uk": "Шлях / діагностика"
   },
-  "Изменён": {
+  "Modified": {
     "en": "Modified",
     "ru": "Изменён",
     "uk": "Змінено"
   },
-  "Источники по этому фильтру не найдены.": {
+  "No sources match this filter.": {
     "en": "No sources match this filter.",
     "ru": "Источники по этому фильтру не найдены.",
     "uk": "Джерел за цим фільтром не знайдено."
   },
-  "Запустите сканирование для заполнения каталога.": {
+  "Run a scan to populate the catalog.": {
     "en": "Run a scan to populate the catalog.",
     "ru": "Запустите сканирование для заполнения каталога.",
     "uk": "Запустіть сканування, щоб заповнити каталог."
   },
-  "Показаны первые": {
+  "Showing the first": {
     "en": "Showing the first",
     "ru": "Показаны первые",
     "uk": "Показано перші"
   },
-  "из": {
+  "of": {
     "en": "of",
     "ru": "из",
     "uk": "із"
   },
-  "источников. Уточните поиск или тип.": {
+  "sources. Refine the search or type filter.": {
     "en": "sources. Refine the search or type filter.",
     "ru": "источников. Уточните поиск или тип.",
     "uk": "джерел. Уточніть пошук або тип."
   },
-  "Последние сканирования": {
+  "Recent scans": {
     "en": "Recent scans",
     "ru": "Последние сканирования",
     "uk": "Останні сканування"
   },
-  "Состояние": {
+  "Status": {
     "en": "Status",
     "ru": "Состояние",
     "uk": "Стан"
   },
-  "Начало": {
+  "Started": {
     "en": "Started",
     "ru": "Начало",
     "uk": "Початок"
   },
-  "Обновления": {
+  "Updates": {
     "en": "Updates",
     "ru": "Обновления",
     "uk": "Оновлення"
   },
-  "Завершение / диагностика": {
+  "Finished / diagnostics": {
     "en": "Finished / diagnostics",
     "ru": "Завершение / диагностика",
     "uk": "Завершення / діагностика"
   },
-  "изменённых ·": {
+  "changed ·": {
     "en": "changed ·",
     "ru": "изменённых ·",
     "uk": "змінених ·"
   },
-  "без изменений": {
+  "unchanged": {
     "en": "unchanged",
     "ru": "без изменений",
     "uk": "без змін"
   },
-  "обновлённых БД": {
+  "databases updated": {
     "en": "databases updated",
     "ru": "обновлённых БД",
     "uk": "оновлених БД"
   },
-  "Создайте область с одной или несколькими корневыми папками, чтобы начать обнаружение проектов.": {
+  "Create a workspace with one or more root folders to start discovering projects.": {
     "en": "Create a workspace with one or more root folders to start discovering projects.",
     "ru": "Создайте область с одной или несколькими корневыми папками, чтобы начать обнаружение проектов.",
     "uk": "Створіть робочу область з однією чи кількома кореневими папками, щоб розпочати пошук проєктів."
   },
-  "Не удалось прочитать настройки.": {
+  "Could not load settings.": {
     "en": "Could not load settings.",
     "ru": "Не удалось прочитать настройки.",
     "uk": "Не вдалося завантажити налаштування."
   },
-  "Не удалось прочитать каталог.": {
+  "Could not read the catalog.": {
     "en": "Could not read the catalog.",
     "ru": "Не удалось прочитать каталог.",
     "uk": "Не вдалося прочитати каталог."
   },
-  "Операция не выполнена.": {
+  "Operation failed.": {
     "en": "Operation failed.",
     "ru": "Операция не выполнена.",
     "uk": "Операцію не виконано."
   },
-  "Не удалось создать копию ({0}).": {
+  "Could not create a backup ({0}).": {
     "en": "Could not create a backup ({0}).",
     "ru": "Не удалось создать копию ({0}).",
     "uk": "Не вдалося створити резервну копію ({0})."
   },
-  "Резервная копия каталога готова к сохранению.": {
+  "The catalog backup is ready to save.": {
     "en": "The catalog backup is ready to save.",
     "ru": "Резервная копия каталога готова к сохранению.",
     "uk": "Резервна копія каталогу готова до збереження."
   },
-  "Экспортированы определения рецептов и настройки рабочей области.": {
+  "Recipe definitions and workspace settings exported.": {
     "en": "Recipe definitions and workspace settings exported.",
     "ru": "Экспортированы определения рецептов и настройки рабочей области.",
     "uk": "Визначення рецептів і налаштування робочої області експортовано."
   },
-  "Максимальный размер конфигурации — 8 MiB.": {
+  "The maximum configuration size is 8 MiB.": {
     "en": "The maximum configuration size is 8 MiB.",
     "ru": "Максимальный размер конфигурации — 8 MiB.",
     "uk": "Максимальний розмір конфігурації — 8 MiB."
   },
-  "Нужна конфигурация Schemora v1: до 100 БД и рецептов.": {
+  "A Schemora v1 configuration is required, with up to 100 databases and recipes.": {
     "en": "A Schemora v1 configuration is required, with up to 100 databases and recipes.",
     "ru": "Нужна конфигурация Schemora v1: до 100 БД и рецептов.",
     "uk": "Потрібна конфігурація Schemora v1: до 100 БД і рецептів."
   },
-  "Не удалось прочитать JSON.": {
+  "Could not read the JSON.": {
     "en": "Could not read the JSON.",
     "ru": "Не удалось прочитать JSON.",
     "uk": "Не вдалося прочитати JSON."
   },
-  "Обработано рецептов: {0}. Проверьте результаты ниже.": {
+  "Recipes processed: {0}. Check the results below.": {
     "en": "Recipes processed: {0}. Check the results below.",
     "ru": "Обработано рецептов: {0}. Проверьте результаты ниже.",
     "uk": "Оброблено рецептів: {0}. Перевірте результати нижче."
   },
-  "Оформление и команды": {
+  "Appearance and shortcuts": {
     "en": "Appearance and shortcuts",
     "ru": "Оформление и команды",
     "uk": "Оформлення та команди"
   },
-  "Тема интерфейса": {
+  "Interface theme": {
     "en": "Interface theme",
     "ru": "Тема интерфейса",
     "uk": "Тема інтерфейсу"
   },
-  "Тёмная": {
+  "Dark": {
     "en": "Dark",
     "ru": "Тёмная",
     "uk": "Темна"
   },
-  "Светлая": {
+  "Light": {
     "en": "Light",
     "ru": "Светлая",
     "uk": "Світла"
   },
-  "В редакторе: Ctrl+S — сохранить версию рецепта, Ctrl+Enter — сформировать SQL после проверки входов.": {
+  "In the editor: Ctrl+S saves a recipe version; Ctrl+Enter generates SQL after validating the inputs.": {
     "en": "In the editor: Ctrl+S saves a recipe version; Ctrl+Enter generates SQL after validating the inputs.",
     "ru": "В редакторе: Ctrl+S — сохранить версию рецепта, Ctrl+Enter — сформировать SQL после проверки входов.",
     "uk": "У редакторі: Ctrl+S — зберегти версію рецепта, Ctrl+Enter — сформувати SQL після перевірки вхідних даних."
   },
-  "Переносимая конфигурация": {
+  "Portable configuration": {
     "en": "Portable configuration",
     "ru": "Переносимая конфигурация",
     "uk": "Переносна конфігурація"
   },
-  "JSON содержит шаблоны рецептов, типы входов и имена корней. Значения ID и абсолютные пути корней в экспорт не входят. После переноса выберите и просканируйте свои корни в рабочей области.": {
+  "The JSON contains recipe templates, input types, and root folder names. ID values and absolute root paths are not exported. After moving the configuration, select and scan your own root folders in the workspace.": {
     "en": "The JSON contains recipe templates, input types, and root folder names. ID values and absolute root paths are not exported. After moving the configuration, select and scan your own root folders in the workspace.",
     "ru": "JSON содержит шаблоны рецептов, типы входов и имена корней. Значения ID и абсолютные пути корней в экспорт не входят. После переноса выберите и просканируйте свои корни в рабочей области.",
     "uk": "JSON містить шаблони рецептів, типи вхідних даних та імена кореневих папок. Значення ID й абсолютні шляхи кореневих папок не експортуються. Після перенесення виберіть і проскануйте власні кореневі папки в робочій області."
   },
-  "Рабочая область для экспорта / импорта": {
+  "Workspace for export / import": {
     "en": "Workspace for export / import",
     "ru": "Рабочая область для экспорта / импорта",
     "uk": "Робоча область для експорту / імпорту"
   },
-  "Экспорт конфигурации": {
+  "Export configuration": {
     "en": "Export configuration",
     "ru": "Экспорт конфигурации",
     "uk": "Експорт конфігурації"
   },
-  "Выбрать JSON конфигурации": {
+  "Choose configuration JSON": {
     "en": "Choose configuration JSON",
     "ru": "Выбрать JSON конфигурации",
     "uk": "Вибрати JSON конфігурації"
   },
-  "Импорт конфигурации": {
+  "Import configuration": {
     "en": "Import configuration",
     "ru": "Импорт конфигурации",
     "uk": "Імпорт конфігурації"
   },
-  "рецептов · корни:": {
+  "recipes · root folders:": {
     "en": "recipes · root folders:",
     "ru": "рецептов · корни:",
     "uk": "рецептів · кореневі папки:"
   },
-  "не указаны": {
+  "not specified": {
     "en": "not specified",
     "ru": "не указаны",
     "uk": "не вказано"
   },
-  "Явно сопоставьте каждую исходную БД с текущей. Корни и исключения текущей рабочей области сохраняются. Для темы используйте переключатель выше.": {
+  "Explicitly map each source database to a current database. The current workspace's root folders and exclusions are preserved. Use the switch above to change the theme.": {
     "en": "Explicitly map each source database to a current database. The current workspace's root folders and exclusions are preserved. Use the switch above to change the theme.",
     "ru": "Явно сопоставьте каждую исходную БД с текущей. Корни и исключения текущей рабочей области сохраняются. Для темы используйте переключатель выше.",
     "uk": "Явно зіставте кожну БД із конфігурації з поточною БД. Кореневі папки й виключення поточної робочої області зберігаються. Для зміни теми скористайтеся перемикачем вище."
   },
-  "Выберите целевую БД": {
+  "Select a target database": {
     "en": "Select a target database",
     "ru": "Выберите целевую БД",
     "uk": "Виберіть цільову БД"
   },
-  "Сначала просканируйте рабочую область, чтобы обнаружить БД.": {
+  "Scan the workspace first to discover databases.": {
     "en": "Scan the workspace first to discover databases.",
     "ru": "Сначала просканируйте рабочую область, чтобы обнаружить БД.",
     "uk": "Спочатку проскануйте робочу область, щоб знайти БД."
   },
-  "Импортировать": {
+  "Import": {
     "en": "Import",
     "ru": "Импортировать",
     "uk": "Імпортувати"
   },
-  "рецептов": {
+  "recipes": {
     "en": "recipes",
     "ru": "рецептов",
     "uk": "рецептів"
   },
-  "Хранилище и резервная копия": {
+  "Storage and backup": {
     "en": "Storage and backup",
     "ru": "Хранилище и резервная копия",
     "uk": "Сховище та резервна копія"
   },
-  "Каталог данных": {
+  "Data directory": {
     "en": "Data directory",
     "ru": "Каталог данных",
     "uk": "Каталог даних"
   },
-  "SQLite · версия": {
+  "SQLite · version": {
     "en": "SQLite · version",
     "ru": "SQLite · версия",
     "uk": "SQLite · версія"
   },
-  "Активных заданий": {
+  "Active jobs": {
     "en": "Active jobs",
     "ru": "Активных заданий",
     "uk": "Активних завдань"
   },
-  "Скачать резервную копию SQLite": {
+  "Download SQLite backup": {
     "en": "Download SQLite backup",
     "ru": "Скачать резервную копию SQLite",
     "uk": "Завантажити резервну копію SQLite"
   },
-  "Копия содержит снимки, рецепты, версии и настройки. Для восстановления остановите приложение, затем запустите команду, подставив свои пути:": {
+  "The backup contains snapshots, recipes, versions, and settings. To restore it, stop the app, then run this command with your own paths:": {
     "en": "The backup contains snapshots, recipes, versions, and settings. To restore it, stop the app, then run this command with your own paths:",
     "ru": "Копия содержит снимки, рецепты, версии и настройки. Для восстановления остановите приложение, затем запустите команду, подставив свои пути:",
     "uk": "Копія містить знімки, рецепти, версії та налаштування. Для відновлення зупиніть застосунок, а потім виконайте команду, підставивши власні шляхи:"
   },
-  "Команда восстановления скопирована.": {
+  "Restore command copied.": {
     "en": "Restore command copied.",
     "ru": "Команда восстановления скопирована.",
     "uk": "Команду відновлення скопійовано."
   },
-  "Копирование недоступно.": {
+  "Copying is unavailable.": {
     "en": "Copying is unavailable.",
     "ru": "Копирование недоступно.",
     "uk": "Копіювання недоступне."
   },
-  "Копировать команду": {
+  "Copy command": {
     "en": "Copy command",
     "ru": "Копировать команду",
     "uk": "Копіювати команду"
   },
-  "Сведения о хранилище появятся в локальном сеансе.": {
+  "Storage details will be available in a local session.": {
     "en": "Storage details will be available in a local session.",
     "ru": "Сведения о хранилище появятся в локальном сеансе.",
     "uk": "Відомості про сховище стануть доступними в локальному сеансі."
   },
-  "Завершить локальный сеанс": {
+  "End local session": {
     "en": "End local session",
     "ru": "Завершить локальный сеанс",
     "uk": "Завершити локальний сеанс"
   },
-  "Останавливает процесс Schemora. Сохраните открытые изменения рецепта перед завершением.": {
+  "Stops the Schemora process. Save any open recipe changes before exiting.": {
     "en": "Stops the Schemora process. Save any open recipe changes before exiting.",
     "ru": "Останавливает процесс Schemora. Сохраните открытые изменения рецепта перед завершением.",
     "uk": "Зупиняє процес Schemora. Перед завершенням збережіть відкриті зміни рецепта."
   },
-  "Schemora остановлена. Эту вкладку можно закрыть. Для продолжения запустите приложение снова.": {
+  "Schemora has stopped. You can close this tab. Launch the app again to continue.": {
     "en": "Schemora has stopped. You can close this tab. Launch the app again to continue.",
     "ru": "Schemora остановлена. Эту вкладку можно закрыть. Для продолжения запустите приложение снова.",
     "uk": "Schemora зупинено. Цю вкладку можна закрити. Щоб продовжити, запустіть застосунок знову."
   },
-  "Приложение остановлено": {
+  "Application stopped": {
     "en": "Application stopped",
     "ru": "Приложение остановлено",
     "uk": "Застосунок зупинено"
   },
-  "Завершить Schemora": {
+  "Quit Schemora": {
     "en": "Quit Schemora",
     "ru": "Завершить Schemora",
     "uk": "Завершити Schemora"
   },
-  "Выключено": {
+  "Off": {
     "en": "Off",
     "ru": "Выключено",
     "uk": "Вимкнено"
   },
-  "Следим за исходниками": {
+  "Watching source files": {
     "en": "Watching source files",
     "ru": "Следим за исходниками",
     "uk": "Відстежуємо вихідні файли"
   },
-  "Ожидаем изменений": {
+  "Waiting for changes": {
     "en": "Waiting for changes",
     "ru": "Ожидаем изменений",
     "uk": "Очікуємо на зміни"
   },
-  "Изменения ожидают анализа": {
+  "Changes awaiting analysis": {
     "en": "Changes awaiting analysis",
     "ru": "Изменения ожидают анализа",
     "uk": "Зміни очікують на аналіз"
   },
-  "Ожидаем завершения правок": {
+  "Waiting for edits to finish": {
     "en": "Waiting for edits to finish",
     "ru": "Ожидаем завершения правок",
     "uk": "Очікуємо на завершення правок"
   },
-  "Требует внимания": {
+  "Needs attention": {
     "en": "Needs attention",
     "ru": "Требует внимания",
     "uk": "Потребує уваги"
   },
-  "Наблюдение недоступно": {
+  "File watching unavailable": {
     "en": "File watching unavailable",
     "ru": "Наблюдение недоступно",
     "uk": "Відстеження недоступне"
   },
-  "Наблюдение с ограничениями": {
+  "File watching has limitations": {
     "en": "File watching has limitations",
     "ru": "Наблюдение с ограничениями",
     "uk": "Відстеження з обмеженнями"
   },
-  "ещё не было": {
+  "not yet": {
     "en": "not yet",
     "ru": "ещё не было",
     "uk": "ще не було"
   },
-  "Автообновление недоступно.": {
+  "Auto-refresh is unavailable.": {
     "en": "Auto-refresh is unavailable.",
     "ru": "Автообновление недоступно.",
     "uk": "Автооновлення недоступне."
   },
-  "Настройки автообновления не сохранены.": {
+  "Auto-refresh settings were not saved.": {
     "en": "Auto-refresh settings were not saved.",
     "ru": "Настройки автообновления не сохранены.",
     "uk": "Налаштування автооновлення не збережено."
   },
-  "Автообновление исходников": {
+  "Source auto-refresh": {
     "en": "Source auto-refresh",
     "ru": "Автообновление исходников",
     "uk": "Автооновлення вихідних файлів"
   },
-  "Автообновление": {
+  "Auto-refresh": {
     "en": "Auto-refresh",
     "ru": "Автообновление",
     "uk": "Автооновлення"
   },
-  "Отслеживает изменения в корневых папках и обновляет схему без сборки проектов.": {
+  "Watches for changes in root folders and refreshes the schema without building projects.": {
     "en": "Watches for changes in root folders and refreshes the schema without building projects.",
     "ru": "Отслеживает изменения в корневых папках и обновляет схему без сборки проектов.",
     "uk": "Відстежує зміни в кореневих папках і оновлює схему без збирання проєктів."
   },
-  "Включить автообновление": {
+  "Enable auto-refresh": {
     "en": "Enable auto-refresh",
     "ru": "Включить автообновление",
     "uk": "Увімкнути автооновлення"
   },
-  "Включено": {
+  "On": {
     "en": "On",
     "ru": "Включено",
     "uk": "Увімкнено"
   },
-  "Параметры": {
+  "Options": {
     "en": "Options",
     "ru": "Параметры",
     "uk": "Параметри"
   },
-  "Пауза после изменения": {
+  "Delay after a change": {
     "en": "Delay after a change",
     "ru": "Пауза после изменения",
     "uk": "Пауза після зміни"
   },
-  "Пауза автообновления": {
+  "Auto-refresh delay": {
     "en": "Auto-refresh delay",
     "ru": "Пауза автообновления",
     "uk": "Пауза автооновлення"
   },
-  "сек.": {
+  "sec.": {
     "en": "sec.",
     "ru": "сек.",
     "uk": "с"
   },
-  "Повторная проверка папок": {
+  "Recheck folders": {
     "en": "Recheck folders",
     "ru": "Повторная проверка папок",
     "uk": "Повторна перевірка папок"
   },
-  "Период проверки папок": {
+  "Folder check interval": {
     "en": "Folder check interval",
     "ru": "Период проверки папок",
     "uk": "Інтервал перевірки папок"
   },
-  "мин.": {
+  "min.": {
     "en": "min.",
     "ru": "мин.",
     "uk": "хв"
   },
-  "Сохранить параметры": {
+  "Save options": {
     "en": "Save options",
     "ru": "Сохранить параметры",
     "uk": "Зберегти параметри"
   },
-  "Наблюдаемых папок:": {
+  "Watched folders:": {
     "en": "Watched folders:",
     "ru": "Наблюдаемых папок:",
     "uk": "Відстежуваних папок:"
   },
-  "Изменение:": {
+  "Last change:": {
     "en": "Last change:",
     "ru": "Изменение:",
     "uk": "Зміна:"
   },
-  "Анализ:": {
+  "Analysis:": {
     "en": "Analysis:",
     "ru": "Анализ:",
     "uk": "Аналіз:"
   },
-  "Есть изменения для следующего анализа": {
+  "Changes are pending for the next analysis": {
     "en": "Changes are pending for the next analysis",
     "ru": "Есть изменения для следующего анализа",
     "uk": "Є зміни для наступного аналізу"
   },
-  "Повторить": {
+  "Retry": {
     "en": "Retry",
     "ru": "Повторить",
     "uk": "Повторити"
   },
-  "Соответствие сохранено. Новые JOIN используют указанное имя БД.": {
+  "Mapping saved. New JOINs will use the specified database name.": {
     "en": "Mapping saved. New JOINs will use the specified database name.",
     "ru": "Соответствие сохранено. Новые JOIN используют указанное имя БД.",
     "uk": "Зіставлення збережено. Нові JOIN використовуватимуть указане ім’я БД."
   },
-  "Не удалось сохранить SQL-имя БД.": {
+  "Could not save the SQL database name.": {
     "en": "Could not save the SQL database name.",
     "ru": "Не удалось сохранить SQL-имя БД.",
     "uk": "Не вдалося зберегти SQL-ім’я БД."
   },
-  "SQL-имена баз данных · для межбазовых JOIN": {
+  "SQL database names · for cross-database JOINs": {
     "en": "SQL database names · for cross-database JOINs",
     "ru": "SQL-имена баз данных · для межбазовых JOIN",
     "uk": "SQL-імена баз даних · для міжбазових JOIN"
   },
-  "Укажите фактическое имя БД в SQL Server, если оно отличается от имени SQL-проекта. Сопоставление сохраняется с основанием и используется при генерации трёхчастных имён.": {
+  "Enter the actual SQL Server database name if it differs from the SQL project name. The mapping is saved with a reason and used to generate three-part names.": {
     "en": "Enter the actual SQL Server database name if it differs from the SQL project name. The mapping is saved with a reason and used to generate three-part names.",
     "ru": "Укажите фактическое имя БД в SQL Server, если оно отличается от имени SQL-проекта. Сопоставление сохраняется с основанием и используется при генерации трёхчастных имён.",
     "uk": "Укажіть фактичне ім’я БД у SQL Server, якщо воно відрізняється від імені SQL-проєкту. Зіставлення зберігається з обґрунтуванням і використовується для формування тричастинних імен."
   },
-  "База в каталоге": {
+  "Database in catalog": {
     "en": "Database in catalog",
     "ru": "База в каталоге",
     "uk": "База в каталозі"
   },
-  "База для сопоставления SQL-имени": {
+  "Database for SQL name mapping": {
     "en": "Database for SQL name mapping",
     "ru": "База для сопоставления SQL-имени",
     "uk": "База для зіставлення SQL-імені"
   },
-  "Выберите БД": {
+  "Select a database": {
     "en": "Select a database",
     "ru": "Выберите БД",
     "uk": "Виберіть БД"
   },
-  "Имя в SQL Server": {
+  "Name in SQL Server": {
     "en": "Name in SQL Server",
     "ru": "Имя в SQL Server",
     "uk": "Ім’я в SQL Server"
   },
-  "SQL-имя базы данных": {
+  "SQL database name": {
     "en": "SQL database name",
     "ru": "SQL-имя базы данных",
     "uk": "SQL-ім’я бази даних"
   },
-  "Например, Billing_Archive": {
+  "For example, Billing_Archive": {
     "en": "For example, Billing_Archive",
     "ru": "Например, Billing_Archive",
     "uk": "Наприклад, Billing_Archive"
   },
-  "Основание сопоставления": {
+  "Mapping reason": {
     "en": "Mapping reason",
     "ru": "Основание сопоставления",
     "uk": "Обґрунтування зіставлення"
   },
-  "Основание сопоставления имени БД": {
+  "Database name mapping reason": {
     "en": "Database name mapping reason",
     "ru": "Основание сопоставления имени БД",
     "uk": "Обґрунтування зіставлення імені БД"
   },
-  "Источник фактического имени базы…": {
+  "Source of the actual database name…": {
     "en": "Source of the actual database name…",
     "ru": "Источник фактического имени базы…",
     "uk": "Джерело фактичного імені бази…"
   },
-  "Сохранить SQL-имя": {
+  "Save SQL name": {
     "en": "Save SQL name",
     "ru": "Сохранить SQL-имя",
     "uk": "Зберегти SQL-ім’я"
   },
-  "Не удалось получить привязки EF.": {
+  "Could not load EF bindings.": {
     "en": "Could not load EF bindings.",
     "ru": "Не удалось получить привязки EF.",
     "uk": "Не вдалося завантажити прив’язки EF."
   },
-  "Не удалось сохранить привязку проекта.": {
+  "Could not save the project binding.": {
     "en": "Could not save the project binding.",
     "ru": "Не удалось сохранить привязку проекта.",
     "uk": "Не вдалося зберегти прив’язку проєкту."
   },
-  "C# → БД · EF / Dapper": {
+  "C# → Database · EF / Dapper": {
     "en": "C# → Database · EF / Dapper",
     "ru": "C# → БД · EF / Dapper",
     "uk": "C# → БД · EF / Dapper"
   },
-  "Для нескольких БД укажите соответствие C#-проектов явно. EF mappings анализируются как ORM-связи; SQL из Dapper — как наблюдаемые JOIN. Dapper splitOn описывает materialization и сам по себе не подтверждает FK. При единственной БД сервер может установить однозначную привязку.": {
+  "For multiple databases, explicitly map each C# project to a database. EF mappings are analyzed as ORM relationships; SQL from Dapper is treated as observed JOINs. Dapper splitOn describes materialization and does not by itself confirm a foreign key. With a single database, the server can establish an unambiguous binding.": {
     "en": "For multiple databases, explicitly map each C# project to a database. EF mappings are analyzed as ORM relationships; SQL from Dapper is treated as observed JOINs. Dapper splitOn describes materialization and does not by itself confirm a foreign key. With a single database, the server can establish an unambiguous binding.",
     "ru": "Для нескольких БД укажите соответствие C#-проектов явно. EF mappings анализируются как ORM-связи; SQL из Dapper — как наблюдаемые JOIN. Dapper splitOn описывает materialization и сам по себе не подтверждает FK. При единственной БД сервер может установить однозначную привязку.",
     "uk": "Для кількох БД явно вкажіть відповідність C#-проєктів. Зіставлення EF аналізуються як ORM-зв’язки; SQL із Dapper — як спостережувані JOIN. Dapper splitOn описує матеріалізацію й сам по собі не підтверджує FK. Якщо БД лише одна, сервер може встановити однозначну прив’язку."
   },
-  "Загрузка проектов…": {
+  "Loading projects…": {
     "en": "Loading projects…",
     "ru": "Загрузка проектов…",
     "uk": "Завантаження проєктів…"
   },
-  "База для {0}": {
+  "Database for {0}": {
     "en": "Database for {0}",
     "ru": "База для {0}",
     "uk": "База для {0}"
   },
-  "Не привязан к БД": {
+  "Not bound to a database": {
     "en": "Not bound to a database",
     "ru": "Не привязан к БД",
     "uk": "Не прив’язано до БД"
   },
-  "Привязать": {
+  "Bind": {
     "en": "Bind",
     "ru": "Привязать",
     "uk": "Прив’язати"
   },
-  "В каталоге нет C#-проектов. Обновите рабочую область, чтобы обнаружить их.": {
+  "The catalog contains no C# projects. Refresh the workspace to discover them.": {
     "en": "The catalog contains no C# projects. Refresh the workspace to discover them.",
     "ru": "В каталоге нет C#-проектов. Обновите рабочую область, чтобы обнаружить их.",
     "uk": "У каталозі немає C#-проєктів. Оновіть робочу область, щоб знайти їх."

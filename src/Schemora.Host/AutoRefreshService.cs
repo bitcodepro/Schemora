@@ -84,7 +84,7 @@ public sealed class AutoRefreshService(CatalogStore store, JobQueue jobs, Toolch
     public AutoRefreshView Update(string workspaceId, AutoRefreshSettings settings)
     {
         if (settings.DebounceSeconds is < 2 or > 60 || settings.ReconcileMinutes is < 1 or > 60)
-            throw new AppException("AUTO_REFRESH_SETTINGS_INVALID", "Задержка: 2–60 секунд, сверка пропущенных событий: 1–60 минут.");
+            throw new AppException("AUTO_REFRESH_SETTINGS_INVALID", "Delay: 2–60 seconds; missed-event reconciliation: 1–60 minutes.");
         var workspace = WorkspaceEndpoints.RequireWorkspace(store, workspaceId);
         store.Put("UserSettings", Key(workspaceId), workspaceId, settings);
         lock (gate)
@@ -167,7 +167,7 @@ public sealed class AutoRefreshService(CatalogStore store, JobQueue jobs, Toolch
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException)
             {
-                state.Diagnostics.Add("Наблюдение корня недоступно; изменения будут проверяться периодически.");
+                state.Diagnostics.Add("The root folder cannot be watched; changes will be checked periodically.");
             }
         }
         return state;
@@ -217,8 +217,8 @@ public sealed class AutoRefreshService(CatalogStore store, JobQueue jobs, Toolch
             state.Signature = "";
             state.Due = DateTimeOffset.UtcNow.AddSeconds(state.Settings.DebounceSeconds);
             state.LastEventAt = DateTimeOffset.UtcNow;
-            if (!state.Diagnostics.Contains("Поток файловых событий прерван; запланирован полный анализ без сборки."))
-                state.Diagnostics.Add("Поток файловых событий прерван; запланирован полный анализ без сборки.");
+            if (!state.Diagnostics.Contains("The file event stream was interrupted; a full analysis without building has been scheduled."))
+                state.Diagnostics.Add("The file event stream was interrupted; a full analysis without building has been scheduled.");
         }
     }
 

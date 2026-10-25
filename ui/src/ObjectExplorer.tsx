@@ -82,7 +82,7 @@ export default function ObjectExplorer({
           setSelectedId(previous => previous || result.items[0]?.id || '');
         })
         .catch(cause => {
-          if (!controller.signal.aborted) setError(errorMessage(cause, t('Каталог объектов недоступен.')));
+          if (!controller.signal.aborted) setError(errorMessage(cause, t('Object catalog unavailable.')));
         })
         .finally(() => {
           if (!controller.signal.aborted) setBusy(false);
@@ -117,7 +117,7 @@ export default function ObjectExplorer({
     })
       .then(setDetail)
       .catch(cause => {
-        if (!controller.signal.aborted) setDetailError(errorMessage(cause, t('Не удалось открыть объект.')));
+        if (!controller.signal.aborted) setDetailError(errorMessage(cause, t('Could not open the object.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setDetailBusy(false);
@@ -130,25 +130,25 @@ export default function ObjectExplorer({
   const dependencies = detail?.dependencies || [];
   const dependents = detail?.dependents || [];
   return (
-    <section className="object-explorer" aria-label={t('Обозреватель объектов')}>
+    <section className="object-explorer" aria-label={t('Object explorer')}>
       <div className="object-explorer-layout">
         <aside className="object-explorer-catalog">
           <input
             type="search"
-            aria-label={t('Поиск объектов схемы')}
+            aria-label={t('Search schema objects')}
             value={query}
             onChange={event => setQuery(event.target.value)}
-            placeholder={t('Имя объекта…')}
+            placeholder={t('Object name…')}
           />
-          <select aria-label={t('Тип объекта схемы')} value={kind} onChange={event => setKind(event.target.value)}>
-            <option value="">{t('Все объекты')}</option>
+          <select aria-label={t('Schema object type')} value={kind} onChange={event => setKind(event.target.value)}>
+            <option value="">{t('All objects')}</option>
             {Object.entries(objectKindNames).map(([key, title]) => (
               <option key={key} value={key}>
                 {t(title)}
               </option>
             ))}
           </select>
-          <p className="object-note">{busy ? t('Поиск…') : t('Объектов: {0}', page?.total || 0)}</p>
+          <p className="object-note">{busy ? t('Searching…') : t('Objects: {0}', page?.total || 0)}</p>
           {error && (
             <p className="job-error" role="alert">
               {tMessage(error)}
@@ -166,7 +166,7 @@ export default function ObjectExplorer({
               </button>
             ))}
           </div>
-          {!busy && !page?.items.length && <p className="object-no-data">{t('Объектов по этому фильтру нет.')}</p>}
+          {!busy && !page?.items.length && <p className="object-no-data">{t('No objects match this filter.')}</p>}
           {Boolean(page && page.total > pageSize) && (
             <div className="enhancement-actions">
               <button
@@ -174,7 +174,7 @@ export default function ObjectExplorer({
                 disabled={offset === 0 || busy}
                 onClick={() => setOffset(value => Math.max(0, value - pageSize))}
               >
-                {t('← Назад')}
+                {t('← Back')}
               </button>
               <span className="quiet-label">
                 {offset + 1}–{Math.min(offset + pageSize, page?.total || 0)}
@@ -184,20 +184,20 @@ export default function ObjectExplorer({
                 disabled={busy || offset + pageSize >= (page?.total || 0)}
                 onClick={() => setOffset(value => value + pageSize)}
               >
-                {t('Далее →')}
+                {t('Next →')}
               </button>
             </div>
           )}
         </aside>
         <div className="object-explorer-detail">
           {detailBusy ? (
-            <p className="object-loading">{t('Читаем метаданные объекта…')}</p>
+            <p className="object-loading">{t('Reading object metadata…')}</p>
           ) : detailError ? (
             <p className="job-error" role="alert">
               {tMessage(detailError)}
             </p>
           ) : !detail ? (
-            <p className="object-no-data">{t('Выберите объект в каталоге.')}</p>
+            <p className="object-no-data">{t('Select an object in the catalog.')}</p>
           ) : (
             <>
               <span className="object-kind">{t(objectKindNames[detail.kind]) || detail.kind}</span>
@@ -206,35 +206,37 @@ export default function ObjectExplorer({
               </h3>
               <div className="object-detail-meta">
                 <span className="neutral-tag">{detail.databaseName}</span>
-                {detail.isPartial && <span className="neutral-tag">{t('Частичные метаданные')}</span>}
+                {detail.isPartial && <span className="neutral-tag">{t('Partial metadata')}</span>}
                 {detail.primaryKey?.length ? <span className="neutral-tag">PK · {detail.primaryKey.join(', ')}</span> : null}
                 {detail.returnType && (
                   <span className="neutral-tag">
-                    {t('Возвращает')} {detail.returnType}
+                    {t('Returns')} {detail.returnType}
                   </span>
                 )}
               </div>
               {detail.target && (
                 <p className="object-note">
-                  {t('Ссылается на:')} <code>{detail.target}</code>
+                  {t('References:')} <code>{detail.target}</code>
                 </p>
               )}
               {detail.isPartial && (
                 <p className="object-warning">
-                  {t('Для этого объекта доступны частичные сведения. Неподтверждённые столбцы и связи не используются как точная схема.')}
+                  {t(
+                    'Only partial information is available for this object. Unverified columns and relationships are not treated as an exact schema.',
+                  )}
                 </p>
               )}
               {columns.length > 0 && (
                 <>
                   <h4 className="object-subheading">
-                    {t('Колонки ·')} {columns.length}
+                    {t('Columns ·')} {columns.length}
                   </h4>
                   <div className="workspace-table-scroll">
                     <table className="column-table">
                       <thead>
                         <tr>
-                          <th>{t('Колонка')}</th>
-                          <th>{t('Тип')}</th>
+                          <th>{t('Column')}</th>
+                          <th>{t('Type')}</th>
                           <th>NULL</th>
                         </tr>
                       </thead>
@@ -243,7 +245,7 @@ export default function ObjectExplorer({
                           <tr key={column.name}>
                             <td className="code-text">{column.name}</td>
                             <td className="type-text">{column.dataType}</td>
-                            <td>{column.isNullable ? t('да') : t('нет')}</td>
+                            <td>{column.isNullable ? t('yes') : t('no')}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -254,15 +256,15 @@ export default function ObjectExplorer({
               {parameters.length > 0 && (
                 <>
                   <h4 className="object-subheading">
-                    {t('Параметры ·')} {parameters.length}
+                    {t('Parameters ·')} {parameters.length}
                   </h4>
                   <div className="workspace-table-scroll">
                     <table className="column-table">
                       <thead>
                         <tr>
-                          <th>{t('Имя')}</th>
-                          <th>{t('Тип')}</th>
-                          <th>{t('Направление')}</th>
+                          <th>{t('Name')}</th>
+                          <th>{t('Type')}</th>
+                          <th>{t('Direction')}</th>
                           <th>NULL</th>
                         </tr>
                       </thead>
@@ -272,7 +274,7 @@ export default function ObjectExplorer({
                             <td className="code-text">{parameter.name}</td>
                             <td className="type-text">{parameter.dataType}</td>
                             <td>{parameter.isOutput ? 'OUTPUT' : 'IN'}</td>
-                            <td>{parameter.isNullable ? t('да') : t('нет')}</td>
+                            <td>{parameter.isNullable ? t('yes') : t('no')}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -282,7 +284,7 @@ export default function ObjectExplorer({
               )}
               {detail.uniqueKeys?.length ? (
                 <>
-                  <h4 className="object-subheading">{t('Уникальные ключи')}</h4>
+                  <h4 className="object-subheading">{t('Unique keys')}</h4>
                   {detail.uniqueKeys.map(key => (
                     <p className="object-note" key={key.id}>
                       <strong>{key.name}</strong> · {key.columns.join(', ')}
@@ -293,7 +295,7 @@ export default function ObjectExplorer({
               {indexes.length > 0 && (
                 <>
                   <h4 className="object-subheading">
-                    {t('Индексы ·')} {indexes.length}
+                    {t('Indexes ·')} {indexes.length}
                   </h4>
                   {indexes.map(index => (
                     <article className="manual-relation-item" key={index.id}>
@@ -309,12 +311,12 @@ export default function ObjectExplorer({
                         </code>
                         {index.includedColumns?.length ? (
                           <p className="object-note">
-                            {t('Включены:')} {index.includedColumns.join(', ')}
+                            {t('Included:')} {index.includedColumns.join(', ')}
                           </p>
                         ) : null}
                         {index.filter && (
                           <p className="object-note">
-                            {t('Фильтр:')} <code>{index.filter}</code>
+                            {t('Filter:')} <code>{index.filter}</code>
                           </p>
                         )}
                       </div>
@@ -328,7 +330,7 @@ export default function ObjectExplorer({
                   items.length > 0 && (
                     <section key={side}>
                       <h4 className="object-subheading">
-                        {side === 'dependencies' ? t('Использует объекты') : t('Зависимые объекты')} · {items.length}
+                        {side === 'dependencies' ? t('Uses objects') : t('Dependent objects')} · {items.length}
                       </h4>
                       {items.map(dependency => (
                         <article className="manual-relation-item" key={dependency.id}>
@@ -340,7 +342,7 @@ export default function ObjectExplorer({
                             ) : (
                               <strong>
                                 {side === 'dependents'
-                                  ? localObjects.find(object => object.id === dependency.fromObjectId)?.name || t('Зависимый объект')
+                                  ? localObjects.find(object => object.id === dependency.fromObjectId)?.name || t('Dependent object')
                                   : dependency.targetName}
                               </strong>
                             )}
@@ -348,11 +350,13 @@ export default function ObjectExplorer({
                               {dependency.kind} · {Math.round(dependency.confidence * 100)}%
                             </small>
                             {dependency.sourcePath && <SourceLocation path={dependency.sourcePath} line={dependency.line} />}
-                            {!dependency.toObjectId && <p className="object-note">{t('Целевой объект не разрешён в текущей модели.')}</p>}
+                            {!dependency.toObjectId && (
+                              <p className="object-note">{t('The target object is unresolved in the current model.')}</p>
+                            )}
                           </div>
                           {side === 'dependents' && (
                             <button className="text-button" onClick={() => choose(dependency.fromObjectId)}>
-                              {t('Открыть объект')}
+                              {t('Open object')}
                             </button>
                           )}
                         </article>
@@ -363,18 +367,18 @@ export default function ObjectExplorer({
               })}
               {detail.impact && (
                 <p className="object-note">
-                  {t('Область влияния:')} {(detail.impact.objectIds || []).length} {t('объектов ·')}{' '}
-                  {(detail.impact.recipeIds || []).length} {t('рецептов. Совместимость рецептов проверяется при обновлении схемы.')}
+                  {t('Impact:')} {(detail.impact.objectIds || []).length} {t('objects ·')} {(detail.impact.recipeIds || []).length}{' '}
+                  {t('recipes. Recipe compatibility is checked when the schema is refreshed.')}
                 </p>
               )}
               {detail.definition ? (
                 <details className="object-definition" open={initialSearchText && detail.id === initialObjectId ? true : undefined}>
-                  <summary>{t('Определение SQL')}</summary>
+                  <summary>{t('SQL definition')}</summary>
                   {detail.sourcePath && <SourceLocation path={detail.sourcePath} line={detail.line} />}
-                  <Suspense fallback={<p className="object-loading">{t('Загрузка SQL-редактора…')}</p>}>
+                  <Suspense fallback={<p className="object-loading">{t('Loading SQL editor…')}</p>}>
                     <SqlEditor
                       key={detail.id}
-                      label={t('Определение объекта SQL')}
+                      label={t('SQL object definition')}
                       value={detail.definition}
                       matchText={detail.id === initialObjectId ? initialSearchText : undefined}
                       readOnly
@@ -383,11 +387,11 @@ export default function ObjectExplorer({
                   </Suspense>
                 </details>
               ) : (
-                detail.kind !== 'table' && <p className="object-note">{t('Определение SQL недоступно в этом источнике.')}</p>
+                detail.kind !== 'table' && <p className="object-note">{t('The SQL definition is unavailable from this source.')}</p>
               )}
               {!columns.length && (detail.kind === 'view' || detail.kind === 'tableFunction') && (
                 <p className="object-note">
-                  {t('Состав результата не определён в текущем источнике. Выполнение SQL для получения колонок не выполнялось.')}
+                  {t('The result columns are unknown in the current source. SQL was not executed to discover columns.')}
                 </p>
               )}
             </>

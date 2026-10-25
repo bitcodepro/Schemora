@@ -17,20 +17,20 @@ type AutoRefresh = {
   };
 };
 const states: Record<string, string> = {
-  disabled: 'Выключено',
-  watching: 'Следим за исходниками',
-  active: 'Следим за исходниками',
-  idle: 'Ожидаем изменений',
-  pending: 'Изменения ожидают анализа',
-  running: 'Обновление модели',
-  scanning: 'Обновление модели',
-  debouncing: 'Ожидаем завершения правок',
-  waiting: 'Ожидаем изменений',
-  error: 'Требует внимания',
-  unavailable: 'Наблюдение недоступно',
-  degraded: 'Наблюдение с ограничениями',
+  disabled: 'Off',
+  watching: 'Watching source files',
+  active: 'Watching source files',
+  idle: 'Waiting for changes',
+  pending: 'Changes awaiting analysis',
+  running: 'Updating model',
+  scanning: 'Updating model',
+  debouncing: 'Waiting for edits to finish',
+  waiting: 'Waiting for changes',
+  error: 'Needs attention',
+  unavailable: 'File watching unavailable',
+  degraded: 'File watching has limitations',
 };
-const time = (value?: string) => (value ? new Date(value).toLocaleTimeString(localeTag()) : t('ещё не было'));
+const time = (value?: string) => (value ? new Date(value).toLocaleTimeString(localeTag()) : t('not yet'));
 export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: string; onJob: (jobId: string) => void }) {
   useLocale();
   const [data, setData] = useState<AutoRefresh | null>(null);
@@ -75,7 +75,7 @@ export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: 
         timer = setTimeout(() => void poll(), loaded.settings.enabled ? 2500 : 10000);
       } catch (cause) {
         if (!controller.signal.aborted) {
-          setError(errorMessage(cause, t('Автообновление недоступно.')));
+          setError(errorMessage(cause, t('Auto-refresh is unavailable.')));
           timer = setTimeout(() => void poll(), 10000);
         }
       }
@@ -104,37 +104,37 @@ export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: 
     } catch (cause) {
       if (current.current === target) {
         setData(previous);
-        setError(errorMessage(cause, t('Настройки автообновления не сохранены.')));
+        setError(errorMessage(cause, t('Auto-refresh settings were not saved.')));
       }
     } finally {
       if (current.current === target) setBusy(false);
     }
   }
   return (
-    <section className="auto-refresh-panel" aria-label={t('Автообновление исходников')}>
+    <section className="auto-refresh-panel" aria-label={t('Source auto-refresh')}>
       <div className="auto-refresh-heading">
         <div>
-          <h3>{t('Автообновление')}</h3>
-          <p>{t('Отслеживает изменения в корневых папках и обновляет схему без сборки проектов.')}</p>
+          <h3>{t('Auto-refresh')}</h3>
+          <p>{t('Watches for changes in root folders and refreshes the schema without building projects.')}</p>
         </div>
         <div className="auto-refresh-controls">
           <label className="auto-refresh-toggle">
             <input
               type="checkbox"
-              aria-label={t('Включить автообновление')}
+              aria-label={t('Enable auto-refresh')}
               checked={data?.settings.enabled || false}
               disabled={!data || busy}
               onChange={event => void save(event.target.checked)}
             />
-            <span>{data?.settings.enabled ? t('Включено') : t('Выключено')}</span>
+            <span>{data?.settings.enabled ? t('On') : t('Off')}</span>
           </label>
           <details>
-            <summary className="text-button">{t('Параметры')}</summary>
+            <summary className="text-button">{t('Options')}</summary>
             <div className="enhancement-grid">
               <label>
-                <span className="field-label">{t('Пауза после изменения')}</span>
+                <span className="field-label">{t('Delay after a change')}</span>
                 <select
-                  aria-label={t('Пауза автообновления')}
+                  aria-label={t('Auto-refresh delay')}
                   value={debounce}
                   disabled={!data || busy}
                   onChange={event => {
@@ -146,15 +146,15 @@ export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: 
                     .sort((a, b) => a - b)
                     .map(value => (
                       <option value={value} key={value}>
-                        {value} {t('сек.')}
+                        {value} {t('sec.')}
                       </option>
                     ))}
                 </select>
               </label>
               <label>
-                <span className="field-label">{t('Повторная проверка папок')}</span>
+                <span className="field-label">{t('Recheck folders')}</span>
                 <select
-                  aria-label={t('Период проверки папок')}
+                  aria-label={t('Folder check interval')}
                   value={reconcile}
                   disabled={!data || busy}
                   onChange={event => {
@@ -166,13 +166,13 @@ export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: 
                     .sort((a, b) => a - b)
                     .map(value => (
                       <option value={value} key={value}>
-                        {value} {t('мин.')}
+                        {value} {t('min.')}
                       </option>
                     ))}
                 </select>
               </label>
               <button className="secondary-button" disabled={!data || busy} onClick={() => void save(data!.settings.enabled)}>
-                {t('Сохранить параметры')}
+                {t('Save options')}
               </button>
             </div>
           </details>
@@ -182,15 +182,15 @@ export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: 
         <div className="auto-refresh-status" role="status">
           <span>{t(states[data.status.state]) || data.status.state}</span>
           <span>
-            {t('Наблюдаемых папок:')} {data.status.watcherCount}
+            {t('Watched folders:')} {data.status.watcherCount}
           </span>
           <span>
-            {t('Изменение:')} {time(data.status.lastEventAt)}
+            {t('Last change:')} {time(data.status.lastEventAt)}
           </span>
           <span>
-            {t('Анализ:')} {time(data.status.lastQueuedAt)}
+            {t('Analysis:')} {time(data.status.lastQueuedAt)}
           </span>
-          {data.status.pending && <span>{t('Есть изменения для следующего анализа')}</span>}
+          {data.status.pending && <span>{t('Changes are pending for the next analysis')}</span>}
         </div>
       )}
       {data?.status.diagnostics?.map((diagnostic, index) => (
@@ -209,7 +209,7 @@ export default function AutoRefreshPanel({ workspaceId, onJob }: { workspaceId: 
         <p className="job-error" role="alert">
           {tMessage(error)}{' '}
           <button className="text-button" onClick={() => setRefresh(value => value + 1)}>
-            {t('Повторить')}
+            {t('Retry')}
           </button>
         </p>
       )}

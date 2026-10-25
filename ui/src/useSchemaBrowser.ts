@@ -110,7 +110,7 @@ export function useSchemaBrowser(active: boolean, workspaceId: string, showPage:
       }
     } catch (cause) {
       if (operation.current() && currentWorkspace.current === target)
-        setError(cause instanceof Error ? cause.message : t('Не удалось открыть схему.'));
+        setError(cause instanceof Error ? cause.message : t('Could not open the schema.'));
     } finally {
       if (operation.current()) setOpeningDatabaseId('');
     }
@@ -145,7 +145,7 @@ export function useSchemaBrowser(active: boolean, workspaceId: string, showPage:
       setQuery('');
     } catch (cause) {
       if (operation.current() && target === currentWorkspace.current)
-        setError(cause instanceof Error ? cause.message : t('Не удалось открыть схему.'));
+        setError(cause instanceof Error ? cause.message : t('Could not open the schema.'));
     } finally {
       if (operation.current()) {
         manualLoading.current = false;
@@ -242,7 +242,7 @@ export function useSchemaBrowser(active: boolean, workspaceId: string, showPage:
         }
       } catch (cause) {
         if (!controller.signal.aborted && workspaceId === currentWorkspace.current)
-          setError(cause instanceof Error ? cause.message : t('Не удалось открыть схему.'));
+          setError(cause instanceof Error ? cause.message : t('Could not open the schema.'));
       } finally {
         running = false;
         first = false;
@@ -297,7 +297,7 @@ export function useSchemaBrowser(active: boolean, workspaceId: string, showPage:
       setQuery('');
     } catch (cause) {
       if (operation.current() && target === currentWorkspace.current)
-        setError(cause instanceof Error ? cause.message : t('Не удалось открыть схему.'));
+        setError(cause instanceof Error ? cause.message : t('Could not open the schema.'));
     } finally {
       if (operation.current()) {
         manualLoading.current = false;

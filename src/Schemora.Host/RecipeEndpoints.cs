@@ -12,18 +12,18 @@ public static class RecipeEndpoints
         app.MapPost(
             "/api/workspaces/{id}/recipes",
             (string id, RecipeDefinition request, RecipeService service, CancellationToken ct) =>
-                service.Save(id, request, null, "Создание рецепта", ct)
+                service.Save(id, request, null, "Recipe creation", ct)
         );
         app.MapPost(
             "/api/workspaces/{id}/recipes/import",
             (string id, ImportRecipeRequest request, RecipeService service, CancellationToken ct) =>
-                service.Save(id, request.Recipe, null, "Импорт определения рецепта", ct)
+                service.Save(id, request.Recipe, null, "Recipe definition import", ct)
         );
         app.MapGet("/api/recipes/{id}", (string id, RecipeService service) => service.Require(id));
         app.MapPut(
             "/api/recipes/{id}",
             (string id, RecipeDefinition request, RecipeService service, CancellationToken ct) =>
-                service.Save(service.Require(id).WorkspaceId, request, id, "Редактирование рецепта", ct)
+                service.Save(service.Require(id).WorkspaceId, request, id, "Recipe edit", ct)
         );
         app.MapPost(
             "/api/recipes/{id}/clone",

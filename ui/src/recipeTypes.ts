@@ -242,7 +242,7 @@ export function quoteSqlIdentifier(name: string): string {
 }
 
 export function decodeRecipeImport(value: unknown): RecipeDefinition {
-  if (!value || typeof value !== 'object') throw new Error(t('JSON должен содержать определение рецепта.'));
+  if (!value || typeof value !== 'object') throw new Error(t('JSON must contain a recipe definition.'));
   const envelope = value as { recipe?: unknown };
   const recipe = (envelope.recipe || value) as RecipeDefinition;
   if (
@@ -252,6 +252,6 @@ export function decodeRecipeImport(value: unknown): RecipeDefinition {
     !Array.isArray(recipe.databaseIds) ||
     !Array.isArray(recipe.inputs)
   )
-    throw new Error(t('В JSON отсутствуют name, sqlTemplate, tags, databaseIds или inputs.'));
+    throw new Error(t('JSON is missing name, sqlTemplate, tags, databaseIds, or inputs.'));
   return recipeForSave(recipe);
 }

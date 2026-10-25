@@ -41,7 +41,7 @@ export default function SettingsPanel({
     void request<StorageInfo>('/api/storage', { signal: controller.signal })
       .then(setStorage)
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Не удалось прочитать настройки.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Could not load settings.')));
       });
     return () => controller.abort();
   }, []);
@@ -53,7 +53,7 @@ export default function SettingsPanel({
     try {
       await callback();
     } catch (cause) {
-      setError(errorMessage(cause, t('Операция не выполнена.')));
+      setError(errorMessage(cause, t('Operation failed.')));
     } finally {
       setBusy(false);
     }
@@ -63,10 +63,10 @@ export default function SettingsPanel({
       const response = await fetch('/api/storage/backup', { method: 'POST', headers: { 'X-Schemora-Token': sessionToken } });
       if (!response.ok) {
         const body = await response.json().catch(() => null);
-        throw new Error(body?.message || t('Не удалось создать копию ({0}).', response.status));
+        throw new Error(body?.message || t('Could not create a backup ({0}).', response.status));
       }
       download(await response.blob(), `schemora-backup-${new Date().toISOString().slice(0, 10)}.sqlite`);
-      setNotice(t('Резервная копия каталога готова к сохранению.'));
+      setNotice(t('The catalog backup is ready to save.'));
     });
   }
   return (
@@ -87,56 +87,56 @@ export default function SettingsPanel({
         <p className="muted-text">{t('Choose English, Russian or Ukrainian. Your choice is saved for future launches.')}</p>
       </section>
       <section className="settings-card" id="settings-appearance">
-        <h2>{t('Оформление и команды')}</h2>
+        <h2>{t('Appearance and shortcuts')}</h2>
         <div className="settings-theme">
-          <span>{t('Тема интерфейса')}</span>
+          <span>{t('Interface theme')}</span>
           <button
             className={theme === 'dark' ? 'primary-button' : 'secondary-button'}
             onClick={() => onThemeChange('dark')}
             aria-pressed={theme === 'dark'}
           >
-            {t('Тёмная')}
+            {t('Dark')}
           </button>
           <button
             className={theme === 'light' ? 'primary-button' : 'secondary-button'}
             onClick={() => onThemeChange('light')}
             aria-pressed={theme === 'light'}
           >
-            {t('Светлая')}
+            {t('Light')}
           </button>
         </div>
         <p className="muted-text">
-          {t('В редакторе: Ctrl+S — сохранить версию рецепта, Ctrl+Enter — сформировать SQL после проверки входов.')}
+          {t('In the editor: Ctrl+S saves a recipe version; Ctrl+Enter generates SQL after validating the inputs.')}
         </p>
       </section>
       <PortableConfigurationPanel workspaceId={workspaceId} />
       <StorageDiagnosticsPanel />
       <section className="settings-card" id="settings-backup">
-        <h2>{t('Хранилище и резервная копия')}</h2>
+        <h2>{t('Storage and backup')}</h2>
         {storage ? (
           <>
             <dl className="storage-details">
               <div>
-                <dt>{t('Каталог данных')}</dt>
+                <dt>{t('Data directory')}</dt>
                 <dd>{storage.dataDirectory}</dd>
               </div>
               <div>
                 <dt>
-                  {t('SQLite · версия')} {storage.catalogVersion}
+                  {t('SQLite · version')} {storage.catalogVersion}
                 </dt>
                 <dd>{storage.catalogPath}</dd>
               </div>
               <div>
-                <dt>{t('Активных заданий')}</dt>
+                <dt>{t('Active jobs')}</dt>
                 <dd>{storage.activeJobs}</dd>
               </div>
             </dl>
             <button className="secondary-button" disabled={busy || stopped} onClick={() => void backup()}>
-              {t('Скачать резервную копию SQLite')}
+              {t('Download SQLite backup')}
             </button>
             <p className="muted-text">
               {t(
-                'Копия содержит снимки, рецепты, версии и настройки. Для восстановления остановите приложение, затем запустите команду, подставив свои пути:',
+                'The backup contains snapshots, recipes, versions, and settings. To restore it, stop the app, then run this command with your own paths:',
               )}
             </p>
             <code className="recovery-command">{storage.recoveryCommand}</code>
@@ -145,20 +145,20 @@ export default function SettingsPanel({
               onClick={() =>
                 void navigator.clipboard
                   .writeText(storage.recoveryCommand)
-                  .then(() => setNotice(t('Команда восстановления скопирована.')))
-                  .catch(cause => setError(errorMessage(cause, t('Копирование недоступно.'))))
+                  .then(() => setNotice(t('Restore command copied.')))
+                  .catch(cause => setError(errorMessage(cause, t('Copying is unavailable.'))))
               }
             >
-              {t('Копировать команду')}
+              {t('Copy command')}
             </button>
           </>
         ) : (
-          <p className="muted-text">{t('Сведения о хранилище появятся в локальном сеансе.')}</p>
+          <p className="muted-text">{t('Storage details will be available in a local session.')}</p>
         )}
       </section>
       <section className="settings-card" id="settings-session">
-        <h2>{t('Завершить локальный сеанс')}</h2>
-        <p className="muted-text">{t('Останавливает процесс Schemora. Сохраните открытые изменения рецепта перед завершением.')}</p>
+        <h2>{t('End local session')}</h2>
+        <p className="muted-text">{t('Stops the Schemora process. Save any open recipe changes before exiting.')}</p>
         <button
           className="secondary-button"
           disabled={!sessionToken || busy || stopped}
@@ -166,11 +166,11 @@ export default function SettingsPanel({
             void action(async () => {
               await request('/api/application/shutdown', { method: 'POST' });
               setStopped(true);
-              setNotice(t('Schemora остановлена. Эту вкладку можно закрыть. Для продолжения запустите приложение снова.'));
+              setNotice(t('Schemora has stopped. You can close this tab. Launch the app again to continue.'));
             })
           }
         >
-          {stopped ? t('Приложение остановлено') : t('Завершить Schemora')}
+          {stopped ? t('Application stopped') : t('Quit Schemora')}
         </button>
       </section>
     </div>

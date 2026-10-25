@@ -147,7 +147,7 @@ public sealed class ValueSetStore(string dataDirectory)
     private string FilePath(string recipeId) =>
         Guid.TryParseExact(recipeId, "N", out _)
             ? Path.Combine(Folder, recipeId.ToLowerInvariant() + ".dat")
-            : throw new AppException("RECIPE_NOT_FOUND", "Рецепт не найден.", 404);
+            : throw new AppException("RECIPE_NOT_FOUND", "Recipe not found.", 404);
 
     private static byte[] Entropy(string recipeId) => Encoding.UTF8.GetBytes("Schemora value sets v1:" + recipeId.ToLowerInvariant());
 

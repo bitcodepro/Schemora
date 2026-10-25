@@ -201,7 +201,7 @@ public sealed class SchemaObjectService(CatalogStore store)
         var context = Capture(workspaceId, snapshotId);
         var item =
             context.Objects.FirstOrDefault(o => o.Id == objectId)
-            ?? throw new AppException("SCHEMA_OBJECT_NOT_FOUND", "Объект не найден.", 404);
+            ?? throw new AppException("SCHEMA_OBJECT_NOT_FOUND", "Object not found.", 404);
         var affected = new HashSet<string>(StringComparer.Ordinal) { objectId };
         var pending = new Queue<string>();
         pending.Enqueue(objectId);

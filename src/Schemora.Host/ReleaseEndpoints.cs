@@ -127,13 +127,16 @@ public static class ReleaseEndpoints
                     || request.Manifest.Databases.Count > 100
                     || request.DatabaseMappings.Count > 100
                 )
-                    throw new AppException("CONFIGURATION_INVALID", "Поддерживается manifest v1: до 100 БД и рецептов за импорт.");
+                    throw new AppException(
+                        "CONFIGURATION_INVALID",
+                        "Manifest v1 is supported: up to 100 databases and recipes per import."
+                    );
                 var target = store.All<DatabaseInfo>("Databases", id).Select(d => d.Id).ToHashSet(StringComparer.Ordinal);
                 foreach (var databaseId in request.Manifest.Recipes.SelectMany(r => r.DatabaseIds).Distinct())
                     if (!request.DatabaseMappings.TryGetValue(databaseId, out var mapped) || !target.Contains(mapped))
                         throw new AppException(
                             "CONFIGURATION_MAPPING_REQUIRED",
-                            "Сначала просканируйте корни и явно сопоставьте каждую исходную БД с БД текущей рабочей области."
+                            "First scan the root folders and explicitly map each source database to a database in the current workspace."
                         );
                 var results = new List<object>();
                 foreach (var definition in request.Manifest.Recipes)
@@ -148,7 +151,7 @@ public static class ReleaseEndpoints
                                 DatabaseIds = definition.DatabaseIds.Select(old => request.DatabaseMappings[old]).Distinct().ToArray(),
                             },
                             null,
-                            "Импорт переносимой конфигурации",
+                            "Portable configuration import",
                             ct
                         );
                         results.Add(
@@ -191,7 +194,7 @@ public static class ReleaseEndpoints
                 {
                     Results = results,
                     RootSelectionRequired = false,
-                    Note = "Корни текущей рабочей области сохранены; импортированы определения рецептов с явным сопоставлением БД.",
+                    Note = "The current workspace's root folders were preserved; recipe definitions were imported with explicit database mappings.",
                 };
             }
         );

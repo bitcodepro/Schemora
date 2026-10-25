@@ -54,7 +54,7 @@ export default function RecipeCatalogList({
     <aside className="recipe-catalog">
       <div className="section-heading">
         <h2>
-          {t('Рецепты')} <span className="section-count">{entries.length}</span>
+          {t('Recipes')} <span className="section-count">{entries.length}</span>
         </h2>
       </div>
       <div className="recipe-catalog-views" role="group" aria-label={t('Show recipes')}>
@@ -66,13 +66,13 @@ export default function RecipeCatalogList({
       </div>
       <input
         type="search"
-        aria-label={t('Поиск рецептов')}
+        aria-label={t('Search recipes')}
         value={query}
         onChange={event => setQuery(event.target.value)}
-        placeholder={t('Название, описание, тег…')}
+        placeholder={t('Name, description, tag…')}
       />
-      <select aria-label={t('Фильтр тега рецептов')} value={tag} onChange={event => setTag(event.target.value)}>
-        <option value="">{t('Все теги')}</option>
+      <select aria-label={t('Recipe tag filter')} value={tag} onChange={event => setTag(event.target.value)}>
+        <option value="">{t('All tags')}</option>
         {tags.map(value => (
           <option key={value} value={value}>
             {value}
@@ -81,7 +81,7 @@ export default function RecipeCatalogList({
       </select>
       <div className="recipe-catalog-list">
         {loading ? (
-          <p className="muted-text">{t('Загрузка рецептов…')}</p>
+          <p className="muted-text">{t('Loading recipes…')}</p>
         ) : filtered.length ? (
           filtered.slice(0, 250).map(entry => {
             const favorite = starred.has(entry.definition.id);
@@ -89,7 +89,7 @@ export default function RecipeCatalogList({
               <div key={entry.definition.id} className={'recipe-catalog-item' + (selectedId === entry.definition.id ? ' selected' : '')}>
                 <button className="recipe-catalog-open" disabled={busy} onClick={() => onOpen(entry)}>
                   <strong>{entry.definition.name}</strong>
-                  <small>{entry.definition.description || t('Без описания')}</small>
+                  <small>{entry.definition.description || t('No description')}</small>
                   <div>
                     <span className={`recipe-state ${entry.validation.status.toLowerCase()}`}>
                       {t(statusLabels[entry.validation.status])}
@@ -118,15 +118,15 @@ export default function RecipeCatalogList({
               : view === 'recent' && !query && !tag
                 ? t('Recipes you open appear here.')
                 : entries.length
-                  ? t('Рецепты по этому фильтру не найдены.')
-                  : t('Создайте рецепт по таблице, SQL-файлу или доверенному JOIN-пути.')}
+                  ? t('No recipes match this filter.')
+                  : t('Create a recipe from a table, SQL file, or trusted JOIN path.')}
           </p>
         )}
       </div>
       {filtered.length > 250 && (
         <p className="workspace-limit-note">
-          {t('Первые250 из')} {filtered.length}
-          {t('; уточните поиск.')}
+          {t('First 250 of #2')} {filtered.length}
+          {t('; refine your search.')}
         </p>
       )}
     </aside>

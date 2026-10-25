@@ -13,14 +13,14 @@ function Statistics({ statistics }: { statistics: InputStatistics }) {
   return (
     <div className="input-statistics">
       {[
-        [t('Всего'), statistics.total],
-        [t('Валидных'), statistics.valid],
-        [t('Ошибок'), statistics.invalid],
-        [t('Уникальных'), statistics.unique],
-        [t('Дубликатов'), statistics.duplicates],
-        [t('В SQL'), statistics.outputCount],
+        [t('Total'), statistics.total],
+        [t('Valid'), statistics.valid],
+        [t('Errors'), statistics.invalid],
+        [t('Unique'), statistics.unique],
+        [t('Duplicates'), statistics.duplicates],
+        [t('In SQL'), statistics.outputCount],
       ].map(([label, value]) => (
-        <div key={label} className={label === t('Ошибок') && Number(value) > 0 ? 'has-errors' : ''}>
+        <div key={label} className={label === t('Errors') && Number(value) > 0 ? 'has-errors' : ''}>
           <strong>{Number(value).toLocaleString(localeTag())}</strong>
           <span>{label}</span>
         </div>
@@ -76,16 +76,16 @@ export default function RecipeRuntimeTab({
     <div className="recipe-runtime">
       {dirty && (
         <div className="alert warning">
-          <p>{t('Сохраните определение, чтобы обрабатывать ID и формировать SQL с актуальными типами и политиками.')}</p>
+          <p>{t('Save the definition to process IDs and generate SQL with the current types and policies.')}</p>
         </div>
       )}
       {entry && (
         <div className="recipe-validation">
           <div className="section-heading">
-            <h3>{t('Совместимость со схемой')}</h3>
+            <h3>{t('Schema compatibility')}</h3>
             <span className={`recipe-state ${entry.validation.status.toLowerCase()}`}>{t(statusLabels[entry.validation.status])}</span>
             <button className="text-button" disabled={busy} onClick={onRefreshValidation}>
-              {t('Проверить совместимость')}
+              {t('Check compatibility')}
             </button>
           </div>
           {entry.validation.diagnostics.map((diagnostic, index) => (
@@ -104,7 +104,7 @@ export default function RecipeRuntimeTab({
                   setRendered(null);
                 }}
               />
-              <span>{t('Я проверил диагностику и вручную подтверждаю смысл SQL этого рецепта перед генерацией.')}</span>
+              <span>{t("I have reviewed the diagnostics and manually confirm the meaning of this recipe's SQL before generation.")}</span>
             </label>
           )}
         </div>
@@ -173,7 +173,7 @@ export default function RecipeRuntimeTab({
               <input
                 type="text"
                 className="runtime-value-input"
-                aria-label={t('Значение: {0}', input.name)}
+                aria-label={t('Value: {0}', input.name)}
                 value={runtimeValue(input.name)}
                 onChange={event => changeRuntimeInput(input.name, event.target.value)}
                 spellCheck={false}
@@ -200,17 +200,17 @@ export default function RecipeRuntimeTab({
           ) : (
             <>
               <textarea
-                aria-label={t('Список ID: {0}', input.name)}
+                aria-label={t('ID list: {0}', input.name)}
                 value={runtimeValue(input.name)}
                 onChange={event => changeRuntimeInput(input.name, event.target.value)}
                 rows={6}
                 spellCheck={false}
                 disabled={dirty}
-                placeholder={t('Вставьте ID из строк, CSV, TSV, SQL-списка или через пробел…')}
+                placeholder={t('Paste IDs from lines, CSV, TSV, a SQL list, or space-separated text…')}
               />
               <div className="runtime-policy-summary">
-                <span>{input.deduplicate ? t('Дубликаты удаляются по явной политике') : t('Дубликаты сохраняются')}</span>
-                <span>{input.preserveOrder ? t('Порядок сохраняется') : t('Сохранение порядка не требуется')}</span>
+                <span>{input.deduplicate ? t('Duplicates are removed by an explicit policy') : t('Duplicates are kept')}</span>
+                <span>{input.preserveOrder ? t('Order is preserved') : t('Preserving order is not required')}</span>
               </div>
             </>
           )}
@@ -224,10 +224,10 @@ export default function RecipeRuntimeTab({
                   <table>
                     <thead>
                       <tr>
-                        <th>{t('Элемент')}</th>
-                        <th>{t('Строка / колонка')}</th>
-                        <th>{t('Ошибка')}</th>
-                        <th>{t('Значение')}</th>
+                        <th>{t('Item')}</th>
+                        <th>{t('Line / column')}</th>
+                        <th>{t('Error')}</th>
+                        <th>{t('Value')}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -250,7 +250,7 @@ export default function RecipeRuntimeTab({
                   </table>
                   {parsed[input.name].errors.length > 150 && (
                     <p>
-                      {t('Показаны первые150 из')} {parsed[input.name].errors.length} {t('ошибок.')}
+                      {t('Showing the first 150 of')} {parsed[input.name].errors.length} {t('errors.')}
                     </p>
                   )}
                 </div>
@@ -266,31 +266,31 @@ export default function RecipeRuntimeTab({
           onClick={() => void parseInputs()}
         >
           {parseBusy
-            ? t('Проверка…')
+            ? t('Checking…')
             : draft.inputs.every(input => valueInputs.has(input.name))
-              ? t('Проверить значения')
+              ? t('Validate values')
               : draft.inputs.some(input => valueInputs.has(input.name))
-                ? t('Проверить ID и значения')
-                : t('Проверить все ID')}
+                ? t('Validate IDs and values')
+                : t('Validate all IDs')}
         </button>
         <span>
           {invalidCount > 0
-            ? t('Ошибок: {0}. Генерация заблокирована до исправления.', invalidCount)
-            : t('Проверка выполняется локально; входные значения не сохраняются.')}
+            ? t('Errors: {0}. Generation is blocked until they are fixed.', invalidCount)
+            : t('Validation runs locally; input values are not saved.')}
         </span>
       </div>
       <div className="runtime-output-controls">
         <label>
-          <span className="field-label">{t('Режим вывода')}</span>
+          <span className="field-label">{t('Output mode')}</span>
           <select value={mode} onChange={event => setMode(event.target.value as 'standalone' | 'parameterized')}>
-            <option value="standalone">{t('Самодостаточный SQL-скрипт')}</option>
-            <option value="parameterized">{t('Параметры + пример ADO.NET')}</option>
+            <option value="standalone">{t('Standalone SQL script')}</option>
+            <option value="parameterized">{t('Parameters + ADO.NET example')}</option>
           </select>
         </label>
         <label>
-          <span className="field-label">{t('SQL-стратегия')}</span>
+          <span className="field-label">{t('SQL strategy')}</span>
           <select value={strategy} onChange={event => setStrategy(event.target.value as SqlStrategy)}>
-            <option value="auto">{t('Auto · по размеру и типу')}</option>
+            <option value="auto">{t('Auto · by size and type')}</option>
             <option value="values">VALUES</option>
             <option value="temp">{t('#temp + batch INSERT')}</option>
             <option value="openjson">{t('OPENJSON · compatibility130+')}</option>
@@ -298,7 +298,7 @@ export default function RecipeRuntimeTab({
           </select>
         </label>
         <button className="primary-button" disabled={!canRender || parseBusy || renderBusy || busy} onClick={() => void renderRecipe()}>
-          {renderBusy ? t('Генерация…') : t('Сформировать SQL')}
+          {renderBusy ? t('Generating…') : t('Generate SQL')}
         </button>
       </div>
       {runtimeError && (
@@ -318,16 +318,16 @@ export default function RecipeRuntimeTab({
             </h3>
             <div>
               <button className="secondary-button" onClick={() => void copyOutput()}>
-                {t('Скопировать')}
+                {t('Copy')}
               </button>
               <button
                 className="secondary-button"
-                title={t('Файл будет содержать введённые значения')}
+                title={t('The file will contain the entered values')}
                 onClick={() =>
                   saveDownload(output, filename(draft.name) + (outputView !== 'sql' ? '.cs' : '.sql'), 'text/plain;charset=utf-8')
                 }
               >
-                {t('Скачать файл')}
+                {t('Download file')}
               </button>
             </div>
           </div>
@@ -351,10 +351,10 @@ export default function RecipeRuntimeTab({
               {tMessage(warning)}
             </p>
           ))}
-          <Suspense fallback={<textarea readOnly value={output} rows={14} aria-label={t('Сгенерированный SQL')} />}>
+          <Suspense fallback={<textarea readOnly value={output} rows={14} aria-label={t('Generated SQL')} />}>
             <SqlEditor
               key={`output:${draft.id}`}
-              label={t('Сгенерированный SQL или ADO.NET example')}
+              label={t('Generated SQL or ADO.NET example')}
               value={output}
               language={outputView !== 'sql' ? 'csharp' : 'sql'}
               readOnly
@@ -363,7 +363,7 @@ export default function RecipeRuntimeTab({
           </Suspense>
           {rendered.parameters.length > 0 && (
             <p className="parameter-count">
-              {t('Параметров:')} {rendered.parameters.length}.{' '}
+              {t('Parameters:')} {rendered.parameters.length}.{' '}
               {rendered.parameters
                 .slice(0, 12)
                 .map(parameter => `${parameter.name}: ${parameter.sqlType}`)
@@ -372,8 +372,7 @@ export default function RecipeRuntimeTab({
             </p>
           )}
           <p className="copy-state" role="status">
-            {tMessage(copyState) ||
-              t('Результат хранится в памяти вкладки. Копирование и скачивание выполняются только по вашему действию.')}
+            {tMessage(copyState) || t("The result is kept in this tab's memory. Copying and downloading happen only when you choose.")}
           </p>
         </section>
       )}

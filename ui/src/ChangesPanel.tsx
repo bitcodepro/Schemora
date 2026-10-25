@@ -42,25 +42,25 @@ type Proposal = {
 };
 const dates = (value: string) => new Date(value).toLocaleString(localeTag());
 const statusLabels: Record<string, string> = {
-  Valid: 'Совместим',
-  Warning: 'Есть замечания',
-  Broken: 'Несовместим',
-  NeedsReview: 'Нужна проверка',
-  proposed: 'Предложено',
-  approved: 'Применено',
-  rejected: 'Отклонено',
+  Valid: 'Compatible',
+  Warning: 'Has warnings',
+  Broken: 'Incompatible',
+  NeedsReview: 'Review required',
+  proposed: 'Proposed',
+  approved: 'Applied',
+  rejected: 'Rejected #2',
 };
 const changeLabels: Record<string, string> = {
-  tableAdded: 'Таблица добавлена',
-  tableRemoved: 'Таблица удалена',
-  columnAdded: 'Колонка добавлена',
-  columnRemoved: 'Колонка удалена',
-  columnTypeChanged: 'Изменён тип',
-  columnNullabilityChanged: 'Изменён NULL',
-  primaryKeyChanged: 'Изменён PK',
-  foreignKeyAdded: 'Добавлен FK',
-  foreignKeyRemoved: 'Удалён FK',
-  foreignKeyChanged: 'Изменён FK',
+  tableAdded: 'Table added',
+  tableRemoved: 'Table removed',
+  columnAdded: 'Column added',
+  columnRemoved: 'Column removed',
+  columnTypeChanged: 'Type changed',
+  columnNullabilityChanged: 'NULL changed',
+  primaryKeyChanged: 'PK changed',
+  foreignKeyAdded: 'FK added',
+  foreignKeyRemoved: 'FK removed',
+  foreignKeyChanged: 'FK changed',
 };
 
 export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspaceId: string, recipeId: string) => void }) {
@@ -120,7 +120,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         setRecipeId(impacted.find(item => item.status === 'Broken')?.recipeId || impacted[0]?.recipeId || '');
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Не удалось загрузить изменения.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Could not load changes.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
@@ -139,7 +139,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         setImpact(impacted);
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Состояние не обновлено.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('State was not refreshed.')));
       });
     return () => controller.abort();
   }, [refresh, workspaceId]);
@@ -164,7 +164,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         setFromId(loaded[1]?.id || '');
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Снимки недоступны.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Snapshots unavailable.')));
       });
     return () => controller.abort();
   }, [databaseId, refresh]);
@@ -190,7 +190,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         setNewColumn('');
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Сравнение не выполнено.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Comparison failed.')));
       })
       .finally(() => {
         if (!controller.signal.aborted) setDiffLoading(false);
@@ -214,7 +214,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         setProposalId(saved[0]?.id || '');
       })
       .catch(cause => {
-        if (!controller.signal.aborted) setError(errorMessage(cause, t('Рецепт или предложения недоступны.')));
+        if (!controller.signal.aborted) setError(errorMessage(cause, t('Recipe or proposals unavailable.')));
       });
     return () => controller.abort();
   }, [recipeId, refresh]);
@@ -267,9 +267,9 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
       setProposals(previous => [proposal, ...previous]);
       setProposalId(proposal.id);
       setReviewed(false);
-      setNotice(t('Предложение создано. Просмотрите SQL diff и подтвердите применение отдельным действием.'));
+      setNotice(t('Proposal created. Review the SQL diff, then approve it in a separate action.'));
     } catch (cause) {
-      setError(errorMessage(cause, t('Сервер не сформировал безопасное предложение.')));
+      setError(errorMessage(cause, t('The server could not create a safe proposal.')));
     } finally {
       setBusy(false);
     }
@@ -303,9 +303,9 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         ),
       );
       setReviewed(false);
-      setNotice(t('Исправление применено как версия {0}. Предыдущие версии доступны для отката.', updated.definition.version));
+      setNotice(t('Repair applied as version {0}. Previous versions are available for rollback.', updated.definition.version));
     } catch (cause) {
-      setError(errorMessage(cause, t('Предложение не применено. Обновите контекст и повторите preview.')));
+      setError(errorMessage(cause, t('Proposal was not applied. Refresh the context and create a new preview.')));
     } finally {
       setBusy(false);
     }
@@ -320,9 +320,9 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
         body: '{}',
       });
       setProposals(previous => previous.map(proposal => (proposal.id === updated.id ? updated : proposal)));
-      setNotice(t('Предложение отклонено.'));
+      setNotice(t('Proposal rejected.'));
     } catch (cause) {
-      setError(errorMessage(cause, t('Решение не сохранено.')));
+      setError(errorMessage(cause, t('Decision was not saved.')));
     } finally {
       setBusy(false);
     }
@@ -340,13 +340,13 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
             setError('');
           }}
         >
-          {loading ? t('Загрузка…') : t('Обновить изменения')}
+          {loading ? t('Loading…') : t('Refresh changes')}
         </button>
       </div>
       {error && (
         <div className="alert error" role="alert">
           <p>{tMessage(error)}</p>
-          <button className="icon-button" aria-label={t('Скрыть ошибку')} onClick={() => setError('')}>
+          <button className="icon-button" aria-label={t('Dismiss error')} onClick={() => setError('')}>
             ×
           </button>
         </div>
@@ -358,28 +358,28 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
       )}
       {!workspaceId ? (
         <div className="panel-placeholder">
-          <strong>{t('Выберите рабочую область')}</strong>
-          <p>{t('Сравнение снимков и проверка рецептов доступны после первого сканирования.')}</p>
+          <strong>{t('Select a workspace #2')}</strong>
+          <p>{t('Snapshot comparisons and recipe checks are available after the first scan.')}</p>
         </div>
       ) : (
         <>
           <section className="snapshot-comparison source-card">
             <div className="source-header">
               <div className="section-title">
-                <h2>{t('Изменения схемы')}</h2>
+                <h2>{t('Schema changes')}</h2>
               </div>
               <span className="quiet-label">{t('Immutable snapshots')}</span>
             </div>
             <div className="snapshot-selectors">
               <label>
-                <span className="field-label">{t('База данных')}</span>
+                <span className="field-label">{t('Database')}</span>
                 <select
-                  aria-label={t('База для сравнения снимков')}
+                  aria-label={t('Database for snapshot comparison')}
                   value={databaseId}
                   disabled={busy}
                   onChange={event => setDatabaseId(event.target.value)}
                 >
-                  <option value="">{t('Выберите БД')}</option>
+                  <option value="">{t('Select a database')}</option>
                   {catalog?.databases.map(database => (
                     <option key={database.id} value={database.id}>
                       {database.name}
@@ -388,35 +388,35 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                 </select>
               </label>
               <label>
-                <span className="field-label">{t('До')}</span>
+                <span className="field-label">{t('Before')}</span>
                 <select
-                  aria-label={t('Снимок до изменений')}
+                  aria-label={t('Snapshot before changes')}
                   value={fromId}
                   disabled={!snapshots.length || busy}
                   onChange={event => setFromId(event.target.value)}
                 >
-                  <option value="">{t('Выберите исходный снимок')}</option>
+                  <option value="">{t('Select the original snapshot')}</option>
                   {snapshots.map(snapshot => (
                     <option key={snapshot.id} value={snapshot.id}>
                       {dates(snapshot.createdAt)} · {snapshot.mode} · {snapshot.tableCount}
-                      {t('табл.')}
+                      {t('tables')}
                     </option>
                   ))}
                 </select>
               </label>
               <label>
-                <span className="field-label">{t('После')}</span>
+                <span className="field-label">{t('After')}</span>
                 <select
-                  aria-label={t('Снимок после изменений')}
+                  aria-label={t('Snapshot after changes')}
                   value={toId}
                   disabled={!snapshots.length || busy}
                   onChange={event => setToId(event.target.value)}
                 >
-                  <option value="">{t('Выберите новый снимок')}</option>
+                  <option value="">{t('Select the new snapshot')}</option>
                   {snapshots.map(snapshot => (
                     <option key={snapshot.id} value={snapshot.id}>
                       {dates(snapshot.createdAt)} · {snapshot.mode} · {snapshot.tableCount}
-                      {t('табл.')}
+                      {t('tables')}
                     </option>
                   ))}
                 </select>
@@ -425,28 +425,30 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
             {diffLoading ? (
               <div className="panel-placeholder">
                 <span className="spinner" />
-                {t('Сравнение метаданных…')}
+                {t('Comparing metadata…')}
               </div>
             ) : !diff ? (
               <p className="comparison-empty">
                 {snapshots.length < 2
-                  ? t('Нужны два снимка одной БД. Измените исходники и выполните Quick Refresh или Rebuild в workspace.')
+                  ? t(
+                      'Two snapshots of the same database are required. Change the sources and run Quick Refresh or Rebuild in the workspace.',
+                    )
                   : fromId === toId
-                    ? t('Выберите разные снимки для сравнения.')
-                    : t('Выберите исходный и новый снимок.')}
+                    ? t('Select different snapshots to compare.')
+                    : t('Select the original and new snapshots.')}
               </p>
             ) : (
               <>
                 <div className="diff-summary">
                   <div>
                     <strong>{diff.changes.length}</strong>
-                    <span>{t('изменений')}</span>
+                    <span>{t('changes')}</span>
                   </div>
                   <div>
                     <strong>{diff.renameCandidates.length}</strong>
-                    <span>{t('возможных переименований')}</span>
+                    <span>{t('possible renames')}</span>
                   </div>
-                  <p>{t('Структурное сходство — основание для проверки. Оно не доказывает переименование объекта.')}</p>
+                  <p>{t('Structural similarity is a reason to investigate. It does not prove that an object was renamed.')}</p>
                 </div>
                 {diff.diagnostics.map((diagnostic, index) => (
                   <div key={index} className={`validation-diagnostic ${diagnostic.severity}`}>
@@ -457,13 +459,13 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                 <div className="diff-filters">
                   <input
                     type="search"
-                    aria-label={t('Поиск изменений схемы')}
+                    aria-label={t('Search schema changes')}
                     value={diffQuery}
                     onChange={event => setDiffQuery(event.target.value)}
-                    placeholder={t('Таблица, колонка или тип изменения…')}
+                    placeholder={t('Table, column, or change type…')}
                   />
-                  <select aria-label={t('Тип изменения схемы')} value={diffKind} onChange={event => setDiffKind(event.target.value)}>
-                    <option value="">{t('Все изменения')}</option>
+                  <select aria-label={t('Schema change type')} value={diffKind} onChange={event => setDiffKind(event.target.value)}>
+                    <option value="">{t('All changes')}</option>
                     {changeKinds.map(kind => (
                       <option value={kind} key={kind}>
                         {t(changeLabels[kind]) || kind}
@@ -476,10 +478,10 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                     <table className="workspace-table">
                       <thead>
                         <tr>
-                          <th>{t('Изменение')}</th>
-                          <th>{t('Объект')}</th>
-                          <th>{t('До')}</th>
-                          <th>{t('После')}</th>
+                          <th>{t('Change')}</th>
+                          <th>{t('Object')}</th>
+                          <th>{t('Before')}</th>
+                          <th>{t('After')}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -511,19 +513,19 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                   </div>
                 ) : (
                   <p className="comparison-empty">
-                    {diff.changes.length ? t('Изменений по этому фильтру нет.') : t('Сравниваемая структура не изменилась.')}
+                    {diff.changes.length ? t('No changes match this filter.') : t('The compared structure has not changed.')}
                   </p>
                 )}
                 {filteredChanges.length > 300 && (
                   <p className="workspace-limit-note">
-                    {t('Первые300 из')} {filteredChanges.length}
-                    {t('; уточните фильтры.')}
+                    {t('First 300 of')} {filteredChanges.length}
+                    {t('; refine the filters.')}
                   </p>
                 )}
                 {diff.renameCandidates.length > 0 && (
                   <details className="rename-candidates">
                     <summary>
-                      {t('Возможные переименования ·')} {diff.renameCandidates.length}
+                      {t('Possible renames ·')} {diff.renameCandidates.length}
                     </summary>
                     <div>
                       {diff.renameCandidates.slice(0, 100).map((candidate, index) => (
@@ -545,10 +547,10 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                                 setOldColumn(candidate.oldName);
                                 setNewColumn(candidate.newName);
                                 setReason('');
-                                setNotice(t('Поля замены заполнены из кандидата. Укажите собственное основание и создайте preview.'));
+                                setNotice(t('Replacement fields filled from a candidate. Provide your own reason and create a preview.'));
                               }}
                             >
-                              {t('Заполнить замену')}
+                              {t('Fill replacement fields')}
                             </button>
                           )}
                         </article>
@@ -563,9 +565,9 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
           <section className="recipe-impact">
             <div className="section-heading">
               <h2>
-                {t('Совместимость рецептов')} <span className="section-count">{impact.length}</span>
+                {t('Recipe compatibility')} <span className="section-count">{impact.length}</span>
               </h2>
-              <span className="quiet-label">{t('По текущей схеме')}</span>
+              <span className="quiet-label">{t('Against the current schema')}</span>
             </div>
             {impact.length ? (
               <div className="impact-list">
@@ -578,7 +580,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                       </button>
                       <span className={`recipe-state ${item.status.toLowerCase()}`}>{t(statusLabels[item.status]) || item.status}</span>
                       <button className="text-button" onClick={() => onOpenRecipe(workspaceId, item.recipeId)}>
-                        {t('Открыть рецепт')}
+                        {t('Open recipe')}
                       </button>
                     </div>
                     {item.diagnostics.map((diagnostic, index) => (
@@ -588,7 +590,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                       </p>
                     ))}
                     <div className="compatible-snapshots">
-                      <span>{t('Последние совместимые снимки')}</span>
+                      <span>{t('Latest compatible snapshots')}</span>
                       {Object.entries(item.lastCompatibleSnapshots).length ? (
                         Object.entries(item.lastCompatibleSnapshots).map(([id, snapshot]) => (
                           <code key={id}>
@@ -596,33 +598,33 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                           </code>
                         ))
                       ) : (
-                        <em>{t('Не зафиксированы')}</em>
+                        <em>{t('Not recorded')}</em>
                       )}
                     </div>
                   </article>
                 ))}
               </div>
             ) : (
-              <div className="panel-placeholder">{t('Создайте рецепты, чтобы отслеживать влияние изменений схемы.')}</div>
+              <div className="panel-placeholder">{t('Create recipes to track the impact of schema changes.')}</div>
             )}
           </section>
           <section className="repair-form source-card">
             <div className="source-header">
               <div className="section-title">
-                <h2>{t('Предложить исправление колонки')}</h2>
+                <h2>{t('Propose a column repair')}</h2>
               </div>
-              <span className="quiet-label">{t('Preview → проверка → подтверждение')}</span>
+              <span className="quiet-label">{t('Preview → review → approval')}</span>
             </div>
             <div className="repair-selection">
               <label>
-                <span className="field-label">{t('Рецепт')}</span>
+                <span className="field-label">{t('Recipe')}</span>
                 <select
-                  aria-label={t('Рецепт для исправления')}
+                  aria-label={t('Recipe to repair')}
                   value={recipeId}
                   disabled={busy}
                   onChange={event => setRecipeId(event.target.value)}
                 >
-                  <option value="">{t('Выберите рецепт')}</option>
+                  <option value="">{t('Select a recipe')}</option>
                   {impact.map(item => (
                     <option key={item.recipeId} value={item.recipeId}>
                       {item.name} · v{item.version}
@@ -631,9 +633,9 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                 </select>
               </label>
               <label>
-                <span className="field-label">{t('Таблица в выбранной БД')}</span>
+                <span className="field-label">{t('Table in the selected database')}</span>
                 <select
-                  aria-label={t('Таблица для исправления')}
+                  aria-label={t('Table to repair')}
                   value={tableId}
                   disabled={busy || !repairTables.length}
                   onChange={event => {
@@ -642,7 +644,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                     setNewColumn('');
                   }}
                 >
-                  <option value="">{t('Выберите таблицу')}</option>
+                  <option value="">{t('Select a table')}</option>
                   {repairTables.map(table => (
                     <option key={table.id} value={table.id}>
                       {table.schema}.{table.name}
@@ -679,14 +681,14 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
             {repairKind === 'column' && (
               <div className="repair-column-row">
                 <label>
-                  <span className="field-label">{t('Старая колонка в SQL')}</span>
+                  <span className="field-label">{t('Old column in SQL')}</span>
                   <input
-                    aria-label={t('Старая колонка')}
+                    aria-label={t('Old column')}
                     list="repair-old-columns"
                     value={oldColumn}
                     disabled={busy}
                     onChange={event => setOldColumn(event.target.value)}
-                    placeholder={t('Имя удалённого/переименованного поля')}
+                    placeholder={t('Name of the removed/renamed column')}
                   />
                   <datalist id="repair-old-columns">
                     {oldTable?.columns.map(column => (
@@ -696,14 +698,14 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                 </label>
                 <span>→</span>
                 <label>
-                  <span className="field-label">{t('Новая колонка в текущем снимке')}</span>
+                  <span className="field-label">{t('New column in the current snapshot')}</span>
                   <select
-                    aria-label={t('Новая колонка')}
+                    aria-label={t('New column')}
                     value={newColumn}
                     disabled={busy || !newTable}
                     onChange={event => setNewColumn(event.target.value)}
                   >
-                    <option value="">{t('Выберите замену')}</option>
+                    <option value="">{t('Select a replacement')}</option>
                     {newTable?.columns.map(column => (
                       <option key={column.name} value={column.name} disabled={column.name === oldColumn}>
                         {column.name} · {column.dataType}
@@ -714,31 +716,31 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
               </div>
             )}
             <label className="repair-reason">
-              <span className="field-label">{t('Основание замены')}</span>
+              <span className="field-label">{t('Reason for the replacement')}</span>
               <textarea
-                aria-label={t('Основание исправления')}
+                aria-label={t('Reason for the repair')}
                 value={reason}
                 maxLength={2000}
                 rows={3}
                 disabled={busy}
                 onChange={event => setReason(event.target.value)}
-                placeholder={t('Укажите подтверждённый источник соответствия старого и нового поля…')}
+                placeholder={t('Provide a verified source for the mapping between the old and new columns…')}
               />
             </label>
             {recipe && !recipe.definition.databaseIds.includes(databaseId) && (
               <p className="job-error">
-                {t('Выбранная БД не входит в область этого рецепта. Измените БД сравнения или выберите другой рецепт.')}
+                {t('The selected database is outside this recipe’s scope. Change the comparison database or select another recipe.')}
               </p>
             )}
             {!newTable && tableId && (
               <p className="job-error">
-                {t('Таблицы нет в выбранном новом снимке. Такое изменение требует ручного редактирования рецепта.')}
+                {t('The table is missing from the selected new snapshot. This change requires editing the recipe manually.')}
               </p>
             )}
             <div className="repair-form-footer">
               <p>
                 {t(
-                  'Сервер привязывает ссылки к таблицам через SQL AST, проверяет замену и сохраняет только предложение. Смысл SQL оценивается при просмотре diff.',
+                  'The server binds references to tables using the SQL AST, validates the replacement, and saves only a proposal. Assess SQL semantics when reviewing the diff.',
                 )}
               </p>
               <button
@@ -755,7 +757,7 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                 }
                 onClick={() => void propose()}
               >
-                {busy ? t('Обработка…') : t('Создать preview')}
+                {busy ? t('Processing…') : t('Create preview')}
               </button>
             </div>
           </section>
@@ -763,20 +765,20 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
             <section className="repair-proposals">
               <div className="section-heading">
                 <h2>
-                  {t('Предложения исправлений')} <span className="section-count">{proposals.length}</span>
+                  {t('Repair proposals')} <span className="section-count">{proposals.length}</span>
                 </h2>
               </div>
               {proposals.length ? (
                 <>
                   <select
-                    aria-label={t('Предложение исправления')}
+                    aria-label={t('Repair proposal')}
                     value={proposalId}
                     disabled={busy}
                     onChange={event => setProposalId(event.target.value)}
                   >
                     {proposals.map(proposal => (
                       <option key={proposal.id} value={proposal.id}>
-                        {dates(proposal.createdAt)} · {t(statusLabels[proposal.status])} · v{proposal.baseVersion} {t('· замен')}
+                        {dates(proposal.createdAt)} · {t(statusLabels[proposal.status])} · v{proposal.baseVersion} {t('· replacements: ')}
                         {proposal.replacementCount}
                       </option>
                     ))}
@@ -786,26 +788,26 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                       <div className="proposal-preview-heading">
                         <span className="neutral-tag">{t(statusLabels[selectedProposal.status])}</span>
                         <strong>
-                          {t('Версия')} {selectedProposal.baseVersion} · {selectedProposal.replacementCount} {t('замен')}
+                          {t('Version')} {selectedProposal.baseVersion} · {selectedProposal.replacementCount} {t('replacements')}
                         </strong>
                         {selectedProposal.appliedVersion && (
                           <span>
-                            {t('Применено в v')}
+                            {t('Applied in v')}
                             {selectedProposal.appliedVersion}
                           </span>
                         )}
                       </div>
                       <p className="proposal-reason">{selectedProposal.reason}</p>
                       <div className="proposal-column-labels">
-                        <span>{t('До · сохранённое определение')}</span>
-                        <span>{t('После · предложенный SQL')}</span>
+                        <span>{t('Before · saved definition')}</span>
+                        <span>{t('After · proposed SQL')}</span>
                       </div>
-                      <Suspense fallback={<div className="monaco-loading">{t('Загрузка локального SQL diff…')}</div>}>
+                      <Suspense fallback={<div className="monaco-loading">{t('Loading local SQL diff…')}</div>}>
                         <SqlDiffEditor
                           key={selectedProposal.id}
                           before={selectedProposal.beforeSql}
                           after={selectedProposal.afterSql}
-                          label={t('SQL diff предложения исправления')}
+                          label={t('Repair proposal SQL diff')}
                         />
                       </Suspense>
                       <div className="proposal-validation">
@@ -824,17 +826,17 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                           <label>
                             <input
                               type="checkbox"
-                              aria-label={t('Подтверждение просмотра SQL diff')}
+                              aria-label={t('Confirmation of SQL diff review')}
                               checked={reviewed}
                               disabled={busy}
                               onChange={event => setReviewed(event.target.checked)}
                             />
-                            <span>{t('Я просмотрел все изменения SQL и подтверждаю указанное основание замены.')}</span>
+                            <span>{t('I have reviewed all SQL changes and confirm the stated reason for the replacement.')}</span>
                           </label>
                           {!previewUsable && (
                             <p className="job-error">
                               {t(
-                                'Предложенный SQL ещё требует исправления или ручной проверки. Сервер не применит его как безопасную замену.',
+                                'The proposed SQL still needs correction or manual review. The server will not apply it as a safe replacement.',
                               )}
                             </p>
                           )}
@@ -844,22 +846,22 @@ export default function ChangesPanel({ onOpenRecipe }: { onOpenRecipe: (workspac
                               disabled={busy || !reviewed || !previewUsable}
                               onClick={() => void approve()}
                             >
-                              {busy ? t('Применение…') : t('Подтвердить и создать версию')}
+                              {busy ? t('Applying…') : t('Approve and create version')}
                             </button>
                             <button className="secondary-button" disabled={busy} onClick={() => void reject()}>
-                              {t('Отклонить предложение')}
+                              {t('Reject proposal')}
                             </button>
                           </div>
                         </div>
                       )}
                       <button className="text-button proposal-open-recipe" onClick={() => onOpenRecipe(workspaceId, recipeId)}>
-                        {t('Открыть рецепт и историю для отката')}
+                        {t('Open recipe and history for rollback')}
                       </button>
                     </div>
                   )}
                 </>
               ) : (
-                <p className="panel-placeholder">{t('Предложений нет. Выберите старую и новую колонку и создайте preview.')}</p>
+                <p className="panel-placeholder">{t('No proposals yet. Select the old and new columns and create a preview.')}</p>
               )}
             </section>
           )}
@@ -919,7 +921,7 @@ function SchemaComparePanel({ workspaceId, databases }: { workspaceId: string; d
             ),
       );
     } catch (cause) {
-      setError(errorMessage(cause, t('Сравнение не выполнено.')));
+      setError(errorMessage(cause, t('Comparison failed.')));
     } finally {
       setBusy(false);
     }
@@ -927,7 +929,7 @@ function SchemaComparePanel({ workspaceId, databases }: { workspaceId: string; d
   const comparedName = target === 'dacpac' ? 'DACPAC' : other?.name || '';
   const kinds = [...new Set(result?.changes.map(change => change.kind) || [])].sort();
   const shown = result?.changes.filter(change => !kindFilter || change.kind === kindFilter) || [];
-  const headings = { kind: t('Изменение'), object: t('Объект'), base: base?.name || '', compared: comparedName };
+  const headings = { kind: t('Change'), object: t('Object'), base: base?.name || '', compared: comparedName };
   function download(contents: string, extension: string, type: string) {
     const url = URL.createObjectURL(new Blob([contents], { type }));
     const link = document.createElement('a');
@@ -1003,7 +1005,7 @@ function SchemaComparePanel({ workspaceId, databases }: { workspaceId: string; d
         )}
       </div>
       <button className="secondary-button" disabled={!canCompare} onClick={() => void compare()}>
-        {busy ? t('Сравнение…') : t('Compare')}
+        {busy ? t('Comparing…') : t('Compare')}
       </button>
       {error && (
         <div className="alert error" role="alert">
@@ -1058,10 +1060,10 @@ function SchemaComparePanel({ workspaceId, databases }: { workspaceId: string; d
                   className="secondary-button"
                   onClick={() => void navigator.clipboard.writeText(result.migrationDraft!).catch(() => undefined)}
                 >
-                  {t('Скопировать')}
+                  {t('Copy')}
                 </button>
                 <button className="secondary-button" onClick={() => download(result.migrationDraft!, 'sql', 'text/plain;charset=utf-8')}>
-                  {t('Скачать файл')}
+                  {t('Download file')}
                 </button>
               </div>
               <Suspense fallback={<textarea readOnly value={result.migrationDraft} rows={16} aria-label={t('Migration draft')} />}>
@@ -1074,8 +1076,8 @@ function SchemaComparePanel({ workspaceId, databases }: { workspaceId: string; d
               <table className="workspace-table">
                 <thead>
                   <tr>
-                    <th>{t('Изменение')}</th>
-                    <th>{t('Объект')}</th>
+                    <th>{t('Change')}</th>
+                    <th>{t('Object')}</th>
                     <th>{base?.name}</th>
                     <th>{comparedName}</th>
                   </tr>

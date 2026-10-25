@@ -14,8 +14,10 @@ let locale = 'en',
   browser,
   page;
 const report = { success: false, checks: [], screenshots: [], pageErrors: [], externalRequests: [] };
+// Catalog keys are English; a Russian or Ukrainian label used in a test still finds its entry.
+const entry = key => dictionaries[key] || Object.values(dictionaries).find(item => item.ru === key || item.uk === key);
 const L = (key, ...values) =>
-  (dictionaries[key]?.[locale] || key).replace(/\{(\d+)\}/g, (all, index) => (index < values.length ? String(values[index]) : all));
+  (entry(key)?.[locale] || key).replace(/\{(\d+)\}/g, (all, index) => (index < values.length ? String(values[index]) : all));
 async function poll(action, message, timeout = 45000) {
   const deadline = Date.now() + timeout;
   while (Date.now() < deadline) {

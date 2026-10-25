@@ -41,12 +41,15 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
             || !Regex.IsMatch(request.InputName, @"^[A-Za-z][A-Za-z0-9_]{0,63}\z", RegexOptions.CultureInvariant)
             || request.Name?.Length > 160
         )
-            throw new AppException("CHAIN_RECIPE_INVALID", "Выберите маршрут до 12 связей, от 1 до 200 полей и имя входного списка.");
+            throw new AppException(
+                "CHAIN_RECIPE_INVALID",
+                "Select a route of up to 12 relationships, 1 to 200 fields, and a name for the input list."
+            );
         var context = await relationships.GetSnapshot(workspaceId, ct);
         var graph = context.Graph;
         var tables = graph.Tables.ToDictionary(t => t.Table.Id, StringComparer.Ordinal);
         if (!tables.TryGetValue(request.FromTableId, out var first) || !tables.ContainsKey(request.ToTableId))
-            throw new AppException("TABLE_NOT_FOUND", "Таблица отсутствует в текущей модели.", 404);
+            throw new AppException("TABLE_NOT_FOUND", "The table is missing from the current model.", 404);
         var route = new List<RelationshipTable> { first };
         var edges = new List<RelationshipEdge>();
         foreach (var id in request.RelationIds)
@@ -58,28 +61,31 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
                 || edge.Status is not ("physical" or "mapped" or "confirmed")
                 || !RelationshipRules.Valid(edge.Relation, tables)
             )
-                throw new AppException("CHAIN_RELATION_UNTRUSTED", "Маршрут содержит отсутствующую или недоверенную связь.", 409);
+                throw new AppException("CHAIN_RELATION_UNTRUSTED", "The route contains a missing or untrusted relationship.", 409);
             var current = route[^1].Table.Id;
             var next =
                 edge.Relation.FromTableId == current ? edge.Relation.ToTableId
                 : edge.Relation.ToTableId == current ? edge.Relation.FromTableId
                 : null;
             if (next is null || route.Any(t => t.Table.Id == next))
-                throw new AppException("CHAIN_ROUTE_INVALID", "Связи должны задавать непрерывный маршрут без повторения таблиц.");
+                throw new AppException("CHAIN_ROUTE_INVALID", "Relationships must form a continuous route without repeating tables.");
             route.Add(tables[next]);
             edges.Add(edge);
         }
         if (route[^1].Table.Id != request.ToTableId)
-            throw new AppException("CHAIN_ROUTE_INVALID", "Выбранный маршрут не приводит к конечной таблице.");
+            throw new AppException("CHAIN_ROUTE_INVALID", "The selected route does not reach the destination table.");
         if (
             route
                 .GroupBy(t => t.DatabaseName, StringComparer.OrdinalIgnoreCase)
                 .Any(g => g.Select(t => t.DatabaseId).Distinct().Count() > 1)
         )
-            throw new AppException("DATABASE_NAME_AMBIGUOUS", "Разным БД маршрута назначено одинаковое SQL-имя. Уточните имена БД.");
+            throw new AppException(
+                "DATABASE_NAME_AMBIGUOUS",
+                "Different databases on the route have the same SQL name. Specify distinct database names."
+            );
         var inputColumn =
             first.Table.Columns.FirstOrDefault(c => c.Name == request.InputColumn)
-            ?? throw new AppException("COLUMN_NOT_FOUND", "Входная колонка отсутствует в начальной таблице.", 404);
+            ?? throw new AppException("COLUMN_NOT_FOUND", "The input column is missing from the starting table.", 404);
         var input = Input(inputColumn.DataType, request.InputName);
         var aliases = route.Select((table, index) => (table.Table.Id, Alias: "t" + index)).ToDictionary(t => t.Id, t => t.Alias);
         var projection = new List<string>();
@@ -90,10 +96,10 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
                 !aliases.TryGetValue(column.TableId, out var alias)
                 || !tables[column.TableId].Table.Columns.Any(c => c.Name == column.ColumnName)
             )
-                throw new AppException("CHAIN_COLUMN_INVALID", "Поля результата должны принадлежать таблицам выбранного маршрута.");
+                throw new AppException("CHAIN_COLUMN_INVALID", "Result fields must belong to tables on the selected route.");
             var output = string.IsNullOrWhiteSpace(column.Alias) ? column.ColumnName : column.Alias.Trim();
             if (output.Length > 128 || output.Any(char.IsControl) || !outputNames.Add(output))
-                throw new AppException("CHAIN_OUTPUT_ALIAS_INVALID", "Задайте уникальные имена полей результата (до 128 символов).");
+                throw new AppException("CHAIN_OUTPUT_ALIAS_INVALID", "Use unique result field names (up to 128 characters).");
             projection.Add($"{Q(alias)}.{Q(column.ColumnName)} AS {Q(output)}");
         }
         var sql = new StringBuilder("SELECT ")
@@ -118,7 +124,7 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
         var definition = new RecipeDefinition(
             "",
             string.IsNullOrWhiteSpace(request.Name) ? first.Table.Name + " → " + route[^1].Table.Name : request.Name.Trim(),
-            "Создан из выбранного доверенного маршрута.",
+            "Created from the selected trusted route.",
             ["chain"],
             "sqlserver",
             route.Select(t => t.DatabaseId).Distinct().ToArray(),
@@ -130,15 +136,11 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
         if (validation.Status is not ("Valid" or "Warning"))
             throw new AppException(
                 "CHAIN_VALIDATION_FAILED",
-                "Сгенерированный маршрут требует проверки: " + string.Join("; ", validation.Diagnostics.Select(d => d.Message))
+                "The generated route needs review: " + string.Join("; ", validation.Diagnostics.Select(d => d.Message))
             );
         definition = definition with { Dependencies = validation.Dependencies };
         if (relationships.ContextRevision(workspaceId) != context.Revision)
-            throw new AppException(
-                "RELATION_CONTEXT_CHANGED",
-                "Модель изменилась во время построения рецепта. Выберите маршрут повторно.",
-                409
-            );
+            throw new AppException("RELATION_CONTEXT_CHANGED", "The model changed while creating the recipe. Select the route again.", 409);
         return new(
             definition,
             validation
@@ -147,7 +149,7 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
                     input.Type == "varchar"
                         ?
                         [
-                            "Для varchar по умолчанию принимается ASCII. Другую кодировку и collation можно явно задать в редакторе рецепта.",
+                            "ASCII is used for varchar by default. You can explicitly set a different encoding and collation in the recipe editor.",
                         ]
                         : []
                 )
@@ -179,7 +181,7 @@ public sealed class ChainRecipeBuilder(IRelationshipContext relationships, Recip
         }
         throw new AppException(
             "CHAIN_INPUT_TYPE_UNSUPPORTED",
-            "Входная колонка должна иметь целочисленный тип, uniqueidentifier, nvarchar(n/max) или varchar(n/max)."
+            "The input column must have an integer, uniqueidentifier, nvarchar(n/max), or varchar(n/max) type."
         );
     }
 

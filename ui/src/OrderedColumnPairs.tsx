@@ -24,8 +24,8 @@ export default function OrderedColumnPairs({
   return (
     <div className="ordered-column-pairs">
       <div className="section-heading">
-        <h3>{t('Колонки связи')}</h3>
-        <span className="quiet-label">{t('Пары сопоставляются по порядку')}</span>
+        <h3>{t('Relationship columns')}</h3>
+        <span className="quiet-label">{t('Pairs are matched in order')}</span>
       </div>
       {value.map((pair, index) => {
         const fromColumn = fromTable?.columns.find(column => column.name === pair.fromColumn);
@@ -35,15 +35,15 @@ export default function OrderedColumnPairs({
             <span className="column-pair-number">{index + 1}</span>
             <div>
               <select
-                aria-label={t('Исходная колонка {0}', index + 1)}
+                aria-label={t('Source column {0}', index + 1)}
                 disabled={disabled || !fromTable}
                 value={pair.fromColumn}
                 onChange={event => update(index, 'fromColumn', event.target.value)}
               >
-                <option value="">{t('Выберите колонку')}</option>
+                <option value="">{t('Select a column')}</option>
                 {pair.fromColumn && !fromColumn && (
                   <option value={pair.fromColumn}>
-                    {pair.fromColumn} {t('· отсутствует')}
+                    {pair.fromColumn} {t('· missing')}
                   </option>
                 )}
                 {fromTable?.columns.map(column => (
@@ -57,15 +57,15 @@ export default function OrderedColumnPairs({
             <span>→</span>
             <div>
               <select
-                aria-label={t('Целевая колонка {0}', index + 1)}
+                aria-label={t('Target column {0}', index + 1)}
                 disabled={disabled || !toTable}
                 value={pair.toColumn}
                 onChange={event => update(index, 'toColumn', event.target.value)}
               >
-                <option value="">{t('Выберите колонку')}</option>
+                <option value="">{t('Select a column')}</option>
                 {pair.toColumn && !toColumn && (
                   <option value={pair.toColumn}>
-                    {pair.toColumn} {t('· отсутствует')}
+                    {pair.toColumn} {t('· missing')}
                   </option>
                 )}
                 {toTable?.columns.map(column => (
@@ -80,7 +80,7 @@ export default function OrderedColumnPairs({
               <button
                 type="button"
                 className="secondary-button"
-                aria-label={t('Пару {0} выше', index + 1)}
+                aria-label={t('Move pair {0} up', index + 1)}
                 disabled={disabled || index === 0}
                 onClick={() => onChange(movePair(value, index, -1))}
               >
@@ -89,7 +89,7 @@ export default function OrderedColumnPairs({
               <button
                 type="button"
                 className="secondary-button"
-                aria-label={t('Пару {0} ниже', index + 1)}
+                aria-label={t('Move pair {0} down', index + 1)}
                 disabled={disabled || index === value.length - 1}
                 onClick={() => onChange(movePair(value, index, 1))}
               >
@@ -98,17 +98,17 @@ export default function OrderedColumnPairs({
               <button
                 type="button"
                 className="text-button danger-text"
-                aria-label={t('Удалить пару {0}', index + 1)}
+                aria-label={t('Delete pair {0}', index + 1)}
                 disabled={disabled || value.length < 2}
                 onClick={() => onChange(value.filter((_, current) => current !== index))}
               >
-                {t('Удалить')}
+                {t('Remove')}
               </button>
             </div>
             {fromColumn && toColumn && fromColumn.dataType.toLowerCase() !== toColumn.dataType.toLowerCase() && (
               <p className="pair-type-note">
                 {fromColumn.dataType} → {toColumn.dataType}
-                {t('. Сервер проверит совместимость типов, длину и ключи перед сохранением.')}
+                {t('. The server will check type compatibility, length, and keys before saving.')}
               </p>
             )}
           </div>
@@ -120,7 +120,7 @@ export default function OrderedColumnPairs({
         disabled={disabled || !fromTable || !toTable || value.length >= 32}
         onClick={() => onChange([...value, { fromColumn: '', toColumn: '' }])}
       >
-        {t('+ Добавить пару колонок')}
+        {t('+ Add column pair')}
       </button>
     </div>
   );
