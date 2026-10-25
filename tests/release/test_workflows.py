@@ -1,5 +1,6 @@
 """Check the publication gates, supported platform inventory and token boundaries."""
 from pathlib import Path
+import json
 import re
 import unittest
 import yaml
@@ -70,6 +71,17 @@ class Workflows(unittest.TestCase):
         commands = "\n".join(step.get("run", "") for step in self.ci["jobs"]["build-and-test"]["steps"])
         self.assertIn("NU1901%3BNU1902%3BNU1903%3BNU1904", commands)
         self.assertNotIn("WarningsAsErrors=NU1901,", commands)
+
+    def test_all_dotnet_jobs_use_the_exact_published_sdk(self):
+        sdk = json.loads((ROOT / "global.json").read_text())["sdk"]
+        self.assertEqual(sdk["version"], "10.0.402")
+        self.assertEqual(sdk["rollForward"], "disable")
+        for workflow in (self.ci, self.packages):
+            for job in workflow["jobs"].values():
+                for step in job.get("steps", []):
+                    if step.get("uses", "").startswith("actions/setup-dotnet@"):
+                        self.assertEqual(step["with"].get("global-json-file"), "global.json")
+                        self.assertNotIn("dotnet-version", step["with"])
 
 
 if __name__ == "__main__":
