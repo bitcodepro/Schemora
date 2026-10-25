@@ -83,6 +83,39 @@ class Workflows(unittest.TestCase):
                         self.assertEqual(step["with"].get("dotnet-version"), sdk["version"])
                         self.assertNotIn("global-json-file", step["with"])
 
+    def test_downstream_gates_run_after_optional_skip_but_never_after_required_failure(self):
+        def evaluate(condition, statuses, event, cancelled=False, skip="false"):
+            # Model the observed GitHub default: a skipped optional ancestor makes implicit success() false.
+            if not re.search(r"(?:always|cancelled|failure|success)\(\)", condition):
+                return False
+            expression = re.sub(r"needs\.([a-z-]+)\.result", lambda m: repr(statuses[m[1]]), condition)
+            expression = expression.replace("needs.version.outputs.skip", repr(skip))
+            expression = expression.replace("github.event_name", repr(event))
+            expression = expression.replace("github.repository", repr("bitcodepro/Schemora"))
+            expression = expression.replace("github.ref", repr("refs/heads/main"))
+            expression = expression.replace("always()", "True").replace("cancelled()", repr(cancelled))
+            expression = expression.replace("&&", " and ").replace("||", " or ")
+            expression = re.sub(r"!(?!=)", " not ", expression)
+            return eval(" ".join(expression.split()), {"__builtins__": {}}, {})
+        for name in ("packages", "verify-packages", "runtime-artifact", "release"):
+            job = self.ci["jobs"][name]
+            needs = job["needs"] if isinstance(job["needs"], list) else [job["needs"]]
+            statuses = {need: "success" for need in needs}
+            event = "push" if name == "release" else "pull_request"
+            with self.subTest(job=name):
+                self.assertTrue(evaluate(job["if"], statuses, event))
+                self.assertFalse(evaluate(job["if"], statuses, event, cancelled=True))
+                for dependency in needs:
+                    for outcome in ("failure", "cancelled", "skipped"):
+                        failed = {**statuses, dependency: outcome}
+                        self.assertFalse(evaluate(job["if"], failed, event), (name, dependency, outcome))
+                if name in ("packages", "release"):
+                    self.assertFalse(evaluate(job["if"], statuses, event, skip="true"))
+                if name == "packages":
+                    self.assertFalse(evaluate(job["if"], statuses, "schedule"))
+                if name == "release":
+                    self.assertFalse(evaluate(job["if"], statuses, "pull_request"))
+
 
 if __name__ == "__main__":
     unittest.main()
