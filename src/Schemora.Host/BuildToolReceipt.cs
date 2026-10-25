@@ -38,6 +38,7 @@ public static class BuildToolCapture
         string? sqlProjectSdk = null
     )
     {
+        ct.ThrowIfCancellationRequested();
         async Task<string> Version(string[] args)
         {
             var result = await ProcessRunner.Run(
@@ -65,7 +66,10 @@ public static class BuildToolCapture
             return versions[^1].Groups[1].Value;
         }
         var sdkVersion = sdk ? await Version(["--version"]) : null;
-        var msbuildVersion = await Version(sdk ? ["msbuild", "-version", "-nologo"] : ["/version", "/nologo"]);
+        // Native MSBuild's /version reports the four-part file version of Microsoft.Build.dll.
+        // Read that metadata directly: starting the legacy tool solely for a receipt can stall
+        // before the actual build. Do not load the assembly or substitute its assembly/product version.
+        var msbuildVersion = sdk ? await Version(["msbuild", "-version", "-nologo"]) : LegacyMsBuildVersion(executable);
         string? msbuildHash = null;
         if (sdk)
         {
@@ -94,6 +98,7 @@ public static class BuildToolCapture
                 ssdtHash = Hash(task);
             }
         }
+        ct.ThrowIfCancellationRequested();
         return new(
             sdk ? "SDK-style" : "Legacy SSDT",
             executable,
@@ -107,6 +112,19 @@ public static class BuildToolCapture
             sqlProjectSdk,
             ssdtHash
         );
+    }
+
+    private static string LegacyMsBuildVersion(string executable)
+    {
+        var engine = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(executable))!, "Microsoft.Build.dll");
+        if (!File.Exists(engine))
+            throw new AppException("BUILD_TOOL_VERSION_UNAVAILABLE", "The selected build tool version could not be verified.", 422);
+        LocalFiles.CheckNoLinks(engine);
+        var version = FileVersionInfo.GetVersionInfo(engine);
+        if (string.IsNullOrWhiteSpace(version.FileVersion) || version.FileMajorPart <= 0)
+            throw new AppException("BUILD_TOOL_VERSION_UNAVAILABLE", "The selected build tool did not return a recognized version.", 422);
+        // The display string may contain a suffix; MSBuild itself reports the fixed numeric parts.
+        return new Version(version.FileMajorPart, version.FileMinorPart, version.FileBuildPart, version.FilePrivatePart).ToString();
     }
 
     public static IReadOnlyList<AnalysisBuildReceipt> FromSnapshots(
