@@ -1,0 +1,1 @@
+CREATE TABLE dbo.SharedCodes(Code int NOT NULL PRIMARY KEY);

@@ -1,0 +1,14 @@
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Name>Legacy</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{DD297943-6A19-4C7F-8E6D-93D698B42A4B}</ProjectGuid>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <SQLDBExtensionsRefPath Condition="'$(SQLDBExtensionsRefPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT</SQLDBExtensionsRefPath>
+  </PropertyGroup>
+  <ItemGroup><Build Include="Schema.sql" /></ItemGroup>
+  <Import Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+</Project>

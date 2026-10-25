@@ -1,0 +1,237 @@
+{
+  " Physical conflict remains visible: {0}": {
+    "en": " Physical conflict remains visible: {0}",
+    "ru": " Физический конфликт остаётся видимым: {0}",
+    "uk": " Фізичний конфлікт залишається видимим: {0}"
+  },
+  "{0} (копия)": {
+    "en": "{0} (copy)",
+    "ru": "{0} (копия)",
+    "uk": "{0} (копія)"
+  },
+  "{0} Explicit confirmation is required after reviewing the physical metadata.": {
+    "en": "{0} Explicit confirmation is required after reviewing the physical metadata.",
+    "ru": "{0} После проверки физических метаданных требуется явное подтверждение.",
+    "uk": "{0} Після перевірки фізичних метаданих потрібне явне підтвердження."
+  },
+  "БД рецепта больше нет в текущем каталоге: {0}": {
+    "en": "The recipe's database is no longer in the current catalog: {0}",
+    "ru": "БД рецепта больше нет в текущем каталоге: {0}",
+    "uk": "БД рецепта більше немає в поточному каталозі: {0}"
+  },
+  "Изменилось определение используемого объекта {0}.{1}. Проверьте SQL и сохраните новую версию.": {
+    "en": "The definition of referenced object {0}.{1} has changed. Review the SQL and save a new version.",
+    "ru": "Изменилось определение используемого объекта {0}.{1}. Проверьте SQL и сохраните новую версию.",
+    "uk": "Змінилося визначення використаного об’єкта {0}.{1}. Перевірте SQL і збережіть нову версію."
+  },
+  "Изменился вид используемого объекта: {0} → {1}. Проверьте SQL и сохраните новую версию.": {
+    "en": "The kind of a referenced object has changed: {0} → {1}. Review the SQL and save a new version.",
+    "ru": "Изменился вид используемого объекта: {0} → {1}. Проверьте SQL и сохраните новую версию.",
+    "uk": "Змінився вид використаного об’єкта: {0} → {1}. Перевірте SQL і збережіть нову версію."
+  },
+  "Каталог восстановлен; предыдущая копия сохранена: {0}": {
+    "en": "Catalog restored; the previous copy was saved: {0}",
+    "ru": "Каталог восстановлен; предыдущая копия сохранена: {0}",
+    "uk": "Каталог відновлено; попередню копію збережено: {0}"
+  },
+  "Не удалось полностью удалить временные ресурсы. Проверьте собственный контейнер {0} и каталог docker-runs/{1} в каталоге данных.": {
+    "en": "Could not remove all temporary resources. Check the app-owned container {0} and the docker-runs/{1} directory in the data directory.",
+    "ru": "Не удалось полностью удалить временные ресурсы. Проверьте собственный контейнер {0} и каталог docker-runs/{1} в каталоге данных.",
+    "uk": "Не вдалося повністю видалити тимчасові ресурси. Перевірте контейнер застосунку {0} і каталог docker-runs/{1} у каталозі даних."
+  },
+  "Обнаружение не завершено; предыдущий каталог сохранён без изменений. Устраните ошибки и повторите Full Rescan. {0}": {
+    "en": "Discovery did not finish; the previous catalog was preserved unchanged. Resolve the errors and run Full Rescan again. {0}",
+    "ru": "Обнаружение не завершено; предыдущий каталог сохранён без изменений. Устраните ошибки и повторите Full Rescan. {0}",
+    "uk": "Виявлення не завершено; попередній каталог збережено без змін. Усуньте помилки та повторіть повне сканування. {0}"
+  },
+  "Откат к версии {0}": {
+    "en": "Rollback to version {0}",
+    "ru": "Откат к версии {0}",
+    "uk": "Відкат до версії {0}"
+  },
+  "Подтверждённое исправление: {0}": {
+    "en": "Approved repair: {0}",
+    "ru": "Подтверждённое исправление: {0}",
+    "uk": "Підтверджене виправлення: {0}"
+  },
+  "Сгенерированный маршрут требует проверки: {0}": {
+    "en": "The generated route needs review: {0}",
+    "ru": "Сгенерированный маршрут требует проверки: {0}",
+    "uk": "Згенерований маршрут потребує перевірки: {0}"
+  },
+  "A custom MSBuild task has an unverified input closure: {0}": {
+    "en": "A custom MSBuild task has an unverified input closure: {0}",
+    "ru": "Полный набор входных данных пользовательской задачи MSBuild не проверен: {0}",
+    "uk": "Повний набір вхідних даних користувацького завдання MSBuild не перевірено: {0}"
+  },
+  "A local NuGet feed cannot be inspected: {0}": {
+    "en": "A local NuGet feed cannot be inspected: {0}",
+    "ru": "Не удалось проверить локальный источник NuGet: {0}",
+    "uk": "Не вдалося перевірити локальне джерело NuGet: {0}"
+  },
+  "A local NuGet feed directory is missing: {0}": {
+    "en": "A local NuGet feed directory is missing: {0}",
+    "ru": "Каталог локального источника NuGet отсутствует: {0}",
+    "uk": "Каталог локального джерела NuGet відсутній: {0}"
+  },
+  "A local NuGet source uses an unresolved environment/property input: {0}": {
+    "en": "A local NuGet source uses an unresolved environment/property input: {0}",
+    "ru": "Локальный источник NuGet использует неразрешённое значение среды или свойства: {0}",
+    "uk": "Локальне джерело NuGet використовує невизначене значення середовища або властивості: {0}"
+  },
+  "A package has transitive NuGet dependencies requiring external restore/verification: {0}": {
+    "en": "A package has transitive NuGet dependencies requiring external restore/verification: {0}",
+    "ru": "Пакет содержит транзитивные зависимости NuGet, требующие внешнего восстановления и проверки: {0}",
+    "uk": "Пакет містить транзитивні залежності NuGet, які потребують зовнішнього відновлення та перевірки: {0}"
+  },
+  "An Exists condition has an unsupported path in: {0}": {
+    "en": "An Exists condition has an unsupported path in: {0}",
+    "ru": "Условие Exists содержит неподдерживаемый путь в: {0}",
+    "uk": "Умова Exists містить непідтримуваний шлях у: {0}"
+  },
+  "An import has no literal Project path: {0}": {
+    "en": "An import has no literal Project path: {0}",
+    "ru": "Импорт не содержит явно заданного пути Project: {0}",
+    "uk": "Імпорт не містить явно заданого шляху Project: {0}"
+  },
+  "An MSBuild condition is outside the supported static subset in: {0}": {
+    "en": "An MSBuild condition is outside the supported static subset in: {0}",
+    "ru": "Условие MSBuild выходит за пределы поддерживаемого статического подмножества в: {0}",
+    "uk": "Умова MSBuild виходить за межі підтримуваної статичної підмножини в: {0}"
+  },
+  "C# {0}: {1} Dapper multi-mapping/splitOn does not establish a foreign key; parameter values were not inspected.": {
+    "en": "C# {0}: {1} Dapper multi-mapping/splitOn does not establish a foreign key; parameter values were not inspected.",
+    "ru": "C# {0}: {1} Множественное сопоставление Dapper / splitOn не доказывает наличие внешнего ключа; значения параметров не проверялись.",
+    "uk": "C# {0}: {1} Множинне зіставлення Dapper / splitOn не доводить наявності зовнішнього ключа; значення параметрів не перевірялися."
+  },
+  "Cached package SHA512 does not match the package archive: {0}": {
+    "en": "Cached package SHA512 does not match the package archive: {0}",
+    "ru": "SHA512 пакета в кэше не совпадает с архивом пакета: {0}",
+    "uk": "SHA512 пакета в кеші не збігається з архівом пакета: {0}"
+  },
+  "Cannot fingerprint declared input: {0}": {
+    "en": "Cannot fingerprint declared input: {0}",
+    "ru": "Не удалось вычислить отпечаток объявленного входного файла: {0}",
+    "uk": "Не вдалося обчислити відбиток оголошеного вхідного файлу: {0}"
+  },
+  "Cannot inspect source directory: {0}": {
+    "en": "Cannot inspect source directory: {0}",
+    "ru": "Не удалось проверить исходный каталог: {0}",
+    "uk": "Не вдалося перевірити вихідний каталог: {0}"
+  },
+  "Cannot inspect SQLCMD include closure: {0}": {
+    "en": "Cannot inspect SQLCMD include closure: {0}",
+    "ru": "Не удалось проверить полный набор включаемых файлов SQLCMD: {0}",
+    "uk": "Не вдалося перевірити повний набір включених файлів SQLCMD: {0}"
+  },
+  "Cannot safely parse build XML: {0}": {
+    "en": "Cannot safely parse build XML: {0}",
+    "ru": "Не удалось безопасно разобрать XML сборки: {0}",
+    "uk": "Не вдалося безпечно розібрати XML збирання: {0}"
+  },
+  "Conflicting central package versions cannot be verified: {0}": {
+    "en": "Conflicting central package versions cannot be verified: {0}",
+    "ru": "Конфликтующие централизованные версии пакета нельзя проверить: {0}",
+    "uk": "Конфліктні централізовані версії пакета неможливо перевірити: {0}"
+  },
+  "Conflicting package metadata cannot be verified: {0}": {
+    "en": "Conflicting package metadata cannot be verified: {0}",
+    "ru": "Конфликтующие метаданные пакета нельзя проверить: {0}",
+    "uk": "Конфліктні метадані пакета неможливо перевірити: {0}"
+  },
+  "Conflicting package versions cannot be verified: {0}": {
+    "en": "Conflicting package versions cannot be verified: {0}",
+    "ru": "Конфликтующие версии пакета нельзя проверить: {0}",
+    "uk": "Конфліктні версії пакета неможливо перевірити: {0}"
+  },
+  "DacpacName must be a literal file name; use an explicit HintPath for external references: {0}": {
+    "en": "DacpacName must be a literal file name; use an explicit HintPath for external references: {0}",
+    "ru": "DacpacName должен быть явно заданным именем файла; для внешних ссылок используйте явный HintPath: {0}",
+    "uk": "DacpacName має бути явно заданим іменем файлу; для зовнішніх посилань використовуйте явний HintPath: {0}"
+  },
+  "Dependency closure contains a link: {0}": {
+    "en": "Dependency closure contains a link: {0}",
+    "ru": "Полный набор зависимостей содержит ссылку: {0}",
+    "uk": "Повний набір залежностей містить посилання: {0}"
+  },
+  "Global package references require an unverified restore closure: {0}": {
+    "en": "Global package references require an unverified restore closure: {0}",
+    "ru": "Глобальные ссылки на пакеты требуют непроверенного полного набора зависимостей для восстановления: {0}",
+    "uk": "Глобальні посилання на пакети потребують неперевіреного повного набору залежностей для відновлення: {0}"
+  },
+  "Import closure exceeds 64 levels: {0}": {
+    "en": "Import closure exceeds 64 levels: {0}",
+    "ru": "Вложенность импортов превышает 64 уровня: {0}",
+    "uk": "Вкладеність імпортів перевищує 64 рівні: {0}"
+  },
+  "Import directory is missing: {0}": {
+    "en": "Import directory is missing: {0}",
+    "ru": "Каталог импорта отсутствует: {0}",
+    "uk": "Каталог імпорту відсутній: {0}"
+  },
+  "Input changed between fingerprinting and inspection: {0}": {
+    "en": "Input changed between fingerprinting and inspection: {0}",
+    "ru": "Входной файл изменился между вычислением отпечатка и проверкой: {0}",
+    "uk": "Вхідний файл змінився між обчисленням відбитка та перевіркою: {0}"
+  },
+  "Input changed while fingerprinting: {0}": {
+    "en": "Input changed while fingerprinting: {0}",
+    "ru": "Входной файл изменился во время вычисления отпечатка: {0}",
+    "uk": "Вхідний файл змінився під час обчислення відбитка: {0}"
+  },
+  "LAUNCH_PORT_IN_USE: Port {0} on 127.0.0.1 is already in use. Configuration: {1}. Choose another port in this JSON file or use --port <number>; 0 selects a free port.": {
+    "en": "LAUNCH_PORT_IN_USE: Port {0} on 127.0.0.1 is already in use. Configuration: {1}. Choose another port in this JSON file or use --port <number>; 0 selects a free port.",
+    "ru": "LAUNCH_PORT_IN_USE: Порт {0} на 127.0.0.1 уже занят. Конфигурация: {1}. Выберите другой порт в этом JSON-файле или используйте --port <number>; 0 выбирает свободный порт.",
+    "uk": "LAUNCH_PORT_IN_USE: Порт {0} на 127.0.0.1 уже зайнятий. Конфігурація: {1}. Виберіть інший порт у цьому JSON-файлі або скористайтеся --port <number>; 0 вибирає вільний порт."
+  },
+  "NuGet database references require an SDK-style SQL project: {0}": {
+    "en": "NuGet database references require an SDK-style SQL project: {0}",
+    "ru": "Ссылки на БД через NuGet требуют SQL-проекта на основе SDK: {0}",
+    "uk": "Посилання на БД через NuGet потребують SQL-проєкту на основі SDK: {0}"
+  },
+  "Only auditable DACPAC packages are supported: {0}": {
+    "en": "Only auditable DACPAC packages are supported: {0}",
+    "ru": "Поддерживаются только пакеты DACPAC, содержимое которых можно проверить: {0}",
+    "uk": "Підтримуються лише пакети DACPAC, вміст яких можна перевірити: {0}"
+  },
+  "Package restore metadata exceeds its verification bound: {0}": {
+    "en": "Package restore metadata exceeds its verification bound: {0}",
+    "ru": "Метаданные восстановления пакета превышают допустимый объём для проверки: {0}",
+    "uk": "Метадані відновлення пакета перевищують допустимий обсяг для перевірки: {0}"
+  },
+  "PackageReference needs a literal, pinned version; floating/range/generated versions are not a verified closure: {0}": {
+    "en": "PackageReference needs a literal, pinned version; floating/range/generated versions are not a verified closure: {0}",
+    "ru": "PackageReference требует явно заданной фиксированной версии; плавающие, диапазонные или сгенерированные версии не позволяют проверить полный набор зависимостей: {0}",
+    "uk": "PackageReference потребує явно заданої фіксованої версії; плаваючі версії, діапазони та згенеровані версії не дають змоги перевірити повний набір залежностей: {0}"
+  },
+  "Source closure exceeds 128 MiB/file or 512 MiB total: {0}": {
+    "en": "Source closure exceeds 128 MiB/file or 512 MiB total: {0}",
+    "ru": "Полный набор исходных файлов превышает 128 MiB на файл или 512 MiB суммарно: {0}",
+    "uk": "Повний набір вихідних файлів перевищує 128 MiB на файл або 512 MiB загалом: {0}"
+  },
+  "Source nesting exceeds 128 levels: {0}": {
+    "en": "Source nesting exceeds 128 levels: {0}",
+    "ru": "Вложенность исходных каталогов превышает 128 уровней: {0}",
+    "uk": "Вкладеність вихідних каталогів перевищує 128 рівнів: {0}"
+  },
+  "The cached package identity/version does not match PackageReference: {0}": {
+    "en": "The cached package identity/version does not match PackageReference: {0}",
+    "ru": "Идентификатор или версия пакета в кэше не совпадает с PackageReference: {0}",
+    "uk": "Ідентифікатор або версія пакета в кеші не відповідає PackageReference: {0}"
+  },
+  "The original SQL could not be bound unambiguously: {0}": {
+    "en": "The original SQL could not be bound unambiguously: {0}",
+    "ru": "Не удалось однозначно сопоставить исходный SQL с моделью: {0}",
+    "uk": "Не вдалося однозначно зіставити початковий SQL із моделлю: {0}"
+  },
+  "The package restore marker is invalid: {0}": {
+    "en": "The package restore marker is invalid: {0}",
+    "ru": "Некорректный маркер восстановления пакета: {0}",
+    "uk": "Некоректний маркер відновлення пакета: {0}"
+  },
+  "The private package cache has incomplete restore/provenance metadata: {0}": {
+    "en": "The private package cache has incomplete restore/provenance metadata: {0}",
+    "ru": "Приватный кэш пакетов содержит неполные метаданные восстановления или происхождения: {0}",
+    "uk": "Приватний кеш пакетів містить неповні метадані відновлення або походження: {0}"
+  }
+}

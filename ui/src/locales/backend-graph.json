@@ -1,0 +1,1257 @@
+{
+  "{0} at {1}: {2}": {
+    "en": "{0} at {1}: {2}",
+    "ru": "{0} в {1}: {2}",
+    "uk": "{0} о {1}: {2}"
+  },
+  "{0}: project preprocessor symbols are not evaluated; conditional SQL branches may be omitted.": {
+    "en": "{0}: project preprocessor symbols are not evaluated; conditional SQL branches may be omitted.",
+    "ru": "{0}: символы препроцессора проекта не вычисляются; условные ветви SQL могут быть пропущены.",
+    "uk": "{0}: символи препроцесора проєкту не обчислюються; умовні гілки SQL можуть бути пропущені."
+  },
+  "{0}: source has C# syntax errors; embedded SQL is candidate evidence only.": {
+    "en": "{0}: source has C# syntax errors; embedded SQL is candidate evidence only.",
+    "ru": "{0}: в исходнике есть синтаксические ошибки C#; встроенный SQL используется только как свидетельство для кандидата.",
+    "uk": "{0}: у вихідному файлі є синтаксичні помилки C#; вбудований SQL використовується лише як свідчення для кандидата."
+  },
+  "{0}({1}): Dapper API identity is unproven; this is embedded SQL candidate evidence only.": {
+    "en": "{0}({1}): Dapper API identity is unproven; this is embedded SQL candidate evidence only.",
+    "ru": "{0}({1}): принадлежность к API Dapper не доказана; встроенный SQL используется только как свидетельство для кандидата.",
+    "uk": "{0}({1}): належність до API Dapper не доведено; вбудований SQL використовується лише як свідчення для кандидата."
+  },
+  "{0}({1}): embedded SQL exceeds 1 MiB.": {
+    "en": "{0}({1}): embedded SQL exceeds 1 MiB.",
+    "ru": "{0}({1}): встроенный SQL превышает 1 MiB.",
+    "uk": "{0}({1}): вбудований SQL перевищує 1 MiB."
+  },
+  "{0}({1}): embedded SQL exceeds the analysis budget; contents were omitted.": {
+    "en": "{0}({1}): embedded SQL exceeds the analysis budget; contents were omitted.",
+    "ru": "{0}({1}): встроенный SQL превышает лимит анализа; содержимое пропущено.",
+    "uk": "{0}({1}): вбудований SQL перевищує ліміт аналізу; вміст пропущено."
+  },
+  "{0}({1}): embedded SQL parse error {2} at SQL line {3}, column {4}; SQL values were omitted.": {
+    "en": "{0}({1}): embedded SQL parse error {2} at SQL line {3}, column {4}; SQL values were omitted.",
+    "ru": "{0}({1}): ошибка разбора встроенного SQL {2} в строке SQL {3}, столбце {4}; значения SQL не включены.",
+    "uk": "{0}({1}): помилка розбору вбудованого SQL {2} у рядку SQL {3}, стовпці {4}; значення SQL не включено."
+  },
+  "{0}({1}): SQL is not a static string/const expression; interpolation, local variables, builders and computed commands were not evaluated.": {
+    "en": "{0}({1}): SQL is not a static string/const expression; interpolation, local variables, builders and computed commands were not evaluated.",
+    "ru": "{0}({1}): SQL не является статической строкой или const-выражением; интерполяция, локальные переменные, построители и вычисляемые команды не вычислялись.",
+    "uk": "{0}({1}): SQL не є статичним рядком або const-виразом; інтерполяція, локальні змінні, побудовники та обчислювані команди не обчислювалися."
+  },
+  "A saved rejection conflicts with declared schema/ORM metadata. Resolve the conflict before using this edge in SQL.": {
+    "en": "A saved rejection conflicts with declared schema/ORM metadata. Resolve the conflict before using this edge in SQL.",
+    "ru": "Сохранённое отклонение противоречит объявленным метаданным схемы/ORM. Разрешите конфликт перед использованием этого ребра в SQL.",
+    "uk": "Збережене відхилення суперечить оголошеним метаданим схеми/ORM. Розв’яжіть конфлікт перед використанням цього ребра в SQL."
+  },
+  "Both path endpoints must exist in the current schema graph.": {
+    "en": "Both path endpoints must exist in the current schema graph.",
+    "ru": "Обе конечные таблицы пути должны существовать в текущем графе схемы.",
+    "uk": "Обидві кінцеві таблиці шляху мають існувати в поточному графі схеми."
+  },
+  "C# source cannot be read: {0} ({1}).": {
+    "en": "C# source cannot be read: {0} ({1}).",
+    "ru": "Не удалось прочитать исходный файл C#: {0} ({1}).",
+    "uk": "Не вдалося прочитати вихідний файл C#: {0} ({1})."
+  },
+  "C# source is unavailable: {0}": {
+    "en": "C# source is unavailable: {0}",
+    "ru": "Исходный файл C# недоступен: {0}",
+    "uk": "Вихідний файл C# недоступний: {0}"
+  },
+  "C# source size limit: {0}": {
+    "en": "C# source size limit: {0}",
+    "ru": "Превышен лимит размера исходного файла C#: {0}",
+    "uk": "Перевищено ліміт розміру вихідного файлу C#: {0}"
+  },
+  "C# SQL evidence needs one explicit database assignment.": {
+    "en": "C# SQL evidence needs one explicit database assignment.",
+    "ru": "Для свидетельств SQL из C# требуется одна явная привязка к базе данных.",
+    "uk": "Для свідчень SQL із C# потрібна одна явна прив’язка до бази даних."
+  },
+  "C# syntax errors prevent trusted mapping analysis.": {
+    "en": "C# syntax errors prevent trusted mapping analysis.",
+    "ru": "Синтаксические ошибки C# не позволяют подтвердить сопоставления.",
+    "uk": "Синтаксичні помилки C# не дають змоги підтвердити зіставлення."
+  },
+  "Candidate discovery stopped at 2000 edges. Narrow the workspace/database selection for large catalogs.": {
+    "en": "Candidate discovery stopped at 2000 edges. Narrow the workspace/database selection for large catalogs.",
+    "ru": "Поиск кандидатов остановлен на 2000 рёбрах. Для больших каталогов сузьте выбор рабочих областей или баз данных.",
+    "uk": "Пошук кандидатів зупинено на 2000 ребрах. Для великих каталогів звузьте вибір робочих областей або баз даних."
+  },
+  "Cannot read EF source: {0} ({1}).": {
+    "en": "Cannot read EF source: {0} ({1}).",
+    "ru": "Не удалось прочитать исходный файл EF: {0} ({1}).",
+    "uk": "Не вдалося прочитати вихідний файл EF: {0} ({1})."
+  },
+  "CLR property {0}.{1} is unresolved.": {
+    "en": "CLR property {0}.{1} is unresolved.",
+    "ru": "Свойство CLR {0}.{1} не определено.",
+    "uk": "Властивість CLR {0}.{1} не визначено."
+  },
+  "CLR/catalog type for {0}.{1} is incompatible/unresolved.": {
+    "en": "CLR/catalog type for {0}.{1} is incompatible/unresolved.",
+    "ru": "Тип CLR/каталога для {0}.{1} несовместим или не определён.",
+    "uk": "Тип CLR/каталогу для {0}.{1} несумісний або не визначений."
+  },
+  "Column mapping is not constant.": {
+    "en": "Column mapping is not constant.",
+    "ru": "Сопоставление колонки не является константным.",
+    "uk": "Зіставлення стовпця не є константним."
+  },
+  "Column reference matches multiple tables in this SQL scope; no endpoint was guessed.": {
+    "en": "Column reference matches multiple tables in this SQL scope; no endpoint was guessed.",
+    "ru": "Ссылка на колонку соответствует нескольким таблицам в этой области SQL; конечная таблица не выбиралась предположительно.",
+    "uk": "Посилання на стовпець відповідає кільком таблицям у цій області SQL; кінцеву таблицю не обирали за припущенням."
+  },
+  "Declared constraint {0}; ordered foreign/principal column pairs come from schema metadata.": {
+    "en": "Declared constraint {0}; ordered foreign/principal column pairs come from schema metadata.",
+    "ru": "Объявленное ограничение {0}; упорядоченные пары внешних и целевых колонок получены из метаданных схемы.",
+    "uk": "Оголошене обмеження {0}; упорядковані пари зовнішніх і цільових стовпців отримано з метаданих схеми."
+  },
+  "Default schema is computed or conflicting.": {
+    "en": "Default schema is computed or conflicting.",
+    "ru": "Схема по умолчанию вычисляется или задана противоречиво.",
+    "uk": "Схема за замовчуванням обчислюється або задана суперечливо."
+  },
+  "Distinct catalog databases share SQL name {0}. Cross-database JOIN previews between them are blocked until database names are mapped unambiguously.": {
+    "en": "Distinct catalog databases share SQL name {0}. Cross-database JOIN previews between them are blocked until database names are mapped unambiguously.",
+    "ru": "Разные базы каталога имеют одно SQL-имя {0}. Предварительные JOIN между ними заблокированы до однозначной привязки имён баз.",
+    "uk": "Різні бази каталогу мають одне SQL-ім’я {0}. Попередні JOIN між ними заблоковано до однозначної прив’язки імен баз."
+  },
+  "Duplicate table identities were excluded from relationship analysis; scope schemas by database identity first.": {
+    "en": "Duplicate table identities were excluded from relationship analysis; scope schemas by database identity first.",
+    "ru": "Повторяющиеся идентификаторы таблиц исключены из анализа связей; сначала задайте область схем по идентификатору базы данных.",
+    "uk": "Повторювані ідентифікатори таблиць виключено з аналізу зв’язків; спочатку задайте область схем за ідентифікатором бази даних."
+  },
+  "Dynamic/assembly-wide metadata configuration is not executed; model mappings require review.": {
+    "en": "Dynamic/assembly-wide metadata configuration is not executed; model mappings require review.",
+    "ru": "Динамическая настройка метаданных и настройка для всей сборки не выполняются; сопоставления модели требуют проверки.",
+    "uk": "Динамічне налаштування метаданих і налаштування для всієї збірки не виконуються; зіставлення моделі потребують перевірки."
+  },
+  "EF analysis accepts local files only.": {
+    "en": "EF analysis accepts local files only.",
+    "ru": "Анализ EF принимает только локальные файлы.",
+    "uk": "Аналіз EF приймає лише локальні файли."
+  },
+  "EF analysis stopped at 4096 source files.": {
+    "en": "EF analysis stopped at 4096 source files.",
+    "ru": "Анализ EF остановлен на 4096 исходных файлах.",
+    "uk": "Аналіз EF зупинено на 4096 вихідних файлах."
+  },
+  "EF source size limit: {0}": {
+    "en": "EF source size limit: {0}",
+    "ru": "Превышен лимит размера исходного файла EF: {0}",
+    "uk": "Перевищено ліміт розміру вихідного файлу EF: {0}"
+  },
+  "EF sources need one explicit database assignment.": {
+    "en": "EF sources need one explicit database assignment.",
+    "ru": "Для исходных файлов EF требуется одна явная привязка к базе данных.",
+    "uk": "Для вихідних файлів EF потрібна одна явна прив’язка до бази даних."
+  },
+  "EF symbols, registration, context or mapping could not be proven statically; confirm the logical relation manually.": {
+    "en": "EF symbols, registration, context or mapping could not be proven statically; confirm the logical relation manually.",
+    "ru": "Не удалось статически подтвердить символы EF, регистрацию, контекст или сопоставление; подтвердите логическую связь вручную.",
+    "uk": "Не вдалося статично підтвердити символи EF, реєстрацію, контекст або зіставлення; підтвердьте логічний зв’язок вручну."
+  },
+  "Embedded EF/framework reference metadata is unavailable.": {
+    "en": "Embedded EF/framework reference metadata is unavailable.",
+    "ru": "Встроенные метаданные ссылок EF/платформы недоступны.",
+    "uk": "Вбудовані метадані посилань EF/платформи недоступні."
+  },
+  "Embedded reference metadata unavailable; only unresolved literal call evidence can be considered.": {
+    "en": "Embedded reference metadata unavailable; only unresolved literal call evidence can be considered.",
+    "ru": "Встроенные метаданные ссылок недоступны; можно учитывать только свидетельства неразрешённых вызовов с литералами.",
+    "uk": "Вбудовані метадані посилань недоступні; можна враховувати лише свідчення нерозпізнаних викликів із літералами."
+  },
+  "Embedded SQL analysis accepts local C# files only.": {
+    "en": "Embedded SQL analysis accepts local C# files only.",
+    "ru": "Анализ встроенного SQL принимает только локальные файлы C#.",
+    "uk": "Аналіз вбудованого SQL приймає лише локальні файли C#."
+  },
+  "Embedded SQL analysis reached its 4096 calls / 16 MiB SQL budget.": {
+    "en": "Embedded SQL analysis reached its 4096 calls / 16 MiB SQL budget.",
+    "ru": "Анализ встроенного SQL достиг лимита: 4096 вызовов / 16 MiB SQL.",
+    "uk": "Аналіз вбудованого SQL досяг ліміту: 4096 викликів / 16 MiB SQL."
+  },
+  "Embedded SQL analysis stopped at 4096 C# files.": {
+    "en": "Embedded SQL analysis stopped at 4096 C# files.",
+    "ru": "Анализ встроенного SQL остановлен на 4096 файлах C#.",
+    "uk": "Аналіз вбудованого SQL зупинено на 4096 файлах C#."
+  },
+  "Embedded SQL could not be bound safely.": {
+    "en": "Embedded SQL could not be bound safely.",
+    "ru": "Не удалось безопасно привязать встроенный SQL.",
+    "uk": "Не вдалося безпечно прив’язати вбудований SQL."
+  },
+  "Embedded SQL is observed source evidence only; explicit confirmation is required before trusted JOIN generation.": {
+    "en": "Embedded SQL is observed source evidence only; explicit confirmation is required before trusted JOIN generation.",
+    "ru": "Встроенный SQL — только наблюдаемое свидетельство из исходников; перед созданием доверенного JOIN требуется явное подтверждение.",
+    "uk": "Вбудований SQL — лише спостережене свідчення з вихідних файлів; перед створенням довіреного JOIN потрібне явне підтвердження."
+  },
+  "Entity {0} has no single explicit Table/ToTable mapping.": {
+    "en": "Entity {0} has no single explicit Table/ToTable mapping.",
+    "ru": "Для сущности {0} нет единственного явного сопоставления Table/ToTable.",
+    "uk": "Для сутності {0} немає єдиного явного зіставлення Table/ToTable."
+  },
+  "Entity-qualified column name matches {0}; compatible type {1}; ": {
+    "en": "Entity-qualified column name matches {0}; compatible type {1}; ",
+    "ru": "Имя колонки с префиксом сущности соответствует {0}; совместимый тип {1}; ",
+    "uk": "Назва стовпця з префіксом сутності відповідає {0}; сумісний тип {1}; "
+  },
+  "FK/principal column counts differ or a catalog principal key is absent.": {
+    "en": "FK/principal column counts differ or a catalog principal key is absent.",
+    "ru": "Число колонок внешнего и целевого ключей различается или в каталоге отсутствует целевой ключ.",
+    "uk": "Кількість стовпців зовнішнього й цільового ключів різниться або в каталозі відсутній цільовий ключ."
+  },
+  "FK/principal SQL types are incompatible.": {
+    "en": "FK/principal SQL types are incompatible.",
+    "ru": "SQL-типы внешнего и целевого ключей несовместимы.",
+    "uk": "SQL-типи зовнішнього й цільового ключів несумісні."
+  },
+  "Fluent FK/principal-key mapping": {
+    "en": "Fluent FK/principal-key mapping",
+    "ru": "Сопоставление FK/ключа основной сущности через Fluent API",
+    "uk": "Зіставлення FK/ключа основної сутності через Fluent API"
+  },
+  "Foreign-key type is not an endpoint.": {
+    "en": "Foreign-key type is not an endpoint.",
+    "ru": "Тип внешнего ключа не соответствует ни одной стороне связи.",
+    "uk": "Тип зовнішнього ключа не відповідає жодній стороні зв’язку."
+  },
+  "Foreign/principal selectors are computed or unsupported.": {
+    "en": "Foreign/principal selectors are computed or unsupported.",
+    "ru": "Селекторы внешних/целевых колонок вычисляются или не поддерживаются.",
+    "uk": "Селектори зовнішніх/цільових стовпців обчислюються або не підтримуються."
+  },
+  "ForeignKey attribute": {
+    "en": "ForeignKey attribute",
+    "ru": "Атрибут ForeignKey",
+    "uk": "Атрибут ForeignKey"
+  },
+  "ForeignKey attribute is not a constant property name.": {
+    "en": "ForeignKey attribute is not a constant property name.",
+    "ru": "Атрибут ForeignKey не содержит константного имени свойства.",
+    "uk": "Атрибут ForeignKey не містить константного імені властивості."
+  },
+  "ForeignKey does not identify a reference navigation.": {
+    "en": "ForeignKey does not identify a reference navigation.",
+    "ru": "ForeignKey не указывает ссылочное навигационное свойство.",
+    "uk": "ForeignKey не вказує посилальну навігаційну властивість."
+  },
+  "ForeignKey navigation cannot be resolved.": {
+    "en": "ForeignKey navigation cannot be resolved.",
+    "ru": "Не удалось определить навигационное свойство ForeignKey.",
+    "uk": "Не вдалося визначити навігаційну властивість ForeignKey."
+  },
+  "Heuristic evidence is never used by the trusted path finder until explicitly confirmed.": {
+    "en": "Heuristic evidence is never used by the trusted path finder until explicitly confirmed.",
+    "ru": "Эвристические свидетельства не используются при поиске доверенных путей до явного подтверждения.",
+    "uk": "Евристичні свідчення не використовуються під час пошуку довірених шляхів до явного підтвердження."
+  },
+  "Ignored, owned, inherited or converted mapping needs manual review.": {
+    "en": "Ignored, owned, inherited or converted mapping needs manual review.",
+    "ru": "Игнорируемое, зависимое, унаследованное или преобразованное сопоставление требует ручной проверки.",
+    "uk": "Ігнороване, залежне, успадковане або перетворене зіставлення потребує ручної перевірки."
+  },
+  "Linked ancestor.": {
+    "en": "Linked ancestor.",
+    "ru": "Родительский каталог является ссылкой.",
+    "uk": "Батьківський каталог є посиланням."
+  },
+  "Linked source.": {
+    "en": "Linked source.",
+    "ru": "Источник является ссылкой.",
+    "uk": "Джерело є посиланням."
+  },
+  "Linked SQL files/directories are not supported.": {
+    "en": "Linked SQL files/directories are not supported.",
+    "ru": "SQL-файлы и каталоги, являющиеся ссылками, не поддерживаются.",
+    "uk": "SQL-файли та каталоги, що є посиланнями, не підтримуються."
+  },
+  "Mapped table {0}.{1} is absent/ambiguous in the assigned database.": {
+    "en": "Mapped table {0}.{1} is absent/ambiguous in the assigned database.",
+    "ru": "Сопоставленная таблица {0}.{1} отсутствует или неоднозначна в назначенной базе данных.",
+    "uk": "Зіставлена таблиця {0}.{1} відсутня або неоднозначна у призначеній базі даних."
+  },
+  "Mapping receiver/entity symbols could not be resolved; no trusted mapping was inferred.": {
+    "en": "Mapping receiver/entity symbols could not be resolved; no trusted mapping was inferred.",
+    "ru": "Не удалось определить символы получателя вызова/сущности; доверенное сопоставление не выведено.",
+    "uk": "Не вдалося визначити символи отримувача виклику/сутності; довіреного зіставлення не виведено."
+  },
+  "Navigation endpoints or many-to-many join entity are not explicit.": {
+    "en": "Navigation endpoints or many-to-many join entity are not explicit.",
+    "ru": "Стороны навигационной связи или связующая сущность «многие ко многим» не заданы явно.",
+    "uk": "Сторони навігаційного зв’язку або зв’язувальну сутність «багато до багатьох» не задано явно."
+  },
+  "Network SQL paths are not supported.": {
+    "en": "Network SQL paths are not supported.",
+    "ru": "Сетевые пути к SQL-файлам не поддерживаются.",
+    "uk": "Мережеві шляхи до SQL-файлів не підтримуються."
+  },
+  "Observed {0} ↔ {1}": {
+    "en": "Observed {0} ↔ {1}",
+    "ru": "Наблюдалось {0} ↔ {1}",
+    "uk": "Спостережено {0} ↔ {1}"
+  },
+  "Observed join analysis accepts at most 4096 source files.": {
+    "en": "Observed join analysis accepts at most 4096 source files.",
+    "ru": "Анализ наблюдаемых JOIN принимает не более 4096 исходных файлов.",
+    "uk": "Аналіз спостережених JOIN приймає не більш ніж 4096 вихідних файлів."
+  },
+  "Observed join analysis skipped {0}: file exceeds 16 MiB.": {
+    "en": "Observed join analysis skipped {0}: file exceeds 16 MiB.",
+    "ru": "Анализ наблюдаемых JOIN пропустил {0}: файл превышает 16 MiB.",
+    "uk": "Аналіз спостережених JOIN пропустив {0}: файл перевищує 16 MiB."
+  },
+  "Observed join analysis stopped at 10000 evidence edges.": {
+    "en": "Observed join analysis stopped at 10000 evidence edges.",
+    "ru": "Анализ наблюдаемых JOIN остановлен на 10000 рёбрах свидетельств.",
+    "uk": "Аналіз спостережених JOIN зупинено на 10000 ребрах свідчень."
+  },
+  "Observed join analysis stopped at 64 MiB total input.": {
+    "en": "Observed join analysis stopped at 64 MiB total input.",
+    "ru": "Анализ наблюдаемых JOIN остановлен на общем размере входных данных 64 MiB.",
+    "uk": "Аналіз спостережених JOIN зупинено на загальному розмірі вхідних даних 64 MiB."
+  },
+  "Observed join table has an external server or omitted schema; no database/schema was guessed.": {
+    "en": "Observed join table has an external server or omitted schema; no database/schema was guessed.",
+    "ru": "Таблица наблюдаемого JOIN ссылается на внешний сервер или указана без схемы; база данных и схема не выбирались предположительно.",
+    "uk": "Таблиця спостереженого JOIN посилається на зовнішній сервер або вказана без схеми; базу даних і схему не обирали за припущенням."
+  },
+  "Observed join table is absent or matches more than one catalog database; no endpoint was fabricated.": {
+    "en": "Observed join table is absent or matches more than one catalog database; no endpoint was fabricated.",
+    "ru": "Таблица наблюдаемого JOIN отсутствует или соответствует нескольким базам каталога; конечная таблица не создавалась предположительно.",
+    "uk": "Таблиця спостереженого JOIN відсутня або відповідає кільком базам каталогу; кінцеву таблицю не створювали за припущенням."
+  },
+  "Observed SQL joins require explicit confirmation before use in trusted paths.": {
+    "en": "Observed SQL joins require explicit confirmation before use in trusted paths.",
+    "ru": "Для использования наблюдаемых SQL JOIN в доверенных путях требуется явное подтверждение.",
+    "uk": "Для використання спостережених SQL JOIN у довірених шляхах потрібне явне підтвердження."
+  },
+  "Official embedded EF metadata is unavailable; mappings cannot be trusted.": {
+    "en": "Official embedded EF metadata is unavailable; mappings cannot be trusted.",
+    "ru": "Официальные встроенные метаданные EF недоступны; сопоставлениям нельзя доверять.",
+    "uk": "Офіційні вбудовані метадані EF недоступні; зіставленням не можна довіряти."
+  },
+  "One-to-one mapping requires explicit dependent generic type.": {
+    "en": "One-to-one mapping requires explicit dependent generic type.",
+    "ru": "Для связи «один к одному» требуется явный generic-тип зависимой сущности.",
+    "uk": "Для зв’язку «один до одного» потрібен явний generic-тип залежної сутності."
+  },
+  "Path search supports depth 0..12 and 1..20 results.": {
+    "en": "Path search supports depth 0..12 and 1..20 results.",
+    "ru": "Поиск путей поддерживает глубину 0..12 и 1..20 результатов.",
+    "uk": "Пошук шляхів підтримує глибину 0..12 і 1..20 результатів."
+  },
+  "Physical constraint {0} maps {1} ({2}) to {3} ({4}). This alternative uses the same source columns with a different target/mapping.": {
+    "en": "Physical constraint {0} maps {1} ({2}) to {3} ({4}). This alternative uses the same source columns with a different target/mapping.",
+    "ru": "Физическое ограничение {0} связывает {1} ({2}) с {3} ({4}). Эта альтернатива использует те же исходные колонки с другой целью или сопоставлением.",
+    "uk": "Фізичне обмеження {0} пов’язує {1} ({2}) з {3} ({4}). Ця альтернатива використовує ті самі вихідні стовпці з іншою ціллю або зіставленням."
+  },
+  "Principal-key type conflicts with direction.": {
+    "en": "Principal-key type conflicts with direction.",
+    "ru": "Тип ключа основной сущности противоречит направлению связи.",
+    "uk": "Тип ключа основної сутності суперечить напрямку зв’язку."
+  },
+  "Project preprocessor symbols are not evaluated; conditional mappings require review.": {
+    "en": "Project preprocessor symbols are not evaluated; conditional mappings require review.",
+    "ru": "Символы препроцессора проекта не вычисляются; условные сопоставления требуют проверки.",
+    "uk": "Символи препроцесора проєкту не обчислюються; умовні зіставлення потребують перевірки."
+  },
+  "Property {0}.{1} has no single catalog column.": {
+    "en": "Property {0}.{1} has no single catalog column.",
+    "ru": "Свойству {0}.{1} не соответствует единственная колонка каталога.",
+    "uk": "Властивості {0}.{1} не відповідає єдиний стовпець каталогу."
+  },
+  "Property/HasColumnName is computed or ambiguous.": {
+    "en": "Property/HasColumnName is computed or ambiguous.",
+    "ru": "Property/HasColumnName вычисляется или неоднозначен.",
+    "uk": "Property/HasColumnName обчислюється або є неоднозначним."
+  },
+  "Relation {0} has missing columns/endpoints or incompatible types and was excluded.": {
+    "en": "Relation {0} has missing columns/endpoints or incompatible types and was excluded.",
+    "ru": "У связи {0} отсутствуют колонки или конечные таблицы либо несовместимы типы; связь исключена.",
+    "uk": "У зв’язку {0} відсутні стовпці чи кінцеві таблиці або несумісні типи; зв’язок виключено."
+  },
+  "Saved decision for {0} no longer matches current endpoints/evidence. It was preserved but is not trusted.": {
+    "en": "Saved decision for {0} no longer matches current endpoints/evidence. It was preserved but is not trusted.",
+    "ru": "Сохранённое решение для {0} больше не соответствует текущим конечным таблицам или свидетельствам. Оно сохранено, но не считается доверенным.",
+    "uk": "Збережене рішення для {0} більше не відповідає поточним кінцевим таблицям або свідченням. Його збережено, але воно не вважається довіреним."
+  },
+  "Selected properties map to the same column.": {
+    "en": "Selected properties map to the same column.",
+    "ru": "Выбранные свойства сопоставлены с одной и той же колонкой.",
+    "uk": "Вибрані властивості зіставлено з одним і тим самим стовпцем."
+  },
+  "SQL equality predicates: ": {
+    "en": "SQL equality predicates: ",
+    "ru": "Предикаты равенства SQL: ",
+    "uk": "Предикати рівності SQL: "
+  },
+  "Table mapping is not constant.": {
+    "en": "Table mapping is not constant.",
+    "ru": "Сопоставление таблицы не является константным.",
+    "uk": "Зіставлення таблиці не є константним."
+  },
+  "ToTable requires constant table/schema arguments.": {
+    "en": "ToTable requires constant table/schema arguments.",
+    "ru": "ToTable требует константных аргументов таблицы/схемы.",
+    "uk": "ToTable потребує константних аргументів таблиці/схеми."
+  },
+  "Unavailable or linked EF source: {0}": {
+    "en": "Unavailable or linked EF source: {0}",
+    "ru": "Недоступный исходный файл EF или источник, являющийся ссылкой: {0}",
+    "uk": "Недоступний вихідний файл EF або джерело, що є посиланням: {0}"
+  },
+  "Unknown relation decision {0}; expected confirm or reject.": {
+    "en": "Unknown relation decision {0}; expected confirm or reject.",
+    "ru": "Неизвестное решение по связи {0}; ожидалось confirm или reject.",
+    "uk": "Невідоме рішення щодо зв’язку {0}; очікувалося confirm або reject."
+  },
+  "User configuration helper is not executed; subsequent mapping overrides cannot be ruled out.": {
+    "en": "User configuration helper is not executed; subsequent mapping overrides cannot be ruled out.",
+    "ru": "Пользовательский вспомогательный метод настройки не выполняется; нельзя исключить последующее переопределение сопоставлений.",
+    "uk": "Користувацький допоміжний метод налаштування не виконується; подальше перевизначення зіставлень не можна виключити."
+  },
+  "{0} has multiple primary key definitions.": {
+    "en": "{0} has multiple primary key definitions.",
+    "ru": "Для {0} найдено несколько определений первичного ключа.",
+    "uk": "Для {0} знайдено кілька визначень первинного ключа."
+  },
+  "{0} is not evaluated by the static table reader.": {
+    "en": "{0} is not evaluated by the static table reader.",
+    "ru": "{0} не вычисляется статическим читателем таблиц.",
+    "uk": "{0} не обчислюється статичним читачем таблиць."
+  },
+  "{0}: primary key column {1} does not exist.": {
+    "en": "{0}: primary key column {1} does not exist.",
+    "ru": "{0}: колонка первичного ключа {1} не существует.",
+    "uk": "{0}: стовпець первинного ключа {1} не існує."
+  },
+  "{0}.{1} has no explicit NULL/NOT NULL. It is treated as nullable unless a parsed primary key/IDENTITY requires NOT NULL; session/database defaults are unavailable.": {
+    "en": "{0}.{1} has no explicit NULL/NOT NULL. It is treated as nullable unless a parsed primary key/IDENTITY requires NOT NULL; session/database defaults are unavailable.",
+    "ru": "Для {0}.{1} не задано явное NULL/NOT NULL. Колонка считается допускающей NULL, если разобранный первичный ключ/IDENTITY не требует NOT NULL; настройки сеанса/базы данных по умолчанию недоступны.",
+    "uk": "Для {0}.{1} не задано явного NULL/NOT NULL. Стовпець вважається таким, що допускає NULL, якщо розібраний первинний ключ/IDENTITY не вимагає NOT NULL; типові налаштування сеансу/бази даних недоступні."
+  },
+  "A snapshot contains duplicate column names; this table was excluded from column comparison.": {
+    "en": "A snapshot contains duplicate column names; this table was excluded from column comparison.",
+    "ru": "Снимок содержит повторяющиеся имена колонок; эта таблица исключена из сравнения колонок.",
+    "uk": "Знімок містить повторювані назви стовпців; цю таблицю виключено з порівняння стовпців."
+  },
+  "A snapshot FK references a missing or ambiguous table and was excluded from comparison.": {
+    "en": "A snapshot FK references a missing or ambiguous table and was excluded from comparison.",
+    "ru": "FK снимка ссылается на отсутствующую или неоднозначную таблицу и исключён из сравнения.",
+    "uk": "FK знімка посилається на відсутню або неоднозначну таблицю й виключений із порівняння."
+  },
+  "ALTER/CREATE OR ALTER source describes one possible object state; migration order was not executed.": {
+    "en": "ALTER/CREATE OR ALTER source describes one possible object state; migration order was not executed.",
+    "ru": "Исходник ALTER/CREATE OR ALTER описывает одно из возможных состояний объекта; последовательность миграций не выполнялась.",
+    "uk": "Вихідний код ALTER/CREATE OR ALTER описує один із можливих станів об’єкта; послідовність міграцій не виконувалася."
+  },
+  "An external definition was not merged into this database.": {
+    "en": "An external definition was not merged into this database.",
+    "ru": "Внешнее определение не объединено с этой базой данных.",
+    "uk": "Зовнішнє визначення не об’єднано із цією базою даних."
+  },
+  "An external or unresolved object reference is retained as evidence without a fabricated local target.": {
+    "en": "An external or unresolved object reference is retained as evidence without a fabricated local target.",
+    "ru": "Внешняя или неразрешённая ссылка на объект сохранена как свидетельство без вымышленного локального целевого объекта.",
+    "uk": "Зовнішнє або нерозпізнане посилання на об’єкт збережено як свідчення без вигаданого локального цільового об’єкта."
+  },
+  "An external, unqualified or unknown object reference was retained without inventing a local target.": {
+    "en": "An external, unqualified or unknown object reference was retained without inventing a local target.",
+    "ru": "Внешняя, неквалифицированная или неизвестная ссылка на объект сохранена без вымышленного локального целевого объекта.",
+    "uk": "Зовнішнє, некваліфіковане або невідоме посилання на об’єкт збережено без вигаданого локального цільового об’єкта."
+  },
+  "An index owner/column was unresolved and the index was excluded.": {
+    "en": "An index owner/column was unresolved and the index was excluded.",
+    "ru": "Не удалось определить объект или колонку индекса; индекс исключён.",
+    "uk": "Не вдалося визначити об’єкт або стовпець індексу; індекс виключено."
+  },
+  "An object definition was omitted because it exceeds 256 KiB UTF-8 or the snapshot's 32 MiB UTF-8 definition budget.": {
+    "en": "An object definition was omitted because it exceeds 256 KiB UTF-8 or the snapshot's 32 MiB UTF-8 definition budget.",
+    "ru": "Определение объекта пропущено: превышено 256 KiB UTF-8 или общий лимит определений снимка 32 MiB UTF-8.",
+    "uk": "Визначення об’єкта пропущено: перевищено 256 KiB UTF-8 або загальний ліміт визначень знімка 32 MiB UTF-8."
+  },
+  "An unnamed key has a deterministic display identity; its eventual server-generated name is unknown.": {
+    "en": "An unnamed key has a deterministic display identity; its eventual server-generated name is unknown.",
+    "ru": "Безымянному ключу назначен детерминированный идентификатор для отображения; его будущее серверное имя неизвестно.",
+    "uk": "Безіменному ключу призначено детермінований ідентифікатор для відображення; його майбутня серверна назва невідома."
+  },
+  "An unqualified definition uses an assumed default schema in this partial static snapshot.": {
+    "en": "An unqualified definition uses an assumed default schema in this partial static snapshot.",
+    "ru": "В этом частичном статическом снимке для неквалифицированного определения предполагается схема по умолчанию.",
+    "uk": "У цьому частковому статичному знімку для некваліфікованого визначення припускається схема за замовчуванням."
+  },
+  "Column {0} has no resolved data type (for example, a computed expression).": {
+    "en": "Column {0} has no resolved data type (for example, a computed expression).",
+    "ru": "Тип данных колонки {0} не определён (например, для вычисляемого выражения).",
+    "uk": "Тип даних стовпця {0} не визначено (наприклад, для обчислюваного виразу)."
+  },
+  "Computed column {0}.{1} needs DACPAC/catalog binding to resolve its data type.": {
+    "en": "Computed column {0}.{1} needs DACPAC/catalog binding to resolve its data type.",
+    "ru": "Для определения типа вычисляемой колонки {0}.{1} нужна привязка DACPAC/каталога.",
+    "uk": "Для визначення типу обчислюваного стовпця {0}.{1} потрібна прив’язка DACPAC/каталогу."
+  },
+  "Conflicting table/view/routine/synonym definitions were excluded; static analysis cannot choose one migration state.": {
+    "en": "Conflicting table/view/routine/synonym definitions were excluded; static analysis cannot choose one migration state.",
+    "ru": "Конфликтующие определения таблиц, представлений, подпрограмм и синонимов исключены; статический анализ не может выбрать одно состояние миграций.",
+    "uk": "Конфліктні визначення таблиць, подань, підпрограм і синонімів виключено; статичний аналіз не може вибрати один стан міграцій."
+  },
+  "DacFx could not produce source SQL for a schema object.": {
+    "en": "DacFx could not produce source SQL for a schema object.",
+    "ru": "DacFx не удалось получить исходный SQL для объекта схемы.",
+    "uk": "DacFx не вдалося отримати вихідний SQL для об’єкта схеми."
+  },
+  "DACPAC file was not found.": {
+    "en": "DACPAC file was not found.",
+    "ru": "Файл DACPAC не найден.",
+    "uk": "Файл DACPAC не знайдено."
+  },
+  "Duplicate column {0}.{1}; the table is excluded.": {
+    "en": "Duplicate column {0}.{1}; the table is excluded.",
+    "ru": "Повторяющаяся колонка {0}.{1}; таблица исключена.",
+    "uk": "Повторюваний стовпець {0}.{1}; таблицю виключено."
+  },
+  "Duplicate foreign key identity {0}; inspect the source constraints.": {
+    "en": "Duplicate foreign key identity {0}; inspect the source constraints.",
+    "ru": "Повторяющийся идентификатор внешнего ключа {0}; проверьте ограничения в исходнике.",
+    "uk": "Повторюваний ідентифікатор зовнішнього ключа {0}; перевірте обмеження у вихідному коді."
+  },
+  "Duplicate metadata identities were excluded from object comparison.": {
+    "en": "Duplicate metadata identities were excluded from object comparison.",
+    "ru": "Повторяющиеся идентификаторы метаданных исключены из сравнения объектов.",
+    "uk": "Повторювані ідентифікатори метаданих виключено з порівняння об’єктів."
+  },
+  "Duplicate source-table/constraint identities were excluded from FK comparison.": {
+    "en": "Duplicate source-table/constraint identities were excluded from FK comparison.",
+    "ru": "Повторяющиеся идентификаторы исходных таблиц/ограничений исключены из сравнения FK.",
+    "uk": "Повторювані ідентифікатори вихідних таблиць/обмежень виключено з порівняння FK."
+  },
+  "Dynamic EXEC SQL is not executed or parsed as schema dependency facts.": {
+    "en": "Dynamic EXEC SQL is not executed or parsed as schema dependency facts.",
+    "ru": "Динамический EXEC SQL не выполняется и не разбирается как подтверждённая зависимость схемы.",
+    "uk": "Динамічний EXEC SQL не виконується й не розбирається як підтверджена залежність схеми."
+  },
+  "Foreign key {0} could not be resolved completely; it was omitted from the graph.": {
+    "en": "Foreign key {0} could not be resolved completely; it was omitted from the graph.",
+    "ru": "Внешний ключ {0} не удалось определить полностью; он пропущен в графе.",
+    "uk": "Зовнішній ключ {0} не вдалося визначити повністю; його пропущено в графі."
+  },
+  "Foreign key on {0} has unresolved or mismatched column pairs; no relation was added.": {
+    "en": "Foreign key on {0} has unresolved or mismatched column pairs; no relation was added.",
+    "ru": "Внешний ключ таблицы {0} содержит неразрешённые или несогласованные пары колонок; связь не добавлена.",
+    "uk": "Зовнішній ключ таблиці {0} містить нерозпізнані або неузгоджені пари стовпців; зв’язок не додано."
+  },
+  "Foreign key target {0} is absent or ambiguous; no relation was fabricated.": {
+    "en": "Foreign key target {0} is absent or ambiguous; no relation was fabricated.",
+    "ru": "Целевая таблица внешнего ключа {0} отсутствует или неоднозначна; связь не создавалась предположительно.",
+    "uk": "Цільова таблиця зовнішнього ключа {0} відсутня або неоднозначна; зв’язок не створювали за припущенням."
+  },
+  "Multiple CREATE TABLE definitions for {0}; the ambiguous object is excluded.": {
+    "en": "Multiple CREATE TABLE definitions for {0}; the ambiguous object is excluded.",
+    "ru": "Для {0} найдено несколько определений CREATE TABLE; неоднозначный объект исключён.",
+    "uk": "Для {0} знайдено кілька визначень CREATE TABLE; неоднозначний об’єкт виключено."
+  },
+  "Multiple index definitions share one identity; no migration state was guessed.": {
+    "en": "Multiple index definitions share one identity; no migration state was guessed.",
+    "ru": "Несколько определений индекса имеют один идентификатор; состояние миграций не выбиралось предположительно.",
+    "uk": "Кілька визначень індексу мають один ідентифікатор; стан міграцій не обирали за припущенням."
+  },
+  "Multiple unique key definitions share one identity; no migration state was guessed.": {
+    "en": "Multiple unique key definitions share one identity; no migration state was guessed.",
+    "ru": "Несколько определений уникального ключа имеют один идентификатор; состояние миграций не выбиралось предположительно.",
+    "uk": "Кілька визначень унікального ключа мають один ідентифікатор; стан міграцій не обирали за припущенням."
+  },
+  "Object dependency evidence reached 200000 entries; the result is partial.": {
+    "en": "Object dependency evidence reached 200000 entries; the result is partial.",
+    "ru": "Свидетельства зависимостей объектов достигли 200000 записей; результат частичный.",
+    "uk": "Свідчення залежностей об’єктів досягли 200000 записів; результат частковий."
+  },
+  "Object source SQL was omitted because the 256 KiB object or 32 MiB snapshot definition limit was reached.": {
+    "en": "Object source SQL was omitted because the 256 KiB object or 32 MiB snapshot definition limit was reached.",
+    "ru": "Исходный SQL объекта пропущен: достигнут лимит определения объекта 256 KiB или снимка 32 MiB.",
+    "uk": "Вихідний SQL об’єкта пропущено: досягнуто ліміту визначення об’єкта 256 KiB або знімка 32 MiB."
+  },
+  "Only .dacpac schema packages are accepted.": {
+    "en": "Only .dacpac schema packages are accepted.",
+    "ru": "Принимаются только пакеты схемы .dacpac.",
+    "uk": "Приймаються лише пакети схеми .dacpac."
+  },
+  "Query/data statements are not indexed as table definitions and were not executed.": {
+    "en": "Query/data statements are not indexed as table definitions and were not executed.",
+    "ru": "Операторы запросов и данных не индексируются как определения таблиц и не выполнялись.",
+    "uk": "Оператори запитів і даних не індексуються як визначення таблиць і не виконувалися."
+  },
+  "Removed and added columns have the same exact SQL type and nullability in the same table; names alone do not prove a rename.": {
+    "en": "Removed and added columns have the same exact SQL type and nullability in the same table; names alone do not prove a rename.",
+    "ru": "Удалённая и добавленная колонки имеют одинаковые точный SQL-тип и допустимость NULL в одной таблице; одни имена не доказывают переименование.",
+    "uk": "Видалений і доданий стовпці мають однакові точний SQL-тип і допустимість NULL в одній таблиці; самі назви не доводять перейменування."
+  },
+  "Removed and added tables have the same ordered column names, exact types, nullability and primary key. This is a structural candidate requiring review.": {
+    "en": "Removed and added tables have the same ordered column names, exact types, nullability and primary key. This is a structural candidate requiring review.",
+    "ru": "Удалённая и добавленная таблицы имеют одинаковые упорядоченные имена колонок, точные типы, допустимость NULL и первичный ключ. Это структурный кандидат, требующий проверки.",
+    "uk": "Видалена й додана таблиці мають однакові впорядковані назви стовпців, точні типи, допустимість NULL і первинний ключ. Це структурний кандидат, який потребує перевірки."
+  },
+  "Rename candidates exceeded 1000; the bounded result is partial.": {
+    "en": "Rename candidates exceeded 1000; the bounded result is partial.",
+    "ru": "Кандидатов на переименование больше 1000; ограниченный результат частичный.",
+    "uk": "Кандидатів на перейменування більше 1000; обмежений результат частковий."
+  },
+  "Schema changes exceeded 10000; the bounded result is partial.": {
+    "en": "Schema changes exceeded 10000; the bounded result is partial.",
+    "ru": "Изменений схемы больше 10000; ограниченный результат частичный.",
+    "uk": "Змін схеми більше 10000; обмежений результат частковий."
+  },
+  "Some derived columns have no resolved DacFx data type; use live SQL catalog metadata for their authoritative type/nullability.": {
+    "en": "Some derived columns have no resolved DacFx data type; use live SQL catalog metadata for their authoritative type/nullability.",
+    "ru": "Для некоторых производных колонок тип DacFx не определён; используйте метаданные действующего SQL-каталога для точного типа и допустимости NULL.",
+    "uk": "Для деяких похідних стовпців тип DacFx не визначено; використовуйте метадані чинного SQL-каталогу для точного типу й допустимості NULL."
+  },
+  "Static analysis accepts at most 4096 SQL files at once.": {
+    "en": "Static analysis accepts at most 4096 SQL files at once.",
+    "ru": "Статический анализ принимает не более 4096 SQL-файлов за раз.",
+    "uk": "Статичний аналіз приймає не більш ніж 4096 SQL-файлів за раз."
+  },
+  "Static analysis stopped after reaching its total input limit of 64 MiB.": {
+    "en": "Static analysis stopped after reaching its total input limit of 64 MiB.",
+    "ru": "Статический анализ остановлен после достижения общего лимита входных данных 64 MiB.",
+    "uk": "Статичний аналіз зупинено після досягнення загального ліміту вхідних даних 64 MiB."
+  },
+  "Static ScriptDom analysis extracts declarative table/object/index definitions and reference evidence. It does not execute migrations, dynamic SQL, session settings or procedural control flow; use DACPAC/catalog metadata for an authoritative schema.": {
+    "en": "Static ScriptDom analysis extracts declarative table/object/index definitions and reference evidence. It does not execute migrations, dynamic SQL, session settings or procedural control flow; use DACPAC/catalog metadata for an authoritative schema.",
+    "ru": "Статический анализ ScriptDom извлекает декларативные определения таблиц, объектов и индексов, а также свидетельства ссылок. Он не выполняет миграции, динамический SQL, настройки сеанса или процедурное управление потоком; для точной схемы используйте метаданные DACPAC/каталога.",
+    "uk": "Статичний аналіз ScriptDom видобуває декларативні визначення таблиць, об’єктів та індексів, а також свідчення посилань. Він не виконує міграції, динамічний SQL, налаштування сеансу або процедурне керування потоком; для точної схеми використовуйте метадані DACPAC/каталогу."
+  },
+  "Structural rename analysis exceeded 100000 comparisons; review candidates are partial.": {
+    "en": "Structural rename analysis exceeded 100000 comparisons; review candidates are partial.",
+    "ru": "Структурный анализ переименований превысил 100000 сравнений; список кандидатов для проверки частичный.",
+    "uk": "Структурний аналіз перейменувань перевищив 100000 порівнянь; список кандидатів для перевірки частковий."
+  },
+  "Temporary tables are not persistent schema objects.": {
+    "en": "Temporary tables are not persistent schema objects.",
+    "ru": "Временные таблицы не являются постоянными объектами схемы.",
+    "uk": "Тимчасові таблиці не є постійними об’єктами схеми."
+  },
+  "The {0} has an incomplete identifier.": {
+    "en": "The {0} has an incomplete identifier.",
+    "ru": "{0}: неполный идентификатор.",
+    "uk": "{0}: неповний ідентифікатор."
+  },
+  "The {0} has no explicit schema. Static analysis cannot safely bind the session default schema.": {
+    "en": "The {0} has no explicit schema. Static analysis cannot safely bind the session default schema.",
+    "ru": "Для {0} не задана явная схема. Статический анализ не может безопасно определить схему сеанса по умолчанию.",
+    "uk": "Для {0} не задано явної схеми. Статичний аналіз не може безпечно визначити схему сеансу за замовчуванням."
+  },
+  "The {0} references another database/server. It was not merged into {1}.": {
+    "en": "The {0} references another database/server. It was not merged into {1}.",
+    "ru": "{0} ссылается на другую базу данных/сервер. Определение не объединено с {1}.",
+    "uk": "{0} посилається на іншу базу даних/сервер. Визначення не об’єднано з {1}."
+  },
+  "The {0} snapshot contains duplicate schema/table names; comparison was blocked.": {
+    "en": "The {0} snapshot contains duplicate schema/table names; comparison was blocked.",
+    "ru": "Снимок {0} содержит повторяющиеся имена схем/таблиц; сравнение заблокировано.",
+    "uk": "Знімок {0} містить повторювані назви схем/таблиць; порівняння заблоковано."
+  },
+  "The DACPAC could not be read. Verify that it is a valid SQL schema package compatible with the installed DacFx.": {
+    "en": "The DACPAC could not be read. Verify that it is a valid SQL schema package compatible with the installed DacFx.",
+    "ru": "Не удалось прочитать DACPAC. Проверьте, что это корректный пакет схемы SQL, совместимый с установленным DacFx.",
+    "uk": "Не вдалося прочитати DACPAC. Перевірте, що це коректний пакет схеми SQL, сумісний зі встановленим DacFx."
+  },
+  "The referenced columns of {0} do not match a parsed primary/unique constraint. A unique index or external metadata may be needed.": {
+    "en": "The referenced columns of {0} do not match a parsed primary/unique constraint. A unique index or external metadata may be needed.",
+    "ru": "Целевые колонки {0} не соответствуют разобранному первичному/уникальному ограничению. Может потребоваться уникальный индекс или внешние метаданные.",
+    "uk": "Цільові стовпці {0} не відповідають розібраному первинному/унікальному обмеженню. Може знадобитися унікальний індекс або зовнішні метадані."
+  },
+  "The source table has an assumed default schema. Its foreign key is not bound until the schema is explicit.": {
+    "en": "The source table has an assumed default schema. Its foreign key is not bound until the schema is explicit.",
+    "ru": "У исходной таблицы предполагаемая схема по умолчанию. Внешний ключ не привязывается, пока схема не задана явно.",
+    "uk": "У вихідної таблиці припускається схема за замовчуванням. Зовнішній ключ не прив’язується, доки схему не задано явно."
+  },
+  "The SQL file exceeds the static analysis limit of 16 MiB.": {
+    "en": "The SQL file exceeds the static analysis limit of 16 MiB.",
+    "ru": "SQL-файл превышает лимит статического анализа 16 MiB.",
+    "uk": "SQL-файл перевищує ліміт статичного аналізу 16 MiB."
+  },
+  "The static reader cannot infer columns for {0} from SELECT, CLONE or an implicit table definition.": {
+    "en": "The static reader cannot infer columns for {0} from SELECT, CLONE or an implicit table definition.",
+    "ru": "Статический читатель не может вывести колонки для {0} из SELECT, CLONE или неявного определения таблицы.",
+    "uk": "Статичний читач не може вивести стовпці для {0} із SELECT, CLONE або неявного визначення таблиці."
+  },
+  "The target table has an assumed default schema. Its foreign key is not bound until the schema is explicit.": {
+    "en": "The target table has an assumed default schema. Its foreign key is not bound until the schema is explicit.",
+    "ru": "У целевой таблицы предполагаемая схема по умолчанию. Внешний ключ не привязывается, пока схема не задана явно.",
+    "uk": "У цільової таблиці припускається схема за замовчуванням. Зовнішній ключ не прив’язується, доки схему не задано явно."
+  },
+  "Unqualified {0} {1} is interpreted in schema {2}; the session default schema is unavailable.": {
+    "en": "Unqualified {0} {1} is interpreted in schema {2}; the session default schema is unavailable.",
+    "ru": "Неквалифицированный объект {0} {1} рассматривается в схеме {2}; схема сеанса по умолчанию недоступна.",
+    "uk": "Некваліфікований об’єкт {0} {1} розглядається у схемі {2}; схема сеансу за замовчуванням недоступна."
+  },
+  "USE {0} changes to a different database; its statements are not added to {1}.": {
+    "en": "USE {0} changes to a different database; its statements are not added to {1}.",
+    "ru": "USE {0} переключает на другую базу данных; её операторы не добавляются в {1}.",
+    "uk": "USE {0} перемикає на іншу базу даних; її оператори не додаються до {1}."
+  },
+  "View/inline-function output names are parsed, but data types/nullability require DacFx/catalog binding; unknown columns are not fabricated.": {
+    "en": "View/inline-function output names are parsed, but data types/nullability require DacFx/catalog binding; unknown columns are not fabricated.",
+    "ru": "Имена выходных колонок представлений и inline-функций разбираются, но для типов и допустимости NULL нужна привязка DacFx/каталога; неизвестные колонки не создаются предположительно.",
+    "uk": "Назви вихідних стовпців подань та inline-функцій розбираються, але для типів і допустимості NULL потрібна прив’язка DacFx/каталогу; невідомі стовпці не створюються за припущенням."
+  },
+  "XML/spatial indexes are not yet represented by the DacFx index model; use catalog metadata for their inventory.": {
+    "en": "XML/spatial indexes are not yet represented by the DacFx index model; use catalog metadata for their inventory.",
+    "ru": "XML- и пространственные индексы пока не представлены моделью индексов DacFx; для их перечня используйте метаданные каталога.",
+    "uk": "XML- і просторові індекси ще не представлені моделлю індексів DacFx; для їх переліку використовуйте метадані каталогу."
+  },
+  "{0} is missing from the explicitly selected database schema.": {
+    "en": "{0} is missing from the explicitly selected database schema.",
+    "ru": "{0} отсутствует в схеме явно выбранной базы данных.",
+    "uk": "{0} відсутній у схемі явно вибраної бази даних."
+  },
+  "{0} matches multiple selected database/schema objects; choose an explicit database and schema.": {
+    "en": "{0} matches multiple selected database/schema objects; choose an explicit database and schema.",
+    "ru": "{0} соответствует нескольким выбранным объектам баз данных/схем; укажите базу данных и схему явно.",
+    "uk": "{0} відповідає кільком вибраним об’єктам баз даних/схем; укажіть базу даних і схему явно."
+  },
+  "{0} needs manual query-lineage review.": {
+    "en": "{0} needs manual query-lineage review.",
+    "ru": "Для {0} требуется ручная проверка происхождения данных запроса.",
+    "uk": "Для {0} потрібна ручна перевірка походження даних запиту."
+  },
+  "{0} requires manual review; this validator does not execute procedural or mutation statements.": {
+    "en": "{0} requires manual review; this validator does not execute procedural or mutation statements.",
+    "ru": "Для {0} требуется ручная проверка; этот валидатор не выполняет процедурные операторы или операторы изменения данных.",
+    "uk": "Для {0} потрібна ручна перевірка; цей валідатор не виконує процедурні оператори або оператори зміни даних."
+  },
+  "{0} requires MaxLength 1..{1}, or -1 for MAX.": {
+    "en": "{0} requires MaxLength 1..{1}, or -1 for MAX.",
+    "ru": "Для {0} требуется MaxLength 1..{1} или -1 для MAX.",
+    "uk": "Для {0} потрібен MaxLength 1..{1} або -1 для MAX."
+  },
+  "{0} requires review.": {
+    "en": "{0} requires review.",
+    "ru": "Для {0} требуется проверка.",
+    "uk": "Для {0} потрібна перевірка."
+  },
+  "{0} rowset metadata is unavailable.": {
+    "en": "{0} rowset metadata is unavailable.",
+    "ru": "Метаданные набора строк {0} недоступны.",
+    "uk": "Метадані набору рядків {0} недоступні."
+  },
+  "{0}: {1} values may require reviewing indexes and the SQL execution plan.": {
+    "en": "{0}: {1} values may require reviewing indexes and the SQL execution plan.",
+    "ru": "{0}: для {1} значений может потребоваться проверка индексов и плана выполнения SQL.",
+    "uk": "{0}: для {1} значень може знадобитися перевірка індексів і плану виконання SQL."
+  },
+  "{0}: all {1} duplicate occurrences were retained.": {
+    "en": "{0}: all {1} duplicate occurrences were retained.",
+    "ru": "{0}: сохранены все {1} повторных вхождений.",
+    "uk": "{0}: збережено всі {1} повторних входжень."
+  },
+  "{0}: duplicate removal was explicitly enabled; {1} values remain.": {
+    "en": "{0}: duplicate removal was explicitly enabled; {1} values remain.",
+    "ru": "{0}: удаление дубликатов включено явно; осталось {1} значений.",
+    "uk": "{0}: видалення дублікатів увімкнено явно; залишилося {1} значень."
+  },
+  "{0}: input rowsets use DATABASE_DEFAULT collation; select the intended target database before executing the copied script.": {
+    "en": "{0}: input rowsets use DATABASE_DEFAULT collation; select the intended target database before executing the copied script.",
+    "ru": "{0}: входные наборы строк используют параметры сортировки DATABASE_DEFAULT; перед выполнением скопированного скрипта выберите нужную целевую базу данных.",
+    "uk": "{0}: вхідні набори рядків використовують параметри сортування DATABASE_DEFAULT; перед виконанням скопійованого скрипту виберіть потрібну цільову базу даних."
+  },
+  "{0}: original positions are exposed as [Ordinal]. IN does not order query results; use a table placeholder and ORDER BY its alias.[Ordinal] when result order matters.": {
+    "en": "{0}: original positions are exposed as [Ordinal]. IN does not order query results; use a table placeholder and ORDER BY its alias.[Ordinal] when result order matters.",
+    "ru": "{0}: исходные позиции доступны как [Ordinal]. IN не упорядочивает результат запроса; если порядок важен, используйте табличный placeholder и ORDER BY его alias.[Ordinal].",
+    "uk": "{0}: початкові позиції доступні як [Ordinal]. IN не впорядковує результат запиту; якщо порядок важливий, використовуйте табличний placeholder і ORDER BY його alias.[Ordinal]."
+  },
+  "{0}.{1}.{2} is missing from the current schema (removed or renamed).": {
+    "en": "{0}.{1}.{2} is missing from the current schema (removed or renamed).",
+    "ru": "{0}.{1}.{2} отсутствует в текущей схеме (удалено или переименовано).",
+    "uk": "{0}.{1}.{2} відсутній у поточній схемі (видалено або перейменовано)."
+  },
+  "A cross-rowset subquery comparison has computed/non-equality lineage; review its relationship semantics.": {
+    "en": "A cross-rowset subquery comparison has computed/non-equality lineage; review its relationship semantics.",
+    "ru": "Сравнение подзапроса между наборами строк имеет вычисляемое происхождение или использует неравенство; проверьте смысл связи.",
+    "uk": "Порівняння підзапиту між наборами рядків має обчислюване походження або використовує нерівність; перевірте зміст зв’язку."
+  },
+  "A derived table needs an alias.": {
+    "en": "A derived table needs an alias.",
+    "ru": "Производной таблице нужен псевдоним.",
+    "uk": "Похідній таблиці потрібен псевдонім."
+  },
+  "A join operand has multiple/computed column origins.": {
+    "en": "A join operand has multiple/computed column origins.",
+    "ru": "Операнд JOIN имеет несколько источников колонок или вычисляемое происхождение.",
+    "uk": "Операнд JOIN має кілька джерел стовпців або обчислюване походження."
+  },
+  "A recipe placeholder has no closing }}.": {
+    "en": "A recipe placeholder has no closing }}.",
+    "ru": "У placeholder рецепта нет закрывающего }}.",
+    "uk": "У placeholder рецепта немає завершального }}."
+  },
+  "A recipe supports at most 32 typed inputs.": {
+    "en": "A recipe supports at most 32 typed inputs.",
+    "ru": "Рецепт поддерживает не более 32 типизированных входов.",
+    "uk": "Рецепт підтримує не більш ніж 32 типізовані входи."
+  },
+  "A scalar/IN subquery must expose one column.": {
+    "en": "A scalar/IN subquery must expose one column.",
+    "ru": "Скалярный подзапрос или подзапрос IN должен возвращать одну колонку.",
+    "uk": "Скалярний підзапит або підзапит IN має повертати один стовпець."
+  },
+  "An old name denotes a computed/unrelated SELECT alias; manual review is required.": {
+    "en": "An old name denotes a computed/unrelated SELECT alias; manual review is required.",
+    "ru": "Старое имя обозначает вычисляемый или несвязанный псевдоним SELECT; требуется ручная проверка.",
+    "uk": "Стара назва позначає обчислюваний або непов’язаний псевдонім SELECT; потрібна ручна перевірка."
+  },
+  "An old-column reference occurs in an unsupported or unresolved SQL context.": {
+    "en": "An old-column reference occurs in an unsupported or unresolved SQL context.",
+    "ru": "Ссылка на старую колонку находится в неподдерживаемом или неразрешённом контексте SQL.",
+    "uk": "Посилання на старий стовпець міститься в непідтримуваному або нерозпізнаному контексті SQL."
+  },
+  "APPLY rowsets require review of correlated/functional lineage.": {
+    "en": "APPLY rowsets require review of correlated/functional lineage.",
+    "ru": "Наборы строк APPLY требуют проверки коррелированного или функционального происхождения.",
+    "uk": "Набори рядків APPLY потребують перевірки корельованого або функціонального походження."
+  },
+  "Bound source identifiers were patched in this preview; CTE/derived/set output names and explicit aliases were preserved. Review and explicitly approve before saving.": {
+    "en": "Bound source identifiers were patched in this preview; CTE/derived/set output names and explicit aliases were preserved. Review and explicitly approve before saving.",
+    "ru": "В этом preview заменены привязанные идентификаторы исходных колонок; выходные имена CTE, производных таблиц и операций над множествами, а также явные псевдонимы сохранены. Проверьте и явно подтвердите перед сохранением.",
+    "uk": "У цьому попередньому перегляді замінено прив’язані ідентифікатори вихідних стовпців; вихідні назви CTE, похідних таблиць і операцій над множинами, а також явні псевдоніми збережено. Перевірте та явно підтвердьте перед збереженням."
+  },
+  "Catalog tables require explicit schema.table or database.schema.table names.": {
+    "en": "Catalog tables require explicit schema.table or database.schema.table names.",
+    "ru": "Для таблиц каталога нужны явные имена schema.table или database.schema.table.",
+    "uk": "Для таблиць каталогу потрібні явні назви schema.table або database.schema.table."
+  },
+  "Choose a supported explicit SQL collation or leave Collation empty for DATABASE_DEFAULT.": {
+    "en": "Choose a supported explicit SQL collation or leave Collation empty for DATABASE_DEFAULT.",
+    "ru": "Выберите поддерживаемые явные параметры сортировки SQL или оставьте Collation пустым для DATABASE_DEFAULT.",
+    "uk": "Виберіть підтримувані явні параметри сортування SQL або залиште Collation порожнім для DATABASE_DEFAULT."
+  },
+  "Choose auto, values, temp or openjson strategy.": {
+    "en": "Choose auto, values, temp or openjson strategy.",
+    "ru": "Выберите стратегию auto, values, temp или openjson.",
+    "uk": "Виберіть стратегію auto, values, temp або openjson."
+  },
+  "Choose standalone or parameterized mode.": {
+    "en": "Choose standalone or parameterized mode.",
+    "ru": "Выберите режим standalone или parameterized.",
+    "uk": "Виберіть режим standalone або parameterized."
+  },
+  "Column {0} belongs to an unresolved rowset.": {
+    "en": "Column {0} belongs to an unresolved rowset.",
+    "ru": "Колонка {0} принадлежит неразрешённому набору строк.",
+    "uk": "Стовпець {0} належить нерозпізнаному набору рядків."
+  },
+  "Column {0} is missing from the current rowset; recipe inputs expose only Value and Ordinal.": {
+    "en": "Column {0} is missing from the current rowset; recipe inputs expose only Value and Ordinal.",
+    "ru": "Колонка {0} отсутствует в текущем наборе строк; входы рецепта предоставляют только Value и Ordinal.",
+    "uk": "Стовпець {0} відсутній у поточному наборі рядків; входи рецепта надають лише Value та Ordinal."
+  },
+  "Column {0} matches multiple rowsets/columns.": {
+    "en": "Column {0} matches multiple rowsets/columns.",
+    "ru": "Колонка {0} соответствует нескольким наборам строк или колонкам.",
+    "uk": "Стовпець {0} відповідає кільком наборам рядків або стовпцям."
+  },
+  "Combined recipe input exceeds 100000 values.": {
+    "en": "Combined recipe input exceeds 100000 values.",
+    "ru": "Суммарный ввод рецепта превышает 100000 значений.",
+    "uk": "Сумарне введення рецепта перевищує 100000 значень."
+  },
+  "Combined recipe input exceeds 8 Mi characters.": {
+    "en": "Combined recipe input exceeds 8 Mi characters.",
+    "ru": "Суммарный ввод рецепта превышает 8 Mi символов.",
+    "uk": "Сумарне введення рецепта перевищує 8 Mi символів."
+  },
+  "Derived/CTE column count mismatch at line {0}.": {
+    "en": "Derived/CTE column count mismatch at line {0}.",
+    "ru": "Число колонок производной таблицы/CTE не совпадает в строке {0}.",
+    "uk": "Кількість стовпців похідної таблиці/CTE не збігається в рядку {0}."
+  },
+  "Derived/CTE column shape could not be established.": {
+    "en": "Derived/CTE column shape could not be established.",
+    "ru": "Не удалось определить состав колонок производной таблицы/CTE.",
+    "uk": "Не вдалося визначити склад стовпців похідної таблиці/CTE."
+  },
+  "Duplicate CTE names prevent exact binding.": {
+    "en": "Duplicate CTE names prevent exact binding.",
+    "ru": "Повторяющиеся имена CTE не позволяют выполнить точную привязку.",
+    "uk": "Повторювані назви CTE не дають змоги виконати точну прив’язку."
+  },
+  "Duplicate SQL aliases prevent exact repair binding.": {
+    "en": "Duplicate SQL aliases prevent exact repair binding.",
+    "ru": "Повторяющиеся псевдонимы SQL не позволяют выполнить точную привязку исправления.",
+    "uk": "Повторювані псевдоніми SQL не дають змоги виконати точну прив’язку виправлення."
+  },
+  "Empty values are not valid identifiers.": {
+    "en": "Empty values are not valid identifiers.",
+    "ru": "Пустые значения не являются допустимыми идентификаторами.",
+    "uk": "Порожні значення не є допустимими ідентифікаторами."
+  },
+  "Expanded SQL template exceeds the 64 MiB UTF-16 memory limit.": {
+    "en": "Expanded SQL template exceeds the 64 MiB UTF-16 memory limit.",
+    "ru": "Развёрнутый SQL-шаблон превышает лимит памяти 64 MiB UTF-16.",
+    "uk": "Розгорнутий SQL-шаблон перевищує ліміт пам’яті 64 MiB UTF-16."
+  },
+  "External server/four-part table references require review.": {
+    "en": "External server/four-part table references require review.",
+    "ru": "Ссылки на внешний сервер или четырёхчастные имена таблиц требуют проверки.",
+    "uk": "Посилання на зовнішній сервер або чотиричастинні назви таблиць потребують перевірки."
+  },
+  "FROM rowsets are not connected by explicit, unambiguous conjunctive equality joins; review the Cartesian/complex join semantics.": {
+    "en": "FROM rowsets are not connected by explicit, unambiguous conjunctive equality joins; review the Cartesian/complex join semantics.",
+    "ru": "Наборы строк FROM не связаны явными однозначными соединениями по равенству, объединёнными AND; проверьте декартово произведение или сложную семантику JOIN.",
+    "uk": "Набори рядків FROM не пов’язані явними однозначними з’єднаннями за рівністю, поєднаними AND; перевірте декартів добуток або складну семантику JOIN."
+  },
+  "Generated SQL exceeds 64 MiB.": {
+    "en": "Generated SQL exceeds 64 MiB.",
+    "ru": "Сформированный SQL превышает 64 MiB.",
+    "uk": "Сформований SQL перевищує 64 MiB."
+  },
+  "Generated SQL/example exceeds the 64 MiB UTF-16 memory limit.": {
+    "en": "Generated SQL/example exceeds the 64 MiB UTF-16 memory limit.",
+    "ru": "Сформированный SQL или пример превышает лимит памяти 64 MiB UTF-16.",
+    "uk": "Сформований SQL або приклад перевищує ліміт пам’яті 64 MiB UTF-16."
+  },
+  "ID input exceeds 100000 values.": {
+    "en": "ID input exceeds 100000 values.",
+    "ru": "Ввод ID превышает 100000 значений.",
+    "uk": "Введення ID перевищує 100000 значень."
+  },
+  "ID input exceeds 8 Mi characters.": {
+    "en": "ID input exceeds 8 Mi characters.",
+    "ru": "Ввод ID превышает 8 Mi символов.",
+    "uk": "Введення ID перевищує 8 Mi символів."
+  },
+  "IN subquery must expose one column.": {
+    "en": "IN subquery must expose one column.",
+    "ru": "Подзапрос IN должен возвращать одну колонку.",
+    "uk": "Підзапит IN має повертати один стовпець."
+  },
+  "Input {0} contains {1} invalid values; no SQL was generated.": {
+    "en": "Input {0} contains {1} invalid values; no SQL was generated.",
+    "ru": "Вход {0} содержит {1} недопустимых значений; SQL не сформирован.",
+    "uk": "Вхід {0} містить {1} недопустимих значень; SQL не сформовано."
+  },
+  "Input {0} has no ids/table placeholder in the SQL template.": {
+    "en": "Input {0} has no ids/table placeholder in the SQL template.",
+    "ru": "Для входа {0} нет placeholder ids/table в SQL-шаблоне.",
+    "uk": "Для входу {0} немає placeholder ids/table в SQL-шаблоні."
+  },
+  "Input {0} is compared with an unresolved/computed SQL type.": {
+    "en": "Input {0} is compared with an unresolved/computed SQL type.",
+    "ru": "Вход {0} сравнивается с неразрешённым или вычисляемым SQL-типом.",
+    "uk": "Вхід {0} порівнюється з нерозпізнаним або обчислюваним SQL-типом."
+  },
+  "Input {0} needs at least one valid value.": {
+    "en": "Input {0} needs at least one valid value.",
+    "ru": "Для входа {0} нужно хотя бы одно допустимое значение.",
+    "uk": "Для входу {0} потрібне хоча б одне допустиме значення."
+  },
+  "Input {0} permits values longer than the target column {1}; review the declared maximum length.": {
+    "en": "Input {0} permits values longer than the target column {1}; review the declared maximum length.",
+    "ru": "Вход {0} допускает значения длиннее целевой колонки {1}; проверьте объявленную максимальную длину.",
+    "uk": "Вхід {0} допускає значення, довші за цільовий стовпець {1}; перевірте оголошену максимальну довжину."
+  },
+  "Input {0} type {1} is incompatible with target {2} type {3}.": {
+    "en": "Input {0} type {1} is incompatible with target {2} type {3}.",
+    "ru": "Тип {1} входа {0} несовместим с типом {3} цели {2}.",
+    "uk": "Тип {1} входу {0} несумісний із типом {3} цілі {2}."
+  },
+  "Input {0} uses {1} while target {2} uses {3}; review Unicode/code-page and length semantics.": {
+    "en": "Input {0} uses {1} while target {2} uses {3}; review Unicode/code-page and length semantics.",
+    "ru": "Вход {0} использует {1}, а цель {2} — {3}; проверьте Unicode, кодовую страницу и семантику длины.",
+    "uk": "Вхід {0} використовує {1}, а ціль {2} — {3}; перевірте Unicode, кодову сторінку та семантику довжини."
+  },
+  "Input {0} uses {1} while target {2} uses {3}; SQL numeric conversion is required.": {
+    "en": "Input {0} uses {1} while target {2} uses {3}; SQL numeric conversion is required.",
+    "ru": "Вход {0} использует {1}, а цель {2} — {3}; требуется числовое преобразование SQL.",
+    "uk": "Вхід {0} використовує {1}, а ціль {2} — {3}; потрібне числове перетворення SQL."
+  },
+  "Input {0} was not supplied.": {
+    "en": "Input {0} was not supplied.",
+    "ru": "Вход {0} не передан.",
+    "uk": "Вхід {0} не передано."
+  },
+  "Input names must be ASCII letters/digits/underscore, start with a letter and contain at most 64 characters.": {
+    "en": "Input names must be ASCII letters/digits/underscore, start with a letter and contain at most 64 characters.",
+    "ru": "Имена входов должны состоять из ASCII-букв, цифр и подчёркиваний, начинаться с буквы и содержать не более 64 символов.",
+    "uk": "Імена входів мають складатися з ASCII-літер, цифр і підкреслень, починатися з літери та містити не більш ніж 64 символи."
+  },
+  "Input names must be unique, including SQL Server case-insensitive identifier semantics.": {
+    "en": "Input names must be unique, including SQL Server case-insensitive identifier semantics.",
+    "ru": "Имена входов должны быть уникальными, в том числе без учёта регистра по правилам идентификаторов SQL Server.",
+    "uk": "Імена входів мають бути унікальними, зокрема без урахування регістру за правилами ідентифікаторів SQL Server."
+  },
+  "Invalid input name.": {
+    "en": "Invalid input name.",
+    "ru": "Недопустимое имя входа.",
+    "uk": "Неприпустиме ім’я входу."
+  },
+  "Join {0} has no exact trusted relation for its complete ordered column pairs. Review/confirm the relationship before relying on generated joins.": {
+    "en": "Join {0} has no exact trusted relation for its complete ordered column pairs. Review/confirm the relationship before relying on generated joins.",
+    "ru": "Для JOIN {0} нет точной доверенной связи по полному упорядоченному набору пар колонок. Проверьте и подтвердите связь, прежде чем полагаться на сформированные JOIN.",
+    "uk": "Для JOIN {0} немає точного довіреного зв’язку за повним упорядкованим набором пар стовпців. Перевірте та підтвердьте зв’язок, перш ніж покладатися на сформовані JOIN."
+  },
+  "Length, encoding and collation apply only to text inputs.": {
+    "en": "Length, encoding and collation apply only to text inputs.",
+    "ru": "Длина, кодировка и параметры сортировки применяются только к текстовым входам.",
+    "uk": "Довжина, кодування та параметри сортування застосовуються лише до текстових входів."
+  },
+  "Malformed quoted value or unexpected text after a closing quote.": {
+    "en": "Malformed quoted value or unexpected text after a closing quote.",
+    "ru": "Некорректное значение в кавычках или неожиданный текст после закрывающей кавычки.",
+    "uk": "Некоректне значення в лапках або неочікуваний текст після завершальної лапки."
+  },
+  "No bound physical reference to the selected old column was found.": {
+    "en": "No bound physical reference to the selected old column was found.",
+    "ru": "Привязанная физическая ссылка на выбранную старую колонку не найдена.",
+    "uk": "Прив’язаного фізичного посилання на вибраний старий стовпець не знайдено."
+  },
+  "Non-ASCII VARCHAR values require an explicit supported encoding and matching SQL collation; use NVARCHAR when the target code page is unknown.": {
+    "en": "Non-ASCII VARCHAR values require an explicit supported encoding and matching SQL collation; use NVARCHAR when the target code page is unknown.",
+    "ru": "Для значений VARCHAR вне ASCII нужны явно заданная поддерживаемая кодировка и соответствующие параметры сортировки SQL; используйте NVARCHAR, если целевая кодовая страница неизвестна.",
+    "uk": "Для значень VARCHAR поза ASCII потрібні явно задане підтримуване кодування та відповідні параметри сортування SQL; використовуйте NVARCHAR, якщо цільова кодова сторінка невідома."
+  },
+  "NUL characters are not supported in SQL text identifiers.": {
+    "en": "NUL characters are not supported in SQL text identifiers.",
+    "ru": "Символы NUL не поддерживаются в текстовых SQL-идентификаторах.",
+    "uk": "Символи NUL не підтримуються в текстових SQL-ідентифікаторах."
+  },
+  "NVARCHAR length is measured in UTF-16 code units; the value exceeds the declared length.": {
+    "en": "NVARCHAR length is measured in UTF-16 code units; the value exceeds the declared length.",
+    "ru": "Длина NVARCHAR измеряется в кодовых единицах UTF-16; значение превышает объявленную длину.",
+    "uk": "Довжина NVARCHAR вимірюється в кодових одиницях UTF-16; значення перевищує оголошену довжину."
+  },
+  "Only {{ids:InputName}} and {{table:InputName}} are supported.": {
+    "en": "Only {{ids:InputName}} and {{table:InputName}} are supported.",
+    "ru": "Поддерживаются только {{ids:InputName}} и {{table:InputName}}.",
+    "uk": "Підтримуються лише {{ids:InputName}} і {{table:InputName}}."
+  },
+  "Only the sqlserver dialect is supported.": {
+    "en": "Only the sqlserver dialect is supported.",
+    "ru": "Поддерживается только диалект sqlserver.",
+    "uk": "Підтримується лише діалект sqlserver."
+  },
+  "OPENJSON requires SQL Server 2016+ and database compatibility level 130+. Use standalone values/temp for older targets.": {
+    "en": "OPENJSON requires SQL Server 2016+ and database compatibility level 130+. Use standalone values/temp for older targets.",
+    "ru": "OPENJSON требует SQL Server 2016+ и уровня совместимости базы данных 130+. Для старых версий используйте автономный SQL со стратегией values/temp.",
+    "uk": "OPENJSON потребує SQL Server 2016+ і рівня сумісності бази даних 130+. Для старих версій використовуйте автономний SQL зі стратегією values/temp."
+  },
+  "Output alias {0} is ambiguous.": {
+    "en": "Output alias {0} is ambiguous.",
+    "ru": "Выходной псевдоним {0} неоднозначен.",
+    "uk": "Вихідний псевдонім {0} неоднозначний."
+  },
+  "Placeholder input {0} is not defined (names are case-sensitive).": {
+    "en": "Placeholder input {0} is not defined (names are case-sensitive).",
+    "ru": "Вход placeholder {0} не определён (имена чувствительны к регистру).",
+    "uk": "Вхід placeholder {0} не визначено (імена чутливі до регістру)."
+  },
+  "Qualifier {0} is not an available SQL alias/table.": {
+    "en": "Qualifier {0} is not an available SQL alias/table.",
+    "ru": "Квалификатор {0} не является доступным псевдонимом SQL или таблицей.",
+    "uk": "Кваліфікатор {0} не є доступним псевдонімом SQL або таблицею."
+  },
+  "Query nesting exceeds the validation limit of 64.": {
+    "en": "Query nesting exceeds the validation limit of 64.",
+    "ru": "Вложенность запроса превышает лимит проверки 64.",
+    "uk": "Вкладеність запиту перевищує ліміт перевірки 64."
+  },
+  "Recipe placeholders must be SQL syntax, outside comments, quoted identifiers and string literals.": {
+    "en": "Recipe placeholders must be SQL syntax, outside comments, quoted identifiers and string literals.",
+    "ru": "Placeholders рецепта должны находиться в синтаксисе SQL, вне комментариев, идентификаторов в кавычках и строковых литералов.",
+    "uk": "Placeholders рецепта мають міститися в синтаксисі SQL, поза коментарями, ідентифікаторами в лапках і рядковими літералами."
+  },
+  "Recipes use one SQL command batch; remove GO separators.": {
+    "en": "Recipes use one SQL command batch; remove GO separators.",
+    "ru": "Рецепты используют один пакет команд SQL; удалите разделители GO.",
+    "uk": "Рецепти використовують один пакет команд SQL; видаліть розділювачі GO."
+  },
+  "Recursive/forward CTE shape cannot be proven statically.": {
+    "en": "Recursive/forward CTE shape cannot be proven statically.",
+    "ru": "Состав рекурсивного CTE или CTE с опережающей ссылкой невозможно подтвердить статически.",
+    "uk": "Склад рекурсивного CTE або CTE з випереджальним посиланням неможливо підтвердити статично."
+  },
+  "Repair requires one SELECT statement without SELECT INTO or mutation statements.": {
+    "en": "Repair requires one SELECT statement without SELECT INTO or mutation statements.",
+    "ru": "Для исправления нужен один оператор SELECT без SELECT INTO или операторов изменения данных.",
+    "uk": "Для виправлення потрібен один оператор SELECT без SELECT INTO або операторів зміни даних."
+  },
+  "Set-operation query branches have different column counts.": {
+    "en": "Set-operation query branches have different column counts.",
+    "ru": "Ветви запроса с операцией над множествами имеют разное число колонок.",
+    "uk": "Гілки запиту з операцією над множинами мають різну кількість стовпців."
+  },
+  "SQL parameter {0} has no recipe input/local declaration; only typed ID rowset placeholders are supported.": {
+    "en": "SQL parameter {0} has no recipe input/local declaration; only typed ID rowset placeholders are supported.",
+    "ru": "Для SQL-параметра {0} нет входа рецепта или локального объявления; поддерживаются только типизированные placeholders наборов строк ID.",
+    "uk": "Для SQL-параметра {0} немає входу рецепта або локального оголошення; підтримуються лише типізовані placeholders наборів рядків ID."
+  },
+  "SQL parse error {0} at line {1}, column {2}; literal values were omitted.": {
+    "en": "SQL parse error {0} at line {1}, column {2}; literal values were omitted.",
+    "ru": "Ошибка разбора SQL {0} в строке {1}, столбце {2}; значения литералов не включены.",
+    "uk": "Помилка розбору SQL {0} у рядку {1}, стовпці {2}; значення літералів не включено."
+  },
+  "SQL templates must be at most 1 Mi characters.": {
+    "en": "SQL templates must be at most 1 Mi characters.",
+    "ru": "SQL-шаблоны должны содержать не более 1 Mi символов.",
+    "uk": "SQL-шаблони мають містити не більш ніж 1 Mi символів."
+  },
+  "Subquery comparison {0}.{1}.{2} = {3}.{4}.{5} has no exact trusted relation; review/confirm this relationship.": {
+    "en": "Subquery comparison {0}.{1}.{2} = {3}.{4}.{5} has no exact trusted relation; review/confirm this relationship.",
+    "ru": "Для сравнения подзапроса {0}.{1}.{2} = {3}.{4}.{5} нет точной доверенной связи; проверьте и подтвердите эту связь.",
+    "uk": "Для порівняння підзапиту {0}.{1}.{2} = {3}.{4}.{5} немає точного довіреного зв’язку; перевірте та підтвердьте цей зв’язок."
+  },
+  "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar.": {
+    "en": "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar.",
+    "ru": "Поддерживаемые типы входов: int, bigint, uniqueidentifier, nvarchar, varchar.",
+    "uk": "Підтримувані типи входів: int, bigint, uniqueidentifier, nvarchar, varchar."
+  },
+  "Supported VARCHAR encodings: ascii, utf-8, windows-1251, windows-1252.": {
+    "en": "Supported VARCHAR encodings: ascii, utf-8, windows-1251, windows-1252.",
+    "ru": "Поддерживаемые кодировки VARCHAR: ascii, utf-8, windows-1251, windows-1252.",
+    "uk": "Підтримувані кодування VARCHAR: ascii, utf-8, windows-1251, windows-1252."
+  },
+  "Table name is incomplete.": {
+    "en": "Table name is incomplete.",
+    "ru": "Имя таблицы неполное.",
+    "uk": "Назва таблиці неповна."
+  },
+  "Temporary rowset {0} is not a defined recipe input.": {
+    "en": "Temporary rowset {0} is not a defined recipe input.",
+    "ru": "Временный набор строк {0} не определён как вход рецепта.",
+    "uk": "Тимчасовий набір рядків {0} не визначено як вхід рецепта."
+  },
+  "The declared VARCHAR code page does not match its explicit SQL collation.": {
+    "en": "The declared VARCHAR code page does not match its explicit SQL collation.",
+    "ru": "Объявленная кодовая страница VARCHAR не соответствует явно заданным параметрам сортировки SQL.",
+    "uk": "Оголошена кодова сторінка VARCHAR не відповідає явно заданим параметрам сортування SQL."
+  },
+  "The identifier is not representable in the declared VARCHAR encoding.": {
+    "en": "The identifier is not representable in the declared VARCHAR encoding.",
+    "ru": "Идентификатор нельзя представить в объявленной кодировке VARCHAR.",
+    "uk": "Ідентифікатор неможливо подати в оголошеному кодуванні VARCHAR."
+  },
+  "The old and replacement names are identical.": {
+    "en": "The old and replacement names are identical.",
+    "ru": "Старое имя и имя замены совпадают.",
+    "uk": "Стара назва й назва заміни збігаються."
+  },
+  "The original SQL could not be bound unambiguously: ": {
+    "en": "The original SQL could not be bound unambiguously: ",
+    "ru": "Исходный SQL не удалось привязать однозначно: ",
+    "uk": "Вихідний SQL не вдалося прив’язати однозначно: "
+  },
+  "The placeholder cannot be represented without changing source offsets.": {
+    "en": "The placeholder cannot be represented without changing source offsets.",
+    "ru": "Placeholder нельзя представить без изменения смещений исходного текста.",
+    "uk": "Placeholder неможливо подати без зміни зсувів вихідного тексту."
+  },
+  "The preview does not preserve unambiguous catalog/rowset binding; original SQL was retained.": {
+    "en": "The preview does not preserve unambiguous catalog/rowset binding; original SQL was retained.",
+    "ru": "Preview не сохраняет однозначную привязку каталога/наборов строк; сохранён исходный SQL.",
+    "uk": "Попередній перегляд не зберігає однозначної прив’язки каталогу/наборів рядків; збережено вихідний SQL."
+  },
+  "The query contains a functional, procedural or otherwise unsupported rowset.": {
+    "en": "The query contains a functional, procedural or otherwise unsupported rowset.",
+    "ru": "Запрос содержит функциональный, процедурный или иной неподдерживаемый набор строк.",
+    "uk": "Запит містить функціональний, процедурний або інший непідтримуваний набір рядків."
+  },
+  "The rendered SQL did not parse. Check the recipe template and placeholder position; no SQL was returned.": {
+    "en": "The rendered SQL did not parse. Check the recipe template and placeholder position; no SQL was returned.",
+    "ru": "Сформированный SQL не прошёл разбор. Проверьте шаблон рецепта и положение placeholder; SQL не возвращён.",
+    "uk": "Сформований SQL не пройшов розбору. Перевірте шаблон рецепта й розташування placeholder; SQL не повернуто."
+  },
+  "The replacement column must exist exactly once in the selected table.": {
+    "en": "The replacement column must exist exactly once in the selected table.",
+    "ru": "Колонка замены должна существовать ровно один раз в выбранной таблице.",
+    "uk": "Стовпець заміни має існувати рівно один раз у вибраній таблиці."
+  },
+  "The selected database is outside the recipe scope.": {
+    "en": "The selected database is outside the recipe scope.",
+    "ru": "Выбранная база данных вне области рецепта.",
+    "uk": "Вибрана база даних поза областю рецепта."
+  },
+  "The selected database/table is missing or ambiguous.": {
+    "en": "The selected database/table is missing or ambiguous.",
+    "ru": "Выбранная база данных или таблица отсутствует либо неоднозначна.",
+    "uk": "Вибрана база даних або таблиця відсутня чи неоднозначна."
+  },
+  "The template contains no SQL statements.": {
+    "en": "The template contains no SQL statements.",
+    "ru": "В шаблоне нет операторов SQL.",
+    "uk": "У шаблоні немає операторів SQL."
+  },
+  "The template does not contain a SQL script.": {
+    "en": "The template does not contain a SQL script.",
+    "ru": "Шаблон не содержит скрипт SQL.",
+    "uk": "Шаблон не містить скрипту SQL."
+  },
+  "The template has SQL syntax errors; no preview was generated.": {
+    "en": "The template has SQL syntax errors; no preview was generated.",
+    "ru": "В шаблоне есть синтаксические ошибки SQL; preview не сформирован.",
+    "uk": "У шаблоні є синтаксичні помилки SQL; попередній перегляд не сформовано."
+  },
+  "The value contains an incomplete Unicode surrogate pair.": {
+    "en": "The value contains an incomplete Unicode surrogate pair.",
+    "ru": "Значение содержит неполную суррогатную пару Unicode.",
+    "uk": "Значення містить неповну сурогатну пару Unicode."
+  },
+  "Unexpected closing recipe placeholder.": {
+    "en": "Unexpected closing recipe placeholder.",
+    "ru": "Неожиданное закрытие placeholder рецепта.",
+    "uk": "Неочікуване закриття placeholder рецепта."
+  },
+  "Unknown input SQL strategy.": {
+    "en": "Unknown input SQL strategy.",
+    "ru": "Неизвестная SQL-стратегия входа.",
+    "uk": "Невідома SQL-стратегія входу."
+  },
+  "Use a 36-character D-format GUID with hyphens; its original casing is preserved.": {
+    "en": "Use a 36-character D-format GUID with hyphens; its original casing is preserved.",
+    "ru": "Используйте 36-символьный GUID формата D с дефисами; исходный регистр сохраняется.",
+    "uk": "Використовуйте 36-символьний GUID формату D з дефісами; початковий регістр зберігається."
+  },
+  "UTF-8 VARCHAR collations require SQL Server 2019 or later (compatibility level 150+ in this renderer).": {
+    "en": "UTF-8 VARCHAR collations require SQL Server 2019 or later (compatibility level 150+ in this renderer).",
+    "ru": "Параметры сортировки UTF-8 VARCHAR требуют SQL Server 2019 или новее (уровень совместимости 150+ в этом генераторе).",
+    "uk": "Параметри сортування UTF-8 VARCHAR потребують SQL Server 2019 або новішого (рівень сумісності 150+ у цьому генераторі)."
+  },
+  "Value must be a signed {0} within its SQL Server range, using ASCII digits.": {
+    "en": "Value must be a signed {0} within its SQL Server range, using ASCII digits.",
+    "ru": "Значение должно быть знаковым {0} в диапазоне SQL Server с использованием ASCII-цифр.",
+    "uk": "Значення має бути знаковим {0} у діапазоні SQL Server з використанням ASCII-цифр."
+  },
+  "Values were supplied for an undefined recipe input.": {
+    "en": "Values were supplied for an undefined recipe input.",
+    "ru": "Переданы значения для неопределённого входа рецепта.",
+    "uk": "Передано значення для невизначеного входу рецепта."
+  },
+  "VARCHAR length is measured in bytes in the declared code page; the value exceeds it.": {
+    "en": "VARCHAR length is measured in bytes in the declared code page; the value exceeds it.",
+    "ru": "Длина VARCHAR измеряется в байтах объявленной кодовой страницы; значение превышает её.",
+    "uk": "Довжина VARCHAR вимірюється в байтах оголошеної кодової сторінки; значення перевищує її."
+  },
+  "View shape is only partially proven; verify its definition before using this recipe.": {
+    "en": "View shape is only partially proven; verify its definition before using this recipe.",
+    "ru": "Состав представления подтверждён лишь частично; проверьте его определение перед использованием этого рецепта.",
+    "uk": "Склад подання підтверджено лише частково; перевірте його визначення перед використанням цього рецепта."
+  },
+  "Wildcard output includes an unresolved rowset.": {
+    "en": "Wildcard output includes an unresolved rowset.",
+    "ru": "Вывод через * включает неразрешённый набор строк.",
+    "uk": "Виведення через * містить нерозпізнаний набір рядків."
+  },
+  "Wildcard qualifier does not name an available rowset.": {
+    "en": "Wildcard qualifier does not name an available rowset.",
+    "ru": "Квалификатор * не указывает доступный набор строк.",
+    "uk": "Кваліфікатор * не вказує доступного набору рядків."
+  },
+  "Wildcard qualifier matches multiple rowsets.": {
+    "en": "Wildcard qualifier matches multiple rowsets.",
+    "ru": "Квалификатор * соответствует нескольким наборам строк.",
+    "uk": "Кваліфікатор * відповідає кільком наборам рядків."
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "Managed files and disk space": {
+    "en": "Managed files and disk space",
+    "ru": "Служебные файлы и место на диске",
+    "uk": "Службові файли та місце на диску"
+  },
+  "Preview app-owned files before deleting them. Recent backups, referenced manifests and package caches are protected.": {
+    "en": "Preview app-owned files before deleting them. Recent backups, referenced manifests and package caches are protected.",
+    "ru": "Просмотрите служебные файлы перед удалением. Свежие резервные копии, используемые манифесты и кэш пакетов защищены.",
+    "uk": "Перегляньте службові файли перед видаленням. Свіжі резервні копії, використані маніфести та кеш пакетів захищені."
+  },
+  "Inspect managed files": {
+    "en": "Inspect managed files",
+    "ru": "Проверить служебные файлы",
+    "uk": "Перевірити службові файли"
+  },
+  "Keep files for days": {
+    "en": "Keep files for days",
+    "ru": "Хранить файлы, дней",
+    "uk": "Зберігати файли, днів"
+  },
+  "Minimum backups to keep": {
+    "en": "Minimum backups to keep",
+    "ru": "Минимум резервных копий",
+    "uk": "Мінімум резервних копій"
+  },
+  "Save retention and preview": {
+    "en": "Save retention and preview",
+    "ru": "Сохранить сроки и просмотреть",
+    "uk": "Зберегти строки та переглянути"
+  },
+  "Managed size": {
+    "en": "Managed size",
+    "ru": "Общий размер",
+    "uk": "Загальний розмір"
+  },
+  "Eligible for cleanup": {
+    "en": "Eligible for cleanup",
+    "ru": "Можно очистить",
+    "uk": "Можна очистити"
+  },
+  "I reviewed the file cleanup preview and approve deleting eligible files.": {
+    "en": "I reviewed the file cleanup preview and approve deleting eligible files.",
+    "ru": "Я просмотрел список и разрешаю удалить файлы, доступные для очистки.",
+    "uk": "Я переглянув список і дозволяю видалити файли, доступні для очищення."
+  },
+  "Delete eligible files": {
+    "en": "Delete eligible files",
+    "ru": "Удалить файлы по политике",
+    "uk": "Видалити файли за політикою"
+  },
+  "Removed files: {0}": {
+    "en": "Removed files: {0}",
+    "ru": "Удалено файлов: {0}",
+    "uk": "Видалено файлів: {0}"
+  },
+  "Not an owned cleanup target": {
+    "en": "Not an owned cleanup target",
+    "ru": "Не является служебным файлом для очистки",
+    "uk": "Не є службовим файлом для очищення"
+  },
+  "Retention expired": {
+    "en": "Retention expired",
+    "ru": "Срок хранения истёк",
+    "uk": "Строк зберігання минув"
+  },
+  "Within retention period": {
+    "en": "Within retention period",
+    "ru": "Срок хранения ещё не истёк",
+    "uk": "Строк зберігання ще не минув"
+  },
+  "Recent backup protected": {
+    "en": "Recent backup protected",
+    "ru": "Свежая резервная копия защищена",
+    "uk": "Свіжа резервна копія захищена"
+  },
+  "Referenced by a retained snapshot": {
+    "en": "Referenced by a retained snapshot",
+    "ru": "Используется сохранённым снимком",
+    "uk": "Використовується збереженим знімком"
+  },
+  "Build input or package cache protected": {
+    "en": "Build input or package cache protected",
+    "ru": "Вход сборки или кэш пакетов защищён",
+    "uk": "Вхід збірки або кеш пакетів захищено"
+  },
+  "Quality rule settings": {
+    "en": "Quality rule settings",
+    "ru": "Настройки правил качества",
+    "uk": "Налаштування правил якості"
+  },
+  "Rule severity applies only to this workspace. Turning a rule off does not change schema or relationship trust.": {
+    "en": "Rule severity applies only to this workspace. Turning a rule off does not change schema or relationship trust.",
+    "ru": "Важность задаётся для этой области. Отключение правила не меняет схему или доверие к связям.",
+    "uk": "Важливість задається для цієї області. Вимкнення правила не змінює схему або довіру до зв’язків."
+  },
+  "Load quality rules": {
+    "en": "Load quality rules",
+    "ru": "Загрузить правила качества",
+    "uk": "Завантажити правила якості"
+  },
+  "Rule disabled": {
+    "en": "Rule disabled",
+    "ru": "Правило отключено",
+    "uk": "Правило вимкнено"
+  },
+  "Save quality rules": {
+    "en": "Save quality rules",
+    "ru": "Сохранить правила качества",
+    "uk": "Зберегти правила якості"
+  },
+  "Quality rules saved": {
+    "en": "Quality rules saved",
+    "ru": "Правила качества сохранены",
+    "uk": "Правила якості збережено"
+  },
+  "Kind: sqlCode": {
+    "en": "SQL code",
+    "ru": "SQL-код",
+    "uk": "SQL-код"
+  },
+  "Definition line": {
+    "en": "Definition line",
+    "ru": "Строка определения",
+    "uk": "Рядок визначення"
+  },
+  "Recorded build toolchain": {
+    "en": "Recorded build toolchain",
+    "ru": "Инструменты выполненной сборки",
+    "uk": "Інструменти виконаної збірки"
+  },
+  "Versions are recorded by completed builds. Imported DACPACs and earlier builds may have no tool receipt.": {
+    "en": "Versions are recorded by completed builds. Imported DACPACs and earlier builds may have no tool receipt.",
+    "ru": "Версии записываются при сборке. Для импортированных DACPAC и старых сборок записи может не быть.",
+    "uk": "Версії записуються під час збірки. Для імпортованих DACPAC і старих збірок запису може не бути."
+  },
+  "No recorded build toolchain": {
+    "en": "No recorded build toolchain",
+    "ru": "Данные об инструментах сборки отсутствуют",
+    "uk": "Дані про інструменти збірки відсутні"
+  },
+  "Build kind": {
+    "en": "Build kind",
+    "ru": "Формат сборки",
+    "uk": "Формат збірки"
+  },
+  "Executable": {
+    "en": "Executable",
+    "ru": "Исполняемый файл",
+    "uk": "Виконуваний файл"
+  },
+  "Not recorded or not applicable": {
+    "en": "Not recorded or not applicable",
+    "ru": "Не записано или неприменимо",
+    "uk": "Не записано або не застосовується"
+  },
+  "Skip to main content": {
+    "en": "Skip to main content",
+    "ru": "Перейти к основному содержимому",
+    "uk": "Перейти до основного вмісту"
+  },
+  "No unfiltered index with the foreign-key columns as its leading keys is recorded. Review workload needs before adding an index.": {
+    "en": "No unfiltered index with the foreign-key columns as its leading keys is recorded. Review workload needs before adding an index.",
+    "ru": "Не найден нефильтрованный индекс, начинающийся с колонок FK. Перед добавлением индекса оцените нагрузку.",
+    "uk": "Не знайдено нефільтрований індекс, що починається зі стовпців FK. Перед додаванням індексу оцініть навантаження."
+  },
+  "This foreign key includes nullable columns. Optional relationships can be intentional; review the intended cardinality.": {
+    "en": "This foreign key includes nullable columns. Optional relationships can be intentional; review the intended cardinality.",
+    "ru": "FK содержит nullable-колонки. Необязательная связь может быть намеренной; проверьте кардинальность.",
+    "uk": "FK містить nullable-стовпці. Необов’язковий зв’язок може бути навмисним; перевірте кардинальність."
+  },
+  "Recorded index keys, includes, filter and uniqueness match {0}. Review dependencies before removing either index.": {
+    "en": "Recorded index keys, includes, filter and uniqueness match {0}. Review dependencies before removing either index.",
+    "ru": "Ключи, включённые колонки, фильтр и уникальность совпадают с {0}. Перед удалением индекса проверьте зависимости.",
+    "uk": "Ключі, включені стовпці, фільтр та унікальність збігаються з {0}. Перед видаленням індексу перевірте залежності."
+  },
+  "The SQL object was only partially analyzed. Its definition or dependencies may be incomplete.": {
+    "en": "The SQL object was only partially analyzed. Its definition or dependencies may be incomplete.",
+    "ru": "SQL-объект проанализирован частично. Определение или зависимости могут быть неполными.",
+    "uk": "SQL-об’єкт проаналізовано частково. Визначення або залежності можуть бути неповними."
+  },
+  "Keep files for 1–3650 days and retain 2–100 backups.": {
+    "en": "Keep files for 1–3650 days and retain 2–100 backups.",
+    "ru": "Храните файлы 1–3650 дней и оставляйте 2–100 резервных копий.",
+    "uk": "Зберігайте файли 1–3650 днів і залишайте 2–100 резервних копій."
+  },
+  "Managed files or retention changed. Preview cleanup again.": {
+    "en": "Managed files or retention changed. Preview cleanup again.",
+    "ru": "Файлы или сроки хранения изменились. Повторите предварительный просмотр.",
+    "uk": "Файли або строки зберігання змінилися. Повторіть попередній перегляд."
+  },
+  "Quality rules changed. Reload them before saving.": {
+    "en": "Quality rules changed. Reload them before saving.",
+    "ru": "Правила изменились. Загрузите их заново перед сохранением.",
+    "uk": "Правила змінилися. Завантажте їх знову перед збереженням."
+  },
+  "Docker failure diagnostics": {
+    "en": "Docker failure diagnostics",
+    "ru": "Диагностика ошибок Docker",
+    "uk": "Діагностика помилок Docker"
+  },
+  "The last 20 failures include the operation stage, duration and bounded output with passwords removed.": {
+    "en": "The last 20 failures include the operation stage, duration and bounded output with passwords removed.",
+    "ru": "Последние 20 ошибок содержат этап, длительность и ограниченный вывод с удалением паролей.",
+    "uk": "Останні 20 помилок містять етап, тривалість та обмежений вивід із видаленням паролів."
+  },
+  "Load Docker diagnostics": {
+    "en": "Load Docker diagnostics",
+    "ru": "Загрузить диагностику Docker",
+    "uk": "Завантажити діагностику Docker"
+  },
+  "Recorded failures: {0}": {
+    "en": "Recorded failures: {0}",
+    "ru": "Записано ошибок: {0}",
+    "uk": "Записано помилок: {0}"
+  },
+  "Operation stage": {
+    "en": "Operation stage",
+    "ru": "Этап операции",
+    "uk": "Етап операції"
+  },
+  "Exit code": {
+    "en": "Exit code",
+    "ru": "Код завершения",
+    "uk": "Код завершення"
+  },
+  "Choose a known quality rule and severity: off, info, warning or error.": {
+    "en": "Choose a known quality rule and severity: off, info, warning or error.",
+    "ru": "Выберите известное правило и важность: off, info, warning или error.",
+    "uk": "Виберіть відоме правило та важливість: off, info, warning або error."
+  },
+  "The selected build tool version could not be verified.": {
+    "en": "The selected build tool version could not be verified.",
+    "ru": "Не удалось проверить версию выбранного инструмента сборки.",
+    "uk": "Не вдалося перевірити версію вибраного інструмента збірки."
+  },
+  "The selected build tool did not return a recognized version.": {
+    "en": "The selected build tool did not return a recognized version.",
+    "ru": "Инструмент сборки вернул неизвестный формат версии.",
+    "uk": "Інструмент збірки повернув невідомий формат версії."
+  },
+  "The recorded build toolchain changed; rebuild is required.": {
+    "en": "The recorded build toolchain changed; rebuild is required.",
+    "ru": "Инструменты сборки изменились; требуется повторная сборка.",
+    "uk": "Інструменти збірки змінилися; потрібна повторна збірка."
+  },
+  "Isolated Docker validation exceeded six minutes.": {
+    "en": "Isolated Docker validation exceeded six minutes.",
+    "ru": "Изолированная проверка Docker превысила шесть минут.",
+    "uk": "Ізольована перевірка Docker перевищила шість хвилин."
+  },
+  "DacFx could not generate the schema-only deployment script.": {
+    "en": "DacFx could not generate the schema-only deployment script.",
+    "ru": "DacFx не смог создать скрипт развёртывания схемы.",
+    "uk": "DacFx не зміг створити скрипт розгортання схеми."
+  },
+  "The managed file inventory exceeds 50000 entries. No files were removed.": {
+    "en": "The managed file inventory exceeds 50000 entries. No files were removed.",
+    "ru": "Список превышает 50000 файлов. Ничего не удалено.",
+    "uk": "Список перевищує 50000 файлів. Нічого не видалено."
+  },
+  "The managed file inventory exceeds 50000 directories. No files were removed.": {
+    "en": "The managed file inventory exceeds 50000 directories. No files were removed.",
+    "ru": "Список превышает 50000 папок. Ничего не удалено.",
+    "uk": "Список перевищує 50000 тек. Нічого не видалено."
+  },
+  "Managed file is outside the data directory.": {
+    "en": "Managed file is outside the data directory.",
+    "ru": "Служебный файл находится вне каталога данных.",
+    "uk": "Службовий файл розташований поза каталогом даних."
+  },
+  "A cleanup file changed. Preview again.": {
+    "en": "A cleanup file changed. Preview again.",
+    "ru": "Файл для очистки изменился. Повторите предварительный просмотр.",
+    "uk": "Файл для очищення змінився. Повторіть попередній перегляд."
+  }
+}

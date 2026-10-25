@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Version>1.8.0</Version>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DebugType>embedded</DebugType>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <StaticWebAssetsEnabled>false</StaticWebAssetsEnabled>
+    <PublishIISAssets>false</PublishIISAssets>
+    <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <PublishTrimmed>false</PublishTrimmed>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content
+      Include="../../schemora.json"
+      Link="schemora.json"
+      CopyToOutputDirectory="Never"
+      CopyToPublishDirectory="Never"
+      ExcludeFromSingleFile="true"
+    />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.13" />
+    <ProjectReference Include="../Schemora.SqlServer/Schemora.SqlServer.csproj" />
+    <ProjectReference Include="../Schemora.Workspaces/Schemora.Workspaces.csproj" />
+    <ProjectReference Include="../Schemora.Relationships/Schemora.Relationships.csproj" />
+    <ProjectReference Include="../Schemora.RecipeEngine/Schemora.RecipeEngine.csproj" />
+    <EmbeddedResource Include="../../ui/dist/**/*">
+      <LogicalName>Schemora.Ui/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Target Name="RequireUi" BeforeTargets="PrepareForBuild" Condition="!Exists('../../ui/dist/index.html')">
+    <Error Text="Build the embedded UI first: cd ui; npm ci; npm run build" />
+  </Target>
+  <!-- A user-edited sidecar survives later build/publish runs, regardless of timestamps. -->
+  <Target Name="CopyLaunchConfigurationToOutput" AfterTargets="Build">
+    <Copy
+      SourceFiles="$(MSBuildProjectDirectory)/../../schemora.json"
+      DestinationFiles="$(TargetDir)schemora.json"
+      Condition="!Exists('$(TargetDir)schemora.json')"
+    />
+  </Target>
+  <Target Name="CopyLaunchConfigurationToPublish" AfterTargets="Publish">
+    <Copy
+      SourceFiles="$(MSBuildProjectDirectory)/../../schemora.json"
+      DestinationFiles="$(PublishDir)schemora.json"
+      Condition="!Exists('$(PublishDir)schemora.json')"
+    />
+  </Target>
+  <!-- The git commit becomes part of the informational version (1.8.0+abc123def456, ".dirty" with local edits), so the
+       UI and diagnostics tell builds of the same version apart. Builds outside a git checkout keep the plain version.
+       It lives here, not in Directory.Build.props, because SQL fixture projects under the repository inherit that file. -->
+  <Target Name="SchemoraSourceRevision" BeforeTargets="GetAssemblyVersion" Condition="'$(SourceRevisionId)' == ''">
+    <Exec
+      Command="git rev-parse --short=12 HEAD"
+      ConsoleToMSBuild="true"
+      IgnoreExitCode="true"
+      StandardOutputImportance="low"
+      StandardErrorImportance="low"
+      WorkingDirectory="$(MSBuildProjectDirectory)"
+    >
+      <Output TaskParameter="ConsoleOutput" PropertyName="SchemoraCommit" />
+      <Output TaskParameter="ExitCode" PropertyName="SchemoraCommitExit" />
+    </Exec>
+    <Exec
+      Command="git status --porcelain --untracked-files=no"
+      ConsoleToMSBuild="true"
+      IgnoreExitCode="true"
+      StandardOutputImportance="low"
+      StandardErrorImportance="low"
+      WorkingDirectory="$(MSBuildProjectDirectory)"
+      Condition="'$(SchemoraCommitExit)' == '0'"
+    >
+      <Output TaskParameter="ConsoleOutput" PropertyName="SchemoraChanges" />
+    </Exec>
+    <PropertyGroup Condition="'$(SchemoraCommitExit)' == '0'">
+      <SourceRevisionId>$(SchemoraCommit)</SourceRevisionId>
+      <SourceRevisionId Condition="'$(SchemoraChanges)' != ''">$(SchemoraCommit).dirty</SourceRevisionId>
+    </PropertyGroup>
+  </Target>
+</Project>

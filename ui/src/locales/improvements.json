@@ -1,0 +1,937 @@
+{
+  "Could not load portable configuration.": {
+    "en": "Could not load portable configuration.",
+    "ru": "Не удалось загрузить переносимую конфигурацию.",
+    "uk": "Не вдалося завантажити переносну конфігурацію."
+  },
+  "Configuration operation failed.": {
+    "en": "Configuration operation failed.",
+    "ru": "Не удалось выполнить операцию с конфигурацией.",
+    "uk": "Не вдалося виконати операцію з конфігурацією."
+  },
+  "Portable workspace configuration": {
+    "en": "Portable workspace configuration",
+    "ru": "Переносимая конфигурация рабочей области",
+    "uk": "Переносна конфігурація робочої області"
+  },
+  "Export recipes, manual composite relationships, decisions, project mappings and database aliases. Imported relationships and decisions require individual review before they can affect joins.": {
+    "en": "Export recipes, manual composite relationships, decisions, project mappings and database aliases. Imported relationships and decisions require individual review before they can affect joins.",
+    "ru": "Экспорт рецептов, ручных составных связей, решений, сопоставлений проектов и псевдонимов БД. Импортированные связи и решения требуют отдельной проверки перед использованием в JOIN.",
+    "uk": "Експорт рецептів, ручних складених зв’язків, рішень, зіставлень проєктів і псевдонімів БД. Імпортовані зв’язки та рішення потребують окремої перевірки перед використанням у JOIN."
+  },
+  "Export configuration v2": {
+    "en": "Export configuration v2",
+    "ru": "Экспорт конфигурации v2",
+    "uk": "Експорт конфігурації v2"
+  },
+  "Choose configuration JSON": {
+    "en": "Choose configuration JSON",
+    "ru": "Выбрать JSON конфигурации",
+    "uk": "Вибрати JSON конфігурації"
+  },
+  "Configuration exceeds 8 MiB.": {
+    "en": "Configuration exceeds 8 MiB.",
+    "ru": "Размер конфигурации превышает 8 МиБ.",
+    "uk": "Розмір конфігурації перевищує 8 МіБ."
+  },
+  "Expected a Schemora v1 or v2 configuration.": {
+    "en": "Expected a Schemora v1 or v2 configuration.",
+    "ru": "Ожидается конфигурация Schemora v1 или v2.",
+    "uk": "Очікується конфігурація Schemora v1 або v2."
+  },
+  "Map each source explicitly. Existing roots and excludes are preserved. Conflicting aliases and project mappings must be resolved before import.": {
+    "en": "Map each source explicitly. Existing roots and excludes are preserved. Conflicting aliases and project mappings must be resolved before import.",
+    "ru": "Явно сопоставьте каждый источник. Текущие корни и исключения сохраняются. Перед импортом устраните конфликты псевдонимов и сопоставлений проектов.",
+    "uk": "Явно зіставте кожне джерело. Поточні корені та виключення зберігаються. Перед імпортом усуньте конфлікти псевдонімів і зіставлень проєктів."
+  },
+  "Choose target database": {
+    "en": "Choose target database",
+    "ru": "Выберите целевую БД",
+    "uk": "Виберіть цільову БД"
+  },
+  "Choose target project": {
+    "en": "Choose target project",
+    "ru": "Выберите целевой проект",
+    "uk": "Виберіть цільовий проєкт"
+  },
+  "Preview import": {
+    "en": "Preview import",
+    "ru": "Предварительный просмотр импорта",
+    "uk": "Попередній перегляд імпорту"
+  },
+  "Import reviewed configuration": {
+    "en": "Import reviewed configuration",
+    "ru": "Импортировать проверенную конфигурацию",
+    "uk": "Імпортувати перевірену конфігурацію"
+  },
+  "Relationships awaiting individual review": {
+    "en": "Relationships awaiting individual review",
+    "ru": "Связи, ожидающие отдельной проверки",
+    "uk": "Зв’язки, що очікують окремої перевірки"
+  },
+  "Confirm against current schema": {
+    "en": "Confirm against current schema",
+    "ru": "Подтвердить по текущей схеме",
+    "uk": "Підтвердити за поточною схемою"
+  },
+  "Discard imported assertion": {
+    "en": "Discard imported assertion",
+    "ru": "Удалить импортированное утверждение",
+    "uk": "Видалити імпортоване твердження"
+  },
+  "Unable to load C# project settings.": {
+    "en": "Unable to load C# project settings.",
+    "ru": "Не удалось загрузить настройки C#-проектов.",
+    "uk": "Не вдалося завантажити налаштування C#-проєктів."
+  },
+  "C# project evaluation failed.": {
+    "en": "C# project evaluation failed.",
+    "ru": "Не удалось вычислить контекст C#-проекта.",
+    "uk": "Не вдалося обчислити контекст C#-проєкту."
+  },
+  "C# project compilation context": {
+    "en": "C# project compilation context",
+    "ru": "Контекст компиляции C#-проекта",
+    "uk": "Контекст компіляції C#-проєкту"
+  },
+  "Select the configuration and target framework used for EF and Dapper analysis. Static evaluation never runs project code. Unsupported build logic is reported as partial.": {
+    "en": "Select the configuration and target framework used for EF and Dapper analysis. Static evaluation never runs project code. Unsupported build logic is reported as partial.",
+    "ru": "Выберите конфигурацию и целевую платформу для анализа EF и Dapper. Статическое вычисление не запускает код проекта. Неподдерживаемая логика сборки отмечается как неполный анализ.",
+    "uk": "Виберіть конфігурацію та цільову платформу для аналізу EF і Dapper. Статичне обчислення не запускає код проєкту. Непідтримувана логіка збирання позначається як неповний аналіз."
+  },
+  "Target framework": {
+    "en": "Target framework",
+    "ru": "Целевая платформа",
+    "uk": "Цільова платформа"
+  },
+  "Trust this project for MSBuild evaluation. Imports and property functions may execute code; no build or restore targets are requested.": {
+    "en": "Trust this project for MSBuild evaluation. Imports and property functions may execute code; no build or restore targets are requested.",
+    "ru": "Доверять этому проекту при вычислении MSBuild. Импорты и функции свойств могут выполнять код; цели сборки и восстановления не запрашиваются.",
+    "uk": "Довіряти цьому проєкту під час обчислення MSBuild. Імпорти та функції властивостей можуть виконувати код; цілі збирання та відновлення не запитуються."
+  },
+  "Preview context": {
+    "en": "Preview context",
+    "ru": "Предпросмотр контекста",
+    "uk": "Попередній перегляд контексту"
+  },
+  "Save context": {
+    "en": "Save context",
+    "ru": "Сохранить контекст",
+    "uk": "Зберегти контекст"
+  },
+  "Source files": {
+    "en": "Source files",
+    "ru": "Исходные файлы",
+    "uk": "Вихідні файли"
+  },
+  "References": {
+    "en": "References",
+    "ru": "Ссылки",
+    "uk": "Посилання"
+  },
+  "Complete": {
+    "en": "Complete",
+    "ru": "Полный",
+    "uk": "Повний"
+  },
+  "Partial": {
+    "en": "Partial",
+    "ru": "Неполный",
+    "uk": "Неповний"
+  },
+  "Could not load regression fixtures.": {
+    "en": "Could not load regression fixtures.",
+    "ru": "Не удалось загрузить регрессионные тесты.",
+    "uk": "Не вдалося завантажити регресійні тести."
+  },
+  "Regression operation failed.": {
+    "en": "Regression operation failed.",
+    "ru": "Не удалось выполнить операцию с регрессионными тестами.",
+    "uk": "Не вдалося виконати операцію з регресійними тестами."
+  },
+  "Saved regression fixtures": {
+    "en": "Saved regression fixtures",
+    "ru": "Сохранённые регрессионные тесты",
+    "uk": "Збережені регресійні тести"
+  },
+  "Only explicitly saved artificial test data is stored here. Runtime ID values are never copied into fixtures. Saved fixtures rerun after recipe and schema checks.": {
+    "en": "Only explicitly saved artificial test data is stored here. Runtime ID values are never copied into fixtures. Saved fixtures rerun after recipe and schema checks.",
+    "ru": "Здесь хранятся только явно сохранённые искусственные тестовые данные. Рабочие значения ID никогда не копируются в тесты. Сохранённые тесты повторно выполняются после проверки рецепта и схемы.",
+    "uk": "Тут зберігаються лише явно збережені штучні тестові дані. Робочі значення ID ніколи не копіюються в тести. Збережені тести повторно виконуються після перевірки рецепта та схеми."
+  },
+  "Run saved regressions": {
+    "en": "Run saved regressions",
+    "ru": "Запустить сохранённые тесты",
+    "uk": "Запустити збережені тести"
+  },
+  "Create an artificial baseline": {
+    "en": "Create an artificial baseline",
+    "ru": "Создать эталон на искусственных данных",
+    "uk": "Створити еталон на штучних даних"
+  },
+  "Fixture name": {
+    "en": "Fixture name",
+    "ru": "Название теста",
+    "uk": "Назва тесту"
+  },
+  "Artificial values only": {
+    "en": "Artificial values only",
+    "ru": "Только искусственные значения",
+    "uk": "Лише штучні значення"
+  },
+  "Output mode": {
+    "en": "Output mode",
+    "ru": "Режим вывода",
+    "uk": "Режим виведення"
+  },
+  "Standalone": {
+    "en": "Standalone",
+    "ru": "Самостоятельный SQL",
+    "uk": "Самостійний SQL"
+  },
+  "Parameterized": {
+    "en": "Parameterized",
+    "ru": "Параметризованный",
+    "uk": "Параметризований"
+  },
+  "Strategy": {
+    "en": "Strategy",
+    "ru": "Стратегия",
+    "uk": "Стратегія"
+  },
+  "Required SQL fragments, one per line": {
+    "en": "Required SQL fragments, one per line",
+    "ru": "Обязательные фрагменты SQL, по одному на строку",
+    "uk": "Обов’язкові фрагменти SQL, по одному на рядок"
+  },
+  "Forbidden SQL fragments, one per line": {
+    "en": "Forbidden SQL fragments, one per line",
+    "ru": "Запрещённые фрагменты SQL, по одному на строку",
+    "uk": "Заборонені фрагменти SQL, по одному на рядок"
+  },
+  "I confirm these are artificial test values and explicitly approve saving them.": {
+    "en": "I confirm these are artificial test values and explicitly approve saving them.",
+    "ru": "Подтверждаю, что это искусственные тестовые значения, и явно разрешаю их сохранение.",
+    "uk": "Підтверджую, що це штучні тестові значення, і явно дозволяю їх збереження."
+  },
+  "Save artificial baseline": {
+    "en": "Save artificial baseline",
+    "ru": "Сохранить искусственный эталон",
+    "uk": "Зберегти штучний еталон"
+  },
+  "Passed": {
+    "en": "Passed",
+    "ru": "Пройден",
+    "uk": "Пройдено"
+  },
+  "Failed": {
+    "en": "Failed",
+    "ru": "Не пройден",
+    "uk": "Не пройдено"
+  },
+  "Not run": {
+    "en": "Not run",
+    "ru": "Не запускался",
+    "uk": "Не запускався"
+  },
+  "Delete fixture": {
+    "en": "Delete fixture",
+    "ru": "Удалить тест",
+    "uk": "Видалити тест"
+  },
+  "Review saved artificial data and expectations": {
+    "en": "Review saved artificial data and expectations",
+    "ru": "Просмотреть сохранённые искусственные данные и ожидания",
+    "uk": "Переглянути збережені штучні дані та очікування"
+  },
+  "The baseline records expected counts, duplicate and ordering policies, value order, ordinals, selected SQL strategy and a SQL contract hash. Review its saved expectations below.": {
+    "en": "The baseline records expected counts, duplicate and ordering policies, value order, ordinals, selected SQL strategy and a SQL contract hash. Review its saved expectations below.",
+    "ru": "Эталон хранит ожидаемые количества, правила дубликатов и порядка, последовательность значений, порядковые номера, выбранную стратегию SQL и хеш SQL-контракта. Проверьте сохранённые ожидания ниже.",
+    "uk": "Еталон зберігає очікувані кількості, правила дублікатів і порядку, послідовність значень, порядкові номери, вибрану стратегію SQL та хеш SQL-контракту. Перевірте збережені очікування нижче."
+  },
+  "Unable to load storage details.": {
+    "en": "Unable to load storage details.",
+    "ru": "Не удалось загрузить сведения о хранилище.",
+    "uk": "Не вдалося завантажити відомості про сховище."
+  },
+  "Unable to load diagnostics.": {
+    "en": "Unable to load diagnostics.",
+    "ru": "Не удалось загрузить диагностику.",
+    "uk": "Не вдалося завантажити діагностику."
+  },
+  "Operation failed.": {
+    "en": "Operation failed.",
+    "ru": "Операция не выполнена.",
+    "uk": "Операцію не виконано."
+  },
+  "Memory and history": {
+    "en": "Memory and history",
+    "ru": "Память и история",
+    "uk": "Пам’ять та історія"
+  },
+  "Low memory mode: keep graph browsing in the indexed catalog": {
+    "en": "Low memory mode: keep graph browsing in the indexed catalog",
+    "ru": "Экономия памяти: просмотр графа через индексированный каталог",
+    "uk": "Економія пам’яті: перегляд графа через індексований каталог"
+  },
+  "Minimum snapshots per database": {
+    "en": "Minimum snapshots per database",
+    "ru": "Минимум снимков на БД",
+    "uk": "Мінімум знімків на БД"
+  },
+  "Keep history for days": {
+    "en": "Keep history for days",
+    "ru": "Срок хранения истории в днях",
+    "uk": "Строк зберігання історії в днях"
+  },
+  "Retention policy saved. Cleanup only runs when explicitly requested.": {
+    "en": "Retention policy saved. Cleanup only runs when explicitly requested.",
+    "ru": "Политика хранения сохранена. Очистка выполняется только по явному запросу.",
+    "uk": "Політику зберігання збережено. Очищення виконується лише за явним запитом."
+  },
+  "Save retention policy": {
+    "en": "Save retention policy",
+    "ru": "Сохранить политику хранения",
+    "uk": "Зберегти політику зберігання"
+  },
+  "Catalog size": {
+    "en": "Catalog size",
+    "ru": "Размер каталога",
+    "uk": "Розмір каталогу"
+  },
+  "Current snapshots, recipe compatibility snapshots, retained validation references and recipe versions are protected. Cleanup creates a backup first. SQLite may reuse freed pages without shrinking the file.": {
+    "en": "Current snapshots, recipe compatibility snapshots, retained validation references and recipe versions are protected. Cleanup creates a backup first. SQLite may reuse freed pages without shrinking the file.",
+    "ru": "Текущие снимки, снимки совместимости рецептов, ссылки сохранённых проверок и версии рецептов защищены. Перед очисткой создаётся резервная копия. SQLite может повторно использовать освобождённые страницы без уменьшения файла.",
+    "uk": "Поточні знімки, знімки сумісності рецептів, посилання збережених перевірок і версії рецептів захищені. Перед очищенням створюється резервна копія. SQLite може повторно використовувати звільнені сторінки без зменшення файлу."
+  },
+  "Preview history cleanup": {
+    "en": "Preview history cleanup",
+    "ru": "Предпросмотр очистки истории",
+    "uk": "Попередній перегляд очищення історії"
+  },
+  "Eligible snapshots: {0}; history records: {1}; estimated record data: {2} MiB.": {
+    "en": "Eligible snapshots: {0}; history records: {1}; estimated record data: {2} MiB.",
+    "ru": "Снимков к удалению: {0}; записей истории: {1}; примерный объём данных: {2} МиБ.",
+    "uk": "Знімків до видалення: {0}; записів історії: {1}; приблизний обсяг даних: {2} МіБ."
+  },
+  "Protected snapshots": {
+    "en": "Protected snapshots",
+    "ru": "Защищённые снимки",
+    "uk": "Захищені знімки"
+  },
+  "History cleanup completed. A backup was created.": {
+    "en": "History cleanup completed. A backup was created.",
+    "ru": "История очищена. Резервная копия создана.",
+    "uk": "Історію очищено. Резервну копію створено."
+  },
+  "Back up and clean eligible history": {
+    "en": "Back up and clean eligible history",
+    "ru": "Создать копию и очистить доступную историю",
+    "uk": "Створити копію та очистити доступну історію"
+  },
+  "Diagnostics and support report": {
+    "en": "Diagnostics and support report",
+    "ru": "Диагностика и отчёт для поддержки",
+    "uk": "Діагностика та звіт для підтримки"
+  },
+  "The report includes operation codes and technical context. Tokens, SQL, pasted IDs, exception messages and file contents are excluded. Root paths are optional.": {
+    "en": "The report includes operation codes and technical context. Tokens, SQL, pasted IDs, exception messages and file contents are excluded. Root paths are optional.",
+    "ru": "Отчёт содержит коды операций и технический контекст. Токены, SQL, вставленные ID, сообщения исключений и содержимое файлов исключены. Пути корней добавляются по выбору.",
+    "uk": "Звіт містить коди операцій і технічний контекст. Токени, SQL, вставлені ID, повідомлення винятків і вміст файлів виключені. Шляхи коренів додаються за вибором."
+  },
+  "Include workspace root paths": {
+    "en": "Include workspace root paths",
+    "ru": "Включить пути корней рабочей области",
+    "uk": "Додати шляхи коренів робочої області"
+  },
+  "Download diagnostic report": {
+    "en": "Download diagnostic report",
+    "ru": "Скачать диагностический отчёт",
+    "uk": "Завантажити діагностичний звіт"
+  },
+  "Job log": {
+    "en": "Job log",
+    "ru": "Журнал задания",
+    "uk": "Журнал завдання"
+  },
+  "Recent application events": {
+    "en": "Recent application events",
+    "ru": "Последние события приложения",
+    "uk": "Останні події застосунку"
+  },
+  "Refresh log": {
+    "en": "Refresh log",
+    "ru": "Обновить журнал",
+    "uk": "Оновити журнал"
+  },
+  "Time": {
+    "en": "Time",
+    "ru": "Время",
+    "uk": "Час"
+  },
+  "Code": {
+    "en": "Code",
+    "ru": "Код",
+    "uk": "Код"
+  },
+  "Operation": {
+    "en": "Operation",
+    "ru": "Операция",
+    "uk": "Операція"
+  },
+  "Progress": {
+    "en": "Progress",
+    "ru": "Ход выполнения",
+    "uk": "Перебіг виконання"
+  },
+  "Copy failed.": {
+    "en": "Copy failed.",
+    "ru": "Не удалось скопировать.",
+    "uk": "Не вдалося скопіювати."
+  },
+  "Copy location": {
+    "en": "Copy location",
+    "ru": "Копировать расположение",
+    "uk": "Копіювати розташування"
+  },
+  "Source location copied.": {
+    "en": "Source location copied.",
+    "ru": "Расположение источника скопировано.",
+    "uk": "Розташування джерела скопійовано."
+  },
+  "Source opened in editor.": {
+    "en": "Source opened in editor.",
+    "ru": "Источник открыт в редакторе.",
+    "uk": "Джерело відкрито в редакторі."
+  },
+  "Unable to open source.": {
+    "en": "Unable to open source.",
+    "ru": "Не удалось открыть источник.",
+    "uk": "Не вдалося відкрити джерело."
+  },
+  "Source editor": {
+    "en": "Source editor",
+    "ru": "Редактор исходного кода",
+    "uk": "Редактор вихідного коду"
+  },
+  "Open in editor": {
+    "en": "Open in editor",
+    "ru": "Открыть в редакторе",
+    "uk": "Відкрити в редакторі"
+  },
+  "Repair kind": {
+    "en": "Repair kind",
+    "ru": "Вид исправления",
+    "uk": "Вид виправлення"
+  },
+  "Column rename": {
+    "en": "Column rename",
+    "ru": "Переименование колонки",
+    "uk": "Перейменування колонки"
+  },
+  "Table rename": {
+    "en": "Table rename",
+    "ru": "Переименование таблицы",
+    "uk": "Перейменування таблиці"
+  },
+  "Table moved to another schema": {
+    "en": "Table moved to another schema",
+    "ru": "Перенос таблицы в другую схему",
+    "uk": "Перенесення таблиці до іншої схеми"
+  },
+  "Select the current target table above. Enter its previous SQL name. Explicit source aliases are required; review the SQL diff before approval.": {
+    "en": "Select the current target table above. Enter its previous SQL name. Explicit source aliases are required; review the SQL diff before approval.",
+    "ru": "Выберите текущую целевую таблицу выше. Введите её прежнее SQL-имя. Требуются явные псевдонимы источников; перед подтверждением проверьте SQL diff.",
+    "uk": "Виберіть поточну цільову таблицю вище. Введіть її попереднє SQL-ім’я. Потрібні явні псевдоніми джерел; перед підтвердженням перевірте SQL diff."
+  },
+  "Previous schema": {
+    "en": "Previous schema",
+    "ru": "Прежняя схема",
+    "uk": "Попередня схема"
+  },
+  "Previous table": {
+    "en": "Previous table",
+    "ru": "Прежняя таблица",
+    "uk": "Попередня таблиця"
+  },
+  "Next page": {
+    "en": "Next page",
+    "ru": "Следующая страница",
+    "uk": "Наступна сторінка"
+  },
+  "Previous page": {
+    "en": "Previous page",
+    "ru": "Предыдущая страница",
+    "uk": "Попередня сторінка"
+  },
+  "Expected configuration v1 or v2 within the supported item limits.": {
+    "en": "Expected configuration v1 or v2 within the supported item limits.",
+    "ru": "Ожидается конфигурация v1 или v2 в пределах допустимых ограничений.",
+    "uk": "Очікується конфігурація v1 або v2 в межах допустимих обмежень."
+  },
+  "Assertions and recipes must contain valid mappings.": {
+    "en": "Assertions and recipes must contain valid mappings.",
+    "ru": "Утверждения и рецепты должны содержать корректные сопоставления.",
+    "uk": "Твердження та рецепти мають містити коректні зіставлення."
+  },
+  "Resolve all preview conflicts before importing.": {
+    "en": "Resolve all preview conflicts before importing.",
+    "ru": "Перед импортом устраните все конфликты предпросмотра.",
+    "uk": "Перед імпортом усуньте всі конфлікти попереднього перегляду."
+  },
+  "Preview the current mappings before importing.": {
+    "en": "Preview the current mappings before importing.",
+    "ru": "Перед импортом просмотрите текущие сопоставления.",
+    "uk": "Перед імпортом перегляньте поточні зіставлення."
+  },
+  "Workspace changed; preview again.": {
+    "en": "Workspace changed; preview again.",
+    "ru": "Рабочая область изменилась; повторите предпросмотр.",
+    "uk": "Робоча область змінилася; повторіть попередній перегляд."
+  },
+  "Pending assertion not found.": {
+    "en": "Pending assertion not found.",
+    "ru": "Ожидающее проверки утверждение не найдено.",
+    "uk": "Твердження, що очікує перевірки, не знайдено."
+  },
+  "Source recipe identifiers must be unique.": {
+    "en": "Source recipe identifiers must be unique.",
+    "ru": "Идентификаторы исходных рецептов должны быть уникальными.",
+    "uk": "Ідентифікатори вихідних рецептів мають бути унікальними."
+  },
+  "Choose an explicit target database.": {
+    "en": "Choose an explicit target database.",
+    "ru": "Явно выберите целевую БД.",
+    "uk": "Явно виберіть цільову БД."
+  },
+  "Each source database requires a distinct target database.": {
+    "en": "Each source database requires a distinct target database.",
+    "ru": "Каждой исходной БД должна соответствовать отдельная целевая БД.",
+    "uk": "Кожній вихідній БД має відповідати окрема цільова БД."
+  },
+  "Each source project requires a distinct target project.": {
+    "en": "Each source project requires a distinct target project.",
+    "ru": "Каждому исходному проекту должен соответствовать отдельный целевой проект.",
+    "uk": "Кожному вихідному проєкту має відповідати окремий цільовий проєкт."
+  },
+  "Choose an explicit discovered target project.": {
+    "en": "Choose an explicit discovered target project.",
+    "ru": "Явно выберите обнаруженный целевой проект.",
+    "uk": "Явно виберіть виявлений цільовий проєкт."
+  },
+  "Target project already has a different database mapping.": {
+    "en": "Target project already has a different database mapping.",
+    "ru": "Целевой проект уже сопоставлен с другой БД.",
+    "uk": "Цільовий проєкт уже зіставлено з іншою БД."
+  },
+  "Only one alias per source database is allowed.": {
+    "en": "Only one alias per source database is allowed.",
+    "ru": "Для каждой исходной БД разрешён только один псевдоним.",
+    "uk": "Для кожної вихідної БД дозволено лише один псевдонім."
+  },
+  "Alias needs a valid name and reason.": {
+    "en": "Alias needs a valid name and reason.",
+    "ru": "Для псевдонима нужны корректное имя и основание.",
+    "uk": "Для псевдоніма потрібні коректне ім’я та підстава."
+  },
+  "Target database already has a different alias.": {
+    "en": "Target database already has a different alias.",
+    "ru": "У целевой БД уже есть другой псевдоним.",
+    "uk": "Цільова БД уже має інший псевдонім."
+  },
+  "Imported evidence requires explicit review against the current schema.": {
+    "en": "Imported evidence requires explicit review against the current schema.",
+    "ru": "Импортированное подтверждение требует явной проверки по текущей схеме.",
+    "uk": "Імпортоване підтвердження потребує явної перевірки за поточною схемою."
+  },
+  "Table or ordered column mapping is missing or incompatible.": {
+    "en": "Table or ordered column mapping is missing or incompatible.",
+    "ru": "Таблица или упорядоченное сопоставление колонок отсутствует либо несовместимо.",
+    "uk": "Таблиця або впорядковане зіставлення колонок відсутнє чи несумісне."
+  },
+  "Artificial fixture definition will follow its newly imported recipe; past runs are excluded.": {
+    "en": "Artificial fixture definition will follow its newly imported recipe; past runs are excluded.",
+    "ru": "Определение искусственного теста будет связано с импортированным рецептом; предыдущие запуски исключены.",
+    "uk": "Визначення штучного тесту буде пов’язано з імпортованим рецептом; попередні запуски виключені."
+  },
+  "Fixture must reference an imported recipe and contain bounded artificial inputs and assertions.": {
+    "en": "Fixture must reference an imported recipe and contain bounded artificial inputs and assertions.",
+    "ru": "Тест должен ссылаться на импортируемый рецепт и содержать искусственные входы и проверки в допустимых пределах.",
+    "uk": "Тест має посилатися на імпортований рецепт і містити штучні входи та перевірки в допустимих межах."
+  },
+  "A recipe supports at most 50 fixtures.": {
+    "en": "A recipe supports at most 50 fixtures.",
+    "ru": "Для рецепта поддерживается не более 50 тестов.",
+    "uk": "Для рецепта підтримується не більше 50 тестів."
+  },
+  "Recipe is saved as a new version and revalidated.": {
+    "en": "Recipe is saved as a new version and revalidated.",
+    "ru": "Рецепт сохраняется как новая версия и повторно проверяется.",
+    "uk": "Рецепт зберігається як нова версія та повторно перевіряється."
+  },
+  "Confirm that fixture values are artificial test data.": {
+    "en": "Confirm that fixture values are artificial test data.",
+    "ru": "Подтвердите, что значения теста являются искусственными тестовыми данными.",
+    "uk": "Підтвердьте, що значення тесту є штучними тестовими даними."
+  },
+  "Use a name up to 160 characters and artificial input up to 64 Ki characters.": {
+    "en": "Use a name up to 160 characters and artificial input up to 64 Ki characters.",
+    "ru": "Название должно содержать до 160 символов, искусственные входные данные — до 64 Ки символов.",
+    "uk": "Назва має містити до 160 символів, штучні вхідні дані — до 64 Кі символів."
+  },
+  "Use at most 40 nonempty SQL assertions up to 2000 characters each.": {
+    "en": "Use at most 40 nonempty SQL assertions up to 2000 characters each.",
+    "ru": "Допускается до 40 непустых SQL-проверок длиной до 2000 символов каждая.",
+    "uk": "Допускається до 40 непорожніх SQL-перевірок завдовжки до 2000 символів кожна."
+  },
+  "Reload the saved recipe before saving a fixture.": {
+    "en": "Reload the saved recipe before saving a fixture.",
+    "ru": "Перед сохранением теста перезагрузите сохранённый рецепт.",
+    "uk": "Перед збереженням тесту перезавантажте збережений рецепт."
+  },
+  "A recipe supports at most 50 saved fixtures.": {
+    "en": "A recipe supports at most 50 saved fixtures.",
+    "ru": "Для рецепта поддерживается не более 50 сохранённых тестов.",
+    "uk": "Для рецепта підтримується не більше 50 збережених тестів."
+  },
+  "Reload the saved recipe.": {
+    "en": "Reload the saved recipe.",
+    "ru": "Перезагрузите сохранённый рецепт.",
+    "uk": "Перезавантажте збережений рецепт."
+  },
+  "Fixture not found.": {
+    "en": "Fixture not found.",
+    "ru": "Тест не найден.",
+    "uk": "Тест не знайдено."
+  },
+  "Recipe schema validation is broken.": {
+    "en": "Recipe schema validation is broken.",
+    "ru": "Проверка схемы рецепта завершилась ошибкой.",
+    "uk": "Перевірка схеми рецепта завершилася помилкою."
+  },
+  "Generated SQL or parameter contract changed.": {
+    "en": "Generated SQL or parameter contract changed.",
+    "ru": "Сформированный SQL или контракт параметров изменился.",
+    "uk": "Сформований SQL або контракт параметрів змінився."
+  },
+  "Selected SQL strategy changed.": {
+    "en": "Selected SQL strategy changed.",
+    "ru": "Выбранная стратегия SQL изменилась.",
+    "uk": "Вибрана стратегія SQL змінилася."
+  },
+  "Required SQL property missing: {0}": {
+    "en": "Required SQL property missing: {0}",
+    "ru": "Отсутствует обязательное свойство SQL: {0}",
+    "uk": "Відсутня обов’язкова властивість SQL: {0}"
+  },
+  "Forbidden SQL property present: {0}": {
+    "en": "Forbidden SQL property present: {0}",
+    "ru": "Присутствует запрещённое свойство SQL: {0}",
+    "uk": "Присутня заборонена властивість SQL: {0}"
+  },
+  "SQL rendering is not deterministic.": {
+    "en": "SQL rendering is not deterministic.",
+    "ru": "Формирование SQL недетерминировано.",
+    "uk": "Формування SQL недетерміноване."
+  },
+  "{0}: input removed.": {
+    "en": "{0}: input removed.",
+    "ru": "{0}: вход удалён.",
+    "uk": "{0}: вхід видалено."
+  },
+  "{0}: input count or duplicate statistics changed.": {
+    "en": "{0}: input count or duplicate statistics changed.",
+    "ru": "{0}: изменились количество входов или статистика дубликатов.",
+    "uk": "{0}: змінилися кількість входів або статистика дублікатів."
+  },
+  "{0}: values or duplicate order changed.": {
+    "en": "{0}: values or duplicate order changed.",
+    "ru": "{0}: изменились значения или порядок дубликатов.",
+    "uk": "{0}: змінилися значення або порядок дублікатів."
+  },
+  "{0}: ordinals changed.": {
+    "en": "{0}: ordinals changed.",
+    "ru": "{0}: изменились порядковые номера.",
+    "uk": "{0}: змінилися порядкові номери."
+  },
+  "Keep 2–100 snapshots per database and 1–3650 days of history.": {
+    "en": "Keep 2–100 snapshots per database and 1–3650 days of history.",
+    "ru": "Храните 2–100 снимков на БД и историю за 1–3650 дней.",
+    "uk": "Зберігайте 2–100 знімків на БД та історію за 1–3650 днів."
+  },
+  "Wait for active jobs to finish before cleaning history.": {
+    "en": "Wait for active jobs to finish before cleaning history.",
+    "ru": "Перед очисткой истории дождитесь завершения активных заданий.",
+    "uk": "Перед очищенням історії дочекайтеся завершення активних завдань."
+  },
+  "History or its retention policy changed. Preview cleanup again.": {
+    "en": "History or its retention policy changed. Preview cleanup again.",
+    "ru": "История или политика хранения изменилась. Повторите предпросмотр очистки.",
+    "uk": "Історія або політика зберігання змінилася. Повторіть попередній перегляд очищення."
+  },
+  "Messages, SQL, input values, tokens, process output and file contents are excluded.": {
+    "en": "Messages, SQL, input values, tokens, process output and file contents are excluded.",
+    "ru": "Сообщения, SQL, входные значения, токены, вывод процессов и содержимое файлов исключены.",
+    "uk": "Повідомлення, SQL, вхідні значення, токени, виведення процесів і вміст файлів виключені."
+  },
+  "Choose VS Code or Visual Studio.": {
+    "en": "Choose VS Code or Visual Studio.",
+    "ru": "Выберите VS Code или Visual Studio.",
+    "uk": "Виберіть VS Code або Visual Studio."
+  },
+  "The selected editor was not found. Copy the source location instead.": {
+    "en": "The selected editor was not found. Copy the source location instead.",
+    "ru": "Выбранный редактор не найден. Скопируйте расположение источника.",
+    "uk": "Вибраний редактор не знайдено. Скопіюйте розташування джерела."
+  },
+  "Choose a local source file from a workspace.": {
+    "en": "Choose a local source file from a workspace.",
+    "ru": "Выберите локальный исходный файл из рабочей области.",
+    "uk": "Виберіть локальний вихідний файл із робочої області."
+  },
+  "The source file must be inside a configured workspace root.": {
+    "en": "The source file must be inside a configured workspace root.",
+    "ru": "Исходный файл должен находиться в настроенном корне рабочей области.",
+    "uk": "Вихідний файл має бути в налаштованому корені робочої області."
+  },
+  "The source file no longer exists.": {
+    "en": "The source file no longer exists.",
+    "ru": "Исходный файл больше не существует.",
+    "uk": "Вихідний файл більше не існує."
+  },
+  "Job not found.": {
+    "en": "Job not found.",
+    "ru": "Задание не найдено.",
+    "uk": "Завдання не знайдено."
+  },
+  "Select a valid configuration and target framework.": {
+    "en": "Select a valid configuration and target framework.",
+    "ru": "Выберите корректную конфигурацию и целевую платформу.",
+    "uk": "Виберіть коректну конфігурацію та цільову платформу."
+  },
+  "Select a discovered C# project.": {
+    "en": "Select a discovered C# project.",
+    "ru": "Выберите обнаруженный C#-проект.",
+    "uk": "Виберіть виявлений C#-проєкт."
+  },
+  "The model changed. Refresh and try again.": {
+    "en": "The model changed. Refresh and try again.",
+    "ru": "Модель изменилась. Обновите и повторите попытку.",
+    "uk": "Модель змінилася. Оновіть і повторіть спробу."
+  },
+  "Select one current target table and explicit previous schema and table names.": {
+    "en": "Select one current target table and explicit previous schema and table names.",
+    "ru": "Выберите одну текущую целевую таблицу и явно укажите прежние имена схемы и таблицы.",
+    "uk": "Виберіть одну поточну цільову таблицю та явно вкажіть попередні імена схеми й таблиці."
+  },
+  "The previous name still identifies another current table.": {
+    "en": "The previous name still identifies another current table.",
+    "ru": "Прежнее имя по-прежнему указывает на другую текущую таблицу.",
+    "uk": "Попереднє ім’я досі вказує на іншу поточну таблицю."
+  },
+  "Cannot preserve placeholder offsets.": {
+    "en": "Cannot preserve placeholder offsets.",
+    "ru": "Невозможно сохранить смещения заполнителей.",
+    "uk": "Неможливо зберегти зміщення заповнювачів."
+  },
+  "Object rename repair requires a SELECT without CTEs or SELECT INTO; use explicit source aliases.": {
+    "en": "Object rename repair requires a SELECT without CTEs or SELECT INTO; use explicit source aliases.",
+    "ru": "Для исправления переименования объекта требуется SELECT без CTE и SELECT INTO; используйте явные псевдонимы источников.",
+    "uk": "Для виправлення перейменування об’єкта потрібен SELECT без CTE та SELECT INTO; використовуйте явні псевдоніми джерел."
+  },
+  "Unsupported rowset; repair manually.": {
+    "en": "Unsupported rowset; repair manually.",
+    "ru": "Неподдерживаемый набор строк; исправьте вручную.",
+    "uk": "Непідтримуваний набір рядків; виправте вручну."
+  },
+  "No explicitly qualified previous source name was found.": {
+    "en": "No explicitly qualified previous source name was found.",
+    "ru": "Прежнее явно квалифицированное имя источника не найдено.",
+    "uk": "Попереднє явно кваліфіковане ім’я джерела не знайдено."
+  },
+  "Give each renamed table reference an explicit alias before using safe object rename repair.": {
+    "en": "Give each renamed table reference an explicit alias before using safe object rename repair.",
+    "ru": "Перед безопасным исправлением переименования задайте явный псевдоним каждой ссылке на переименованную таблицу.",
+    "uk": "Перед безпечним виправленням перейменування задайте явний псевдонім кожному посиланню на перейменовану таблицю."
+  },
+  "A source resolves outside the selected database.": {
+    "en": "A source resolves outside the selected database.",
+    "ru": "Источник относится к другой БД.",
+    "uk": "Джерело належить до іншої БД."
+  },
+  "The previous two-part name also identifies a current source; qualify the database explicitly.": {
+    "en": "The previous two-part name also identifies a current source; qualify the database explicitly.",
+    "ru": "Прежнее двухчастное имя также указывает на текущий источник; явно укажите БД.",
+    "uk": "Попереднє двочастинне ім’я також вказує на поточне джерело; явно вкажіть БД."
+  },
+  "Previous SQL cannot be bound unambiguously; repair manually.": {
+    "en": "Previous SQL cannot be bound unambiguously; repair manually.",
+    "ru": "Прежний SQL нельзя однозначно привязать; исправьте вручную.",
+    "uk": "Попередній SQL неможливо однозначно прив’язати; виправте вручну."
+  },
+  "Rewritten SQL cannot be bound safely.": {
+    "en": "Rewritten SQL cannot be bound safely.",
+    "ru": "Изменённый SQL нельзя безопасно привязать.",
+    "uk": "Змінений SQL неможливо безпечно прив’язати."
+  },
+  "Explicit table/schema rename preview; aliases, literals and comments are preserved. Review and approve separately.": {
+    "en": "Explicit table/schema rename preview; aliases, literals and comments are preserved. Review and approve separately.",
+    "ru": "Предпросмотр явно заданного переименования таблицы/схемы; псевдонимы, литералы и комментарии сохраняются. Проверьте и подтвердите отдельно.",
+    "uk": "Попередній перегляд явно заданого перейменування таблиці/схеми; псевдоніми, літерали та коментарі зберігаються. Перевірте й підтвердьте окремо."
+  },
+  "Project import fingerprint limit reached.": {
+    "en": "Project import fingerprint limit reached.",
+    "ru": "Достигнут предел отпечатков импортов проекта.",
+    "uk": "Досягнуто обмеження відбитків імпортів проєкту."
+  },
+  "Project reference limit reached.": {
+    "en": "Project reference limit reached.",
+    "ru": "Достигнут предел ссылок на проекты.",
+    "uk": "Досягнуто обмеження посилань на проєкти."
+  },
+  "Source limit reached.": {
+    "en": "Source limit reached.",
+    "ru": "Достигнут предел исходных файлов.",
+    "uk": "Досягнуто обмеження вихідних файлів."
+  },
+  "Dynamic import dependencies cannot be fingerprinted statically: {0}.": {
+    "en": "Dynamic import dependencies cannot be fingerprinted statically: {0}.",
+    "ru": "Нельзя статически вычислить отпечатки динамических зависимостей импорта: {0}.",
+    "uk": "Неможливо статично обчислити відбитки динамічних залежностей імпорту: {0}."
+  },
+  "Unsupported condition in {0}: {1}": {
+    "en": "Unsupported condition in {0}: {1}",
+    "ru": "Неподдерживаемое условие в {0}: {1}",
+    "uk": "Непідтримувана умова в {0}: {1}"
+  },
+  "Select a target framework for {0}.": {
+    "en": "Select a target framework for {0}.",
+    "ru": "Выберите целевую платформу для {0}.",
+    "uk": "Виберіть цільову платформу для {0}."
+  },
+  "Selected target framework {0} is not declared by {1}.": {
+    "en": "Selected target framework {0} is not declared by {1}.",
+    "ru": "Выбранная целевая платформа {0} не объявлена в {1}.",
+    "uk": "Вибрана цільова платформа {0} не оголошена в {1}."
+  },
+  "Framework symbols require review: {0} in {1}.": {
+    "en": "Framework symbols require review: {0} in {1}.",
+    "ru": "Символы платформы требуют проверки: {0} в {1}.",
+    "uk": "Символи платформи потребують перевірки: {0} у {1}."
+  },
+  "Unresolved definitions in {0}.": {
+    "en": "Unresolved definitions in {0}.",
+    "ru": "Неразрешённые определения в {0}.",
+    "uk": "Нерозв’язані визначення в {0}."
+  },
+  "Compile/item Exclude expressions require review in {0}.": {
+    "en": "Compile/item Exclude expressions require review in {0}.",
+    "ru": "Выражения Exclude элементов Compile требуют проверки в {0}.",
+    "uk": "Вирази Exclude елементів Compile потребують перевірки в {0}."
+  },
+  "Unsupported item expression in {0}.": {
+    "en": "Unsupported item expression in {0}.",
+    "ru": "Неподдерживаемое выражение элемента в {0}.",
+    "uk": "Непідтримуваний вираз елемента в {0}."
+  },
+  "Project reference source merging is approximate; separate assembly identity and per-project framework evaluation require review: {0}.": {
+    "en": "Project reference source merging is approximate; separate assembly identity and per-project framework evaluation require review: {0}.",
+    "ru": "Объединение исходников ссылочных проектов приблизительно; идентичность отдельных сборок и вычисление платформы каждого проекта требуют проверки: {0}.",
+    "uk": "Об’єднання вихідних файлів проєктів за посиланнями приблизне; ідентичність окремих збірок та обчислення платформи кожного проєкту потребують перевірки: {0}."
+  },
+  "Unresolved assembly reference {0} in {1}.": {
+    "en": "Unresolved assembly reference {0} in {1}.",
+    "ru": "Неразрешённая ссылка на сборку {0} в {1}.",
+    "uk": "Нерозв’язане посилання на збірку {0} у {1}."
+  },
+  "Package/analyzer/generated source evaluation is not performed for {0} in {1}.": {
+    "en": "Package/analyzer/generated source evaluation is not performed for {0} in {1}.",
+    "ru": "Вычисление пакетов, анализаторов и генерируемых исходников не выполняется для {0} в {1}.",
+    "uk": "Обчислення пакетів, аналізаторів і згенерованих вихідних файлів не виконується для {0} у {1}."
+  },
+  "Source size limit: {0}": {
+    "en": "Source size limit: {0}",
+    "ru": "Превышен предел размера исходного файла: {0}",
+    "uk": "Перевищено обмеження розміру вихідного файлу: {0}"
+  },
+  "SDK imports, targets and generated sources are not evaluated: {0}.": {
+    "en": "SDK imports, targets and generated sources are not evaluated: {0}.",
+    "ru": "Импорты SDK, цели и генерируемые исходники не вычисляются: {0}.",
+    "uk": "Імпорти SDK, цілі та згенеровані вихідні файли не обчислюються: {0}."
+  },
+  "Shared build customization requires trusted evaluation: {0}.": {
+    "en": "Shared build customization requires trusted evaluation: {0}.",
+    "ru": "Общая настройка сборки требует доверенного вычисления: {0}.",
+    "uk": "Спільне налаштування збирання потребує довіреного обчислення: {0}."
+  },
+  "Project context unavailable for {0}: {1}.": {
+    "en": "Project context unavailable for {0}: {1}.",
+    "ru": "Контекст проекта недоступен для {0}: {1}.",
+    "uk": "Контекст проєкту недоступний для {0}: {1}."
+  },
+  "Trusted evaluation selects actual MSBuild items and symbols. Reference resolution, generators and build targets were not run; missing generated sources/package metadata remain partial.": {
+    "en": "Trusted evaluation selects actual MSBuild items and symbols. Reference resolution, generators and build targets were not run; missing generated sources/package metadata remain partial.",
+    "ru": "Доверенное вычисление выбирает фактические элементы и символы MSBuild. Разрешение ссылок, генераторы и цели сборки не запускались; отсутствующие генерируемые исходники и метаданные пакетов оставляют анализ неполным.",
+    "uk": "Довірене обчислення вибирає фактичні елементи та символи MSBuild. Розв’язання посилань, генератори та цілі збирання не запускалися; відсутні згенеровані вихідні файли та метадані пакетів залишають аналіз неповним."
+  },
+  "Project reference compilation metadata is unavailable without build targets; referenced projects were not compiled or merged.": {
+    "en": "Project reference compilation metadata is unavailable without build targets; referenced projects were not compiled or merged.",
+    "ru": "Метаданные компиляции ссылочных проектов недоступны без целей сборки; эти проекты не компилировались и не объединялись.",
+    "uk": "Метадані компіляції проєктів за посиланнями недоступні без цілей збирання; ці проєкти не компілювалися та не об’єднувалися."
+  },
+  "Explicit trust is required before MSBuild project evaluation.": {
+    "en": "Explicit trust is required before MSBuild project evaluation.",
+    "ru": "Перед вычислением проекта MSBuild требуется явное доверие.",
+    "uk": "Перед обчисленням проєкту MSBuild потрібна явна довіра."
+  },
+  "Cannot start trusted project evaluation.": {
+    "en": "Cannot start trusted project evaluation.",
+    "ru": "Не удалось запустить доверенное вычисление проекта.",
+    "uk": "Не вдалося запустити довірене обчислення проєкту."
+  },
+  "Trusted evaluation item limit reached.": {
+    "en": "Trusted evaluation item limit reached.",
+    "ru": "Достигнут предел элементов доверенного вычисления.",
+    "uk": "Досягнуто обмеження елементів довіреного обчислення."
+  },
+  "Trusted context input size limit reached.": {
+    "en": "Trusted context input size limit reached.",
+    "ru": "Достигнут предел размера входных данных доверенного контекста.",
+    "uk": "Досягнуто обмеження розміру вхідних даних довіреного контексту."
+  },
+  "Trusted evaluation output limit reached.": {
+    "en": "Trusted evaluation output limit reached.",
+    "ru": "Достигнут предел вывода доверенного вычисления.",
+    "uk": "Досягнуто обмеження виведення довіреного обчислення."
+  },
+  "Recipe schema validation requires review.": {
+    "en": "Recipe schema validation requires review.",
+    "ru": "Проверка схемы рецепта требует внимания.",
+    "uk": "Перевірка схеми рецепта потребує уваги."
+  },
+  "{0}: duplicate or ordering policy changed.": {
+    "en": "{0}: duplicate or ordering policy changed.",
+    "ru": "{0}: изменились правила дубликатов или порядка.",
+    "uk": "{0}: змінилися правила дублікатів або порядку."
+  },
+  "Choose column, table or schema repair.": {
+    "en": "Choose column, table or schema repair.",
+    "ru": "Выберите исправление колонки, таблицы или схемы.",
+    "uk": "Виберіть виправлення колонки, таблиці або схеми."
+  },
+  "Imported project size limit.": {
+    "en": "Imported project size limit.",
+    "ru": "Превышен предел размера импортированного проекта.",
+    "uk": "Перевищено обмеження розміру імпортованого проєкту."
+  },
+  "Local paths required.": {
+    "en": "Local paths required.",
+    "ru": "Требуются локальные пути.",
+    "uk": "Потрібні локальні шляхи."
+  },
+  "Linked paths are unsupported.": {
+    "en": "Linked paths are unsupported.",
+    "ru": "Пути через ссылки не поддерживаются.",
+    "uk": "Шляхи через посилання не підтримуються."
+  }
+}

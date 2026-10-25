@@ -1,0 +1,2 @@
+# Analyzer fixtures: tests assert source line numbers inside them.
+tests/Fixtures/

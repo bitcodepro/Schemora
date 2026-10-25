@@ -1,0 +1,7 @@
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="2.3.0" />
+  <PropertyGroup>
+    <Name>Billing</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,1 @@
+<Project><Sdk Name="Microsoft.Build.Sql" Version="2.3.0"/><PropertyGroup><Name>SharedDatabase</Name></PropertyGroup></Project>

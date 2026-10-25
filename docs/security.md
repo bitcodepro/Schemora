@@ -1,0 +1,27 @@
+# Локальная безопасность
+
+Kestrel слушает только127.0.0.1 и не использует environment/config URL bindings. Каждый API требует случайный256-bit токен текущего запуска в X-Schemora-Token. Fragment launch token удаляется из URL и хранится в sessionStorage; runtime ID там не хранятся. Проверяются точный Host, Origin при наличии и Sec-Fetch-Site. CORS/cookie-auth нет. CSP запрещает чужие scripts/connect/embedding; Monaco и workers bundled locally.
+
+Никаких AI/cloud/telemetry и подключений к production/staging. Сгенерированный SQL приложение не выполняет на бизнес-БД. Request bodies, clipboard, runtime IDs, SQL output и JSON parameter payload не логируются и не сохраняются. Единственное исключение — наборы значений, которые пользователь явно сохраняет под именем: они лежат в `value-sets/<recipe>.dat` каталога данных, зашифрованы Windows DPAPI (CurrentUser) с энтропией, привязанной к id рецепта, не читаются под другой учётной записью или на другом компьютере и не входят в каталог, portable export, резервные копии и диагностику. Список наборов отдаёт только имена и названия входов; значения читаются отдельным запросом по действию пользователя. Parse errors возвращают ограниченные raw snippets только текущему запросу/UI. SQL definition, который автор явно сохраняет, является частью рецепта.
+
+Локальные source paths проверяются на absolute/UNC/reparse points. Discovery read-only, bounded: 250000 entries,128depth,32MiB/source; staticDDL16MiB/file/64MiBtotal. Конфигурации ORM индексируются метаданными без чтения secrets. Build configuration content hashes не сохраняют содержимое. Неполный scan или race roots/excludes не заменяет прежний каталог.
+
+Build требует явного доверия. MSBuild targets/restore выполняются с правами пользователя; stage — защита оригинальных файлов, не sandbox недоверенного кода. Stage до20000files/512MiB, без links/bin/obj/node_modules/.git. Output/intermediate/packages направлены в служебные каталоги Schemora; stale bin DACPAC не используется. Проверенный local closure включает hidden/ignored inputs, sibling projects, обычные imports, local feeds и resolved pinned DACPAC packages; сохраняются только input hashes и metadata. Before/after проверки блокируют изменившийся closure. Package code/transitive dependencies, property functions и неподдерживаемые custom inputs диагностируются как incomplete. Arbitrary MSBuild import graph не выполняется для планирования. Не доверяйте незнакомому проекту только из-за служебной копии.
+
+ProcessRunner использует ArgumentList без shell, ограничивает output/time, отменяет всё дерево; Windows job закрывает descendants и унаследованные stdout/stderr не обходят timeout. Один writer-host удерживает lock на data-dir. Recipe saves/approval/render проверяют version, immutable snapshots и relationship-context revision под write gate, предотвращая применение устаревшего preview и потерю concurrent edits/reject.
+
+DACPAC import ограничен размером128MiB и не выполняет scripts. DacFx/ScriptDom/Roslyn работают внутри процесса с ограничениями входа; это не абсолютная изоляция против специально созданных ресурсоёмких пакетов. Пользовательский C# не компилируется в assembly и не выполняется; generators/MSBuildWorkspace loading не запускаются. Dapper parameter objects/values не читаются.
+
+Docker route требует отдельного opt-in и schema-only ZIP с whitelist metadata entries, expanded bounds и запретом pre/post/data/payload. Создаются только GUID-named owned resources с ownership labels: container с --network none, без host mounts/ports, random password,3GiB/2CPU/pids. DacFx готовит schema-only DDL offline; docker exec/sqlcmd разворачивает его и читает sys catalog. Runtime credentials передаются через environment, не через password argv, и не логируются. Приложение не требует внешнего SqlPackage для этого маршрута. После extract удаление проверяет owner+exact identity и доказывает отсутствие своих ресурсов. Cancellation/shutdown запускают cleanup; crash markers позволяют ограниченную очистку при следующем старте. Неудачная ownership-проверка сохраняет marker/diagnostic и не удаляет чужие ресурсы.
+
+SQLite WAL/catalog schema2. Миграция и ручное восстановление создают previous backup; backup использует SQLite Backup API, а не копию live WAL. Restore разрешён CLI до старта host с instance lock; повреждённый/future backup отклоняется. Backup и portable manifest создаются по явному действию. Manifest экспортирует root names, metadata и recipe definitions; runtime IDs и absolute roots в него не входят. При импорте БД сопоставляются явно.
+
+HTTP request bound64MiB, ID processor8Mi characters/100000values, template512KiB at Host, output64MiB, storedUI setting256KiB. Invalid values блокируют SQL без silent drop. VARCHAR кодировка/коллация проверяются; типы и escaping тестируются фактическим выполнением в изолированном SQL Server.
+
+
+
+Auto-refresh по умолчанию выключен, не выдаёт доверие и не вызывает Rebuild. Ручные связи после drift не получают доверие из прежнего manual override; удаление ручного утверждения убирает только связанное с ним подтверждение. Build input manifest содержит локальные абсолютные пути и не является portable export. SQL definitions объектов — сохранённые исходные метаданные; runtime Dapper parameter values в них не включаются.
+
+
+
+Language preference contains only en/ru/uk; translation does not persist runtime values. Launch JSON changes only the port on 127.0.0.1, preserves token/Host/Origin checks and rejects unsupported properties. Occupied fixed ports fail explicitly.

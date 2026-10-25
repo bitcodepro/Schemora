@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <DebugType>embedded</DebugType>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,8 @@
+<Project DefaultTargets="Build">
+  <Sdk Name="Microsoft.Build.Sql" Version="2.3.0" />
+  <PropertyGroup>
+    <Name>Commerce</Name>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <ModelCollation>1033, CI</ModelCollation>
+  </PropertyGroup>
+</Project>

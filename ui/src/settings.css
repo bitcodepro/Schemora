@@ -1,0 +1,113 @@
+.settings-panel {
+  display: grid;
+  gap: 18px;
+}
+.settings-card {
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-control);
+}
+.settings-card h2 {
+  font-size: 17px;
+  margin: 0 0 15px;
+}
+.settings-card h3 {
+  font-size: 16px;
+}
+.settings-card p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.settings-card label {
+  display: block;
+  max-width: 650px;
+}
+.settings-card select {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-panel);
+  color: var(--text);
+  border: 1px solid var(--border-control);
+  border-radius: 6px;
+}
+.settings-actions,
+.settings-theme {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+.settings-theme > span {
+  margin-right: 15px;
+  font-size: 15px;
+}
+.settings-notice {
+  color: var(--accent-text);
+  font-size: 14px;
+}
+.configuration-preview {
+  margin-top: 20px;
+  border-top: 1px solid var(--border-control);
+  padding-top: 15px;
+}
+.configuration-preview label {
+  margin: 12px 0;
+}
+.configuration-preview > .primary-button {
+  margin-top: 10px;
+}
+.configuration-results {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.configuration-results li {
+  background: var(--bg-panel);
+  padding: 12px;
+  border-radius: 7px;
+}
+.configuration-results span {
+  margin-left: 15px;
+}
+.storage-details {
+  display: grid;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.storage-details div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+}
+.storage-details dt {
+  color: var(--text-faint);
+}
+.storage-details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: Consolas, monospace;
+}
+.recovery-command {
+  display: block;
+  padding: 15px;
+  background: var(--bg-page);
+  color: var(--text-muted);
+  font-size: 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+.file-button {
+  cursor: pointer;
+}
+.file-button.disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.file-button input {
+  display: none;
+}

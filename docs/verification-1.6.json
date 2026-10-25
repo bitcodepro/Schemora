@@ -1,0 +1,204 @@
+{
+  "application": "Schemora",
+  "version": "1.6.0",
+  "verifiedAtUtc": "2026-10-23T12:27:29.396Z",
+  "executable": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\artifacts\\v16-final\\Schemora.Host.exe",
+  "deliveredExecutable": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\Schemora-1.6.0\\Schemora.Host.exe",
+  "sha256": "834D44D892C4B40E8F313D886B28A9EA45814C46843E6EB5B7334AEB29BC9868",
+  "archive": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\Schemora-1.6.0-win-x64.zip",
+  "archiveBytes": 72399953,
+  "archiveEntriesHashVerified": true,
+  "sourceManifest": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\source-manifest-1.6.0.json",
+  "sourceFileCount": 269,
+  "build": {
+    "selfContained": true,
+    "singleExecutable": true,
+    "uiEmbedded": true,
+    "isolatedCleanSourceCopy": false,
+    "finalLog": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v16-final-publish.log",
+    "dependenciesReusedFromPinnedInstall": true
+  },
+  "checks": {
+    "dotnet": 332,
+    "finalHost": 130,
+    "finalFocusedDomainChecks": 9,
+    "uiUnit": 27,
+    "browser": 66,
+    "http": 184,
+    "launchConfigurationSecurity": 27,
+    "dockerSchemaRecovery": 24,
+    "generatedSqlExactCases": 10
+  },
+  "reports": {
+    "workspace": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\workspace-report.json"
+    },
+    "relationships": {
+      "success": true,
+      "checks": 26,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\relationships-report.json"
+    },
+    "dapper": {
+      "success": true,
+      "checks": 8,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\dapper-report.json"
+    },
+    "recipes": {
+      "success": true,
+      "checks": 22,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\recipes-report.json"
+    },
+    "changes": {
+      "success": true,
+      "checks": 13,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\changes-report.json"
+    },
+    "release": {
+      "success": true,
+      "checks": 11,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\release-report.json"
+    },
+    "enhancements": {
+      "success": true,
+      "checks": 16,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\enhancements-report.json"
+    },
+    "product-v13": {
+      "success": true,
+      "checks": 21,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-report.json"
+    },
+    "maintenance-v13": {
+      "success": true,
+      "checks": 14,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\maintenance-v13-report.json"
+    },
+    "ui": {
+      "success": true,
+      "checks": 22,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-report.json"
+    },
+    "localization": {
+      "success": true,
+      "checks": 11,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\localization-report.json"
+    },
+    "product-v13-ui": {
+      "success": true,
+      "checks": 10,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-ui-report.json"
+    },
+    "experience": {
+      "success": true,
+      "checks": 6,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\experience-report.json"
+    },
+    "authoring-v15": {
+      "success": true,
+      "checks": 10,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\authoring-v15-report.json"
+    },
+    "authoring-api": {
+      "success": true,
+      "checks": 5,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\authoring-api-report.json"
+    },
+    "professional": {
+      "success": true,
+      "checks": 24,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\professional-report.json"
+    },
+    "professional-ui": {
+      "success": true,
+      "checks": 7,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\professional-ui-report.json"
+    },
+    "launch": {
+      "success": true,
+      "checks": 27,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\launch-report.json"
+    },
+    "smoke": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\smoke-report.json"
+    },
+    "scale": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\scale-report.json"
+    },
+    "docker-schema": {
+      "success": true,
+      "checks": 24,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\docker-schema-report.json"
+    }
+  },
+  "generatedSql": {
+    "status": "Passed",
+    "cleanedUp": true,
+    "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\generated-sql-report.json"
+  },
+  "scale": {
+    "success": true,
+    "tables": 5000,
+    "startupMs": 1584,
+    "scanMs": 9120,
+    "graphMs": 2660,
+    "quickMs": 175,
+    "hostWorkingSetMiB": 335.3,
+    "graphNodes": 150,
+    "dependencyColdMs": 439,
+    "dependencyWarmMs": 83,
+    "dependencyWarmRefreshedDatabases": 0,
+    "dependencyResponseNodes": 1,
+    "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\scale-b9c1faff1d344d6fb3eabd5d8ff10166",
+    "at": "2026-10-23T12:11:34.9597722Z"
+  },
+  "recipeScale": {
+    "recipes": 1000,
+    "elapsedMs": 124,
+    "returnedNodes": 28,
+    "returnedEdges": 27,
+    "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v16-test-results\\v16-final-host.trx"
+  },
+  "artifactCoverage": {
+    "baselineBrowserWorkflows": 59,
+    "baselineBrowserArtifactSha256": "3D8F9E986068A39F1084995BB734074CBB43807C029338F477FD11B331CFEC63",
+    "finalArtifactNewBrowserWorkflows": 7,
+    "finalArtifactHttpSuites": true,
+    "finalArtifactDockerSuites": true,
+    "finalArtifactRestoreAndRollback": true,
+    "description": "Existing browser workflows passed on the first 1.6 build. The final artifact was separately verified with the new professional browser workflows after quality-layout, finding-identity and freshness refinements. Final HTTP and Docker suites used the final artifact."
+  },
+  "features": [
+    "Quality findings with independent identities, rationale, source navigation and snapshot/evidence-bound review",
+    "Atomic analysis receipts and explicit source/configuration freshness checks",
+    "Unicode metadata search with paged object and recipe navigation",
+    "Versioned recipe collections and persisted batch validation comparisons",
+    "Differential SQL dependency projection updates and warm reuse",
+    "Integrity, verified restore preview, guarded process restart and actual rollback"
+  ],
+  "dockerObservation": {
+    "initialFailureCode": "DOCKER_SCHEMA_PUBLISH_FAILED",
+    "initialFailureLog": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v16-final-all.log",
+    "rootCause": "Not established: initial sqlcmd failure output was not retained.",
+    "sameScriptIndependentExecutionPassed": true,
+    "diagnosticRelayRepeatChecks": 24,
+    "ordinaryRepeatChecks": 24,
+    "applicationDockerCodeChanged": false,
+    "knownLimitation": "An initial deployment failure was not reproduced; repeated success is not a proven root-cause fix."
+  },
+  "cleanup": {
+    "schemoraTestHostsRemaining": 0,
+    "ownedContainersRemaining": 0
+  },
+  "notRun": {
+    "freshWindows": "Excluded by user.",
+    "remoteCi": "Excluded by user; no GitHub repository exists yet."
+  },
+  "deferred": [
+    "PostgreSQL",
+    "Optional AI"
+  ],
+  "limitsDocument": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\docs\\product-1.6.md"
+}

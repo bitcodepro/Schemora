@@ -1,0 +1,902 @@
+{
+  "Regression fixtures": {
+    "en": "Regression fixtures",
+    "ru": "Регрессионные проверки",
+    "uk": "Регресійні перевірки"
+  },
+  "Нет рабочих областей": {
+    "en": "No workspaces",
+    "ru": "Нет рабочих областей",
+    "uk": "Немає робочих областей"
+  },
+  "Databases in this workspace": {
+    "en": "Databases in this workspace",
+    "ru": "Базы данных этой области",
+    "uk": "Бази даних цієї області"
+  },
+  "Settings sections": {
+    "en": "Settings sections",
+    "ru": "Разделы настроек",
+    "uk": "Розділи налаштувань"
+  },
+  "Tools": {
+    "en": "Tools",
+    "ru": "Инструменты",
+    "uk": "Інструменти"
+  },
+  "Search": {
+    "en": "Search",
+    "ru": "Поиск",
+    "uk": "Пошук"
+  },
+  "Search the workspace": {
+    "en": "Search the workspace",
+    "ru": "Поиск по рабочей области",
+    "uk": "Пошук у робочій області"
+  },
+  "Search results": {
+    "en": "Search results",
+    "ru": "Результаты поиска",
+    "uk": "Результати пошуку"
+  },
+  "Search failed.": {
+    "en": "Search failed.",
+    "ru": "Поиск не выполнен.",
+    "uk": "Пошук не виконано."
+  },
+  "Page": {
+    "en": "Page",
+    "ru": "Раздел",
+    "uk": "Розділ"
+  },
+  "Tables, columns, SQL code, recipes, pages…": {
+    "en": "Tables, columns, SQL code, recipes, pages…",
+    "ru": "Таблицы, поля, SQL-код, рецепты, разделы…",
+    "uk": "Таблиці, поля, SQL-код, рецепти, розділи…"
+  },
+  "Create or choose a workspace to search its schema.": {
+    "en": "Create or choose a workspace to search its schema.",
+    "ru": "Создайте или выберите рабочую область, чтобы искать по её схеме.",
+    "uk": "Створіть або виберіть робочу область, щоб шукати в її схемі."
+  },
+  "Type at least two characters.": {
+    "en": "Type at least two characters.",
+    "ru": "Введите хотя бы два символа.",
+    "uk": "Введіть щонайменше два символи."
+  },
+  "Showing {0} of {1} matches.": {
+    "en": "Showing {0} of {1} matches.",
+    "ru": "Показано {0} из {1} совпадений.",
+    "uk": "Показано {0} з {1} збігів."
+  },
+  "Nothing found.": {
+    "en": "Nothing found.",
+    "ru": "Ничего не найдено.",
+    "uk": "Нічого не знайдено."
+  },
+  "↑ ↓ to choose, Enter to open, Esc to close.": {
+    "en": "↑ ↓ to choose, Enter to open, Esc to close.",
+    "ru": "↑ ↓ — выбрать, Enter — открыть, Esc — закрыть.",
+    "uk": "↑ ↓ — вибрати, Enter — відкрити, Esc — закрити."
+  },
+  "IN list · up to 1000 values": {
+    "en": "IN list · up to 1000 values",
+    "ru": "Список IN · до 1000 значений",
+    "uk": "Список IN · до 1000 значень"
+  },
+  "Invalid authoring draft.": {
+    "en": "Invalid authoring draft.",
+    "ru": "Некорректный черновик рецепта.",
+    "uk": "Некоректна чернетка рецепта."
+  },
+  "Restart is unavailable in this host.": {
+    "en": "Restart is unavailable in this host.",
+    "ru": "Перезапуск недоступен в этом процессе.",
+    "uk": "Перезапуск недоступний у цьому процесі."
+  },
+  "Collection not found.": {
+    "en": "Collection not found.",
+    "ru": "Коллекция не найдена.",
+    "uk": "Колекцію не знайдено."
+  },
+  "Reload the collection before deleting.": {
+    "en": "Reload the collection before deleting.",
+    "ru": "Обновите коллекцию перед удалением.",
+    "uk": "Оновіть колекцію перед видаленням."
+  },
+  "Use a collection name and at most 200 recipes.": {
+    "en": "Use a collection name and at most 200 recipes.",
+    "ru": "Укажите название коллекции и не более 200 рецептов.",
+    "uk": "Вкажіть назву колекції та не більше 200 рецептів."
+  },
+  "Reload the collection before saving.": {
+    "en": "Reload the collection before saving.",
+    "ru": "Обновите коллекцию перед сохранением.",
+    "uk": "Оновіть колекцію перед збереженням."
+  },
+  "At most 100 collections per workspace.": {
+    "en": "At most 100 collections per workspace.",
+    "ru": "Не более 100 коллекций в рабочей области.",
+    "uk": "Не більше 100 колекцій у робочій області."
+  },
+  "Schema or recipe changed. Repeat comparison.": {
+    "en": "Schema or recipe changed. Repeat comparison.",
+    "ru": "Схема или рецепт изменились. Повторите сравнение.",
+    "uk": "Схема або рецепт змінилися. Повторіть порівняння."
+  },
+  "Search is limited to 256 characters.": {
+    "en": "Search is limited to 256 characters.",
+    "ru": "Поиск ограничен 256 символами.",
+    "uk": "Пошук обмежено 256 символами."
+  },
+  "@SchemoraInputs is reserved for the generated parameterized example.": {
+    "en": "@SchemoraInputs is reserved for the generated parameterized example.",
+    "ru": "@SchemoraInputs зарезервирован для сгенерированного параметризованного примера.",
+    "uk": "@SchemoraInputs зарезервовано для згенерованого параметризованого прикладу."
+  },
+  "Choose auto, values, temp, openjson or list strategy.": {
+    "en": "Choose auto, values, temp, openjson or list strategy.",
+    "ru": "Выберите стратегию auto, values, temp, openjson или list.",
+    "uk": "Виберіть стратегію auto, values, temp, openjson або list."
+  },
+  "The IN list strategy is limited to {0} values; {1} has {2}. Use auto, values or temp.": {
+    "en": "The IN list strategy is limited to {0} values; {1} has {2}. Use auto, values or temp.",
+    "ru": "Стратегия списка IN ограничена {0} значениями; во входе {1} их {2}. Используйте auto, values или temp.",
+    "uk": "Стратегія списку IN обмежена {0} значеннями; у вході {1} їх {2}. Використайте auto, values або temp."
+  },
+  "Значение: {0}": {
+    "en": "Value: {0}",
+    "ru": "Значение: {0}",
+    "uk": "Значення: {0}"
+  },
+  "as one value, e.g. a date": {
+    "en": "as one value, e.g. a date",
+    "ru": "как одно значение, например дата",
+    "uk": "як одне значення, наприклад дата"
+  },
+  "Use an ISO date: yyyy-MM-dd.": {
+    "en": "Use an ISO date: yyyy-MM-dd.",
+    "ru": "Укажите дату в формате ISO: yyyy-MM-dd.",
+    "uk": "Вкажіть дату у форматі ISO: yyyy-MM-dd."
+  },
+  "Use an ISO date and time: yyyy-MM-ddTHH:mm[:ss[.fffffff]]; quote values that contain a space.": {
+    "en": "Use an ISO date and time: yyyy-MM-ddTHH:mm[:ss[.fffffff]]; quote values that contain a space.",
+    "ru": "Укажите дату и время в формате ISO: yyyy-MM-ddTHH:mm[:ss[.fffffff]]; значения с пробелом берите в кавычки.",
+    "uk": "Вкажіть дату й час у форматі ISO: yyyy-MM-ddTHH:mm[:ss[.fffffff]]; значення з пробілом беріть у лапки."
+  },
+  "Use 1, 0, true or false.": {
+    "en": "Use 1, 0, true or false.",
+    "ru": "Укажите 1, 0, true или false.",
+    "uk": "Вкажіть 1, 0, true або false."
+  },
+  "Input {0} expects exactly one value; {1} were supplied.": {
+    "en": "Input {0} expects exactly one value; {1} were supplied.",
+    "ru": "Вход {0} принимает ровно одно значение; передано: {1}.",
+    "uk": "Вхід {0} приймає рівно одне значення; передано: {1}."
+  },
+  "Input {0} is used both as a single value and as a list; use separate inputs.": {
+    "en": "Input {0} is used both as a single value and as a list; use separate inputs.",
+    "ru": "Вход {0} используется и как одно значение, и как список; заведите отдельные входы.",
+    "uk": "Вхід {0} використовується і як одне значення, і як список; створіть окремі входи."
+  },
+  "Only {{ids:InputName}}, {{table:InputName}} and {{value:InputName}} are supported.": {
+    "en": "Only {{ids:InputName}}, {{table:InputName}} and {{value:InputName}} are supported.",
+    "ru": "Поддерживаются только {{ids:InputName}}, {{table:InputName}} и {{value:InputName}}.",
+    "uk": "Підтримуються лише {{ids:InputName}}, {{table:InputName}} і {{value:InputName}}."
+  },
+  "Input {0} has no ids/table/value placeholder in the SQL template.": {
+    "en": "Input {0} has no ids/table/value placeholder in the SQL template.",
+    "ru": "Для входа {0} в SQL-шаблоне нет плейсхолдера ids/table/value.",
+    "uk": "Для входу {0} у SQL-шаблоні немає плейсхолдера ids/table/value."
+  },
+  "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit.": {
+    "en": "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit.",
+    "ru": "Поддерживаемые типы входов: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit.",
+    "uk": "Підтримувані типи входів: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit."
+  },
+  "Input {0} uses {1} while target {2} uses {3}; SQL date conversion is required.": {
+    "en": "Input {0} uses {1} while target {2} uses {3}; SQL date conversion is required.",
+    "ru": "Вход {0} имеет тип {1}, а цель {2} — {3}; потребуется преобразование даты в SQL.",
+    "uk": "Вхід {0} має тип {1}, а ціль {2} — {3}; знадобиться перетворення дати в SQL."
+  },
+  "Проверить значения": {
+    "en": "Validate values",
+    "ru": "Проверить значения",
+    "uk": "Перевірити значення"
+  },
+  "Проверить ID и значения": {
+    "en": "Validate IDs and values",
+    "ru": "Проверить ID и значения",
+    "uk": "Перевірити ID і значення"
+  },
+  "Today": {
+    "en": "Today",
+    "ru": "Сегодня",
+    "uk": "Сьогодні"
+  },
+  "Tomorrow": {
+    "en": "Tomorrow",
+    "ru": "Завтра",
+    "uk": "Завтра"
+  },
+  "Start of this month": {
+    "en": "Start of this month",
+    "ru": "Начало месяца",
+    "uk": "Початок місяця"
+  },
+  "Start of last month": {
+    "en": "Start of last month",
+    "ru": "Начало прошлого месяца",
+    "uk": "Початок минулого місяця"
+  },
+  "30 days ago": {
+    "en": "30 days ago",
+    "ru": "30 дней назад",
+    "uk": "30 днів тому"
+  },
+  "Start of this year": {
+    "en": "Start of this year",
+    "ru": "Начало года",
+    "uk": "Початок року"
+  },
+  "Quick dates for {0}": {
+    "en": "Quick dates for {0}",
+    "ru": "Быстрые даты для {0}",
+    "uk": "Швидкі дати для {0}"
+  },
+  "Precision": {
+    "en": "Precision",
+    "ru": "Точность",
+    "uk": "Точність"
+  },
+  "Scale": {
+    "en": "Scale",
+    "ru": "Масштаб",
+    "uk": "Масштаб"
+  },
+  "Precision of input {0}": {
+    "en": "Precision of input {0}",
+    "ru": "Точность входа {0}",
+    "uk": "Точність входу {0}"
+  },
+  "Scale of input {0}": {
+    "en": "Scale of input {0}",
+    "ru": "Масштаб входа {0}",
+    "uk": "Масштаб входу {0}"
+  },
+  "decimal requires Precision 1..38 and Scale 0..Precision.": {
+    "en": "decimal requires Precision 1..38 and Scale 0..Precision.",
+    "ru": "Для decimal нужны точность 1..38 и масштаб 0..точность.",
+    "uk": "Для decimal потрібні точність 1..38 і масштаб 0..точність."
+  },
+  "Precision and scale apply only to decimal inputs.": {
+    "en": "Precision and scale apply only to decimal inputs.",
+    "ru": "Точность и масштаб задаются только для входов decimal.",
+    "uk": "Точність і масштаб задаються лише для входів decimal."
+  },
+  "Use digits with '.' as the decimal separator, within the declared precision and scale.": {
+    "en": "Use digits with '.' as the decimal separator, within the declared precision and scale.",
+    "ru": "Укажите число с точкой в качестве разделителя, в пределах заданных точности и масштаба.",
+    "uk": "Вкажіть число з крапкою як роздільником, у межах заданих точності й масштабу."
+  },
+  "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal.": {
+    "en": "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal.",
+    "ru": "Поддерживаемые типы входов: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal.",
+    "uk": "Підтримувані типи входів: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal."
+  },
+  "Export PNG": {
+    "en": "Export PNG",
+    "ru": "Экспорт PNG",
+    "uk": "Експорт PNG"
+  },
+  "Export SVG": {
+    "en": "Export SVG",
+    "ru": "Экспорт SVG",
+    "uk": "Експорт SVG"
+  },
+  "Graph export failed.": {
+    "en": "Graph export failed.",
+    "ru": "Не удалось экспортировать граф.",
+    "uk": "Не вдалося експортувати граф."
+  },
+  "Compare with another database": {
+    "en": "Compare with another database",
+    "ru": "Сравнение с другой базой",
+    "uk": "Порівняння з іншою базою"
+  },
+  "Matched by schema and table name · read-only": {
+    "en": "Matched by schema and table name · read-only",
+    "ru": "Сопоставление по схеме и имени таблицы · только чтение",
+    "uk": "Зіставлення за схемою та іменем таблиці · лише читання"
+  },
+  "Base database": {
+    "en": "Base database",
+    "ru": "Исходная база",
+    "uk": "Вихідна база"
+  },
+  "Compared with": {
+    "en": "Compared with",
+    "ru": "Сравнить с",
+    "uk": "Порівняти з"
+  },
+  "A DACPAC file…": {
+    "en": "A DACPAC file…",
+    "ru": "Файлом DACPAC…",
+    "uk": "Файлом DACPAC…"
+  },
+  "Compare": {
+    "en": "Compare",
+    "ru": "Сравнить",
+    "uk": "Порівняти"
+  },
+  "Сравнение…": {
+    "en": "Comparing…",
+    "ru": "Сравнение…",
+    "uk": "Порівняння…"
+  },
+  "Differences found: {0}": {
+    "en": "Differences found: {0}",
+    "ru": "Найдено различий: {0}",
+    "uk": "Знайдено відмінностей: {0}"
+  },
+  "Choose two snapshots of this workspace.": {
+    "en": "Choose two snapshots of this workspace.",
+    "ru": "Выберите два снимка этой рабочей области.",
+    "uk": "Виберіть два знімки цієї робочої області."
+  },
+  "Choose a snapshot of this workspace.": {
+    "en": "Choose a snapshot of this workspace.",
+    "ru": "Выберите снимок этой рабочей области.",
+    "uk": "Виберіть знімок цієї робочої області."
+  },
+  "Filter by change": {
+    "en": "Filter by change",
+    "ru": "Фильтр по изменению",
+    "uk": "Фільтр за зміною"
+  },
+  "All changes": {
+    "en": "All changes",
+    "ru": "Все изменения",
+    "uk": "Усі зміни"
+  },
+  "Export CSV": {
+    "en": "Export CSV",
+    "ru": "Экспорт CSV",
+    "uk": "Експорт CSV"
+  },
+  "Differences shown: {0} of {1}": {
+    "en": "Differences shown: {0} of {1}",
+    "ru": "Показано различий: {0} из {1}",
+    "uk": "Показано відмінностей: {0} з {1}"
+  },
+  "Last month": {
+    "en": "Last month",
+    "ru": "Прошлый месяц",
+    "uk": "Минулий місяць"
+  },
+  "This month": {
+    "en": "This month",
+    "ru": "Этот месяц",
+    "uk": "Цей місяць"
+  },
+  "Last 7 days": {
+    "en": "Last 7 days",
+    "ru": "Последние 7 дней",
+    "uk": "Останні 7 днів"
+  },
+  "Last 30 days": {
+    "en": "Last 30 days",
+    "ru": "Последние 30 дней",
+    "uk": "Останні 30 днів"
+  },
+  "Last year": {
+    "en": "Last year",
+    "ru": "Прошлый год",
+    "uk": "Минулий рік"
+  },
+  "This year": {
+    "en": "This year",
+    "ru": "Этот год",
+    "uk": "Цей рік"
+  },
+  "Period for {0} and {1}": {
+    "en": "Period for {0} and {1}",
+    "ru": "Период для {0} и {1}:",
+    "uk": "Період для {0} і {1}:"
+  },
+  "The end date is exclusive.": {
+    "en": "The end date is exclusive.",
+    "ru": "Дата окончания не включается.",
+    "uk": "Дата завершення не включається."
+  },
+  "Optional value · empty means NULL": {
+    "en": "Optional value · empty means NULL",
+    "ru": "Необязательное значение · пусто = NULL",
+    "uk": "Необов'язкове значення · порожньо = NULL"
+  },
+  "To skip a condition when the value is empty, write": {
+    "en": "To skip a condition when the value is empty, write",
+    "ru": "Чтобы пропускать условие при пустом значении, пишите",
+    "uk": "Щоб пропускати умову, коли значення порожнє, пишіть"
+  },
+  "{0} · empty means NULL": {
+    "en": "{0} · empty means NULL",
+    "ru": "{0} · пусто = NULL",
+    "uk": "{0} · порожньо = NULL"
+  },
+  "optional": {
+    "en": "optional",
+    "ru": "необязательно",
+    "uk": "необов'язково"
+  },
+  "Saved values": {
+    "en": "Saved values",
+    "ru": "Сохранённые значения",
+    "uk": "Збережені значення"
+  },
+  "Choose saved values…": {
+    "en": "Choose saved values…",
+    "ru": "Выберите сохранённые значения…",
+    "uk": "Виберіть збережені значення…"
+  },
+  "No saved values yet": {
+    "en": "No saved values yet",
+    "ru": "Сохранённых значений пока нет",
+    "uk": "Збережених значень поки немає"
+  },
+  "Load": {
+    "en": "Load",
+    "ru": "Загрузить",
+    "uk": "Завантажити"
+  },
+  "Name for the current values": {
+    "en": "Name for the current values",
+    "ru": "Название для текущих значений",
+    "uk": "Назва для поточних значень"
+  },
+  "Name, e.g. Customer A, October": {
+    "en": "Name, e.g. Customer A, October",
+    "ru": "Название, например «Клиент А, октябрь»",
+    "uk": "Назва, наприклад «Клієнт А, жовтень»"
+  },
+  "Save values": {
+    "en": "Save values",
+    "ru": "Сохранить значения",
+    "uk": "Зберегти значення"
+  },
+  "Encrypted for your Windows account in the program data folder. Never part of exports, backups or diagnostics.": {
+    "en": "Encrypted for your Windows account in the program data folder. Never part of exports, backups or diagnostics.",
+    "ru": "Шифруются для вашей учётной записи Windows в папке данных программы. Не попадают в экспорт, резервные копии и диагностику.",
+    "uk": "Шифруються для вашого облікового запису Windows у теці даних програми. Не потрапляють до експорту, резервних копій і діагностики."
+  },
+  "Saved \"{0}\".": {
+    "en": "Saved \"{0}\".",
+    "ru": "Сохранено: «{0}».",
+    "uk": "Збережено: «{0}»."
+  },
+  "Loaded \"{0}\". Check the values before generating SQL.": {
+    "en": "Loaded \"{0}\". Check the values before generating SQL.",
+    "ru": "Загружено: «{0}». Проверьте значения перед генерацией SQL.",
+    "uk": "Завантажено: «{0}». Перевірте значення перед генерацією SQL."
+  },
+  "Delete saved values \"{0}\"?": {
+    "en": "Delete saved values \"{0}\"?",
+    "ru": "Удалить сохранённые значения «{0}»?",
+    "uk": "Видалити збережені значення «{0}»?"
+  },
+  "Delete all saved values of this recipe? They cannot be decrypted on this account anyway.": {
+    "en": "Delete all saved values of this recipe? They cannot be decrypted on this account anyway.",
+    "ru": "Удалить все сохранённые значения этого рецепта? В этой учётной записи их всё равно не расшифровать.",
+    "uk": "Видалити всі збережені значення цього рецепта? У цьому обліковому записі їх однаково не розшифрувати."
+  },
+  "Delete unreadable saved values": {
+    "en": "Delete unreadable saved values",
+    "ru": "Удалить нечитаемые сохранённые значения",
+    "uk": "Видалити нечитабельні збережені значення"
+  },
+  "Could not read saved values.": {
+    "en": "Could not read saved values.",
+    "ru": "Не удалось прочитать сохранённые значения.",
+    "uk": "Не вдалося прочитати збережені значення."
+  },
+  "Values were not saved.": {
+    "en": "Values were not saved.",
+    "ru": "Значения не сохранены.",
+    "uk": "Значення не збережено."
+  },
+  "Saved values were not deleted.": {
+    "en": "Saved values were not deleted.",
+    "ru": "Сохранённые значения не удалены.",
+    "uk": "Збережені значення не видалено."
+  },
+  "Input {0} is optional, but only inputs used as a single value can be left empty.": {
+    "en": "Input {0} is optional, but only inputs used as a single value can be left empty.",
+    "ru": "Вход {0} помечен необязательным, но пустыми можно оставлять только входы-значения ({{value:…}}).",
+    "uk": "Вхід {0} позначено необов'язковим, але порожніми можна залишати лише входи-значення ({{value:…}})."
+  },
+  "{0}: no value was entered, so the optional input is NULL.": {
+    "en": "{0}: no value was entered, so the optional input is NULL.",
+    "ru": "{0}: значение не введено, необязательный вход равен NULL.",
+    "uk": "{0}: значення не введено, необов'язковий вхід дорівнює NULL."
+  },
+  "Name the saved values with 1–80 characters.": {
+    "en": "Name the saved values with 1–80 characters.",
+    "ru": "Название сохранённых значений: от 1 до 80 символов.",
+    "uk": "Назва збережених значень: від 1 до 80 символів."
+  },
+  "There are no values to save.": {
+    "en": "There are no values to save.",
+    "ru": "Нет значений для сохранения.",
+    "uk": "Немає значень для збереження."
+  },
+  "Saved values name an input this recipe does not have.": {
+    "en": "Saved values name an input this recipe does not have.",
+    "ru": "Сохранённые значения ссылаются на вход, которого нет в рецепте.",
+    "uk": "Збережені значення посилаються на вхід, якого немає в рецепті."
+  },
+  "Saved values exceed 8 Mi characters.": {
+    "en": "Saved values exceed 8 Mi characters.",
+    "ru": "Сохраняемые значения превышают 8 млн символов.",
+    "uk": "Збережувані значення перевищують 8 млн символів."
+  },
+  "A recipe keeps at most 50 saved value sets. Delete one first.": {
+    "en": "A recipe keeps at most 50 saved value sets. Delete one first.",
+    "ru": "У рецепта может быть не более 50 наборов значений. Сначала удалите один.",
+    "uk": "Рецепт може мати не більше 50 наборів значень. Спершу видаліть один."
+  },
+  "Saved values were encrypted by another Windows account or computer and cannot be read here.": {
+    "en": "Saved values were encrypted by another Windows account or computer and cannot be read here.",
+    "ru": "Сохранённые значения зашифрованы другой учётной записью Windows или на другом компьютере и здесь не читаются.",
+    "uk": "Збережені значення зашифровано іншим обліковим записом Windows або на іншому комп'ютері, тут їх не прочитати."
+  },
+  "These saved values no longer exist.": {
+    "en": "These saved values no longer exist.",
+    "ru": "Этих сохранённых значений больше нет.",
+    "uk": "Цих збережених значень більше немає."
+  },
+  "Saved values need Windows data protection, which this system does not provide.": {
+    "en": "Saved values need Windows data protection, which this system does not provide.",
+    "ru": "Для сохранённых значений нужна защита данных Windows, а в этой системе её нет.",
+    "uk": "Для збережених значень потрібен захист даних Windows, а в цій системі його немає."
+  },
+  "All": {
+    "en": "All",
+    "ru": "Все",
+    "uk": "Усі"
+  },
+  "Favorites": {
+    "en": "Favorites",
+    "ru": "Избранные",
+    "uk": "Обрані"
+  },
+  "Recent": {
+    "en": "Recent",
+    "ru": "Недавние",
+    "uk": "Нещодавні"
+  },
+  "Show recipes": {
+    "en": "Show recipes",
+    "ru": "Показать рецепты",
+    "uk": "Показати рецепти"
+  },
+  "Favorite: {0}": {
+    "en": "Favorite: {0}",
+    "ru": "В избранном: {0}",
+    "uk": "В обраних: {0}"
+  },
+  "Remove from favorites": {
+    "en": "Remove from favorites",
+    "ru": "Убрать из избранного",
+    "uk": "Прибрати з обраних"
+  },
+  "Add to favorites": {
+    "en": "Add to favorites",
+    "ru": "Добавить в избранное",
+    "uk": "Додати до обраних"
+  },
+  "Star recipes you use often to keep them here.": {
+    "en": "Star recipes you use often to keep them here.",
+    "ru": "Отмечайте звёздочкой частые рецепты, и они будут здесь.",
+    "uk": "Позначайте зірочкою часті рецепти, і вони будуть тут."
+  },
+  "Recipes you open appear here.": {
+    "en": "Recipes you open appear here.",
+    "ru": "Здесь появятся рецепты, которые вы открываете.",
+    "uk": "Тут з'являться рецепти, які ви відкриваєте."
+  },
+  "SQL for the whole collection": {
+    "en": "SQL for the whole collection",
+    "ru": "SQL для всей коллекции",
+    "uk": "SQL для всієї колекції"
+  },
+  "Each input is entered once and goes to every recipe that uses its name. Every recipe becomes its own batch (GO).": {
+    "en": "Each input is entered once and goes to every recipe that uses its name. Every recipe becomes its own batch (GO).",
+    "ru": "Каждый вход вводится один раз и передаётся всем рецептам с таким именем входа. Каждый рецепт становится отдельным пакетом (GO).",
+    "uk": "Кожен вхід вводиться один раз і передається всім рецептам із таким іменем входу. Кожен рецепт стає окремим пакетом (GO)."
+  },
+  "used by {0}": {
+    "en": "used by {0}",
+    "ru": "рецептов: {0}",
+    "uk": "рецептів: {0}"
+  },
+  "Collection input {0}": {
+    "en": "Collection input {0}",
+    "ru": "Вход коллекции {0}",
+    "uk": "Вхід колекції {0}"
+  },
+  "I reviewed recipes that need a manual check": {
+    "en": "I reviewed recipes that need a manual check",
+    "ru": "Я проверил рецепты, которым нужна ручная проверка",
+    "uk": "Я перевірив рецепти, яким потрібна ручна перевірка"
+  },
+  "Generate collection SQL": {
+    "en": "Generate collection SQL",
+    "ru": "Сформировать SQL коллекции",
+    "uk": "Сформувати SQL колекції"
+  },
+  "Archived, not included": {
+    "en": "Archived, not included",
+    "ru": "В архиве, не включён",
+    "uk": "В архіві, не включено"
+  },
+  "Rendered": {
+    "en": "Rendered",
+    "ru": "Сформирован",
+    "uk": "Сформовано"
+  },
+  "warnings: {0}": {
+    "en": "warnings: {0}",
+    "ru": "предупреждений: {0}",
+    "uk": "попереджень: {0}"
+  },
+  "No script was produced: fix the recipes marked above and generate again.": {
+    "en": "No script was produced: fix the recipes marked above and generate again.",
+    "ru": "Скрипт не сформирован: исправьте отмеченные рецепты и повторите.",
+    "uk": "Скрипт не сформовано: виправте позначені рецепти й повторіть."
+  },
+  "The collection has no active recipes.": {
+    "en": "The collection has no active recipes.",
+    "ru": "В коллекции нет активных рецептов.",
+    "uk": "У колекції немає активних рецептів."
+  },
+  "Export HTML report": {
+    "en": "Export HTML report",
+    "ru": "Экспорт HTML-отчёта",
+    "uk": "Експорт HTML-звіту"
+  },
+  "Migration draft": {
+    "en": "Migration draft",
+    "ru": "Черновик миграции",
+    "uk": "Чернетка міграції"
+  },
+  "Schema comparison: {0} and {1}": {
+    "en": "Schema comparison: {0} and {1}",
+    "ru": "Сравнение схем: {0} и {1}",
+    "uk": "Порівняння схем: {0} і {1}"
+  },
+  "A starting point for a change script that makes {0} look like {1}. Schemora never runs it: check every statement, add defaults and data moves, and uncomment destructive steps only on purpose.": {
+    "en": "A starting point for a change script that makes {0} look like {1}. Schemora never runs it: check every statement, add defaults and data moves, and uncomment destructive steps only on purpose.",
+    "ru": "Заготовка скрипта изменений, который приводит {0} к виду {1}. Schemora его никогда не выполняет: проверьте каждую команду, добавьте значения по умолчанию и перенос данных, а удаляющие шаги раскомментируйте только осознанно.",
+    "uk": "Заготовка скрипта змін, що приводить {0} до вигляду {1}. Schemora ніколи його не виконує: перевірте кожну команду, додайте значення за замовчуванням і перенесення даних, а видаляльні кроки розкоментуйте лише свідомо."
+  },
+  "Colour by schema": {
+    "en": "Colour by schema",
+    "ru": "Цвет по схеме",
+    "uk": "Колір за схемою"
+  },
+  "Compact cards": {
+    "en": "Compact cards",
+    "ru": "Компактные карточки",
+    "uk": "Компактні картки"
+  },
+  "Schemas": {
+    "en": "Schemas",
+    "ru": "Схемы",
+    "uk": "Схеми"
+  },
+  "Keyboard shortcuts": {
+    "en": "Keyboard shortcuts",
+    "ru": "Горячие клавиши",
+    "uk": "Гарячі клавіші"
+  },
+  "Search the workspace and jump anywhere": {
+    "en": "Search the workspace and jump anywhere",
+    "ru": "Поиск по рабочей области и быстрый переход",
+    "uk": "Пошук у робочій області та швидкий перехід"
+  },
+  "Show this list": {
+    "en": "Show this list",
+    "ru": "Показать этот список",
+    "uk": "Показати цей список"
+  },
+  "Close a dialog or search": {
+    "en": "Close a dialog or search",
+    "ru": "Закрыть диалог или поиск",
+    "uk": "Закрити діалог або пошук"
+  },
+  "Save the recipe definition": {
+    "en": "Save the recipe definition",
+    "ru": "Сохранить определение рецепта",
+    "uk": "Зберегти визначення рецепта"
+  },
+  "Generate SQL from the checked inputs": {
+    "en": "Generate SQL from the checked inputs",
+    "ru": "Сформировать SQL по проверенным входам",
+    "uk": "Сформувати SQL за перевіреними входами"
+  },
+  "Move between controls; every action is reachable without a mouse": {
+    "en": "Move between controls; every action is reachable without a mouse",
+    "ru": "Переход между элементами; все действия доступны без мыши",
+    "uk": "Перехід між елементами; усі дії доступні без миші"
+  },
+  "Everywhere": {
+    "en": "Everywhere",
+    "ru": "Везде",
+    "uk": "Скрізь"
+  },
+  "Everywhere, outside text fields": {
+    "en": "Everywhere, outside text fields",
+    "ru": "Везде, кроме полей ввода",
+    "uk": "Скрізь, окрім полів введення"
+  },
+  "Dialogs": {
+    "en": "Dialogs",
+    "ru": "Диалоги",
+    "uk": "Діалоги"
+  },
+  "On macOS use Cmd instead of Ctrl.": {
+    "en": "On macOS use Cmd instead of Ctrl.",
+    "ru": "В macOS вместо Ctrl используйте Cmd.",
+    "uk": "У macOS замість Ctrl використовуйте Cmd."
+  },
+  "Automatic backups": {
+    "en": "Automatic backups",
+    "ru": "Автоматические резервные копии",
+    "uk": "Автоматичні резервні копії"
+  },
+  "Automatic backups are unavailable.": {
+    "en": "Automatic backups are unavailable.",
+    "ru": "Автоматические резервные копии недоступны.",
+    "uk": "Автоматичні резервні копії недоступні."
+  },
+  "Copy the catalog on a schedule": {
+    "en": "Copy the catalog on a schedule",
+    "ru": "Копировать каталог по расписанию",
+    "uk": "Копіювати каталог за розкладом"
+  },
+  "Every": {
+    "en": "Every",
+    "ru": "Каждые",
+    "uk": "Кожні"
+  },
+  "{0} d": {
+    "en": "{0} d",
+    "ru": "{0} д",
+    "uk": "{0} д"
+  },
+  "{0} h": {
+    "en": "{0} h",
+    "ru": "{0} ч",
+    "uk": "{0} год"
+  },
+  "Keep the newest": {
+    "en": "Keep the newest",
+    "ru": "Хранить последних",
+    "uk": "Зберігати останніх"
+  },
+  "Save schedule": {
+    "en": "Save schedule",
+    "ru": "Сохранить расписание",
+    "uk": "Зберегти розклад"
+  },
+  "Back up now": {
+    "en": "Back up now",
+    "ru": "Сделать копию сейчас",
+    "uk": "Зробити копію зараз"
+  },
+  "Next copy: {0}": {
+    "en": "Next copy: {0}",
+    "ru": "Следующая копия: {0}",
+    "uk": "Наступна копія: {0}"
+  },
+  "Automatic copies are off.": {
+    "en": "Automatic copies are off.",
+    "ru": "Автоматические копии выключены.",
+    "uk": "Автоматичні копії вимкнено."
+  },
+  "Copies are kept in the backups folder of the data directory; older automatic copies beyond the limit are deleted.": {
+    "en": "Copies are kept in the backups folder of the data directory; older automatic copies beyond the limit are deleted.",
+    "ru": "Копии лежат в папке backups каталога данных; старые автоматические копии сверх лимита удаляются.",
+    "uk": "Копії лежать у теці backups каталогу даних; старі автоматичні копії понад ліміт видаляються."
+  },
+  "The last automatic copy failed": {
+    "en": "The last automatic copy failed",
+    "ru": "Последняя автоматическая копия не создана",
+    "uk": "Останню автоматичну копію не створено"
+  },
+  "Back up every 1–720 hours and keep 1–100 copies.": {
+    "en": "Back up every 1–720 hours and keep 1–100 copies.",
+    "ru": "Интервал копирования — от 1 до 720 часов, хранить — от 1 до 100 копий.",
+    "uk": "Інтервал копіювання — від 1 до 720 годин, зберігати — від 1 до 100 копій."
+  },
+  "Kept by the automatic backup schedule": {
+    "en": "Kept by the automatic backup schedule",
+    "ru": "Хранится по расписанию автоматических копий",
+    "uk": "Зберігається за розкладом автоматичних копій"
+  },
+  "Primary key": {
+    "en": "Primary key",
+    "ru": "Первичный ключ",
+    "uk": "Первинний ключ"
+  },
+  "Joins another table": {
+    "en": "Joins another table",
+    "ru": "Связывает с другой таблицей",
+    "uk": "Пов'язує з іншою таблицею"
+  },
+  "Loading the current schema snapshot…": {
+    "en": "Loading the current schema snapshot…",
+    "ru": "Загрузка текущего снимка схемы…",
+    "uk": "Завантаження поточного знімка схеми…"
+  },
+  "Show {0} more of {1}": {
+    "en": "Show {0} more of {1}",
+    "ru": "Показать ещё {0} из {1}",
+    "uk": "Показати ще {0} з {1}"
+  },
+  "The model has {0} tables, so the overview shows {1} and its direct neighbours. Relationships and paths shows any part of the model.": {
+    "en": "The model has {0} tables, so the overview shows {1} and its direct neighbours. Relationships and paths shows any part of the model.",
+    "ru": "В модели {0} таблиц, поэтому обзор показывает {1} и её прямых соседей. Любую часть модели показывает раздел «Связи и пути».",
+    "uk": "У моделі {0} таблиць, тому огляд показує {1} і її прямих сусідів. Будь-яку частину моделі показує розділ «Зв’язки і шляхи»."
+  },
+  "Filter results by kind": {
+    "en": "Filter results by kind",
+    "ru": "Фильтр результатов по типу",
+    "uk": "Фільтр результатів за типом"
+  },
+  "Press Ctrl+Enter or click for more.": {
+    "en": "Press Ctrl+Enter or click for more.",
+    "ru": "Ctrl+Enter или кнопка ниже покажут больше.",
+    "uk": "Ctrl+Enter або кнопка нижче покажуть більше."
+  },
+  "Show more": {
+    "en": "Show more",
+    "ru": "Показать ещё",
+    "uk": "Показати ще"
+  },
+  "Refine the search to see other matches.": {
+    "en": "Refine the search to see other matches.",
+    "ru": "Уточните запрос, чтобы увидеть остальные совпадения.",
+    "uk": "Уточніть запит, щоб побачити інші збіги."
+  },
+  "Database": {
+    "en": "Database",
+    "ru": "База данных",
+    "uk": "База даних"
+  },
+  "All databases": {
+    "en": "All databases",
+    "ru": "Все базы данных",
+    "uk": "Усі бази даних"
+  },
+  "The request body or parameters could not be read.": {
+    "en": "The request body or parameters could not be read.",
+    "ru": "Не удалось прочитать тело или параметры запроса.",
+    "uk": "Не вдалося прочитати тіло або параметри запиту."
+  },
+  "Internal error in Schemora. The operation was not completed; report the operation number from the diagnostics journal.": {
+    "en": "Internal error in Schemora. The operation was not completed; report the operation number from the diagnostics journal.",
+    "ru": "Внутренняя ошибка Schemora. Операция не выполнена; сообщите номер операции из журнала диагностики.",
+    "uk": "Внутрішня помилка Schemora. Операцію не виконано; повідомте номер операції з журналу діагностики."
+  },
+  "Build {0}": {
+    "en": "Build {0}",
+    "ru": "Сборка {0}",
+    "uk": "Збірка {0}"
+  },
+  "The recipe is now at version {0}, not the version {1} you are viewing. Reload it before generating SQL.": {
+    "en": "The recipe is now at version {0}, not the version {1} you are viewing. Reload it before generating SQL.",
+    "ru": "Рецепт уже в версии {0}, а у вас открыта версия {1}. Обновите его перед генерацией SQL.",
+    "uk": "Рецепт уже у версії {0}, а у вас відкрита версія {1}. Оновіть його перед генерацією SQL."
+  }
+}

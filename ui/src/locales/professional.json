@@ -1,0 +1,482 @@
+{
+  "Workspace quality": {
+    "en": "Workspace quality",
+    "ru": "Качество рабочей области",
+    "uk": "Якість робочої області"
+  },
+  "Quality workspace": {
+    "en": "Quality workspace",
+    "ru": "Область проверки качества",
+    "uk": "Область перевірки якості"
+  },
+  "Unable to load quality findings.": {
+    "en": "Unable to load quality findings.",
+    "ru": "Не удалось загрузить замечания.",
+    "uk": "Не вдалося завантажити зауваження."
+  },
+  "Quality review failed.": {
+    "en": "Quality review failed.",
+    "ru": "Не удалось сохранить проверку замечания.",
+    "uk": "Не вдалося зберегти перевірку зауваження."
+  },
+  "Findings are review guidance, not automatic schema changes. A table without a primary key can be intentional.": {
+    "en": "Findings are review guidance, not automatic schema changes. A table without a primary key can be intentional.",
+    "ru": "Замечания помогают проверить схему. Они не меняют её автоматически. Отсутствие первичного ключа может быть намеренным.",
+    "uk": "Зауваження допомагають перевірити схему. Вони не змінюють її автоматично. Відсутність первинного ключа може бути навмисною."
+  },
+  "Refresh quality findings": {
+    "en": "Refresh quality findings",
+    "ru": "Обновить замечания",
+    "uk": "Оновити зауваження"
+  },
+  "Severity": {
+    "en": "Severity",
+    "ru": "Важность",
+    "uk": "Важливість"
+  },
+  "All severities": {
+    "en": "All severities",
+    "ru": "Любая важность",
+    "uk": "Будь-яка важливість"
+  },
+  "Severity: error": {
+    "en": "Error",
+    "ru": "Ошибка",
+    "uk": "Помилка"
+  },
+  "Severity: warning": {
+    "en": "Warning",
+    "ru": "Предупреждение",
+    "uk": "Попередження"
+  },
+  "Severity: info": {
+    "en": "Information",
+    "ru": "Информация",
+    "uk": "Інформація"
+  },
+  "Show reviewed findings": {
+    "en": "Show reviewed findings",
+    "ru": "Показать проверенные замечания",
+    "uk": "Показати перевірені зауваження"
+  },
+  "Findings shown: {0} / {1}": {
+    "en": "Findings shown: {0} / {1}",
+    "ru": "Показано замечаний: {0} / {1}",
+    "uk": "Показано зауважень: {0} / {1}"
+  },
+  "Review reason": {
+    "en": "Review reason",
+    "ru": "Основание проверки",
+    "uk": "Підстава перевірки"
+  },
+  "Mark as reviewed": {
+    "en": "Mark as reviewed",
+    "ru": "Отметить проверенным",
+    "uk": "Позначити перевіреним"
+  },
+  "Reopen finding": {
+    "en": "Reopen finding",
+    "ru": "Вернуть на проверку",
+    "uk": "Повернути на перевірку"
+  },
+  "Unable to load workspace tools.": {
+    "en": "Unable to load workspace tools.",
+    "ru": "Не удалось загрузить инструменты области.",
+    "uk": "Не вдалося завантажити інструменти області."
+  },
+  "Workspace operation failed.": {
+    "en": "Workspace operation failed.",
+    "ru": "Операция рабочей области не выполнена.",
+    "uk": "Операцію робочої області не виконано."
+  },
+  "Workspace quality and tools": {
+    "en": "Workspace quality and tools",
+    "ru": "Качество, поиск и сопровождение",
+    "uk": "Якість, пошук і супровід"
+  },
+  "Analysis provenance": {
+    "en": "Analysis provenance",
+    "ru": "Происхождение результатов анализа",
+    "uk": "Походження результатів аналізу"
+  },
+  "Check source hashes without executing builds. Earlier runs without a receipt are explicitly unknown.": {
+    "en": "Check source hashes without executing builds. Earlier runs without a receipt are explicitly unknown.",
+    "ru": "Проверка хешей без запуска сборки. Состав прежних запусков без записи неизвестен.",
+    "uk": "Перевірка хешів без запуску збирання. Склад попередніх запусків без запису невідомий."
+  },
+  "Check analysis freshness": {
+    "en": "Check analysis freshness",
+    "ru": "Проверить актуальность анализа",
+    "uk": "Перевірити актуальність аналізу"
+  },
+  "Analysis needs refresh": {
+    "en": "Analysis needs refresh",
+    "ru": "Анализ требует обновления",
+    "uk": "Аналіз потребує оновлення"
+  },
+  "Recorded inputs are current": {
+    "en": "Recorded inputs are current",
+    "ru": "Записанные входные файлы актуальны",
+    "uk": "Записані вхідні файли актуальні"
+  },
+  "File discovery complete": {
+    "en": "File discovery complete",
+    "ru": "Поиск файлов завершён",
+    "uk": "Пошук файлів завершено"
+  },
+  "File discovery incomplete": {
+    "en": "File discovery incomplete",
+    "ru": "Поиск файлов неполный",
+    "uk": "Пошук файлів неповний"
+  },
+  "Recorded input files": {
+    "en": "Recorded input files",
+    "ru": "Записанные входные файлы",
+    "uk": "Записані вхідні файли"
+  },
+  "Recorded C# selections": {
+    "en": "Recorded C# selections",
+    "ru": "Записанные настройки C#",
+    "uk": "Записані налаштування C#"
+  },
+  "Analysis settings changed since the recorded run.": {
+    "en": "Analysis settings changed since the recorded run.",
+    "ru": "Настройки анализа изменились после записанного запуска.",
+    "uk": "Налаштування аналізу змінилися після записаного запуску."
+  },
+  "Changes since recorded analysis": {
+    "en": "Changes since recorded analysis",
+    "ru": "Изменения после записанного анализа",
+    "uk": "Зміни після записаного аналізу"
+  },
+  "Change: added": {
+    "en": "Change: added",
+    "ru": "Добавлено",
+    "uk": "Додано"
+  },
+  "Change: removed": {
+    "en": "Change: removed",
+    "ru": "Удалено",
+    "uk": "Видалено"
+  },
+  "Change: modified": {
+    "en": "Change: modified",
+    "ru": "Изменено",
+    "uk": "Змінено"
+  },
+  "Changed paths between recorded runs": {
+    "en": "Changed paths between recorded runs",
+    "ru": "Изменённые пути между запусками",
+    "uk": "Змінені шляхи між запусками"
+  },
+  "Unified workspace search": {
+    "en": "Unified workspace search",
+    "ru": "Единый поиск по рабочей области",
+    "uk": "Єдиний пошук у робочій області"
+  },
+  "Search all objects and recipes": {
+    "en": "Search all objects and recipes",
+    "ru": "Поиск объектов и рецептов",
+    "uk": "Пошук об’єктів і рецептів"
+  },
+  "Search kind": {
+    "en": "Search kind",
+    "ru": "Тип результата",
+    "uk": "Тип результату"
+  },
+  "All kinds": {
+    "en": "All kinds",
+    "ru": "Все типы",
+    "uk": "Усі типи"
+  },
+  "Kind: column": {
+    "en": "Column",
+    "ru": "Колонка",
+    "uk": "Стовпець"
+  },
+  "Kind: evidence": {
+    "en": "Evidence",
+    "ru": "Доказательство",
+    "uk": "Доказ"
+  },
+  "Search workspace": {
+    "en": "Search workspace",
+    "ru": "Искать в области",
+    "uk": "Шукати в області"
+  },
+  "Search results: {0}": {
+    "en": "Search results: {0}",
+    "ru": "Найдено: {0}",
+    "uk": "Знайдено: {0}"
+  },
+  "Recipe collections and batch validation": {
+    "en": "Recipe collections and batch validation",
+    "ru": "Коллекции рецептов и пакетная проверка",
+    "uk": "Колекції рецептів і пакетна перевірка"
+  },
+  "Saved collection": {
+    "en": "Saved collection",
+    "ru": "Сохранённая коллекция",
+    "uk": "Збережена колекція"
+  },
+  "New collection": {
+    "en": "New collection",
+    "ru": "Новая коллекция",
+    "uk": "Нова колекція"
+  },
+  "Collection name": {
+    "en": "Collection name",
+    "ru": "Название коллекции",
+    "uk": "Назва колекції"
+  },
+  "Filter recipes": {
+    "en": "Filter recipes",
+    "ru": "Фильтр рецептов",
+    "uk": "Фільтр рецептів"
+  },
+  "Selected recipes: {0}": {
+    "en": "Selected recipes: {0}",
+    "ru": "Выбрано рецептов: {0}",
+    "uk": "Вибрано рецептів: {0}"
+  },
+  "Save collection": {
+    "en": "Save collection",
+    "ru": "Сохранить коллекцию",
+    "uk": "Зберегти колекцію"
+  },
+  "Validate selected recipes": {
+    "en": "Validate selected recipes",
+    "ru": "Проверить выбранные рецепты",
+    "uk": "Перевірити вибрані рецепти"
+  },
+  "Batch validation finished": {
+    "en": "Batch validation finished",
+    "ru": "Пакетная проверка завершена",
+    "uk": "Пакетну перевірку завершено"
+  },
+  "Current snapshots": {
+    "en": "Current snapshots",
+    "ru": "Текущие снимки",
+    "uk": "Поточні знімки"
+  },
+  "Previous snapshots": {
+    "en": "Previous snapshots",
+    "ru": "Предыдущие снимки",
+    "uk": "Попередні знімки"
+  },
+  "Catalog health and recovery": {
+    "en": "Catalog health and recovery",
+    "ru": "Целостность и восстановление каталога",
+    "uk": "Цілісність і відновлення каталогу"
+  },
+  "Check catalog integrity": {
+    "en": "Check catalog integrity",
+    "ru": "Проверить целостность каталога",
+    "uk": "Перевірити цілісність каталогу"
+  },
+  "Catalog integrity verified": {
+    "en": "Catalog integrity verified",
+    "ru": "Целостность каталога подтверждена",
+    "uk": "Цілісність каталогу підтверджено"
+  },
+  "Catalog integrity failed": {
+    "en": "Catalog integrity failed",
+    "ru": "Проверка целостности выявила ошибки",
+    "uk": "Перевірка цілісності виявила помилки"
+  },
+  "Backup SQLite path": {
+    "en": "Backup SQLite path",
+    "ru": "Путь к резервной копии SQLite",
+    "uk": "Шлях до резервної копії SQLite"
+  },
+  "Preview restore": {
+    "en": "Preview restore",
+    "ru": "Предпросмотр восстановления",
+    "uk": "Попередній перегляд відновлення"
+  },
+  "Backup contents": {
+    "en": "Backup contents",
+    "ru": "Состав резервной копии",
+    "uk": "Вміст резервної копії"
+  },
+  "Workspaces": {
+    "en": "Workspaces",
+    "ru": "Рабочие области",
+    "uk": "Робочі області"
+  },
+  "Recipes": {
+    "en": "Recipes",
+    "ru": "Рецепты",
+    "uk": "Рецепти"
+  },
+  "Snapshots": {
+    "en": "Snapshots",
+    "ru": "Снимки",
+    "uk": "Знімки"
+  },
+  "Catalog migration": {
+    "en": "Catalog migration",
+    "ru": "Миграция каталога",
+    "uk": "Міграція каталогу"
+  },
+  "No version migration required": {
+    "en": "No version migration required",
+    "ru": "Миграция версии не требуется",
+    "uk": "Міграція версії не потрібна"
+  },
+  "A protected version migration will run at startup": {
+    "en": "A protected version migration will run at startup",
+    "ru": "При запуске выполнится миграция с резервной копией",
+    "uk": "Під час запуску виконається міграція з резервною копією"
+  },
+  "A separate staged copy is verified. The current catalog is preserved before restore; that copy can be selected to roll back.": {
+    "en": "A separate staged copy is verified. The current catalog is preserved before restore; that copy can be selected to roll back.",
+    "ru": "Проверена отдельная подготовленная копия. Перед восстановлением текущий каталог сохраняется для отката.",
+    "uk": "Перевірено окрему підготовлену копію. Перед відновленням поточний каталог зберігається для відкоту."
+  },
+  "I reviewed the backup and approve replacing the catalog and restarting Schemora.": {
+    "en": "I reviewed the backup and approve replacing the catalog and restarting Schemora.",
+    "ru": "Я проверил копию и подтверждаю замену каталога и перезапуск Schemora.",
+    "uk": "Я перевірив копію та підтверджую заміну каталогу й перезапуск Schemora."
+  },
+  "Restore and restart": {
+    "en": "Restore and restart",
+    "ru": "Восстановить и перезапустить",
+    "uk": "Відновити та перезапустити"
+  },
+  "Schemora is restarting. Continue in the newly opened browser tab.": {
+    "en": "Schemora is restarting. Continue in the newly opened browser tab.",
+    "ru": "Schemora перезапускается. Продолжите в новой вкладке браузера.",
+    "uk": "Schemora перезапускається. Продовжте в новій вкладці браузера."
+  },
+  "No primary key is declared. This can be intentional for staging or append-only tables.": {
+    "en": "No primary key is declared. This can be intentional for staging or append-only tables.",
+    "ru": "Первичный ключ не объявлен. Для промежуточных таблиц это может быть намеренным.",
+    "uk": "Первинний ключ не оголошено. Для проміжних таблиць це може бути навмисним."
+  },
+  "The current schema is unavailable or uses a previous successful snapshot.": {
+    "en": "The current schema is unavailable or uses a previous successful snapshot.",
+    "ru": "Текущая схема недоступна или используется предыдущий успешный снимок.",
+    "uk": "Поточна схема недоступна або використовується попередній успішний знімок."
+  },
+  "The referenced object could not be resolved in this schema; external references require review.": {
+    "en": "The referenced object could not be resolved in this schema; external references require review.",
+    "ru": "Объект ссылки не найден в этой схеме; внешние ссылки требуют проверки.",
+    "uk": "Об’єкт посилання не знайдено в цій схемі; зовнішні посилання потребують перевірки."
+  },
+  "This relationship is candidate evidence and is not trusted for JOIN generation. {0}": {
+    "en": "This relationship is candidate evidence and is not trusted for JOIN generation. {0}",
+    "ru": "Связь является кандидатом и не используется для доверенного JOIN. {0}",
+    "uk": "Зв’язок є кандидатом і не використовується для довіреного JOIN. {0}"
+  },
+  "List local backups": {
+    "en": "List local backups",
+    "ru": "Показать локальные копии",
+    "uk": "Показати локальні копії"
+  },
+  "Local backups": {
+    "en": "Local backups",
+    "ru": "Локальные резервные копии",
+    "uk": "Локальні резервні копії"
+  },
+  "Choose backup": {
+    "en": "Choose backup",
+    "ru": "Выберите копию",
+    "uk": "Виберіть копію"
+  },
+  "Delete collection only": {
+    "en": "Delete collection only",
+    "ru": "Удалить только коллекцию",
+    "uk": "Видалити лише колекцію"
+  },
+  "Load last batch results": {
+    "en": "Load last batch results",
+    "ru": "Открыть последние результаты",
+    "uk": "Відкрити останні результати"
+  },
+  "Quality findings": {
+    "en": "Quality findings",
+    "ru": "Замечания по качеству",
+    "uk": "Зауваження щодо якості"
+  },
+  "Analysis, search and recovery": {
+    "en": "Analysis, search and recovery",
+    "ru": "Анализ, поиск и восстановление",
+    "uk": "Аналіз, пошук і відновлення"
+  },
+  "Review schema quality, trace analysis inputs and maintain your local catalog.": {
+    "en": "Review schema quality, trace analysis inputs and maintain your local catalog.",
+    "ru": "Проверяйте качество схемы, состав анализа и состояние локального каталога.",
+    "uk": "Перевіряйте якість схеми, склад аналізу та стан локального каталогу."
+  },
+  "Provide a review reason of 10–2000 characters.": {
+    "en": "Provide a review reason of 10–2000 characters.",
+    "ru": "Укажите основание проверки длиной 10–2000 символов.",
+    "uk": "Укажіть підставу перевірки завдовжки 10–2000 символів."
+  },
+  "The finding changed. Review it again.": {
+    "en": "The finding changed. Review it again.",
+    "ru": "Замечание изменилось. Проверьте его снова.",
+    "uk": "Зауваження змінилося. Перевірте його знову."
+  },
+  "Refresh quality findings before reviewing this item.": {
+    "en": "Refresh quality findings before reviewing this item.",
+    "ru": "Обновите замечания перед проверкой этого пункта.",
+    "uk": "Оновіть зауваження перед перевіркою цього пункту."
+  },
+  "Select 1–200 recipes.": {
+    "en": "Select 1–200 recipes.",
+    "ru": "Выберите 1–200 рецептов.",
+    "uk": "Виберіть 1–200 рецептів."
+  },
+  "Select active recipes in this workspace.": {
+    "en": "Select active recipes in this workspace.",
+    "ru": "Выберите активные рецепты этой области.",
+    "uk": "Виберіть активні рецепти цієї області."
+  },
+  "Schema or recipe changed during batch validation. Run again.": {
+    "en": "Schema or recipe changed during batch validation. Run again.",
+    "ru": "Схема или рецепт изменились во время пакетной проверки. Повторите её.",
+    "uk": "Схема або рецепт змінилися під час пакетної перевірки. Повторіть її."
+  },
+  "The catalog changed. Preview the backup again.": {
+    "en": "The catalog changed. Preview the backup again.",
+    "ru": "Каталог изменился. Повторите предпросмотр копии.",
+    "uk": "Каталог змінився. Повторіть попередній перегляд копії."
+  },
+  "The staged backup changed. Preview again.": {
+    "en": "The staged backup changed. Preview again.",
+    "ru": "Подготовленная копия изменилась. Повторите предпросмотр.",
+    "uk": "Підготовлена копія змінилася. Повторіть попередній перегляд."
+  },
+  "The backup failed its integrity check.": {
+    "en": "The backup failed its integrity check.",
+    "ru": "Копия не прошла проверку целостности.",
+    "uk": "Копія не пройшла перевірку цілісності."
+  },
+  "The file is not a Schemora catalog.": {
+    "en": "The file is not a Schemora catalog.",
+    "ru": "Файл не является каталогом Schemora.",
+    "uk": "Файл не є каталогом Schemora."
+  },
+  "This backup catalog version is not supported.": {
+    "en": "This backup catalog version is not supported.",
+    "ru": "Версия каталога резервной копии не поддерживается.",
+    "uk": "Версія каталогу резервної копії не підтримується."
+  },
+  "Review the restore preview and confirm the application restart.": {
+    "en": "Review the restore preview and confirm the application restart.",
+    "ru": "Проверьте предпросмотр восстановления и подтвердите перезапуск приложения.",
+    "uk": "Перевірте попередній перегляд відновлення та підтвердьте перезапуск застосунку."
+  },
+  "Wait for active jobs before restoring.": {
+    "en": "Wait for active jobs before restoring.",
+    "ru": "Дождитесь завершения задач перед восстановлением.",
+    "uk": "Дочекайтеся завершення завдань перед відновленням."
+  },
+  "Preview the backup first.": {
+    "en": "Preview the backup first.",
+    "ru": "Сначала выполните предпросмотр копии.",
+    "uk": "Спочатку виконайте попередній перегляд копії."
+  }
+}

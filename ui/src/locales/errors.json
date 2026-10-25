@@ -1,0 +1,782 @@
+{
+  "error.ABSOLUTE_PATH_REQUIRED": {
+    "en": "Enter an absolute path to a local file.",
+    "ru": "Укажите абсолютный путь к локальному файлу.",
+    "uk": "Укажіть абсолютний шлях до локального файлу."
+  },
+  "error.AUTO_REFRESH_SETTINGS_INVALID": {
+    "en": "Delay: 2–60 seconds; missed-event reconciliation: 1–60 minutes.",
+    "ru": "Задержка: 2–60 секунд, сверка пропущенных событий: 1–60 минут.",
+    "uk": "Пауза: 2–60 секунд, перевірка пропущених подій: 1–60 хвилин."
+  },
+  "error.BACKUP_SCHEDULE_INVALID": {
+    "en": "Back up every 1–720 hours and keep 1–100 copies.",
+    "ru": "Интервал копирования — от 1 до 720 часов, хранить — от 1 до 100 копий.",
+    "uk": "Інтервал копіювання — від 1 до 720 годин, зберігати — від 1 до 100 копій."
+  },
+  "error.BATCH_CONTEXT_CHANGED": {
+    "en": "Schema or recipe changed during batch validation. Run again.",
+    "ru": "Схема или рецепт изменились во время пакетной проверки. Повторите её.",
+    "uk": "Схема або рецепт змінилися під час пакетної перевірки. Повторіть її."
+  },
+  "error.BATCH_SIZE_INVALID": {
+    "en": "Select 1–200 recipes.",
+    "ru": "Выберите 1–200 рецептов.",
+    "uk": "Виберіть 1–200 рецептів."
+  },
+  "error.BATCH_WORKSPACE_INVALID": {
+    "en": "Select active recipes in this workspace.",
+    "ru": "Выберите активные рецепты этой области.",
+    "uk": "Виберіть активні рецепти цієї області."
+  },
+  "error.BUILD_BUSY": {
+    "en": "Another build is already running. Wait for it to finish.",
+    "ru": "Другая сборка уже выполняется. Дождитесь завершения.",
+    "uk": "Інше збирання вже виконується. Дочекайтеся завершення."
+  },
+  "error.BUILD_INPUT_CHANGED": {
+    "en": "The source dependency closure changed during the build; the result was not published. Run Rebuild again.",
+    "ru": "Исходный dependency closure изменился во время сборки; результат не опубликован. Повторите Rebuild.",
+    "uk": "Повний набір вихідних файлів і залежностей змінився під час збирання; результат не опубліковано. Повторіть перезбирання."
+  },
+  "error.BUILD_INPUTS_INCOMPLETE": {
+    "en": "Could not verify the complete portable set of source inputs. Check the diagnostics; for dynamic imports/tasks, build externally and import the DACPAC.",
+    "ru": "Не удалось доказать полный переносимый набор исходных inputs. Проверьте diagnostics; для динамических imports/tasks используйте внешнюю сборку и импорт DACPAC.",
+    "uk": "Не вдалося підтвердити повний переносний набір вихідних файлів. Перевірте діагностику; для динамічних імпортів або завдань виконайте збирання окремо та імпортуйте DACPAC."
+  },
+  "error.BUILD_MANIFEST_NOT_FOUND": {
+    "en": "Build manifest not found.",
+    "ru": "Манифест сборки не найден.",
+    "uk": "Маніфест збирання не знайдено."
+  },
+  "error.BUILD_MANIFEST_TOO_LARGE": {
+    "en": "Manifest exceeds the metadata limit.",
+    "ru": "Манифест превышает допустимый объём метаданных.",
+    "uk": "Маніфест перевищує допустимий обсяг метаданих."
+  },
+  "error.BUILD_PACKAGE_RESTORE_FAILED": {
+    "en": "Could not restore pinned NuGet DACPAC packages in the staging copy.",
+    "ru": "Не удалось восстановить pinned NuGet DACPAC packages в служебной копии.",
+    "uk": "Не вдалося відновити пакети DACPAC NuGet із зафіксованими версіями у службовій копії."
+  },
+  "error.BUILD_PATH_TOO_LONG": {
+    "en": "The project path is too long for Windows tooling. Move the project closer to the drive root or import an existing DACPAC.",
+    "ru": "Путь проекта слишком длинный для запуска Windows tooling. Переместите проект ближе к корню диска или импортируйте готовый DACPAC.",
+    "uk": "Шлях проєкту задовгий для інструментів Windows. Перемістіть проєкт ближче до кореня диска або імпортуйте готовий DACPAC."
+  },
+  "error.BUILD_STAGE_INSIDE_PROJECT": {
+    "en": "Could not choose a short staging path outside the project; move the project or use a DACPAC.",
+    "ru": "Не удалось выбрать короткую служебную папку вне проекта; переместите проект или используйте DACPAC.",
+    "uk": "Не вдалося вибрати короткий шлях до службової папки поза проєктом; перемістіть проєкт або використайте DACPAC."
+  },
+  "error.BUILD_STAGE_PATH_UNSAFE": {
+    "en": "Source cannot be mapped into the private stage.",
+    "ru": "Не удалось разместить исходный файл в приватной служебной копии.",
+    "uk": "Не вдалося розмістити вихідний файл у приватній службовій копії."
+  },
+  "error.BUILD_VOLUME_UNSUPPORTED": {
+    "en": "Unsupported source volume.",
+    "ru": "Неподдерживаемый том исходных файлов.",
+    "uk": "Непідтримуваний том вихідних файлів."
+  },
+  "error.CHAIN_COLUMN_INVALID": {
+    "en": "Result fields must belong to tables on the selected route.",
+    "ru": "Поля результата должны принадлежать таблицам выбранного маршрута.",
+    "uk": "Поля результату мають належати таблицям вибраного маршруту."
+  },
+  "error.CHAIN_INPUT_TYPE_UNSUPPORTED": {
+    "en": "The input column must have an integer, uniqueidentifier, nvarchar(n/max), or varchar(n/max) type.",
+    "ru": "Входная колонка должна иметь целочисленный тип, uniqueidentifier, nvarchar(n/max) или varchar(n/max).",
+    "uk": "Вхідний стовпець повинен мати цілочисельний тип, uniqueidentifier, nvarchar(n/max) або varchar(n/max)."
+  },
+  "error.CHAIN_OUTPUT_ALIAS_INVALID": {
+    "en": "Use unique result field names (up to 128 characters).",
+    "ru": "Задайте уникальные имена полей результата (до 128 символов).",
+    "uk": "Задайте унікальні імена полів результату (до 128 символів)."
+  },
+  "error.CHAIN_RECIPE_INVALID": {
+    "en": "Select a route of up to 12 relationships, 1 to 200 fields, and a name for the input list.",
+    "ru": "Выберите маршрут до 12 связей, от 1 до 200 полей и имя входного списка.",
+    "uk": "Виберіть маршрут із не більш ніж 12 зв’язків, від 1 до 200 полів та ім’я вхідного списку."
+  },
+  "error.CHAIN_RELATION_UNTRUSTED": {
+    "en": "The route contains a missing or untrusted relationship.",
+    "ru": "Маршрут содержит отсутствующую или недоверенную связь.",
+    "uk": "Маршрут містить відсутній або недовірений зв’язок."
+  },
+  "error.CHAIN_VALIDATION_FAILED": {
+    "en": "The generated route needs review: ",
+    "ru": "Сгенерированный маршрут требует проверки: ",
+    "uk": "Згенерований маршрут потребує перевірки: "
+  },
+  "error.COLLECTION_EMPTY": {
+    "en": "The collection has no active recipes.",
+    "ru": "В коллекции нет активных рецептов.",
+    "uk": "У колекції немає активних рецептів."
+  },
+  "error.COLLECTION_INVALID": {
+    "en": "Use a collection name and at most 200 recipes.",
+    "ru": "Укажите название коллекции и не более 200 рецептов.",
+    "uk": "Вкажіть назву колекції та не більше 200 рецептів."
+  },
+  "error.COLLECTION_LIMIT": {
+    "en": "At most 100 collections per workspace.",
+    "ru": "Не более 100 коллекций в рабочей области.",
+    "uk": "Не більше 100 колекцій у робочій області."
+  },
+  "error.COLLECTION_NOT_FOUND": {
+    "en": "Collection not found.",
+    "ru": "Коллекция не найдена.",
+    "uk": "Колекцію не знайдено."
+  },
+  "error.COLLECTION_RECIPE_INVALID": {
+    "en": "Select active recipes in this workspace.",
+    "ru": "Выберите активные рецепты этой области.",
+    "uk": "Виберіть активні рецепти цієї області."
+  },
+  "error.COLUMN_NOT_FOUND": {
+    "en": "The input column is missing from the starting table.",
+    "ru": "Входная колонка отсутствует в начальной таблице.",
+    "uk": "Вхідний стовпець відсутній у початковій таблиці."
+  },
+  "error.CONFIGURATION_CONFLICT": {
+    "en": "Resolve all preview conflicts before importing.",
+    "ru": "Перед импортом устраните все конфликты предпросмотра.",
+    "uk": "Перед імпортом усуньте всі конфлікти попереднього перегляду."
+  },
+  "error.CONFIGURATION_CONTEXT_CHANGED": {
+    "en": "Workspace changed; preview again.",
+    "ru": "Рабочая область изменилась; повторите предпросмотр.",
+    "uk": "Робоча область змінилася; повторіть попередній перегляд."
+  },
+  "error.CONFIGURATION_MAPPING_REQUIRED": {
+    "en": "First scan the root folders and explicitly map each source database to a database in the current workspace.",
+    "ru": "Сначала просканируйте корни и явно сопоставьте каждую исходную БД с БД текущей рабочей области.",
+    "uk": "Спочатку проскануйте кореневі папки та явно зіставте кожну вихідну БД із БД поточної робочої області."
+  },
+  "error.CONFIGURATION_PREVIEW_REQUIRED": {
+    "en": "Preview the current mappings before importing.",
+    "ru": "Перед импортом просмотрите текущие сопоставления.",
+    "uk": "Перед імпортом перегляньте поточні зіставлення."
+  },
+  "error.CONFIGURATION_REVIEW_NOT_FOUND": {
+    "en": "Pending assertion not found.",
+    "ru": "Ожидающее проверки утверждение не найдено.",
+    "uk": "Твердження, що очікує перевірки, не знайдено."
+  },
+  "error.CSHARP_PROJECT_NOT_FOUND": {
+    "en": "Select a discovered C# project.",
+    "ru": "Выберите обнаруженный C#-проект.",
+    "uk": "Виберіть виявлений C#-проєкт."
+  },
+  "error.CSHARP_SELECTION_INVALID": {
+    "en": "Select a valid configuration and target framework.",
+    "ru": "Выберите корректную конфигурацию и целевую платформу.",
+    "uk": "Виберіть коректну конфігурацію та цільову платформу."
+  },
+  "error.DACPAC_EXPANDED_TOO_LARGE": {
+    "en": "The unpacked DACPAC exceeds the metadata size limit.",
+    "ru": "Распакованный DACPAC превышает допустимый объём метаданных.",
+    "uk": "Розпакований DACPAC перевищує допустимий обсяг метаданих."
+  },
+  "error.DACPAC_OUTPUT_AMBIGUOUS": {
+    "en": "The build finished, but the root project's output DACPAC could not be identified unambiguously.",
+    "ru": "Сборка завершилась, но выходной DACPAC корневого проекта не определён однозначно.",
+    "uk": "Збирання завершено, але вихідний DACPAC кореневого проєкту неможливо визначити однозначно."
+  },
+  "error.DACPAC_SCHEMA_ONLY_REQUIRED": {
+    "en": "Docker accepts only schema-only DACPACs without pre/post scripts, data, or additional payload entries.",
+    "ru": "Docker принимает только schema-only DACPAC без pre/post scripts, данных и дополнительных payload entries.",
+    "uk": "Docker приймає лише DACPAC зі схемою без скриптів до й після розгортання, даних і додаткового вмісту."
+  },
+  "error.DATABASE_NAME_AMBIGUOUS": {
+    "en": "Different databases on the route have the same SQL name. Specify distinct database names.",
+    "ru": "Разным БД маршрута назначено одинаковое SQL-имя. Уточните имена БД.",
+    "uk": "Різним БД маршруту призначено однакове SQL-ім’я. Уточніть імена БД."
+  },
+  "error.DATABASE_NAME_INVALID": {
+    "en": "A SQL database name (up to 128 characters) and a mapping reason are required.",
+    "ru": "Нужны SQL-имя БД (до128 символов) и основание сопоставления.",
+    "uk": "Потрібні SQL-ім’я БД (до 128 символів) та обґрунтування зіставлення."
+  },
+  "error.DIALECT_UNSUPPORTED": {
+    "en": "Only the sqlserver dialect is supported.",
+    "ru": "Поддерживается только диалект sqlserver.",
+    "uk": "Підтримується лише діалект sqlserver."
+  },
+  "error.DISCOVERY_INCOMPLETE": {
+    "en": "Discovery did not finish; the previous catalog was preserved unchanged. Resolve the errors and run Full Rescan again. ",
+    "ru": "Обнаружение не завершено; предыдущий каталог сохранён без изменений. Устраните ошибки и повторите Full Rescan. ",
+    "uk": "Виявлення не завершено; попередній каталог збережено без змін. Усуньте помилки та повторіть повне сканування. "
+  },
+  "error.DOCKER_BUSY": {
+    "en": "Another Docker check is already running.",
+    "ru": "Другая проверка Docker уже выполняется.",
+    "uk": "Інша перевірка Docker вже виконується."
+  },
+  "error.DOCKER_CATALOG_FAILED": {
+    "en": "Could not read the actual system catalog metadata from the temporary SQL Server.",
+    "ru": "Не удалось прочитать фактические sys metadata временного SQL Server.",
+    "uk": "Не вдалося прочитати фактичні метадані системного каталогу тимчасового SQL Server."
+  },
+  "error.DOCKER_CLEANUP_FAILED": {
+    "en": "Could not remove all temporary resources. Check the app-owned container ",
+    "ru": "Не удалось полностью удалить временные ресурсы. Проверьте собственный контейнер ",
+    "uk": "Не вдалося повністю видалити тимчасові ресурси. Перевірте контейнер застосунку "
+  },
+  "error.DOCKER_INSPECT_FAILED": {
+    "en": "Could not inspect the temporary container.",
+    "ru": "Не удалось проверить временный контейнер.",
+    "uk": "Не вдалося перевірити тимчасовий контейнер."
+  },
+  "error.DOCKER_ISOLATION_FAILED": {
+    "en": "The container must belong to this app, with no network, host mounts, or published ports.",
+    "ru": "Контейнер должен быть собственным, без сети, host mounts и опубликованных портов.",
+    "uk": "Контейнер має належати цьому застосунку, не мати мережі, змонтованих каталогів хоста й опублікованих портів."
+  },
+  "error.DOCKER_MISSING": {
+    "en": "Docker CLI not found. Install Docker Desktop or import the DACPAC without Docker.",
+    "ru": "Docker CLI не найден. Установите Docker Desktop или используйте импорт DACPAC без Docker.",
+    "uk": "Docker CLI не знайдено. Установіть Docker Desktop або скористайтеся імпортом DACPAC без Docker."
+  },
+  "error.DOCKER_OPT_IN_REQUIRED": {
+    "en": "Confirm that a separate temporary Docker container may be started solely to verify the DACPAC schema.",
+    "ru": "Подтвердите запуск отдельного временного Docker-контейнера только для проверки схемы DACPAC.",
+    "uk": "Підтвердьте запуск окремого тимчасового контейнера Docker лише для перевірки схеми DACPAC."
+  },
+  "error.DOCKER_PRIVATE_STAGE_DENIED": {
+    "en": "Cannot create or secure the temporary Docker directory. The data directory must allow a private ACL to be created; security was not weakened.",
+    "ru": "Нельзя создать или защитить временный каталог Docker. Нужен каталог данных с правом создания приватного ACL; защита не ослаблялась.",
+    "uk": "Не вдалося створити або захистити тимчасовий каталог Docker. Потрібен каталог даних із правом створення приватного ACL; захист не послаблювався."
+  },
+  "error.DOCKER_SCHEMA_PUBLISH_FAILED": {
+    "en": "The DacFx-generated schema could not be deployed to SQL Server 2022. Pre/post scripts and data were excluded; check model compatibility or import the DACPAC.",
+    "ru": "Сгенерированная DacFx схема не развернулась в SQL Server 2022. Pre/post scripts и данные исключены; проверьте совместимость модели или используйте импорт DACPAC.",
+    "uk": "Схему, згенеровану DacFx, не вдалося розгорнути в SQL Server 2022. Скрипти до й після розгортання та дані виключено; перевірте сумісність моделі або скористайтеся імпортом DACPAC."
+  },
+  "error.DOCKER_SCHEMA_SCRIPT_FAILED": {
+    "en": "DacFx could not generate the schema-only deployment script.",
+    "ru": "DacFx не смог создать скрипт развёртывания схемы.",
+    "uk": "DacFx не зміг створити скрипт розгортання схеми."
+  },
+  "error.DOCKER_SCRIPT_COPY_FAILED": {
+    "en": "Could not transfer the generated schema to the app-owned container.",
+    "ru": "Не удалось передать сгенерированную схему в собственный контейнер.",
+    "uk": "Не вдалося передати згенеровану схему в контейнер застосунку."
+  },
+  "error.DOCKER_SCRIPT_TOO_LARGE": {
+    "en": "The generated deployment script exceeds 64 MiB.",
+    "ru": "Сгенерированный deployment script превышает 64 MiB.",
+    "uk": "Згенерований скрипт розгортання перевищує 64 MiB."
+  },
+  "error.DOCKER_SQL_NOT_READY": {
+    "en": "The temporary SQL Server did not start within 120 seconds.",
+    "ru": "Временный SQL Server не запустился за 120 секунд.",
+    "uk": "Тимчасовий SQL Server не запустився протягом 120 секунд."
+  },
+  "error.DOCKER_START_FAILED": {
+    "en": "Could not start the temporary SQL Server 2022. Check the image and available Docker memory.",
+    "ru": "Не удалось запустить временный SQL Server 2022. Проверьте образ и доступную память Docker.",
+    "uk": "Не вдалося запустити тимчасовий SQL Server 2022. Перевірте образ і доступну пам’ять Docker."
+  },
+  "error.DOCKER_TIMEOUT": {
+    "en": "Isolated Docker validation exceeded six minutes.",
+    "ru": "Изолированная проверка Docker превысила шесть минут.",
+    "uk": "Ізольована перевірка Docker перевищила шість хвилин."
+  },
+  "error.DOCKER_UNAVAILABLE": {
+    "en": "The Docker daemon is unavailable. Start Docker Desktop.",
+    "ru": "Docker daemon недоступен. Запустите Docker Desktop.",
+    "uk": "Служба Docker недоступна. Запустіть Docker Desktop."
+  },
+  "error.DOTNET_SDK_MISSING": {
+    "en": ".NET SDK not found. Install the SDK or import an existing DACPAC.",
+    "ru": "Не найден .NET SDK. Установите SDK или импортируйте готовый DACPAC.",
+    "uk": ".NET SDK не знайдено. Установіть SDK або імпортуйте готовий DACPAC."
+  },
+  "error.DRAFT_INVALID": {
+    "en": "Invalid authoring draft.",
+    "ru": "Некорректный черновик рецепта.",
+    "uk": "Некоректна чернетка рецепта."
+  },
+  "error.EDITOR_INVALID": {
+    "en": "Choose VS Code or Visual Studio.",
+    "ru": "Выберите VS Code или Visual Studio.",
+    "uk": "Виберіть VS Code або Visual Studio."
+  },
+  "error.EDITOR_UNAVAILABLE": {
+    "en": "The selected editor was not found. Copy the source location instead.",
+    "ru": "Выбранный редактор не найден. Скопируйте расположение источника.",
+    "uk": "Вибраний редактор не знайдено. Скопіюйте розташування джерела."
+  },
+  "error.EF_MAPPING_INVALID": {
+    "en": "Select a discovered C# project and a database from this workspace.",
+    "ru": "Выберите обнаруженный C#-проект и БД этой рабочей области.",
+    "uk": "Виберіть знайдений C#-проєкт і БД цієї робочої області."
+  },
+  "error.EXCLUDES_TOO_LARGE": {
+    "en": "At most 100 exclusion patterns of up to 500 characters each.",
+    "ru": "Максимум 100 exclude patterns по 500 символов.",
+    "uk": "Не більш ніж 100 шаблонів виключення, до 500 символів кожен."
+  },
+  "error.FILE_NOT_FOUND": {
+    "en": "File not found.",
+    "ru": "Файл не найден.",
+    "uk": "Файл не знайдено."
+  },
+  "error.FILE_POLICY_INVALID": {
+    "en": "Keep files for 1–3650 days and retain 2–100 backups.",
+    "ru": "Храните файлы 1–3650 дней и оставляйте 2–100 резервных копий.",
+    "uk": "Зберігайте файли 1–3650 днів і залишайте 2–100 резервних копій."
+  },
+  "error.FILE_SCOPE_INVALID": {
+    "en": "Managed file is outside the data directory.",
+    "ru": "Служебный файл находится вне каталога данных.",
+    "uk": "Службовий файл розташований поза каталогом даних."
+  },
+  "error.FILE_TOO_LARGE": {
+    "en": "Files up to 128 MB are supported.",
+    "ru": "Поддерживаются файлы размером до 128 МБ.",
+    "uk": "Підтримуються файли розміром до 128 МБ."
+  },
+  "error.INPUT_COLLATION_UNSUPPORTED": {
+    "en": "Choose a supported explicit SQL collation or leave Collation empty for DATABASE_DEFAULT.",
+    "ru": "Выберите поддерживаемые явные параметры сортировки SQL или оставьте Collation пустым для DATABASE_DEFAULT.",
+    "uk": "Виберіть підтримувані явні параметри сортування SQL або залиште Collation порожнім для DATABASE_DEFAULT."
+  },
+  "error.INPUT_DEFINITION_LIMIT": {
+    "en": "A recipe supports at most 32 typed inputs.",
+    "ru": "Рецепт поддерживает не более 32 типизированных входов.",
+    "uk": "Рецепт підтримує не більш ніж 32 типізовані входи."
+  },
+  "error.INPUT_ENCODING_COLLATION_MISMATCH": {
+    "en": "The declared VARCHAR code page does not match its explicit SQL collation.",
+    "ru": "Объявленная кодовая страница VARCHAR не соответствует явно заданным параметрам сортировки SQL.",
+    "uk": "Оголошена кодова сторінка VARCHAR не відповідає явно заданим параметрам сортування SQL."
+  },
+  "error.INPUT_ENCODING_UNSUPPORTED": {
+    "en": "Supported VARCHAR encodings: ascii, utf-8, windows-1251, windows-1252.",
+    "ru": "Поддерживаемые кодировки VARCHAR: ascii, utf-8, windows-1251, windows-1252.",
+    "uk": "Підтримувані кодування VARCHAR: ascii, utf-8, windows-1251, windows-1252."
+  },
+  "error.INPUT_NAME_DUPLICATE": {
+    "en": "Input names must be unique, including SQL Server case-insensitive identifier semantics.",
+    "ru": "Имена входов должны быть уникальными, в том числе без учёта регистра по правилам идентификаторов SQL Server.",
+    "uk": "Імена входів мають бути унікальними, зокрема без урахування регістру за правилами ідентифікаторів SQL Server."
+  },
+  "error.INPUT_PRECISION_REQUIRED": {
+    "en": "decimal requires Precision 1..38 and Scale 0..Precision.",
+    "ru": "Для decimal нужны точность 1..38 и масштаб 0..точность.",
+    "uk": "Для decimal потрібні точність 1..38 і масштаб 0..точність."
+  },
+  "error.INPUT_STRATEGY_INVALID": {
+    "en": "Unknown input SQL strategy.",
+    "ru": "Неизвестная SQL-стратегия входа.",
+    "uk": "Невідома SQL-стратегія входу."
+  },
+  "error.INPUT_TYPE_INVALID": {
+    "en": "Supported input types: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal.",
+    "ru": "Поддерживаемые типы входов: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal.",
+    "uk": "Підтримувані типи входів: int, bigint, uniqueidentifier, nvarchar, varchar, date, datetime2, bit, decimal."
+  },
+  "error.INPUT_UNKNOWN": {
+    "en": "Values were supplied for an undefined recipe input.",
+    "ru": "Переданы значения для неопределённого входа рецепта.",
+    "uk": "Передано значення для невизначеного входу рецепта."
+  },
+  "error.JOB_NOT_FOUND": {
+    "en": "Job not found.",
+    "ru": "Задача не найдена.",
+    "uk": "Завдання не знайдено."
+  },
+  "error.LANGUAGE_INVALID": {
+    "en": "Choose en, ru or uk for the interface language.",
+    "ru": "Выберите en, ru или uk для языка интерфейса.",
+    "uk": "Виберіть en, ru або uk для мови інтерфейсу."
+  },
+  "error.LOCAL_PATH_REQUIRED": {
+    "en": "Network paths are not supported. Select a local file.",
+    "ru": "Сетевые пути не поддерживаются. Выберите локальный файл.",
+    "uk": "Мережеві шляхи не підтримуються. Виберіть локальний файл."
+  },
+  "error.MANUAL_RELATION_COLUMNS_INVALID": {
+    "en": "Select 1 to 32 unique, ordered column pairs.",
+    "ru": "Выберите от 1 до 32 уникальных упорядоченных пар колонок.",
+    "uk": "Виберіть від 1 до 32 унікальних упорядкованих пар стовпців."
+  },
+  "error.MANUAL_RELATION_EXISTS": {
+    "en": "This mapping already exists. Open the saved manual relationship.",
+    "ru": "Такое сопоставление уже существует. Откройте сохранённую ручную связь.",
+    "uk": "Таке зіставлення вже існує. Відкрийте збережений ручний зв’язок."
+  },
+  "error.MANUAL_RELATION_IDENTITY": {
+    "en": "A column related to itself does not define a JOIN.",
+    "ru": "Связь колонки с самой собой не задаёт JOIN.",
+    "uk": "Зв’язок стовпця із самим собою не задає JOIN."
+  },
+  "error.MANUAL_RELATION_INVALID": {
+    "en": "A name (up to 160 characters) and a reason for the relationship (up to 2000 characters) are required.",
+    "ru": "Нужны название (до 160 символов) и основание связи (до 2000 символов).",
+    "uk": "Потрібні назва (до 160 символів) та обґрунтування зв’язку (до 2000 символів)."
+  },
+  "error.MANUAL_RELATION_NOT_FOUND": {
+    "en": "Manual relationship not found.",
+    "ru": "Ручная связь не найдена.",
+    "uk": "Ручний зв’язок не знайдено."
+  },
+  "error.MANUAL_RELATION_TYPES_INVALID": {
+    "en": "Each pair must refer to existing columns with compatible types.",
+    "ru": "Каждая пара должна ссылаться на существующие колонки с совместимыми типами.",
+    "uk": "Кожна пара має посилатися на наявні стовпці із сумісними типами."
+  },
+  "error.OPENJSON_COMPATIBILITY_REQUIRED": {
+    "en": "OPENJSON requires SQL Server 2016+ and database compatibility level 130+. Use standalone values/temp for older targets.",
+    "ru": "OPENJSON требует SQL Server 2016+ и уровня совместимости базы данных 130+. Для старых версий используйте автономный SQL со стратегией values/temp.",
+    "uk": "OPENJSON потребує SQL Server 2016+ і рівня сумісності бази даних 130+. Для старих версій використовуйте автономний SQL зі стратегією values/temp."
+  },
+  "error.PHYSICAL_FK_IMMUTABLE": {
+    "en": "A physical foreign key is defined by the schema; edit the source and refresh the model.",
+    "ru": "Физический FK определяется схемой; измените источник и обновите модель.",
+    "uk": "Фізичний FK визначається схемою; змініть джерело й оновіть модель."
+  },
+  "error.PLACEHOLDER_CONTEXT_INVALID": {
+    "en": "Recipe placeholders must be SQL syntax, outside comments, quoted identifiers and string literals.",
+    "ru": "Placeholders рецепта должны находиться в синтаксисе SQL, вне комментариев, идентификаторов в кавычках и строковых литералов.",
+    "uk": "Placeholders рецепта мають міститися в синтаксисі SQL, поза коментарями, ідентифікаторами в лапках і рядковими літералами."
+  },
+  "error.PLACEHOLDER_UNCLOSED": {
+    "en": "A recipe placeholder has no closing }}.",
+    "ru": "У placeholder рецепта нет закрывающего }}.",
+    "uk": "У placeholder рецепта немає завершального }}."
+  },
+  "error.PROCESS_TIMEOUT": {
+    "en": "The external tool exceeded its execution time limit.",
+    "ru": "Внешний инструмент превысил допустимое время выполнения.",
+    "uk": "Зовнішній інструмент перевищив допустимий час виконання."
+  },
+  "error.PROJECT_FORMAT_UNSUPPORTED": {
+    "en": "Microsoft.Build.Sql SDK-style and legacy SSDT SQL projects are supported.",
+    "ru": "Поддерживаются Microsoft.Build.Sql SDK-style и legacy SSDT SQL-проекты.",
+    "uk": "Підтримуються SQL-проєкти на основі SDK Microsoft.Build.Sql і застарілого SSDT."
+  },
+  "error.PROJECT_INVALID": {
+    "en": "SQL project XML has no root.",
+    "ru": "XML SQL-проекта не содержит корневого элемента.",
+    "uk": "XML SQL-проєкту не містить кореневого елемента."
+  },
+  "error.PROJECT_TOO_LARGE": {
+    "en": "The staging copy of the project exceeds the limit: 20,000 files / 512 MB.",
+    "ru": "Служебная копия проекта превышает лимит: 20 000 файлов / 512 МБ.",
+    "uk": "Службова копія проєкту перевищує обмеження: 20 000 файлів / 512 МБ."
+  },
+  "error.QUALITY_POLICY_CHANGED": {
+    "en": "Quality rules changed. Reload them before saving.",
+    "ru": "Правила изменились. Загрузите их заново перед сохранением.",
+    "uk": "Правила змінилися. Завантажте їх знову перед збереженням."
+  },
+  "error.QUALITY_POLICY_INVALID": {
+    "en": "Choose a known quality rule and severity: off, info, warning or error.",
+    "ru": "Выберите известное правило и важность: off, info, warning или error.",
+    "uk": "Виберіть відоме правило та важливість: off, info, warning або error."
+  },
+  "error.QUALITY_REASON_REQUIRED": {
+    "en": "Provide a review reason of 10–2000 characters.",
+    "ru": "Укажите основание проверки длиной 10–2000 символов.",
+    "uk": "Укажіть підставу перевірки завдовжки 10–2000 символів."
+  },
+  "error.QUEUE_FULL": {
+    "en": "The local job queue is full.",
+    "ru": "Очередь локальных задач заполнена.",
+    "uk": "Чергу локальних завдань заповнено."
+  },
+  "error.RECIPE_BROKEN": {
+    "en": "The recipe is incompatible with the current schema. Fix the errors before generating SQL.",
+    "ru": "Рецепт несовместим с текущей схемой. Исправьте ошибки до генерации SQL.",
+    "uk": "Рецепт несумісний із поточною схемою. Виправте помилки перед формуванням SQL."
+  },
+  "error.RECIPE_CHANGED": {
+    "en": "The recipe, schema, or relationships changed during generation. Submit the request again.",
+    "ru": "Рецепт, схема или связи изменились во время генерации. Повторите запрос.",
+    "uk": "Рецепт, схема або зв’язки змінилися під час формування. Повторіть запит."
+  },
+  "error.RECIPE_DATABASE_INVALID": {
+    "en": "Select existing databases in this workspace.",
+    "ru": "Выберите существующие БД этой рабочей области.",
+    "uk": "Виберіть наявні БД цієї робочої області."
+  },
+  "error.RECIPE_DEFINITION_INVALID": {
+    "en": "Check the name, description, tags, and SQL template size.",
+    "ru": "Проверьте название, описание, теги и размер SQL-шаблона.",
+    "uk": "Перевірте назву, опис, теги та розмір SQL-шаблону."
+  },
+  "error.RECIPE_NOT_FOUND": {
+    "en": "Recipe not found.",
+    "ru": "Рецепт не найден.",
+    "uk": "Рецепт не знайдено."
+  },
+  "error.RECIPE_REVIEW_REQUIRED": {
+    "en": "Review the warnings first, then explicitly acknowledge manual SQL with unverified JOINs.",
+    "ru": "Сначала проверьте предупреждения и явно подтвердите ручной SQL с непроверенными joins.",
+    "uk": "Спочатку перевірте попередження та явно підтвердьте ручний SQL із неперевіреними JOIN."
+  },
+  "error.RECIPE_WORKSPACE_MISMATCH": {
+    "en": "The recipe belongs to another workspace.",
+    "ru": "Рецепт принадлежит другой рабочей области.",
+    "uk": "Рецепт належить іншій робочій області."
+  },
+  "error.RECOVERY_BACKUP_CHANGED": {
+    "en": "The staged backup changed. Preview again.",
+    "ru": "Подготовленная копия изменилась. Повторите предпросмотр.",
+    "uk": "Підготовлена копія змінилася. Повторіть попередній перегляд."
+  },
+  "error.RECOVERY_BUSY": {
+    "en": "Wait for active jobs before restoring.",
+    "ru": "Дождитесь завершения задач перед восстановлением.",
+    "uk": "Дочекайтеся завершення завдань перед відновленням."
+  },
+  "error.RECOVERY_CONFIRMATION_REQUIRED": {
+    "en": "Review the restore preview and confirm the application restart.",
+    "ru": "Проверьте предпросмотр восстановления и подтвердите перезапуск приложения.",
+    "uk": "Перевірте попередній перегляд відновлення та підтвердьте перезапуск застосунку."
+  },
+  "error.RECOVERY_CONTEXT_CHANGED": {
+    "en": "The catalog changed. Preview the backup again.",
+    "ru": "Каталог изменился. Повторите предпросмотр копии.",
+    "uk": "Каталог змінився. Повторіть попередній перегляд копії."
+  },
+  "error.RECOVERY_PREVIEW_REQUIRED": {
+    "en": "Preview the backup first.",
+    "ru": "Сначала выполните предпросмотр копии.",
+    "uk": "Спочатку виконайте попередній перегляд копії."
+  },
+  "error.RECOVERY_RESTART_UNAVAILABLE": {
+    "en": "Restart is unavailable in this host.",
+    "ru": "Перезапуск недоступен в этом процессе.",
+    "uk": "Перезапуск недоступний у цьому процесі."
+  },
+  "error.RECOVERY_VERSION_UNSUPPORTED": {
+    "en": "This backup catalog version is not supported.",
+    "ru": "Версия каталога резервной копии не поддерживается.",
+    "uk": "Версія каталогу резервної копії не підтримується."
+  },
+  "error.REGRESSION_ARTIFICIAL_REQUIRED": {
+    "en": "Confirm that fixture values are artificial test data.",
+    "ru": "Подтвердите, что значения теста являются искусственными тестовыми данными.",
+    "uk": "Підтвердьте, що значення тесту є штучними тестовими даними."
+  },
+  "error.REGRESSION_ASSERTION_INVALID": {
+    "en": "Use at most 40 nonempty SQL assertions up to 2000 characters each.",
+    "ru": "Допускается до 40 непустых SQL-проверок длиной до 2000 символов каждая.",
+    "uk": "Допускається до 40 непорожніх SQL-перевірок завдовжки до 2000 символів кожна."
+  },
+  "error.REGRESSION_FIXTURE_INVALID": {
+    "en": "Use a name up to 160 characters and artificial input up to 64 Ki characters.",
+    "ru": "Название должно содержать до 160 символов, искусственные входные данные — до 64 Ки символов.",
+    "uk": "Назва має містити до 160 символів, штучні вхідні дані — до 64 Кі символів."
+  },
+  "error.REGRESSION_FIXTURE_LIMIT": {
+    "en": "A recipe supports at most 50 saved fixtures.",
+    "ru": "Для рецепта поддерживается не более 50 сохранённых тестов.",
+    "uk": "Для рецепта підтримується не більше 50 збережених тестів."
+  },
+  "error.REGRESSION_FIXTURE_NOT_FOUND": {
+    "en": "Fixture not found.",
+    "ru": "Тест не найден.",
+    "uk": "Тест не знайдено."
+  },
+  "error.RELATION_DECISION_INVALID": {
+    "en": "Choose confirmed or rejected.",
+    "ru": "Выберите confirmed или rejected.",
+    "uk": "Виберіть рішення: підтвердити або відхилити."
+  },
+  "error.RELATION_NOT_FOUND": {
+    "en": "Relationship not found in the current graph.",
+    "ru": "Связь не найдена в текущем графе.",
+    "uk": "Зв’язок не знайдено в поточному графі."
+  },
+  "error.RELATION_REASON_REQUIRED": {
+    "en": "Add a reason for the decision (up to 2000 characters).",
+    "ru": "Добавьте основание решения (до 2000 символов).",
+    "uk": "Додайте обґрунтування рішення (до 2000 символів)."
+  },
+  "error.RELATION_STALE": {
+    "en": "The stale relationship needs a new table and column mapping.",
+    "ru": "Устаревшая связь требует нового сопоставления таблиц и колонок.",
+    "uk": "Застарілий зв’язок потребує нового зіставлення таблиць і стовпців."
+  },
+  "error.RENDER_MODE_INVALID": {
+    "en": "Choose standalone or parameterized mode.",
+    "ru": "Выберите режим standalone или parameterized.",
+    "uk": "Виберіть режим standalone або parameterized."
+  },
+  "error.RENDER_STRATEGY_INVALID": {
+    "en": "Choose auto, values, temp, openjson or list strategy.",
+    "ru": "Выберите стратегию auto, values, temp, openjson или list.",
+    "uk": "Виберіть стратегію auto, values, temp, openjson або list."
+  },
+  "error.REPAIR_DATABASE_INVALID": {
+    "en": "The database is not in the recipe's database list.",
+    "ru": "БД отсутствует в списке БД рецепта.",
+    "uk": "БД відсутня у списку баз даних рецепта."
+  },
+  "error.REPAIR_KIND_INVALID": {
+    "en": "Choose column, table or schema repair.",
+    "ru": "Выберите исправление колонки, таблицы или схемы.",
+    "uk": "Виберіть виправлення колонки, таблиці або схеми."
+  },
+  "error.REPAIR_NOT_FOUND": {
+    "en": "Proposal not found.",
+    "ru": "Предложение не найдено.",
+    "uk": "Пропозицію не знайдено."
+  },
+  "error.REPAIR_REASON_REQUIRED": {
+    "en": "Enter a reason for the replacement (up to 2000 characters).",
+    "ru": "Укажите основание замены (до 2000 символов).",
+    "uk": "Укажіть обґрунтування заміни (до 2000 символів)."
+  },
+  "error.REPAIR_UNSAFE": {
+    "en": "Could not resolve the replacement unambiguously. Edit this SQL manually.",
+    "ru": "Не удалось однозначно связать замену. Исправьте этот SQL вручную.",
+    "uk": "Не вдалося однозначно визначити заміну. Виправте цей SQL вручну."
+  },
+  "error.REPAIR_VALIDATION_FAILED": {
+    "en": "The repair still needs manual review; no version was created.",
+    "ru": "Исправление ещё требует ручной проверки; версия не создана.",
+    "uk": "Виправлення ще потребує ручної перевірки; версію не створено."
+  },
+  "error.SCAN_MODE_INVALID": {
+    "en": "Choose Quick Refresh, Full Rescan, or Rebuild.",
+    "ru": "Выберите quick, full или rebuild.",
+    "uk": "Виберіть швидке оновлення, повне сканування або перезбирання."
+  },
+  "error.SCHEMA_NOT_FOUND": {
+    "en": "The database has no published schema yet. Check the scan diagnostics.",
+    "ru": "У БД пока нет опубликованной схемы. Проверьте диагностику сканирования.",
+    "uk": "БД ще не має опублікованої схеми. Перевірте діагностику сканування."
+  },
+  "error.SCHEMA_STALE": {
+    "en": "Refresh the schema before saving a manual relationship.",
+    "ru": "Обновите схему перед сохранением ручной связи.",
+    "uk": "Оновіть схему перед збереженням ручного зв’язку."
+  },
+  "error.SEARCH_QUERY_INVALID": {
+    "en": "Search is limited to 256 characters.",
+    "ru": "Поиск ограничен 256 символами.",
+    "uk": "Пошук обмежено 256 символами."
+  },
+  "error.SETTING_KEY_INVALID": {
+    "en": "Unknown interface setting.",
+    "ru": "Неизвестная настройка интерфейса.",
+    "uk": "Невідоме налаштування інтерфейсу."
+  },
+  "error.SETTING_TOO_LARGE": {
+    "en": "The setting exceeds 256 KiB.",
+    "ru": "Настройка превышает 256 КиБ.",
+    "uk": "Налаштування перевищує 256 КіБ."
+  },
+  "error.SOURCE_MISSING": {
+    "en": "The source file no longer exists.",
+    "ru": "Исходный файл больше не существует.",
+    "uk": "Вихідний файл більше не існує."
+  },
+  "error.SOURCE_OUTSIDE_WORKSPACE": {
+    "en": "The source file must be inside a configured workspace root.",
+    "ru": "Исходный файл должен находиться в настроенном корне рабочей области.",
+    "uk": "Вихідний файл має бути в налаштованому корені робочої області."
+  },
+  "error.SOURCE_PATH_INVALID": {
+    "en": "Choose a local source file from a workspace.",
+    "ru": "Выберите локальный исходный файл из рабочей области.",
+    "uk": "Виберіть локальний вихідний файл із робочої області."
+  },
+  "error.SQL_BATCHES_UNSUPPORTED": {
+    "en": "Recipes use one SQL command batch; remove GO separators.",
+    "ru": "Рецепты используют один пакет команд SQL; удалите разделители GO.",
+    "uk": "Рецепти використовують один пакет команд SQL; видаліть розділювачі GO."
+  },
+  "error.SQL_BUILD_FAILED": {
+    "en": "The SQL project build failed. Check dependencies and tool diagnostics; you can import an existing DACPAC.",
+    "ru": "SQL-проект не собрался. Проверьте зависимости и диагностику инструмента; можно импортировать существующий DACPAC.",
+    "uk": "Не вдалося зібрати SQL-проєкт. Перевірте залежності та діагностику інструмента; можна імпортувати наявний DACPAC."
+  },
+  "error.SQL_RENDER_PARSE_FAILED": {
+    "en": "The rendered SQL did not parse. Check the recipe template and placeholder position; no SQL was returned.",
+    "ru": "Сформированный SQL не прошёл разбор. Проверьте шаблон рецепта и положение placeholder; SQL не возвращён.",
+    "uk": "Сформований SQL не пройшов розбору. Перевірте шаблон рецепта й розташування placeholder; SQL не повернуто."
+  },
+  "error.SSDT_TOOLCHAIN_MISSING": {
+    "en": "Compatible Visual Studio MSBuild and SSDT targets are required; you can import an existing DACPAC instead.",
+    "ru": "Нужна совместимая пара Visual Studio MSBuild + SSDT targets; можно импортировать готовый DACPAC.",
+    "uk": "Потрібна сумісна пара Visual Studio MSBuild і цілей SSDT; також можна імпортувати готовий DACPAC."
+  },
+  "error.STORAGE_BUSY": {
+    "en": "Wait for active jobs to finish before cleaning history.",
+    "ru": "Перед очисткой истории дождитесь завершения активных заданий.",
+    "uk": "Перед очищенням історії дочекайтеся завершення активних завдань."
+  },
+  "error.STORAGE_POLICY_INVALID": {
+    "en": "Keep 2–100 snapshots per database and 1–3650 days of history.",
+    "ru": "Храните 2–100 снимков на БД и историю за 1–3650 дней.",
+    "uk": "Зберігайте 2–100 знімків на БД та історію за 1–3650 днів."
+  },
+  "error.TEMPLATE_RESERVED_PARAMETER": {
+    "en": "@SchemoraInputs is reserved for the generated parameterized example.",
+    "ru": "@SchemoraInputs зарезервирован для сгенерированного параметризованного примера.",
+    "uk": "@SchemoraInputs зарезервовано для згенерованого параметризованого прикладу."
+  },
+  "error.TEMPLATE_SIZE_INVALID": {
+    "en": "SQL templates must be at most 1 Mi characters.",
+    "ru": "SQL-шаблоны должны содержать не более 1 Mi символов.",
+    "uk": "SQL-шаблони мають містити не більш ніж 1 Mi символів."
+  },
+  "error.UTF8_COMPATIBILITY_REQUIRED": {
+    "en": "UTF-8 VARCHAR collations require SQL Server 2019 or later (compatibility level 150+ in this renderer).",
+    "ru": "Параметры сортировки UTF-8 VARCHAR требуют SQL Server 2019 или новее (уровень совместимости 150+ в этом генераторе).",
+    "uk": "Параметри сортування UTF-8 VARCHAR потребують SQL Server 2019 або новішого (рівень сумісності 150+ у цьому генераторі)."
+  },
+  "error.VALUE_SET_EMPTY": {
+    "en": "There are no values to save.",
+    "ru": "Нет значений для сохранения.",
+    "uk": "Немає значень для збереження."
+  },
+  "error.VALUE_SET_INPUT_UNKNOWN": {
+    "en": "Saved values name an input this recipe does not have.",
+    "ru": "Сохранённые значения ссылаются на вход, которого нет в рецепте.",
+    "uk": "Збережені значення посилаються на вхід, якого немає в рецепті."
+  },
+  "error.VALUE_SET_LIMIT": {
+    "en": "A recipe keeps at most 50 saved value sets. Delete one first.",
+    "ru": "У рецепта может быть не более 50 наборов значений. Сначала удалите один.",
+    "uk": "Рецепт може мати не більше 50 наборів значень. Спершу видаліть один."
+  },
+  "error.VALUE_SET_NAME_INVALID": {
+    "en": "Name the saved values with 1–80 characters.",
+    "ru": "Название сохранённых значений: от 1 до 80 символов.",
+    "uk": "Назва збережених значень: від 1 до 80 символів."
+  },
+  "error.VALUE_SET_TOO_LARGE": {
+    "en": "Saved values exceed 8 Mi characters.",
+    "ru": "Сохраняемые значения превышают 8 млн символов.",
+    "uk": "Збережувані значення перевищують 8 млн символів."
+  },
+  "error.VALUE_SETS_UNREADABLE": {
+    "en": "Saved values were encrypted by another Windows account or computer and cannot be read here.",
+    "ru": "Сохранённые значения зашифрованы другой учётной записью Windows или на другом компьютере и здесь не читаются.",
+    "uk": "Збережені значення зашифровано іншим обліковим записом Windows або на іншому комп'ютері, тут їх не прочитати."
+  },
+  "error.WORKSPACE_NAME_INVALID": {
+    "en": "Enter a name of up to 160 characters.",
+    "ru": "Укажите название до 160 символов.",
+    "uk": "Укажіть назву до 160 символів."
+  },
+  "error.WORKSPACE_NOT_FOUND": {
+    "en": "Workspace not found.",
+    "ru": "Рабочая область не найдена.",
+    "uk": "Робочу область не знайдено."
+  },
+  "error.WORKSPACE_ROOTS_INVALID": {
+    "en": "Specify 1 to 20 local root folders.",
+    "ru": "Укажите от 1 до 20 локальных корневых папок.",
+    "uk": "Укажіть від 1 до 20 локальних кореневих папок."
+  }
+}

@@ -1,0 +1,493 @@
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg-page: #eef3f7;
+  --bg-inset: #f3f7fa;
+  --bg-panel: #ffffff;
+  --bg-control: #ffffff;
+  --bg-raised: #f4f8fb;
+  --bg-hover: #e4edf3;
+  --bg-active: #d3ebe4;
+  --bg-strong: #dbe6ed;
+  --border: #c3d3dc;
+  --border-control: #b9cbd6;
+  --border-strong: #8fa8b6;
+  --border-active: #abcfc1;
+  --text-strong: #1a3444;
+  --text: #284452;
+  --text-muted: #3a5c6d;
+  --text-faint: #4f6877;
+  --accent: #1b7f6a;
+  --accent-hover: #166a58;
+  --on-accent: #ffffff;
+  --accent-text: #14614f;
+  --accent-bg: #dcf1ea;
+  --accent-border: #8fc9b8;
+  --warn-text: #7a5410;
+  --warn-bg: #fdf3dc;
+  --warn-border: #e3c98a;
+  --danger-text: #922c2c;
+  --danger-bg: #fbe7e7;
+  --danger-border: #e3a8a8;
+  --info-text: #2d5a8a;
+  --info-bg: #e4eef9;
+  --info-border: #a9c4e3;
+  --highlight: #6a4aa8;
+  --shadow-soft: #1d334014;
+  --shadow: #1d334026;
+  --tint-glow: #c9dbe64d;
+  --tint-accent: #1b7f6a14;
+  --accent-ring: #1b7f6a40;
+  --tint-warn: #f2dfae59;
+  --tint-danger: #f3c9c959;
+  --overlay: #1d33404d;
+  background: var(--bg-page);
+  color: var(--text);
+}
+html[data-theme='light'] body {
+  background: var(--bg-page);
+  color: var(--text);
+}
+html[data-theme='light'] .app-shell {
+  background: var(--bg-page);
+}
+html[data-theme='light'] .sidebar {
+  background: var(--bg-hover);
+  border-color: var(--border);
+}
+html[data-theme='light'] .topbar {
+  background: var(--bg-raised);
+  border-color: var(--border);
+}
+html[data-theme='light'] .brand {
+  color: var(--text-strong);
+}
+html[data-theme='light'] .nav-item {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .nav-item:hover {
+  background: var(--bg-active);
+}
+html[data-theme='light'] .nav-item.active {
+  background: var(--bg-active);
+  color: var(--accent-text);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] h1,
+html[data-theme='light'] h2,
+html[data-theme='light'] h3,
+html[data-theme='light'] h4 {
+  color: var(--text);
+}
+html[data-theme='light'] .page-heading p,
+html[data-theme='light'] .muted-text,
+html[data-theme='light'] .field-hint,
+html[data-theme='light'] .quiet-label,
+html[data-theme='light'] .breadcrumbs {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .breadcrumbs strong {
+  color: var(--text);
+}
+html[data-theme='light']
+  :is(
+    .source-card,
+    .schema-browser,
+    .capability-card,
+    .environment-card,
+    .workspace-card,
+    .workspace-editor,
+    .catalog-card,
+    .scan-panel,
+    .job-card,
+    .database-card,
+    .source-catalog,
+    .recipe-catalog,
+    .recipe-editor,
+    .recipe-workspace,
+    .recipe-runtime,
+    .recipe-history,
+    .input-definition,
+    .recipe-output,
+    .repair-card,
+    .impact-card,
+    .diff-card,
+    .proposal-card,
+    .settings-card,
+    .relationship-inspector,
+    .graph-filter-card,
+    .relationship-card,
+    .path-explorer,
+    .ef-mapping-card,
+    .alias-card
+  ) {
+  background: var(--bg-raised);
+  border-color: var(--border);
+  color: var(--text);
+}
+html[data-theme='light'] :is(input, select, textarea):not(.monaco-editor *) {
+  background: var(--bg-panel);
+  color: var(--text);
+  border-color: var(--border);
+}
+html[data-theme='light'] :is(input, textarea)::placeholder {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .secondary-button {
+  background: var(--bg-page);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+html[data-theme='light'] .secondary-button:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+}
+html[data-theme='light'] .primary-button {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+html[data-theme='light'] .text-button,
+html[data-theme='light'] .field-label {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .neutral-tag {
+  background: var(--bg-hover);
+  color: var(--text-faint);
+  border-color: var(--border);
+}
+html[data-theme='light'] .confirmed-tag {
+  background: var(--accent-bg);
+  color: var(--accent-text);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] .alert.warning {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border-color: var(--warn-border);
+}
+html[data-theme='light'] .alert.error {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: var(--danger-border);
+}
+html[data-theme='light'] .brand-icon,
+html[data-theme='light'] .heading-icon {
+  color: var(--accent-text);
+}
+html[data-theme='light'] .local-badge {
+  background: var(--bg-page);
+  border-color: var(--border-active);
+  color: var(--text-faint);
+}
+html[data-theme='light']
+  :is(
+    .table-pane,
+    .browser-toolbar,
+    .column-table th,
+    .search-field,
+    .segmented,
+    .graph-node,
+    .relation-row,
+    .recipe-item,
+    .configuration-results li,
+    .source-row,
+    .runtime-input-card,
+    .repair-preview,
+    .diff-summary,
+    .impact-row,
+    .proposal-row,
+    .mapping-row,
+    .graph-toolbar,
+    .table-picker,
+    .graph-surface,
+    .path-choice,
+    .filter-box,
+    .relationship-row,
+    .graph-table-node
+  ) {
+  background: var(--bg-inset);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+html[data-theme='light'] .column-table td {
+  border-color: var(--border);
+}
+html[data-theme='light'] .code-text,
+html[data-theme='light'] .type-text {
+  color: var(--text-muted);
+}
+html[data-theme='light']
+  :is(
+    .table-item span,
+    .schema-summary h2,
+    .object-heading h3,
+    .capability-info h3,
+    .section-heading h2,
+    .graph-node strong,
+    .recipe-name,
+    .database-name
+  ) {
+  color: var(--text);
+}
+html[data-theme='light'] .table-item.selected {
+  background: var(--accent-bg);
+  border-color: var(--border-active);
+}
+html[data-theme='light']
+  :is(.view-tabs button.selected, .recipe-main-tabs button.selected, .segmented button.selected, .output-view-tabs button.selected) {
+  color: var(--accent-text);
+  background: var(--accent-bg);
+}
+html[data-theme='light'] .recipe-notice,
+html[data-theme='light'] .settings-notice,
+html[data-theme='light'] .copy-state {
+  color: var(--accent-text);
+}
+html[data-theme='light'] .job-error {
+  color: var(--danger-text);
+}
+html[data-theme='light'] .recovery-command,
+html[data-theme='light'] .join-sql,
+html[data-theme='light'] .evidence-item {
+  background: var(--bg-page);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+html[data-theme='light'] .graph-flow-wrap,
+html[data-theme='light'] .react-flow {
+  background: var(--bg-page);
+}
+html[data-theme='light'] .react-flow__controls button {
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+html[data-theme='light'] .react-flow__controls svg {
+  fill: var(--text-muted);
+}
+html[data-theme='light'] .react-flow__minimap {
+  background: var(--bg-raised) !important;
+}
+html[data-theme='light'] .react-flow__attribution {
+  background: var(--bg-page);
+  color: var(--text-faint);
+}
+html[data-theme='light'] .monaco-loading {
+  background: var(--bg-raised);
+  color: var(--text-faint);
+}
+html[data-theme='light'] ::-webkit-scrollbar-track {
+  background: var(--bg-hover);
+}
+html[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: var(--bg-strong);
+}
+html[data-theme='light'] .privacy-note {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .workspace-label {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .storage-details dt {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .page-footer {
+  color: var(--text-faint);
+}
+html[data-theme='light'] main {
+  background: radial-gradient(ellipse at 60% 0%, var(--bg-hover), transparent 65%), var(--bg-page);
+}
+html[data-theme='light'] .workspace-overview {
+  background: linear-gradient(115deg, var(--accent-bg), var(--bg-raised) 65%);
+  border-color: var(--border-active);
+}
+html[data-theme='light']
+  :is(
+    .recipe-table-wizard,
+    .recipe-catalog,
+    .recipe-editor-pane,
+    .relationship-filter-card,
+    .flow-browser,
+    .relation-catalog,
+    .relation-inspector,
+    .ef-mappings,
+    .database-aliases,
+    .proposal-preview,
+    .job-panel,
+    .snapshot-history
+  ) {
+  background: var(--bg-raised);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+html[data-theme='light']
+  :is(
+    .recipe-catalog-open,
+    .relation-catalog-list > button,
+    .path-choices > button,
+    .flow-browser-toolbar,
+    .relation-endpoints,
+    .flow-table-card,
+    .evidence-list > article
+  ) {
+  background: var(--bg-page);
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+html[data-theme='light']
+  :is(.recipe-catalog-item.selected > .recipe-catalog-open, .relation-catalog-list > button.selected, .path-choices > button.selected) {
+  background: var(--bg-active);
+  border-color: var(--accent-border);
+}
+html[data-theme='light']
+  :is(
+    .recipe-editor-heading h2,
+    .recipe-catalog-list strong,
+    .relation-catalog-list strong,
+    .flow-table-name strong,
+    .flow-table-columns code,
+    .relation-inspector h3,
+    .selected-table-columns code,
+    .impact-heading strong,
+    .proposal-preview-heading strong,
+    .workspace-summary-heading h2
+  ) {
+  color: var(--text);
+}
+html[data-theme='light'] :is(.recipe-runtime, .recipe-history, .recipe-authoring, .recipe-editor-heading, .recipe-main-tabs) {
+  background: var(--bg-raised);
+  border-color: var(--border);
+}
+html[data-theme='light'] .impact-list > article {
+  background: var(--bg-raised);
+  border-color: var(--border);
+}
+html[data-theme='light'] .impact-list > article.selected {
+  background: var(--accent-bg);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] .relationship-canvas .react-flow {
+  background: var(--bg-inset);
+  --xy-edge-label-background-color: #f0f6f9;
+}
+html[data-theme='light'] .table-picker .table-picker-search {
+  background: var(--bg-panel) !important;
+  border-color: var(--border) !important;
+}
+html[data-theme='light'] .relationship-canvas .react-flow__edge-text {
+  fill: var(--text-muted) !important;
+}
+html[data-theme='light'] .relationship-canvas .react-flow__edge-textbg {
+  fill: var(--on-accent) !important;
+}
+html[data-theme='light'] .relation-kind-filters button {
+  background: var(--bg-page);
+  border-color: var(--border);
+  color: var(--text-faint);
+}
+html[data-theme='light'] .relation-kind-filters button.active {
+  background: var(--bg-active);
+  border-color: var(--border-active);
+  color: var(--accent-text);
+}
+html[data-theme='light'] .flow-table-card {
+  box-shadow: 0 4px 12px var(--shadow-soft);
+}
+html[data-theme='light'] :is(.flow-table-name, .flow-table-count) {
+  border-color: var(--border);
+}
+html[data-theme='light'] .evidence-list p,
+html[data-theme='light'] .environment-card dd,
+html[data-theme='light'] .capability-info p,
+html[data-theme='light'] .capability-version,
+html[data-theme='light'] .proposal-reason {
+  color: var(--text-faint);
+}
+html[data-theme='light'] .recipe-state.valid {
+  background: var(--accent-bg);
+  color: var(--accent-text);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] .recipe-state.broken {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: var(--danger-border);
+}
+html[data-theme='light'] .recipe-state.warning,
+html[data-theme='light'] .recipe-state.needsreview {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border-color: var(--warn-border);
+}
+html[data-theme='light'] .input-statistics strong,
+html[data-theme='light'] .workspace-metrics strong,
+html[data-theme='light'] .diff-summary strong {
+  color: var(--accent-text);
+}
+html[data-theme='light'] .capability-icon.available {
+  background: var(--accent-bg);
+  color: var(--accent-text);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] .primary-button {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+html[data-theme='light'] .diff-filters > select {
+  width: 210px;
+}
+html[data-theme='light'] .heading-icon {
+  background: linear-gradient(145deg, var(--accent-bg), var(--bg-page));
+  border-color: var(--border-active);
+  box-shadow: 0 8px 20px var(--shadow-soft);
+}
+/* Light-theme counterparts for surfaces that had only dark colours (found by a computed-style audit). */
+html[data-theme='light'] .workspace-table th {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+}
+html[data-theme='light'] .source-kind,
+html[data-theme='light'] .change-kind {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+html[data-theme='light'] .change-kind.removed {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+  border-color: var(--danger-border);
+}
+html[data-theme='light'] .change-kind.added {
+  background: var(--accent-bg);
+  color: var(--accent-text);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] .key-tag,
+html[data-theme='light'] .change-kind.modified {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border-color: var(--warn-border);
+}
+html[data-theme='light'] .fk-tag {
+  background: var(--bg-hover);
+  color: var(--text-muted);
+}
+html[data-theme='light'] .chain-step-heading > span {
+  background: var(--bg-active);
+  color: var(--accent-text);
+}
+html[data-theme='light'] .recipe-validation,
+html[data-theme='light'] .recipe-lineage article {
+  background: var(--bg-raised);
+  border-color: var(--border);
+}
+html[data-theme='light'] .file-button {
+  background: var(--bg-panel);
+  color: var(--accent-text);
+  border-color: var(--border-active);
+}
+html[data-theme='light'] .capability-icon {
+  background: var(--bg-hover);
+  color: var(--text-faint);
+}

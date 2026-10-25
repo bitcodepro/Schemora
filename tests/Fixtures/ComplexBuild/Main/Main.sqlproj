@@ -1,0 +1,13 @@
+<Project>
+  <Sdk Name="Microsoft.Build.Sql" Version="2.3.0"/>
+  <Import Project="../build/main.props"/>
+  <ItemGroup>
+    <ProjectReference Include="../Shared/Shared.sqlproj"><Name>SharedDatabase</Name><DatabaseSqlCmdVariable>SharedDatabase</DatabaseSqlCmdVariable><SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors></ProjectReference>
+    <ArtifactReference Include="../references/External.dacpac"><DatabaseVariableLiteralValue>ExternalDatabase</DatabaseVariableLiteralValue><SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors></ArtifactReference>
+    <SqlCmdVariable Include="SharedDatabase"><DefaultValue>SharedDatabase</DefaultValue><Value>$(SqlCmdVar__1)</Value></SqlCmdVariable>
+    <SqlCmdVariable Include="SyntheticSecret"><DefaultValue>SYNTHETIC_SQLCMD_VALUE_f26c</DefaultValue><Value>$(SqlCmdVar__2)</Value></SqlCmdVariable>
+    <Build Remove="PostDeploy.sql"/>
+    <PostDeploy Include="PostDeploy.sql"/>
+  </ItemGroup>
+</Project>
+

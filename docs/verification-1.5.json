@@ -1,0 +1,158 @@
+{
+  "application": "Schemora",
+  "version": "1.5.0",
+  "verifiedAtUtc": "2026-10-23T11:22:54.044Z",
+  "executable": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\Schemora-1.5.0\\Schemora.Host.exe",
+  "sha256": "E763AD611F55993825E41C751C09AFC5D94DF25793B6507099E2D01AB6DCC23E",
+  "archive": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\Schemora-1.5.0-win-x64.zip",
+  "archiveBytes": 72351134,
+  "archiveEntriesHashVerified": true,
+  "build": {
+    "selfContained": true,
+    "singleExecutable": true,
+    "uiEmbedded": true,
+    "cleanSourceCopy": false,
+    "log": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v15-publish.log"
+  },
+  "checks": {
+    "dotnet": 328,
+    "dotnetFinalHost": 126,
+    "uiUnit": 27,
+    "browser": 59,
+    "http": 160,
+    "launchConfigurationSecurity": 27
+  },
+  "reports": {
+    "workspace": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\workspace-report.json"
+    },
+    "relationships": {
+      "success": true,
+      "checks": 26,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\relationships-report.json"
+    },
+    "dapper": {
+      "success": true,
+      "checks": 8,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\dapper-report.json"
+    },
+    "recipes": {
+      "success": true,
+      "checks": 22,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\recipes-report.json"
+    },
+    "changes": {
+      "success": true,
+      "checks": 13,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\changes-report.json"
+    },
+    "release": {
+      "success": true,
+      "checks": 11,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\release-report.json"
+    },
+    "enhancements": {
+      "success": true,
+      "checks": 16,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\enhancements-report.json"
+    },
+    "product-v13": {
+      "success": true,
+      "checks": 21,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-report.json"
+    },
+    "maintenance-v13": {
+      "success": true,
+      "checks": 14,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\maintenance-v13-report.json"
+    },
+    "ui": {
+      "success": true,
+      "checks": 22,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-report.json"
+    },
+    "localization": {
+      "success": true,
+      "checks": 11,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\localization-report.json"
+    },
+    "product-v13-ui": {
+      "success": true,
+      "checks": 10,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-ui-report.json"
+    },
+    "experience": {
+      "success": true,
+      "checks": 6,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\experience-report.json"
+    },
+    "authoring-v15": {
+      "success": true,
+      "checks": 10,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\authoring-v15-report.json"
+    },
+    "authoring-api": {
+      "success": true,
+      "checks": 5,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\authoring-api-report.json"
+    },
+    "launch": {
+      "success": true,
+      "checks": 27,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\launch-report.json"
+    },
+    "smoke": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\smoke-report.json"
+    },
+    "scale": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\scale-report.json"
+    }
+  },
+  "scale": {
+    "success": true,
+    "tables": 5000,
+    "startupMs": 1435,
+    "scanMs": 5873,
+    "graphMs": 1950,
+    "quickMs": 334,
+    "hostWorkingSetMiB": 319.5,
+    "graphNodes": 150,
+    "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\scale-f1b51f4951d5419aada7cdf083816b60",
+    "at": "2026-10-23T11:18:05.3447612Z"
+  },
+  "recipeScale": {
+    "recipes": 1000,
+    "elapsedMs": 94,
+    "returnedNodes": 28,
+    "returnedEdges": 27,
+    "source": "work/v15-test-results/v15-final-host.trx"
+  },
+  "features": [
+    "Authoring drafts retained locally across host restarts and changed ports; runtime input values excluded",
+    "Directed explanatory SQL object and recipe dependency paths",
+    "EF/Dapper source membership and partial-analysis diagnostics",
+    "Version comparison with current-schema and recorded validation; append-only restore",
+    "Server-side dependent-recipe search and paging with explicit limits",
+    "EN/RU/UK HTML documentation with selectable sections"
+  ],
+  "verificationNotes": [
+    "Full .NET suite passed; host suite repeated after final server additions.",
+    "An existing browser history test now waits for asynchronous rows before asserting their count.",
+    "Localization and product workflows were rerun successfully after dependency installation completed.",
+    "New browser workflows passed against the final styled executable.",
+    "No Schemora test hosts remained after verification."
+  ],
+  "notRun": {
+    "docker": "Not rerun for this release: no SQL rendering or Docker lifecycle changes; previous 1.4 Docker evidence is retained separately.",
+    "freshWindows": "Excluded by user for this work.",
+    "remoteCi": "Excluded by user; no GitHub repository exists yet."
+  },
+  "deferred": [
+    "PostgreSQL",
+    "Optional AI"
+  ],
+  "limitsDocument": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\docs\\product-1.5.md"
+}

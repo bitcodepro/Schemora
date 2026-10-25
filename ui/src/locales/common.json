@@ -1,0 +1,197 @@
+{
+  "Language": {
+    "en": "Language",
+    "ru": "Язык",
+    "uk": "Мова"
+  },
+  "Interface language": {
+    "en": "Interface language",
+    "ru": "Язык интерфейса",
+    "uk": "Мова інтерфейсу"
+  },
+  "Choose English, Russian or Ukrainian. Your choice is saved for future launches.": {
+    "en": "Choose English, Russian or Ukrainian. Your choice is saved for future launches.",
+    "ru": "Выберите английский, русский или украинский. Выбор сохраняется между запусками.",
+    "uk": "Виберіть англійську, російську або українську. Вибір зберігається між запусками."
+  },
+  "Could not load the language preference.": {
+    "en": "Could not load the language preference.",
+    "ru": "Не удалось прочитать настройку языка.",
+    "uk": "Не вдалося прочитати налаштування мови."
+  },
+  "Could not save the language preference.": {
+    "en": "Could not save the language preference.",
+    "ru": "Не удалось сохранить настройку языка.",
+    "uk": "Не вдалося зберегти налаштування мови."
+  },
+  "Choose en, ru or uk for the interface language.": {
+    "en": "Choose en, ru or uk for the interface language.",
+    "ru": "Выберите en, ru или uk для языка интерфейса.",
+    "uk": "Виберіть en, ru або uk для мови інтерфейсу."
+  },
+  "Сеанс недействителен. Откройте Schemora по ссылке, созданной при запуске приложения.": {
+    "en": "The session is invalid. Open Schemora using the link created when the application starts.",
+    "ru": "Сеанс недействителен. Откройте Schemora по ссылке, созданной при запуске приложения.",
+    "uk": "Сеанс недійсний. Відкрийте Schemora за посиланням, створеним під час запуску застосунку."
+  },
+  "Ошибка запроса ({0})": {
+    "en": "Request failed ({0})",
+    "ru": "Ошибка запроса ({0})",
+    "uk": "Помилка запиту ({0})"
+  },
+  "Path / Join Explorer": {
+    "en": "Path / Join Explorer",
+    "ru": "Поиск путей / JOIN",
+    "uk": "Пошук шляхів / JOIN"
+  },
+  "possible rename ·": {
+    "en": "possible rename ·",
+    "ru": "возможное переименование ·",
+    "uk": "можливе перейменування ·"
+  },
+  "Declared FK": {
+    "en": "Declared FK",
+    "ru": "Объявленный FK",
+    "uk": "Оголошений FK"
+  },
+  "ORM mapping": {
+    "en": "ORM mapping",
+    "ru": "Сопоставление ORM",
+    "uk": "Зіставлення ORM"
+  },
+  "Observed join": {
+    "en": "Observed join",
+    "ru": "Наблюдаемый JOIN",
+    "uk": "Спостережений JOIN"
+  },
+  "Rebuild Schema": {
+    "en": "Rebuild Schema",
+    "ru": "Пересобрать схему",
+    "uk": "Перезібрати схему"
+  },
+  "SQL / C# / solutions / repositories": {
+    "en": "SQL / C# / solutions / repositories",
+    "ru": "SQL / C# / решения / репозитории",
+    "uk": "SQL / C# / рішення / репозиторії"
+  },
+  "Fingerprint": {
+    "en": "Fingerprint",
+    "ru": "Отпечаток",
+    "uk": "Відбиток"
+  },
+  "Collation": {
+    "en": "Collation",
+    "ru": "Параметры сортировки",
+    "uk": "Параметри сортування"
+  },
+  "SQL project": {
+    "en": "SQL project",
+    "ru": "SQL-проект",
+    "uk": "SQL-проєкт"
+  },
+  "C# project": {
+    "en": "C# project",
+    "ru": "C#-проект",
+    "uk": "C#-проєкт"
+  },
+  "Solution": {
+    "en": "Solution",
+    "ru": "Решение",
+    "uk": "Рішення"
+  },
+  "Repository": {
+    "en": "Repository",
+    "ru": "Репозиторий",
+    "uk": "Репозиторій"
+  },
+  "SQL file": {
+    "en": "SQL file",
+    "ru": "SQL-файл",
+    "uk": "SQL-файл"
+  },
+  "C# file": {
+    "en": "C# file",
+    "ru": "C#-файл",
+    "uk": "C#-файл"
+  },
+  "Build configuration": {
+    "en": "Build configuration",
+    "ru": "Конфигурация сборки",
+    "uk": "Конфігурація збирання"
+  },
+  "Configuration": {
+    "en": "Configuration",
+    "ru": "Конфигурация",
+    "uk": "Конфігурація"
+  },
+  "tableAdded": {
+    "en": "Table Added",
+    "ru": "Добавлена таблица",
+    "uk": "Додано таблицю"
+  },
+  "objectAdded": {
+    "en": "Object Added",
+    "ru": "Добавлен объект",
+    "uk": "Додано об’єкт"
+  },
+  "objectRemoved": {
+    "en": "Object Removed",
+    "ru": "Удалён объект",
+    "uk": "Видалено об’єкт"
+  },
+  "objectChanged": {
+    "en": "Object Changed",
+    "ru": "Изменён объект",
+    "uk": "Змінено об’єкт"
+  },
+  "uniqueKeysChanged": {
+    "en": "Unique Keys Changed",
+    "ru": "Изменены уникальные ключи",
+    "uk": "Змінено унікальні ключі"
+  },
+  "indexesChanged": {
+    "en": "Indexes Changed",
+    "ru": "Изменены индексы",
+    "uk": "Змінено індекси"
+  },
+  "dependenciesChanged": {
+    "en": "Dependencies Changed",
+    "ru": "Изменены зависимости",
+    "uk": "Змінено залежності"
+  },
+  "SQL Server compatibility level": {
+    "en": "SQL Server compatibility level",
+    "ru": "Уровень совместимости SQL Server",
+    "uk": "Рівень сумісності SQL Server"
+  },
+  "Standalone SQL": {
+    "en": "Standalone SQL",
+    "ru": "Самодостаточный SQL",
+    "uk": "Самодостатній SQL"
+  },
+  "Parameterized example": {
+    "en": "Parameterized example",
+    "ru": "Пример с параметрами",
+    "uk": "Приклад із параметрами"
+  },
+  "SQL SERVER RECIPE": {
+    "en": "SQL SERVER RECIPE",
+    "ru": "РЕЦЕПТ SQL SERVER",
+    "uk": "РЕЦЕПТ SQL SERVER"
+  },
+  "#temp + batch INSERT": {
+    "en": "#temp + batch INSERT",
+    "ru": "#temp + пакетный INSERT",
+    "uk": "#temp + пакетний INSERT"
+  },
+  "Schema": {
+    "en": "Schema",
+    "ru": "Схема",
+    "uk": "Схема"
+  },
+  "Objects": {
+    "en": "Objects",
+    "ru": "Объекты",
+    "uk": "Об’єкти"
+  }
+}

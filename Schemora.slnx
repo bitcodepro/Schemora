@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Schemora.Host/Schemora.Host.csproj" />
+    <Project Path="src/Schemora.RecipeEngine/Schemora.RecipeEngine.csproj" />
+    <Project Path="src/Schemora.Relationships/Schemora.Relationships.csproj" />
+    <Project Path="src/Schemora.SqlServer/Schemora.SqlServer.csproj" />
+    <Project Path="src/Schemora.Workspaces/Schemora.Workspaces.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Schemora.Host.Tests/Schemora.Host.Tests.csproj" />
+    <Project Path="tests/Schemora.RecipeEngine.Tests/Schemora.RecipeEngine.Tests.csproj" />
+    <Project Path="tests/Schemora.Relationships.Tests/Schemora.Relationships.Tests.csproj" />
+    <Project Path="tests/Schemora.SqlServer.Tests/Schemora.SqlServer.Tests.csproj" />
+    <Project Path="tests/Schemora.Workspaces.Tests/Schemora.Workspaces.Tests.csproj" />
+  </Folder>
+</Solution>

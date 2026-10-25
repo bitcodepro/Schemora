@@ -1,0 +1,72 @@
+import type { ObjectDependency, SchemaIndex, SchemaObject, UniqueKey } from './objectTypes';
+export type Column = { name: string; dataType: string; isNullable: boolean };
+export type Table = { id: string; schema: string; name: string; columns: Column[]; primaryKey: string[]; uniqueKeys?: UniqueKey[] };
+export type Relation = {
+  id: string;
+  name: string;
+  fromTableId: string;
+  toTableId: string;
+  fromColumns: string[];
+  toColumns: string[];
+  kind: string;
+  confidence: number;
+};
+export type Graph = {
+  databaseName: string;
+  sourcePath: string;
+  extractedAt: string;
+  tables: Table[];
+  relations: Relation[];
+  objects?: SchemaObject[];
+  indexes?: SchemaIndex[];
+  objectDependencies?: ObjectDependency[];
+  diagnostics: { severity: string; code: string; message: string }[];
+};
+export type Workspace = { id: string; name: string; roots: string[]; excludes: string[]; createdAt: string };
+export type Source = { id: string; path: string; kind: string; hash: string; lastWrite: string; diagnostics: string[]; length?: number };
+export type Database = {
+  id: string;
+  workspaceId: string;
+  name: string;
+  sourcePath: string;
+  sourceKind: string;
+  status: string;
+  currentSnapshotId?: string;
+  lastAnalyzedAt?: string;
+};
+export type JobStatus = 'queued' | 'running' | 'completed' | 'partial' | 'failed' | 'cancelled';
+export type Job = {
+  id: string;
+  workspaceId: string;
+  kind: string;
+  status: JobStatus;
+  stage: string;
+  progress: number;
+  startedAt?: string;
+  finishedAt?: string;
+  error?: string;
+  result?: unknown;
+};
+export type ScanRun = {
+  id: string;
+  mode?: string;
+  kind?: string;
+  status: string;
+  startedAt?: string;
+  finishedAt?: string;
+  error?: string;
+  diagnostics?: string[];
+  changedSources?: number;
+  unchangedSources?: number;
+  databasesUpdated?: number;
+};
+export type Catalog = { workspace: Workspace; sources: Source[]; databases: Database[]; scanRuns: ScanRun[] };
+export type Snapshot = {
+  id: string;
+  databaseId: string;
+  createdAt: string;
+  mode: string;
+  fingerprint: string;
+  tableCount: number;
+  relationCount: number;
+};

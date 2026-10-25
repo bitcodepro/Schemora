@@ -1,0 +1,41 @@
+{
+  "name": "schemora-ui",
+  "private": true,
+  "version": "1.8.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build",
+    "test:graph": "node --experimental-strip-types --test src/graphModel.test.mjs",
+    "test:recipes": "node --experimental-strip-types --test src/recipeTypes.test.mjs src/recipeDrafts.test.mjs",
+    "test:enhancements": "node --experimental-strip-types --test src/relationEditorModel.test.mjs src/chainModel.test.mjs",
+    "test:i18n": "node --experimental-strip-types --test src/i18n.test.mjs src/backendMessages.test.mjs",
+    "format": "prettier --write src e2e",
+    "format:check": "prettier --check src e2e",
+    "test:paths": "node --experimental-strip-types --test src/paths.test.mjs",
+    "test": "node --experimental-strip-types --test src/*.test.mjs",
+    "i18n:errors": "node --experimental-strip-types scripts/generate-error-catalog.mjs"
+  },
+  "dependencies": {
+    "@xyflow/react": "12.12.0",
+    "html-to-image": "1.11.11",
+    "monaco-editor": "0.57.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "playwright-core": "1.64.1",
+    "prettier": "3.6.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "overrides": {
+    "monaco-editor": {
+      "dompurify": "3.4.17"
+    }
+  }
+}

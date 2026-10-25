@@ -1,0 +1,262 @@
+name: CI
+
+# PRs produce checked preview packages. Main produces the next release after all checks.
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Version bump on main
+        type: choice
+        options: [auto, patch, minor, major]
+        default: auto
+      release_version:
+        description: Optional explicit SemVer on main, e.g. 0.1.0 or 0.2.0-rc.1
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  DOTNET_NOLOGO: 'true'
+  DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+
+jobs:
+  release-tooling:
+    name: Release tooling tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --disable-pip-version-check PyYAML==6.0.3
+      - run: python -B -m unittest discover -s tests/release -v
+
+  build-and-test:
+    name: Windows build, unit tests and published acceptance
+    runs-on: windows-2025
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
+        with:
+          node-version: '22.23.4'
+          package-manager-cache: false
+      - name: Frontend dependency, test, format and build checks
+        working-directory: ui
+        run: |
+          npm ci
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm audit --audit-level=high
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm test
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run format:check
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run build
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Restore, formatting, build, dependency audit and unit tests
+        run: |
+          dotnet tool restore
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet csharpier check src tests
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet restore Schemora.slnx -p:NuGetAudit=true -p:NuGetAuditMode=all '-p:WarningsAsErrors=NU1901%3BNU1902%3BNU1903%3BNU1904'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet build Schemora.slnx -c Release --no-restore --nologo
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          dotnet test Schemora.slnx -c Release --no-build --no-restore --nologo --logger trx --results-directory work/test-results
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Publish current Windows application
+        run: ./scripts/Publish.ps1
+      - name: Published HTTP and Chrome regressions
+        run: ./scripts/Test-All.ps1
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: verification-reports
+          path: |
+            work/*report.json
+            work/test-results/*.trx
+          if-no-files-found: ignore
+          retention-days: 7
+
+  generated-sql-on-sql-server:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          global-json-file: global.json
+      - run: ./scripts/Test-GeneratedSql.ps1 -Run
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: generated-sql-report
+          path: work/generated-sql-report.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+  version:
+    name: Select release or preview version
+    needs: [release-tooling, build-and-test, generated-sql-on-sql-server]
+    if: >-
+      always() && github.event_name != 'schedule' &&
+      needs.release-tooling.result == 'success' && needs.build-and-test.result == 'success' &&
+      (needs.generated-sql-on-sql-server.result == 'success' || needs.generated-sql-on-sql-server.result == 'skipped')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      skip: ${{ steps.version.outputs.skip }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - id: version
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          BUMP: ${{ inputs.bump || 'auto' }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          if [ "$GITHUB_REF" = refs/heads/main ] && { [ "$EVENT_NAME" = push ] || [ "$EVENT_NAME" = workflow_dispatch ]; }; then
+            python scripts/release.py version
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "version=0.0.0-pr.${PR_NUMBER:-$GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+          fi
+
+  packages:
+    name: Packages
+    needs: version
+    if: github.event_name != 'schedule' && needs.version.outputs.skip != 'true'
+    uses: ./.github/workflows/package.yml
+    with:
+      version: ${{ needs.version.outputs.version }}
+
+  verify-packages:
+    name: Verify downloaded release packages
+    needs: [version, packages]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: Schemora-*
+          path: artifacts/packages
+          merge-multiple: true
+      - name: Check the supported Windows archive/checksum pair
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        run: python scripts/release.py verify --directory artifacts/packages --version "$VERSION" --commit "$GITHUB_SHA"
+
+  runtime-artifact:
+    name: Smoke-test the downloaded release executable
+    needs: [version, packages, verify-packages]
+    runs-on: windows-2025
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: Schemora-*
+          path: artifacts/packages
+          merge-multiple: true
+      - name: Extract and run this commit's verified Windows package
+        shell: pwsh
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          Expand-Archive -LiteralPath "artifacts/packages/Schemora-$env:VERSION-win-x64.zip" -DestinationPath work/release-runtime
+          ./scripts/Test-CleanWindowsRuntime.ps1 -Executable work/release-runtime/Schemora.Host.exe -ReportPath work/runtime-verification.json -AllowDevelopmentTools
+          $runtime = Get-Content -LiteralPath work/runtime-verification.json -Raw | ConvertFrom-Json
+          if ($runtime.version -ne $env:VERSION.Split('-')[0] -or $runtime.build -ne "$($env:VERSION)+$env:GITHUB_SHA") {
+            throw 'Runtime version/source identity differs from the verified release archive'
+          }
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-runtime-verification
+          path: work/runtime-verification.json
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    name: Publish release from main
+    needs: [release-tooling, build-and-test, version, packages, verify-packages, runtime-artifact]
+    if: >-
+      github.repository == 'bitcodepro/Schemora' && github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
+      needs.version.outputs.skip != 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: Schemora-*
+          path: artifacts/packages
+          merge-multiple: true
+      - name: Verify packages, reserve immutable tag, upload draft and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.version.outputs.version }}
+        run: python scripts/release.py publish --directory artifacts/packages --version "$VERSION"

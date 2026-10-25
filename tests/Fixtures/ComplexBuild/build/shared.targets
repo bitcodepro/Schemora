@@ -1,0 +1,1 @@
+<Project><Target Name="SyntheticClosureMessage" BeforeTargets="Build"><Message Importance="Low" Text="Synthetic complex source closure" /></Target></Project>

@@ -1,0 +1,818 @@
+{
+  "application": "Schemora",
+  "version": "1.7.0",
+  "verifiedAtUtc": "2026-10-23T14:58:15.379Z",
+  "executable": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\artifacts\\v17-release\\Schemora.Host.exe",
+  "deliveredExecutable": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\Schemora-1.7.0\\Schemora.Host.exe",
+  "sha256": "2410DE7DD7F8CD1626CC8C101808ECD16F8B516C2D82D76EF0444514EAC20E77",
+  "archive": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\Schemora-1.7.0-win-x64.zip",
+  "archiveBytes": 72428432,
+  "archiveSha256": "884436C6BAC817C2993FF775215D464A96967C529A99960329AB8ECDCA6F1667",
+  "archiveEntriesHashVerified": true,
+  "sourceManifest": "D:\\CodexData\\workspaces\\2026-10-22\\new-chat\\outputs\\source-manifest-1.7.0.json",
+  "sourceFileCount": 293,
+  "build": {
+    "selfContained": true,
+    "singleExecutable": true,
+    "uiEmbedded": true,
+    "isolatedCleanSourceCopy": false,
+    "dependenciesReusedFromPinnedInstall": true,
+    "finalLog": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v17-release-publish.log"
+  },
+  "checks": {
+    "dotnet": 338,
+    "finalHost": 136,
+    "uiUnit": 27,
+    "browser": 79,
+    "http": 203,
+    "launchConfigurationSecurity": 27,
+    "dockerSchemaRecovery": 24,
+    "generatedSqlExactCases": 10,
+    "injectedDockerFailure": 5
+  },
+  "coverage": {
+    "allAcceptanceSuitesUseDeliveredHash": "2410DE7DD7F8CD1626CC8C101808ECD16F8B516C2D82D76EF0444514EAC20E77",
+    "dotnetComposition": "Final host 136 plus unchanged module suites 77+53+43+29. Host includes 50 immediate sequential scans as one regression test.",
+    "acceptanceComposition": "Final Test-All invocation completed HTTP/launch/scale and initial UI suites, then stopped on an ambiguous browser test selector. After scoping the selector, Experience/Authoring, ProfessionalUi, HardeningUi and Docker suites passed on the same EXE.",
+    "logs": [
+      "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v17-release-all.log",
+      "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v17-release-final-ui.log",
+      "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\v17-release-remaining.log"
+    ],
+    "manualScreenReaderAudit": false,
+    "cleanWindows": false,
+    "remoteCi": false
+  },
+  "reports": {
+    "workspace": {
+      "success": true,
+      "checks": 24,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\workspace-report.json",
+      "details": {
+        "success": true,
+        "startedAt": "2026-10-23T14:46:22.8709031Z",
+        "finishedAt": "2026-10-23T14:46:30.1889301Z",
+        "executable": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\artifacts\\v17-release\\Schemora.Host.exe",
+        "executableSha256": "2410DE7DD7F8CD1626CC8C101808ECD16F8B516C2D82D76EF0444514EAC20E77",
+        "fixtureCopy": "work\\fixtures-6233396b447549c6ace2a129e2756e8b",
+        "applicationData": "work\\workspace-smoke-6233396b447549c6ace2a129e2756e8b\\data",
+        "tests": [
+          {
+            "name": "workspace-created",
+            "passed": true,
+            "details": {
+              "roots": 1
+            }
+          },
+          {
+            "name": "job-sse-progress-endpoint",
+            "passed": true,
+            "details": {
+              "events": 4
+            }
+          },
+          {
+            "name": "full-scan-completed",
+            "passed": true,
+            "details": {
+              "result": {
+                "changedSources": 9,
+                "unchangedSources": 0,
+                "databasesUpdated": 2,
+                "diagnostics": [],
+                "partial": true,
+                "recipesChecked": 0
+              },
+              "status": "partial"
+            }
+          },
+          {
+            "name": "two-separate-databases",
+            "passed": true,
+            "details": {
+              "databases": [
+                {
+                  "name": "Billing",
+                  "id": "0e9c81fba0cbb4971027acf70443dea6bb22945eab94a9e88a88d0d32007e750",
+                  "status": "partial"
+                },
+                {
+                  "name": "Commerce",
+                  "id": "317a71906ea8788f45ea09ba4111f73c342f1a71d0202bf8ec7b5cb21e5093c6",
+                  "status": "partial"
+                }
+              ]
+            }
+          },
+          {
+            "name": "csharp-project-and-solution-discovered",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "graphs-have-real-fixture-tables",
+            "passed": true,
+            "details": {
+              "Billing": 2,
+              "Commerce": 4
+            }
+          },
+          {
+            "name": "same-name-tables-have-distinct-identity",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "full-scan-source-tree-unchanged",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "unchanged-quick-refresh-reuses-snapshots",
+            "passed": true,
+            "details": {
+              "changedSources": 0,
+              "unchangedSources": 9,
+              "databasesUpdated": 0,
+              "diagnostics": [],
+              "partial": true,
+              "recipesChecked": 0
+            }
+          },
+          {
+            "name": "unchanged-quick-source-tree-unchanged",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "changed-quick-updates-only-one-database",
+            "passed": true,
+            "details": {
+              "changedSources": 1,
+              "unchangedSources": 8,
+              "databasesUpdated": 1,
+              "diagnostics": [],
+              "partial": true,
+              "recipesChecked": 0
+            }
+          },
+          {
+            "name": "changed-commerce-graph-adds-table",
+            "passed": true,
+            "details": {
+              "tables": 5
+            }
+          },
+          {
+            "name": "unaffected-billing-snapshot-preserved",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "changed-quick-source-tree-unchanged",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "full-rescan-after-removal-completed",
+            "passed": true,
+            "details": {
+              "changedSources": 2,
+              "unchangedSources": 7,
+              "databasesUpdated": 0,
+              "diagnostics": [],
+              "partial": true,
+              "recipesChecked": 0
+            }
+          },
+          {
+            "name": "removed-project-leaves-current-catalog",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "removed-database-historical-snapshot-readable",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "removal-rescan-source-tree-unchanged",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "workspace-catalog-survives-host-restart",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "current-and-historical-snapshots-survive-restart",
+            "passed": true,
+            "details": {
+              "CommerceSnapshots": 2,
+              "CommerceTables": 5,
+              "historicalBillingTables": 2
+            }
+          },
+          {
+            "name": "restart-read-apis-source-tree-unchanged",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "original-fixture-unchanged-Commerce",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "original-fixture-unchanged-Billing",
+            "passed": true,
+            "details": null
+          },
+          {
+            "name": "original-fixture-unchanged-MappingSample",
+            "passed": true,
+            "details": null
+          }
+        ],
+        "error": null,
+        "visualUiTested": false
+      }
+    },
+    "relationships": {
+      "success": true,
+      "checks": 26,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\relationships-report.json",
+      "details": {
+        "success": true,
+        "efNullableForeignKey": true,
+        "restart": true,
+        "checks": 26,
+        "multiplePaths": 2,
+        "unconfirmedBlocked": true,
+        "staleBlocked": true,
+        "efBindingPersistedWithTwoDatabases": true,
+        "tables": 5,
+        "textRelationConfirmed": true,
+        "efChecked": true
+      }
+    },
+    "dapper": {
+      "success": true,
+      "checks": 8,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\dapper-report.json",
+      "details": {
+        "success": true,
+        "checks": 8,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\dapper-11e15acc53f7470f9cf133b68ef5bcb5",
+        "at": "2026-10-23T14:46:50.0042314Z"
+      }
+    },
+    "recipes": {
+      "success": true,
+      "checks": 22,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\recipes-report.json",
+      "details": {
+        "success": true,
+        "checks": 22,
+        "ids": 10000,
+        "parseAndRenderMs": 1140,
+        "runtimeValuesPersisted": false,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\recipes-f5ac93d7ded84cf0b89758cd59905b35",
+        "at": "2026-10-23T14:46:58.3297800Z"
+      }
+    },
+    "changes": {
+      "success": true,
+      "checks": 13,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\changes-report.json",
+      "details": {
+        "success": true,
+        "checks": 13,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\changes-87eac07dd96e4ad7ae7ba73f0d34460e",
+        "at": "2026-10-23T14:47:02.7830143Z"
+      }
+    },
+    "release": {
+      "success": true,
+      "checks": 11,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\release-report.json",
+      "details": {
+        "success": true,
+        "checks": 11,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\release-00413a90e64345d5b06f9cafa15b7c7d",
+        "at": "2026-10-23T14:47:09.3623359Z"
+      }
+    },
+    "enhancements": {
+      "success": true,
+      "checks": 16,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\enhancements-report.json",
+      "details": {
+        "success": true,
+        "checks": 16,
+        "kind": "synthetic-repository",
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\enhancements-f6a263258ec04a319b4161b96ac13412",
+        "at": "2026-10-23T14:47:25.7760711Z"
+      }
+    },
+    "product-v13": {
+      "success": true,
+      "checks": 21,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-report.json",
+      "details": {
+        "success": true,
+        "checks": 21,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-4c8af794aa864be6bc01c918b2c33008",
+        "at": "2026-10-23T14:47:36.1424191Z"
+      }
+    },
+    "maintenance-v13": {
+      "success": true,
+      "checks": 14,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\maintenance-v13-report.json",
+      "details": {
+        "success": true,
+        "checks": 14,
+        "relations": 350,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\maintenance-v13-e2f03fdb60344d789941548d4e780b08",
+        "at": "2026-10-23T14:47:40.9399402Z"
+      }
+    },
+    "authoring-api": {
+      "success": true,
+      "checks": 5,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\authoring-api-report.json",
+      "details": {
+        "success": true,
+        "checks": 5,
+        "hostRestart": true,
+        "originChanged": true,
+        "runtimeValuesExcluded": true
+      }
+    },
+    "professional": {
+      "success": true,
+      "checks": 24,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\professional-report.json",
+      "details": {
+        "success": true,
+        "checks": 24,
+        "restoredAfterRealRestart": true,
+        "rollbackCopyPreserved": true,
+        "rollbackExecuted": true,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\professional-5e11a0db8a7640049dfcecf9e676ee42"
+      }
+    },
+    "hardening": {
+      "success": true,
+      "checks": 19,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\hardening-report.json",
+      "details": {
+        "success": true,
+        "checks": 19,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\hardening-b34f9dd110254e1ea6d188dbac3cc389",
+        "at": "2026-10-23T14:48:10.9283670Z"
+      }
+    },
+    "ui": {
+      "success": true,
+      "checks": 22,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-report.json",
+      "details": {
+        "success": true,
+        "browser": "Installed Chrome · fresh headless context",
+        "checks": [
+          "launch token consumed and fragment removed",
+          "create workspace through root picker",
+          "full scan discovers synthetic SQL project and schema",
+          "interactive graph and trusted path show physical FK",
+          "table and column wizard creates typed recipe draft",
+          "invalid rows block SQL generation with row diagnostics",
+          "ten thousand IDs parse, render, and copy real standalone SQL",
+          "runtime IDs are absent from browser storage, URL, and saved recipe",
+          "schema edit and Quick Refresh mark dependent recipe Broken",
+          "AST repair preview requires explicit approval and creates compatible version",
+          "versions remain available and runtime ID memory is cleared on navigation",
+          "light theme is persisted locally and configuration has no runtime IDs",
+          "Docker schema route requires explicit consent",
+          "no page errors and every asset/worker request stays local",
+          "enhanced workspace scans composite keys and rich schema objects",
+          "manual composite relation create keeps ordered column pairs and reason",
+          "manual relation edit reorders composite pairs together with version guard",
+          "three-table recipe wizard requires route and explicit projected columns",
+          "object explorer shows views, routines, synonyms and index details",
+          "file watcher auto-refresh updates schema and can be disabled",
+          "manual relation removal is explicit and removes trusted route",
+          "enhanced workflows have no page errors or external asset requests"
+        ],
+        "screenshots": [
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\01-workspace.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\02-graph.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\03-before-paste.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\03-recipe-10000.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\04-broken-impact.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\05-repair-preview.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\06-settings-light.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\07-manual-composite.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\08-chain-preview.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\09-object-procedure.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\ui-40c7cb21147f4f9c8857be5530b3451e\\screenshots\\10-auto-refresh.png"
+        ],
+        "errors": [],
+        "externalRequests": [],
+        "testedAt": "2026-10-23T14:48:20.750Z",
+        "recipeId": "2fc07582ae024670a209fa6d758b22d2",
+        "workspaceId": "9299ae8382d345559977e8e9bef24765",
+        "renderedCount": 10000,
+        "renderedStrategy": "temp",
+        "repairedVersion": 2,
+        "pageErrors": [],
+        "enhancedWorkflows": true,
+        "chainRecipeId": "63339add4f8c4635858f3f5c31f5ab1e",
+        "manualCompositeChecked": true,
+        "extendedObjectsChecked": true,
+        "autoRefreshChecked": true
+      }
+    },
+    "localization": {
+      "success": true,
+      "checks": 11,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\localization-report.json",
+      "details": {
+        "success": true,
+        "checks": [
+          "English is the fresh-install default even when the browser prefers Russian",
+          "all three locales switch navigation, headings, settings and aria labels live",
+          "unsupported language values are rejected without changing the saved choice",
+          "localized workspace creation preserves user-authored Unicode names",
+          "relationship labels update in the existing graph and preserve the chosen JOIN path",
+          "language changes preserve an unsaved recipe and its SQL editor model",
+          "existing parser diagnostics retranslate while ID text and raw invalid values stay intact",
+          "valid runtime IDs and generated SQL survive language changes without browser or recipe persistence",
+          "all localized assets remain local and browser execution has no page errors",
+          "Ukrainian preference survives host restart and a fresh browser context",
+          "rapid language changes persist the last choice without stale startup overwrite"
+        ],
+        "screenshots": [
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\localization-be176661b31141e7bdc2a2333acf78e5\\screenshots\\01-default-english.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\localization-be176661b31141e7bdc2a2333acf78e5\\screenshots\\02-ukrainian-runtime.png"
+        ],
+        "pageErrors": [],
+        "externalRequests": [],
+        "locales": [
+          "en",
+          "ru",
+          "uk"
+        ],
+        "at": "2026-10-23T14:49:06.893Z"
+      }
+    },
+    "product-v13-ui": {
+      "success": true,
+      "checks": 10,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-ui-report.json",
+      "details": {
+        "success": true,
+        "checks": [
+          "new regression tab switches live across English Russian Ukrainian",
+          "artificial baseline requires explicit consent and shows saved expectations",
+          "run saved regressions uses actual API and displays success",
+          "C# context preview and saved Release selection use static evaluation without trust",
+          "settings new labels switch live across all supported locales",
+          "portable v2 download includes manual assertion and artificial baseline",
+          "portable import requires explicit mapping preview and stages assertions for review",
+          "retention policy saves and history preview requires a separate cleanup action",
+          "diagnostic report downloads with root paths excluded by default",
+          "new UI workflows have no browser page errors or external requests"
+        ],
+        "screenshots": [
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-ui-6a32dbb17f0f40e1878d73d4ee5387fb\\screenshots\\01-regression-baseline.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-ui-6a32dbb17f0f40e1878d73d4ee5387fb\\screenshots\\02-csharp-context.png",
+          "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\product-v13-ui-6a32dbb17f0f40e1878d73d4ee5387fb\\screenshots\\02-settings.png"
+        ],
+        "pageErrors": [],
+        "externalRequests": [],
+        "at": "2026-10-23T14:49:17.528Z"
+      }
+    },
+    "experience": {
+      "success": true,
+      "checks": 6,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\experience-report.json",
+      "details": {
+        "success": true,
+        "checks": [
+          "Tutorial creates scanned workspace",
+          "Hierarchical object navigation and clickable recipe dependency graph",
+          "Standalone HTML documentation download",
+          "Navigation filter survives reload",
+          "Keyboard focus and 200 percent zoom",
+          "New navigation labels switch across EN RU UK"
+        ],
+        "pageErrors": []
+      }
+    },
+    "authoring-v15": {
+      "success": true,
+      "checks": 10,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\authoring-v15-report.json",
+      "details": {
+        "success": true,
+        "checks": [
+          "Synthetic C# project reports included/excluded files and dynamic Dapper SQL",
+          "Unsaved authoring definition recovers from local application storage after browser copy is removed",
+          "Navigation cancellation retains editor changes",
+          "Saving clears the recovered draft",
+          "Runtime IDs are absent from browser and application authoring draft storage",
+          "Version comparison restores history as a new revalidated version",
+          "Dependency recipe search returns bounded results",
+          "HTML exports use selected Russian and Ukrainian locale",
+          "Report section selection excludes object details and includes recipe dependencies",
+          "Coverage UI exposes source diagnostics and next actions"
+        ],
+        "pageErrors": []
+      }
+    },
+    "professional-ui": {
+      "success": true,
+      "checks": 7,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\professional-ui-report.json",
+      "details": {
+        "success": true,
+        "checks": [
+          "Quality review requires rationale and can be reopened",
+          "Provenance detects edited input before rescanning",
+          "Unified object search navigates to the selected table",
+          "Collection saves selected recipes and runs batch validation",
+          "Recovery preview shows catalog contents and requires explicit restart consent",
+          "Professional tools switch live across EN RU UK",
+          "Keyboard focus remains visible at 200 percent zoom"
+        ],
+        "pageErrors": []
+      }
+    },
+    "hardening-ui": {
+      "success": true,
+      "checks": 13,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\hardening-ui-report.json",
+      "details": {
+        "success": true,
+        "checks": [
+          "Keyboard skip link reaches the main landmark",
+          "Navigation announces the current page and moves focus to its heading",
+          "Workspace quality rules save from labelled controls",
+          "SQL code search opens the routine definition and selects the matching text",
+          "Tab leaves the SQL editor without a keyboard trap",
+          "Disk cleanup requires consent and keeps three recent backups",
+          "Docker diagnostics distinguish an empty history",
+          "Build passport displays versions from a real SDK build",
+          "New panels switch between English Russian and Ukrainian",
+          "Dark theme new panel text and enabled controls meet 4.5 contrast",
+          "Light theme new panel text and enabled controls meet 4.5 contrast",
+          "Visible keyboard focus at 200 percent and accessible landmark names",
+          "Focus remains visible with forced colors and reduced motion"
+        ],
+        "pageErrors": [],
+        "manualScreenReaderTest": false
+      }
+    },
+    "launch": {
+      "success": true,
+      "checks": 27,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\launch-report.json",
+      "details": {
+        "success": true,
+        "checks": 27,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\launch-52afdda6d5c3471b9973892fd5f737e5",
+        "loopbackOnly": true,
+        "cliPrecedence": true,
+        "portInUseDiagnostic": true,
+        "sourceUnchanged": true,
+        "at": "2026-10-23T14:46:22.3165613Z"
+      }
+    },
+    "docker-schema": {
+      "success": true,
+      "checks": 24,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\docker-schema-report.json",
+      "details": {
+        "success": true,
+        "checks": 24,
+        "cleanedUp": true,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\docker-schema-9afe0e9d5a3c4a77ad271ee9601a9277",
+        "richMetadata": {
+          "tables": 2,
+          "exactTypes": true,
+          "indexes": 6,
+          "objects": 8,
+          "dependencies": 9
+        },
+        "tables": 4,
+        "orderedForeignKeyColumns": 2,
+        "startupRecovery": true,
+        "at": "2026-10-23T14:52:17.2078488Z"
+      }
+    },
+    "docker-failure": {
+      "success": true,
+      "checks": 5,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\docker-failure-report.json",
+      "details": {
+        "success": true,
+        "checks": 5,
+        "faultInjected": true,
+        "realDockerLifecycle": true,
+        "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\docker-failure-2efa6f4bd9d840bbb27f0168a8dfe70f"
+      }
+    },
+    "smoke": {
+      "success": true,
+      "report": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\smoke-report.json",
+      "details": {
+        "success": true,
+        "origin": "http://127.0.0.1:65367",
+        "executable": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\smoke-150a8fe254f74956b406278c031ad0db\\Schemora.Host.exe",
+        "tables": 4,
+        "relations": 1,
+        "securityChecks": 6,
+        "embeddedAssets": 3,
+        "sourceUnchanged": true,
+        "legacyBuildStatus": "BuiltAndAnalyzed",
+        "legacyTables": 1,
+        "capabilities": [
+          {
+            "name": ".NET SDK",
+            "available": true,
+            "path": "C:\\Program Files\\dotnet\\dotnet.exe",
+            "version": "10.0.402",
+            "detail": "Доступен."
+          },
+          {
+            "name": "Docker",
+            "available": true,
+            "path": "C:\\Users\\Fors\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe",
+            "version": "29.7.2",
+            "detail": "Доступен."
+          },
+          {
+            "name": "SqlPackage",
+            "available": false,
+            "path": null,
+            "version": null,
+            "detail": "SqlPackage не найден; нужен только для отдельного Docker publish smoke-теста."
+          },
+          {
+            "name": "MSBuild",
+            "available": true,
+            "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe",
+            "version": null,
+            "detail": "MSBuild найден. Legacy SQL-проекты требуют SSDT из той же установки."
+          },
+          {
+            "name": "SSDT",
+            "available": true,
+            "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Microsoft\\VisualStudio\\v18.0\\SSDT\\Microsoft.Data.Tools.Schema.SqlTasks.targets",
+            "version": null,
+            "detail": "Совместимая пара MSBuild + SSDT targets найдена."
+          }
+        ]
+      }
+    }
+  },
+  "generatedSql": {
+    "status": "Passed",
+    "startedAtUtc": "2026-10-23T14:51:10.6614576Z",
+    "container": "schemora-generated-029ab06f07dd49adb0a947a790d72c9d",
+    "cleanedUp": true,
+    "generatedSqlPersisted": false,
+    "loopbackOnly": true,
+    "results": {
+      "success": true,
+      "cases": [
+        {
+          "name": "10000-temp",
+          "rows": 10000,
+          "mode": "standalone",
+          "strategy": "temp",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "10000-one-json-parameter",
+          "rows": 10000,
+          "mode": "parameterized",
+          "strategy": "openjson",
+          "parameters": 1,
+          "exactValues": true
+        },
+        {
+          "name": "quoted-unicode-values",
+          "rows": 5,
+          "mode": "standalone",
+          "strategy": "values",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "unicode-json-standalone",
+          "rows": 3,
+          "mode": "standalone",
+          "strategy": "openjson",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "cp1251-values",
+          "rows": 2,
+          "mode": "standalone",
+          "strategy": "values",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "cp1251-temp",
+          "rows": 2,
+          "mode": "standalone",
+          "strategy": "temp",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "cp1251-json",
+          "rows": 2,
+          "mode": "parameterized",
+          "strategy": "openjson",
+          "parameters": 1,
+          "exactValues": true
+        },
+        {
+          "name": "utf8-values",
+          "rows": 3,
+          "mode": "standalone",
+          "strategy": "values",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "utf8-temp",
+          "rows": 3,
+          "mode": "standalone",
+          "strategy": "temp",
+          "parameters": 0,
+          "exactValues": true
+        },
+        {
+          "name": "utf8-json",
+          "rows": 3,
+          "mode": "parameterized",
+          "strategy": "openjson",
+          "parameters": 1,
+          "exactValues": true
+        }
+      ],
+      "generatedSqlPersisted": false,
+      "runtimeCredentialsPersisted": false
+    },
+    "completedAtUtc": "2026-10-23T14:51:30.0972184Z"
+  },
+  "scale": {
+    "success": true,
+    "tables": 5000,
+    "startupMs": 748,
+    "scanMs": 4030,
+    "graphMs": 1317,
+    "quickMs": 342,
+    "hostWorkingSetMiB": 338.5,
+    "graphNodes": 150,
+    "dependencyColdMs": 248,
+    "dependencyWarmMs": 49,
+    "dependencyWarmRefreshedDatabases": 0,
+    "dependencyResponseNodes": 1,
+    "runDirectory": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\scale-5176a081509941e09d8185d0f912ffb3",
+    "at": "2026-10-23T14:48:18.5015418Z"
+  },
+  "resources": {
+    "atUtc": "2026-10-23T14:55:39.7275703Z",
+    "ownedContainers": 0,
+    "testHosts": 0
+  },
+  "cleanup": {
+    "removedRunDirectories": 58,
+    "removedRunBytes": 3023480971,
+    "intermediateBuildRemovedBytes": 78188016,
+    "logicalBytesRemoved": 3101668987,
+    "sourceFixturesAndScriptsPreserved": true,
+    "priorReleasesPreserved": true,
+    "launchConfigurationsPreserved": true,
+    "journal": "E:\\Temp\\polymarket-hl-strategy\\Schemora\\work\\cleanup-evidence-1.7.0\\cleanup-report.json",
+    "syntheticRunPathsInReportsMayHaveBeenRemoved": true
+  },
+  "knownLimits": [
+    "The 1.6 transient Docker failure cause remains unknown. New prospective diagnostics are tested, including deterministic injected failure.",
+    "Managed file cleanup protects package caches and referenced manifests; per-file deletion has no transactional rollback.",
+    "SQL code search uses available stored definitions and does not execute SQL or search runtime data.",
+    "Accessibility checks cover keyboard, accessible names, tested-panel contrast, zoom and forced colors; no manual Narrator/NVDA certification.",
+    "PostgreSQL and optional AI remain deferred."
+  ]
+}

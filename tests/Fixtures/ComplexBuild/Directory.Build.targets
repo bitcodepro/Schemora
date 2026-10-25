@@ -1,0 +1,1 @@
+<Project><Import Project="$(MSBuildThisFileDirectory)build/shared.targets" /></Project>

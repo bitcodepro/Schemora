@@ -1,0 +1,1 @@
+CREATE TABLE dbo.ExternalCodes(Id int NOT NULL PRIMARY KEY);

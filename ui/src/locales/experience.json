@@ -1,0 +1,422 @@
+{
+  "Workspace navigator": {
+    "en": "Workspace navigator",
+    "ru": "Навигатор рабочей области",
+    "uk": "Навігатор робочої області"
+  },
+  "Getting started": {
+    "en": "Getting started",
+    "ru": "Начало работы",
+    "uk": "Початок роботи"
+  },
+  "Open your project or load the tutorial.": {
+    "en": "Open your project or load the tutorial.",
+    "ru": "Откройте проект или загрузите учебный пример.",
+    "uk": "Відкрийте проєкт або завантажте навчальний приклад."
+  },
+  "Scan the schema and review relationships.": {
+    "en": "Scan the schema and review relationships.",
+    "ru": "Просканируйте схему и проверьте связи.",
+    "uk": "Проскануйте схему та перевірте зв’язки."
+  },
+  "Open a recipe, enter IDs and generate SQL.": {
+    "en": "Open a recipe, enter IDs and generate SQL.",
+    "ru": "Откройте рецепт, введите ID и сформируйте SQL.",
+    "uk": "Відкрийте рецепт, введіть ID та сформуйте SQL."
+  },
+  "Load tutorial project": {
+    "en": "Load tutorial project",
+    "ru": "Загрузить учебный проект",
+    "uk": "Завантажити навчальний проєкт"
+  },
+  "Saved navigation filter": {
+    "en": "Saved navigation filter",
+    "ru": "Сохраняемый фильтр навигации",
+    "uk": "Збережений фільтр навігації"
+  },
+  "Export schema documentation": {
+    "en": "Export schema documentation",
+    "ru": "Экспорт документации схемы",
+    "uk": "Експорт документації схеми"
+  },
+  "Recipe dependency graph": {
+    "en": "Recipe dependency graph",
+    "ru": "Граф зависимостей рецептов",
+    "uk": "Граф залежностей рецептів"
+  },
+  "Selected object": {
+    "en": "Selected object",
+    "ru": "Выбранный объект",
+    "uk": "Вибраний об’єкт"
+  },
+  "Dependent recipes": {
+    "en": "Dependent recipes",
+    "ru": "Зависимые рецепты",
+    "uk": "Залежні рецепти"
+  },
+  "No dependent recipes.": {
+    "en": "No dependent recipes.",
+    "ru": "Зависимых рецептов нет.",
+    "uk": "Залежних рецептів немає."
+  },
+  "Workspace": {
+    "en": "Workspace",
+    "ru": "Рабочая область",
+    "uk": "Робоча область"
+  },
+  "Choose workspace": {
+    "en": "Choose workspace",
+    "ru": "Выберите рабочую область",
+    "uk": "Виберіть робочу область"
+  },
+  "Open schema": {
+    "en": "Open schema",
+    "ru": "Открыть схему",
+    "uk": "Відкрити схему"
+  },
+  "Unable to load workspaces.": {
+    "en": "Unable to load workspaces.",
+    "ru": "Не удалось загрузить рабочие области.",
+    "uk": "Не вдалося завантажити робочі області."
+  },
+  "Unable to load workspace navigation.": {
+    "en": "Unable to load workspace navigation.",
+    "ru": "Не удалось загрузить навигацию.",
+    "uk": "Не вдалося завантажити навігацію."
+  },
+  "Unable to create tutorial.": {
+    "en": "Unable to create tutorial.",
+    "ru": "Не удалось создать учебный проект.",
+    "uk": "Не вдалося створити навчальний проєкт."
+  },
+  "Documentation export failed.": {
+    "en": "Documentation export failed.",
+    "ru": "Не удалось экспортировать документацию.",
+    "uk": "Не вдалося експортувати документацію."
+  },
+  "Unable to open schema.": {
+    "en": "Unable to open schema.",
+    "ru": "Не удалось открыть схему.",
+    "uk": "Не вдалося відкрити схему."
+  },
+  "Objects per page": {
+    "en": "Objects per page",
+    "ru": "Объектов на странице",
+    "uk": "Об’єктів на сторінці"
+  },
+  "Refresh navigator": {
+    "en": "Refresh navigator",
+    "ru": "Обновить навигатор",
+    "uk": "Оновити навігатор"
+  },
+  "Leave the editor? Your authoring draft is retained locally.": {
+    "en": "Leave the editor? Your authoring draft is retained locally.",
+    "ru": "Покинуть редактор? Черновик определения сохранён локально.",
+    "uk": "Залишити редактор? Чернетку визначення збережено локально."
+  },
+  "A local authoring draft is available. Runtime IDs are never saved.": {
+    "en": "A local authoring draft is available. Runtime IDs are never saved.",
+    "ru": "Доступен локальный черновик. Рабочие ID не сохраняются.",
+    "uk": "Доступна локальна чернетка. Робочі ID не зберігаються."
+  },
+  "Recover draft": {
+    "en": "Recover draft",
+    "ru": "Восстановить черновик",
+    "uk": "Відновити чернетку"
+  },
+  "Discard draft": {
+    "en": "Discard draft",
+    "ru": "Удалить черновик",
+    "uk": "Видалити чернетку"
+  },
+  "Local draft storage is unavailable. Keep the editor open or export your recipe.": {
+    "en": "Local draft storage is unavailable. Keep the editor open or export your recipe.",
+    "ru": "Локальное хранилище черновиков недоступно. Оставьте редактор открытым или экспортируйте рецепт.",
+    "uk": "Локальне сховище чернеток недоступне. Залиште редактор відкритим або експортуйте рецепт."
+  },
+  "Compare with current version": {
+    "en": "Compare with current version",
+    "ru": "Сравнение с текущей версией",
+    "uk": "Порівняння з поточною версією"
+  },
+  "Current validation": {
+    "en": "Current validation",
+    "ru": "Текущий статус проверки",
+    "uk": "Поточний стан перевірки"
+  },
+  "Restoration is revalidated against the current schema.": {
+    "en": "Restoration is revalidated against the current schema.",
+    "ru": "При восстановлении выполняется проверка по текущей схеме.",
+    "uk": "Під час відновлення виконується перевірка за поточною схемою."
+  },
+  "Current": {
+    "en": "Current",
+    "ru": "Текущая",
+    "uk": "Поточна"
+  },
+  "Selected version": {
+    "en": "Selected version",
+    "ru": "Выбранная версия",
+    "uk": "Вибрана версія"
+  },
+  "Restore as new version": {
+    "en": "Restore as new version",
+    "ru": "Восстановить как новую версию",
+    "uk": "Відновити як нову версію"
+  },
+  "Arrows show impact from a referenced object to its caller. One shortest path is shown per recipe.": {
+    "en": "Arrows show impact from a referenced object to its caller. One shortest path is shown per recipe.",
+    "ru": "Стрелки показывают влияние объекта на использующий его объект. Для рецепта показан один кратчайший путь.",
+    "uk": "Стрілки показують вплив об’єкта на об’єкт, що його використовує. Для рецепта показано один найкоротший шлях."
+  },
+  "Search dependent recipes": {
+    "en": "Search dependent recipes",
+    "ru": "Поиск зависимых рецептов",
+    "uk": "Пошук залежних рецептів"
+  },
+  "Showing {0} of {1} recipes": {
+    "en": "Showing {0} of {1} recipes",
+    "ru": "Показано {0} из {1} рецептов",
+    "uk": "Показано {0} з {1} рецептів"
+  },
+  "Dependency results are partial: unresolved references or the traversal limit were reached.": {
+    "en": "Dependency results are partial: unresolved references or the traversal limit were reached.",
+    "ru": "Результат частичный: есть неразрешённые ссылки или достигнут лимит обхода.",
+    "uk": "Результат частковий: є нерозв’язані посилання або досягнуто ліміту обходу."
+  },
+  "Documentation sections": {
+    "en": "Documentation sections",
+    "ru": "Разделы документации",
+    "uk": "Розділи документації"
+  },
+  "EF / Dapper analysis coverage": {
+    "en": "EF / Dapper analysis coverage",
+    "ru": "Покрытие анализа EF / Dapper",
+    "uk": "Покриття аналізу EF / Dapper"
+  },
+  "Static SQL and resolved mappings are evidence. Dynamic SQL and unresolved build context require review; Dapper evidence never establishes a foreign key automatically.": {
+    "en": "Static SQL and resolved mappings are evidence. Dynamic SQL and unresolved build context require review; Dapper evidence never establishes a foreign key automatically.",
+    "ru": "Статический SQL и разобранные mappings служат доказательствами. Динамический SQL и неполный контекст сборки требуют проверки; Dapper не подтверждает внешний ключ автоматически.",
+    "uk": "Статичний SQL і розібрані mappings слугують доказами. Динамічний SQL і неповний контекст збирання потребують перевірки; Dapper не підтверджує зовнішній ключ автоматично."
+  },
+  "Refresh analysis coverage": {
+    "en": "Refresh analysis coverage",
+    "ru": "Обновить покрытие анализа",
+    "uk": "Оновити покриття аналізу"
+  },
+  "Unable to load analysis coverage.": {
+    "en": "Unable to load analysis coverage.",
+    "ru": "Не удалось получить покрытие анализа.",
+    "uk": "Не вдалося отримати покриття аналізу."
+  },
+  "EF evidence": {
+    "en": "EF evidence",
+    "ru": "Доказательства EF",
+    "uk": "Докази EF"
+  },
+  "Dapper evidence": {
+    "en": "Dapper evidence",
+    "ru": "Доказательства Dapper",
+    "uk": "Докази Dapper"
+  },
+  "Default framework": {
+    "en": "Default framework",
+    "ru": "Framework по умолчанию",
+    "uk": "Framework за замовчуванням"
+  },
+  "Included source files": {
+    "en": "Included source files",
+    "ru": "Включённые исходники",
+    "uk": "Включені вихідні файли"
+  },
+  "Excluded discovered files": {
+    "en": "Excluded discovered files",
+    "ru": "Обнаруженные исключённые файлы",
+    "uk": "Виявлені виключені файли"
+  },
+  "Analysis gaps and next actions": {
+    "en": "Analysis gaps and next actions",
+    "ru": "Пробелы анализа и следующие действия",
+    "uk": "Прогалини аналізу та наступні дії"
+  },
+  "Review the source or move the query into a static SQL template.": {
+    "en": "Review the source or move the query into a static SQL template.",
+    "ru": "Проверьте исходник или вынесите запрос в статический SQL-шаблон.",
+    "uk": "Перевірте вихідний код або винесіть запит у статичний SQL-шаблон."
+  },
+  "Select a database assignment for the project.": {
+    "en": "Select a database assignment for the project.",
+    "ru": "Выберите привязку проекта к БД.",
+    "uk": "Виберіть прив’язку проєкту до БД."
+  },
+  "Review project configuration, references and the reported source location.": {
+    "en": "Review project configuration, references and the reported source location.",
+    "ru": "Проверьте конфигурацию проекта, ссылки и указанное место в исходнике.",
+    "uk": "Перевірте конфігурацію проєкту, посилання та вказане місце у вихідному коді."
+  },
+  "No reported analysis gaps. This does not prove complete coverage of runtime SQL.": {
+    "en": "No reported analysis gaps. This does not prove complete coverage of runtime SQL.",
+    "ru": "Пробелы не обнаружены. Это не подтверждает полное покрытие SQL времени выполнения.",
+    "uk": "Прогалин не виявлено. Це не підтверджує повне покриття SQL часу виконання."
+  },
+  "Kind: table": {
+    "en": "Table",
+    "ru": "Таблица",
+    "uk": "Таблиця"
+  },
+  "Kind: view": {
+    "en": "View",
+    "ru": "Представление",
+    "uk": "Подання"
+  },
+  "Kind: procedure": {
+    "en": "Procedure",
+    "ru": "Процедура",
+    "uk": "Процедура"
+  },
+  "Kind: function": {
+    "en": "Function",
+    "ru": "Функция",
+    "uk": "Функція"
+  },
+  "Kind: synonym": {
+    "en": "Synonym",
+    "ru": "Синоним",
+    "uk": "Синонім"
+  },
+  "Kind: recipe": {
+    "en": "Recipe",
+    "ru": "Рецепт",
+    "uk": "Рецепт"
+  },
+  "Field: sqlTemplate": {
+    "en": "SQL template",
+    "ru": "SQL-шаблон",
+    "uk": "SQL-шаблон"
+  },
+  "Field: inputs": {
+    "en": "Parameters",
+    "ru": "Параметры",
+    "uk": "Параметри"
+  },
+  "Field: databaseIds": {
+    "en": "Databases",
+    "ru": "Базы данных",
+    "uk": "Бази даних"
+  },
+  "Field: dependencies": {
+    "en": "Dependencies",
+    "ru": "Зависимости",
+    "uk": "Залежності"
+  },
+  "Field: name": {
+    "en": "Name",
+    "ru": "Название",
+    "uk": "Назва"
+  },
+  "Field: description": {
+    "en": "Description",
+    "ru": "Описание",
+    "uk": "Опис"
+  },
+  "Field: tags": {
+    "en": "Tags",
+    "ru": "Теги",
+    "uk": "Теги"
+  },
+  "Field: compatibilityLevel": {
+    "en": "Compatibility level",
+    "ru": "Уровень совместимости",
+    "uk": "Рівень сумісності"
+  },
+  "Report: objects": {
+    "en": "Objects",
+    "ru": "Объекты",
+    "uk": "Об’єкти"
+  },
+  "Report: relations": {
+    "en": "Relationships",
+    "ru": "Связи",
+    "uk": "Зв’язки"
+  },
+  "Report: evidence": {
+    "en": "Evidence",
+    "ru": "Доказательства",
+    "uk": "Докази"
+  },
+  "Report: recipes": {
+    "en": "Recipe dependencies",
+    "ru": "Зависимости рецептов",
+    "uk": "Залежності рецептів"
+  },
+  "Dependency: recipe dependency": {
+    "en": "Recipe dependency",
+    "ru": "Зависимость рецепта",
+    "uk": "Залежність рецепта"
+  },
+  "Dependency: select": {
+    "en": "SELECT reference",
+    "ru": "Ссылка SELECT",
+    "uk": "Посилання SELECT"
+  },
+  "Dependency: reference": {
+    "en": "Object reference",
+    "ru": "Ссылка на объект",
+    "uk": "Посилання на об’єкт"
+  },
+  "Dependency: read": {
+    "en": "Read reference",
+    "ru": "Чтение объекта",
+    "uk": "Читання об’єкта"
+  },
+  "Dependency: execute": {
+    "en": "Execution reference",
+    "ru": "Вызов объекта",
+    "uk": "Виклик об’єкта"
+  },
+  "Could not compare version.": {
+    "en": "Could not compare version.",
+    "ru": "Не удалось сравнить версии.",
+    "uk": "Не вдалося порівняти версії."
+  },
+  "Last recorded validation": {
+    "en": "Last recorded validation",
+    "ru": "Последняя записанная проверка",
+    "uk": "Остання записана перевірка"
+  },
+  "Dependency comparison": {
+    "en": "Dependency comparison",
+    "ru": "Сравнение зависимостей",
+    "uk": "Порівняння залежностей"
+  },
+  "Unavailable": {
+    "en": "Unavailable",
+    "ru": "Недоступно",
+    "uk": "Недоступно"
+  },
+  "Kind: scalarFunction": {
+    "en": "Scalar function",
+    "ru": "Скалярная функция",
+    "uk": "Скалярна функція"
+  },
+  "Kind: tableFunction": {
+    "en": "Table function",
+    "ru": "Табличная функция",
+    "uk": "Таблична функція"
+  },
+  "Dependency: static-reference": {
+    "en": "Static SQL reference",
+    "ru": "Статическая SQL-ссылка",
+    "uk": "Статичне SQL-посилання"
+  },
+  "Dependency: dacfx-reference": {
+    "en": "DACPAC reference",
+    "ru": "Ссылка из DACPAC",
+    "uk": "Посилання з DACPAC"
+  },
+  "Dependency: synonym-target": {
+    "en": "Synonym target",
+    "ru": "Цель синонима",
+    "uk": "Ціль синоніма"
+  }
+}
