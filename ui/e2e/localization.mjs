@@ -91,9 +91,18 @@ try {
     });
     await check('rapid language changes persist the last choice without stale startup overwrite', async () => {
       const picker = page.locator('[data-testid=language-selector]').first();
+      const saved = page.waitForResponse(
+        response =>
+          response.url() === session.origin + '/api/settings/language' &&
+          response.request().method() === 'PUT' &&
+          response.request().postDataJSON()?.value === 'uk',
+      );
       await picker.selectOption('en');
       await picker.selectOption('ru');
       await picker.selectOption('uk');
+      const response = await saved;
+      assert.equal(response.status(), 200);
+      assert.equal((await response.json()).value, 'uk');
       await poll(async () => (await api('/api/settings/language')).body.value === 'uk', 'Last rapid selection was not saved');
       await page.reload({ waitUntil: 'networkidle' });
       assert.equal(await page.locator('html').getAttribute('lang'), 'uk');
