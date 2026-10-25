@@ -121,18 +121,10 @@ public static class BuildToolCapture
             throw new AppException("BUILD_TOOL_VERSION_UNAVAILABLE", "The selected build tool version could not be verified.", 422);
         LocalFiles.CheckNoLinks(engine);
         var version = FileVersionInfo.GetVersionInfo(engine);
-        if (
-            !Version.TryParse(version.FileVersion, out var parsed)
-            || parsed.Revision < 0
-            || version.FileMajorPart <= 0
-            || parsed != new Version(version.FileMajorPart, version.FileMinorPart, version.FileBuildPart, version.FilePrivatePart)
-        )
-            throw new AppException(
-                "BUILD_TOOL_VERSION_UNAVAILABLE",
-                "The selected build tool did not return a recognized version.",
-                422
-            );
-        return parsed.ToString();
+        if (string.IsNullOrWhiteSpace(version.FileVersion) || version.FileMajorPart <= 0)
+            throw new AppException("BUILD_TOOL_VERSION_UNAVAILABLE", "The selected build tool did not return a recognized version.", 422);
+        // The display string may contain a suffix; MSBuild itself reports the fixed numeric parts.
+        return new Version(version.FileMajorPart, version.FileMinorPart, version.FileBuildPart, version.FilePrivatePart).ToString();
     }
 
     public static IReadOnlyList<AnalysisBuildReceipt> FromSnapshots(
